@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ThreadsController;
+use App\Http\Controllers\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +16,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+/*
+| Categories routes group.
+*/
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/categories', [CategoriesController::class, 'index'])->name('categories');
+
+
+});
+
+/*
+| Threads routes group.
+*/
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/threads', [ThreadsController::class, 'index'])->name('threads');
+
+
+});
+
+

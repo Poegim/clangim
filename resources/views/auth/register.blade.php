@@ -51,6 +51,12 @@
                     {{ __('Already registered?') }}
                 </a>
 
+                <a href="{{ url()->previous() }}">
+                    <x-jet-danger-button class="ml-4" type="button">
+                        {{ __('Cancel') }}
+                    </x-jet-danger-button>
+                </a>
+
                 <x-jet-button class="ml-4">
                     {{ __('Register') }}
                 </x-jet-button>

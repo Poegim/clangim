@@ -1100,9 +1100,26 @@ select {
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
+.col-span-4 {
+	grid-column: span 4 / span 4;
+}
+.col-span-5 {
+	grid-column: span 5 / span 5;
+}
+.col-span-3 {
+	grid-column: span 3 / span 3;
+}
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
+}
+.my-4 {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+.mx-4 {
+	margin-left: 1rem;
+	margin-right: 1rem;
 }
 .ml-3 {
 	margin-left: 0.75rem;
@@ -1359,6 +1376,9 @@ select {
 .gap-1 {
 	gap: 0.25rem;
 }
+.gap-y-4 {
+	row-gap: 1rem;
+}
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
 	margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -1434,6 +1454,9 @@ select {
 .border-b {
 	border-bottom-width: 1px;
 }
+.border-t-2 {
+	border-top-width: 2px;
+}
 .border-gray-300 {
 	--tw-border-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-border-opacity));
@@ -1500,6 +1523,18 @@ select {
 .bg-gray-200 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
+}
+.bg-blue-500 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+}
+.bg-red-500 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
+}
+.bg-green-500 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
@@ -1656,6 +1691,9 @@ select {
 }
 .font-semibold {
 	font-weight: 600;
+}
+.font-extrabold {
+	font-weight: 800;
 }
 .uppercase {
 	text-transform: uppercase;
@@ -1861,6 +1899,18 @@ select {
 .hover\:bg-gray-50:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
+}
+.hover\:bg-blue-800:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(30, 64, 175, var(--tw-bg-opacity));
+}
+.hover\:bg-red-800:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(153, 27, 27, var(--tw-bg-opacity));
+}
+.hover\:bg-green-800:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(6, 95, 70, var(--tw-bg-opacity));
 }
 .hover\:text-gray-500:hover {
 	--tw-text-opacity: 1;
