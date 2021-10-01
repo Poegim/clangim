@@ -4,35 +4,85 @@
             {{ __('Categories') }}
         </h2>
     </x-slot>
+    <x-alert type="success" class="bg-green-700 text-green-100 p-4" x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" />
+
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="shadow-xl sm:rounded-lg">
 
                 <div class="p-6 sm:px-20 border-b border-gray-200">
+                    @can('create', App\Models\Category::class)                    
                     <div class="flex justify-end">
-                        <a href="" class="rounded bg-green-500 px-4 text-white font-extrabold py-1 hover:bg-green-800 mb-4">Add category</a>
+                        <x-clangim.green-button-link href="{{ route('categories.create') }}">Add category</x-clangim.green-button-link>
                     </div>
+                    @endcan
 
-
-                    <div class="grid grid-cols-6 gap-y-4 mt-4">
-
-                        <div class="col-span-3 border-b-2 text-lg mb-4">Category name</div>
-                        <div class="border-b-2 text-lg mb-4">Threads</div>
-                        <div class="border-b-2 text-lg mb-4">Created at</div>
-                        <div class="border-b-2 text-lg mb-4">Actions</div>
-
+                    <div class="grid grid-cols-4 md:grid-cols-6 mt-4 md:text-lg text-sm">
 
                         @foreach ($categories as $category)
-                        <div class="col-span-3 border-b-2 py-2">{{ $category->name }}</div>
-                        <div class="border-b-2 py-2">{{$category->threads()->count()}}</div>
-                        <div class="border-b-2 py-2">{{$category->created_at}}</div>
-                        <div class="border-b-2 py-2">
+                        @can('view', $category)
+                        <div class="col-span-5 md:col-span-6 py-2 pl-2 inline-flex justify-between bg-gray-200 rounded-full mt-2">
+                            <div class="inline-flex">
+                                <a href="{{route('categories.show', $category->slug)}}" class="text-xl text-gray-700 hover:text-blue-700 focus:text-blue-700">
+                                    {{ $category->name }}
+                                </a>
 
-                            <a href="" class="rounded bg-blue-500 px-4 text-white font-extrabold py-1 hover:bg-blue-800 mr-2">Edit</a>
-                            <a href="" class="rounded bg-red-500 px-4 text-white font-extrabold py-1 hover:bg-red-800">Delete</a>
+                            </div>
+                            @can('update', App\Models\Category::class)                    
+                            <div class="inline-flex gap-2 pr-2">
+                                <a href="{{ route('categories.edit', $category->slug) }}" title="Edit" class=""
+                                    ><x-zondicon-edit-pencil class="w-5 h-5 md:w-4 md:h-4 mt-1 text-blue-500 hover:text-gray-900 focus:text-gray-900"/>
+                                </a>
+                                @can('delete', App\Models\Category::class)                    
+
+                                <livewire:category.delete :category="$category" :key="$category->id()">
+                                    
+                                @endcan
+                            </div>
+                            @endcan
 
                         </div>
+
+
+                        <div class="col-span-4 md:col-span-6 mt-0 italic mb-3 text-gray-500 text-xs md:text-sm pl-2 border-b-2">
+                            {{ $category->description }}
+                            <span class="ml-4 text-xs text-gray-500 italic mt-2">
+                                {{ $category->threads->count()}} - threads.
+                            </span>
+                        </div>
+
+                            @foreach ($category->threadsLimited as $thread)
+                            @if ($thread->category_id == $category->id)
+                                <div class="col-span-2 md:col-span-4 pl-8 text-sm">
+                                    <a href="{{route('threads.show', [$thread->slug])}}"
+                                        class="inline-flex focus:text-blue-600 hover:text-blue-600">
+                                         {{ $thread->title }}
+                                    </a>
+                                    <span class="block md:inline text-xs text-gray-400 italic md:ml-3">
+                                        by {{ $thread->user->name }}, {{ $thread->createdAt() }}
+                                    </span>
+                                </div>
+
+                                <div class="text-center text-sm text-gray-400 col-span-1">
+                                    
+                                    @if ($thread->replies != NULL)
+                                        {{$thread->replies->count()}} replies
+                                    @else
+                                        0
+                                    @endif
+                                    
+                                </div>
+                                <div class="text-center text-sm text-gray-400 col-span-1">
+                                    @if ($thread->replies->count() == 0)
+                                        {{ $thread->createdAt()}}, by {{ $thread->user->name}}
+                                    @else
+                                        {{ $thread->lastReply->createdAt()}}, by {{ $thread->lastReply->user->name}}
+                                    @endif
+                                </div>
+                            @endif
+                            @endforeach
+                        @endcan
                         @endforeach
 
                     </div>

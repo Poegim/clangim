@@ -26,7 +26,7 @@ class ThreadFactory extends Factory
             'slug'          => $this->faker->unique()->slug,
             'body'          => $this->faker->paragraph(2, true),
             'category_id'   => rand(1,3),
-            'user_id'     => rand(1,2),
+            'user_id'     => rand(1,5),
         ];
     }
 }

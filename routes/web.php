@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ThreadsController;
-use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ThreadController;
+use App\Http\Controllers\ReplyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,24 +20,33 @@ Route::get('/', function () {
     return view('dashboard');
 })->name('dashboard');
 
-/*
-| Categories routes group.
-*/
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/categories', [CategoriesController::class, 'index'])->name('categories');
+    /*
+    | Categories routes group.
+    */
 
+    Route::get('/category/all', [CategoryController::class, 'index'])->name('categories.index');
+    Route::get('/category/create/', [CategoryController::class, 'create'])->name('categories.create');
+    Route::post('/category/store', [CategoryController::class, 'store'])->name('categories.store');
+    Route::get('/category/{category:slug}', [CategoryController::class, 'show'])->name('categories.show');
+    Route::get('/category/{category:slug}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+    Route::post('/category/{category:slug}/update', [CategoryController::class, 'update'])->name('categories.update');
+
+    /*
+    | Threads routes group.
+    */
+    Route::post('/thread', [ThreadController::class, 'store'])->name('threads.store');
+    Route::get('/thread/{thread:slug}', [ThreadController::class, 'show'])->name('threads.show');
+    Route::get('/thread/{thread:slug}/edit', [ThreadController::class, 'edit'])->name('threads.edit');
+    Route::post('/thread/{thread:slug}/update', [ThreadController::class, 'update'])->name('threads.update');
+    Route::get('/thread/{category:slug}/create', [ThreadController::class, 'create'])->name('threads.create');
+
+    
+    /*
+    | Replies routes group.
+    */
+    Route::post('/replies/store', [ReplyController::class, 'store'])->name('replies.store');
 
 });
-
-/*
-| Threads routes group.
-*/
-Route::middleware(['auth'])->group(function () {
-
-    Route::get('/threads', [ThreadsController::class, 'index'])->name('threads');
-
-
-});
-
 
