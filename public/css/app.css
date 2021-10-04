@@ -1452,6 +1452,9 @@ select {
 .rounded-full {
 	border-radius: 9999px;
 }
+.rounded-2xl {
+	border-radius: 1rem;
+}
 .rounded-l-md {
 	border-top-left-radius: 0.375rem;
 	border-bottom-left-radius: 0.375rem;
@@ -1483,6 +1486,9 @@ select {
 }
 .border-2 {
 	border-width: 2px;
+}
+.border-0 {
+	border-width: 0px;
 }
 .border-b-2 {
 	border-bottom-width: 2px;

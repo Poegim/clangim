@@ -17,7 +17,14 @@
 
                 <div class="p-6 sm:px-20 border-b border-gray-200">
 
+                    <div class="w-full flex justify-center">
+                            <img src="{{asset($thread->img_path)}}" class="rounded-2xl overflow-hidden w-full" alt="{{$thread->img_path}}">
+                    </div>
+
                     <div class="mt-4 border rounded-t-xl overflow-hidden">
+
+
+
                         <div class="bg-blue-900 text-white p-2 flex justify-between">
                             <div>
                                 <img class="h-8 w-8 rounded-full object-cover inline"

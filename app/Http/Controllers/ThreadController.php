@@ -151,9 +151,12 @@ class ThreadController extends Controller
         {
 
             //Remove old image, need to be implemented here.
-            if (!unlink($thread->img_path))
+            if ($thread->img_path != NULL)
             {
-                abort(403, 'Cant remove original image');
+                if (!unlink($thread->img_path))
+                {
+                    abort(403, 'Cant remove original image');
+                }
             }
 
             $threadImage = $request->file('image');

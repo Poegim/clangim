@@ -47,7 +47,7 @@
                                 <x-jet-input-error for="category" class="mt-2 mb-2" />
 
 
-                                <x-trix name="body" class="mt-4" value="{{old('body')}}"/>
+                                <x-trix name="body" class="mt-4" > {{ old('body') ? old('body') : $thread->body}}</x-trix>
                                 <x-jet-input-error for="body" class="mt-2 mb-2" />
                             </div>
 
