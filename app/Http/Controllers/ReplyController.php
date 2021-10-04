@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reply;
-use App\Models\Thread;
 use Illuminate\Http\Request;
 
 class ReplyController extends Controller
@@ -43,6 +42,7 @@ class ReplyController extends Controller
 
     public function edit(Reply $reply)
     {
+        $this->authorize('update', $reply);
         return view('replies.edit', compact('reply'));
     }
 
@@ -69,8 +69,4 @@ class ReplyController extends Controller
 
     }
 
-    public function destroy($id)
-    {
-        //
-    }
 }
