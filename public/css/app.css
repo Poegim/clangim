@@ -2022,13 +2022,13 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(17, 24, 39, var(--tw-text-opacity));
 }
-.hover\:text-blue-500:hover {
-	--tw-text-opacity: 1;
-	color: rgba(59, 130, 246, var(--tw-text-opacity));
-}
 .hover\:text-gray-300:hover {
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
+}
+.hover\:text-blue-500:hover {
+	--tw-text-opacity: 1;
+	color: rgba(59, 130, 246, var(--tw-text-opacity));
 }
 .hover\:text-gray-200:hover {
 	--tw-text-opacity: 1;
@@ -2113,13 +2113,13 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(17, 24, 39, var(--tw-text-opacity));
 }
-.focus\:text-blue-500:focus {
-	--tw-text-opacity: 1;
-	color: rgba(59, 130, 246, var(--tw-text-opacity));
-}
 .focus\:text-gray-300:focus {
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
+}
+.focus\:text-blue-500:focus {
+	--tw-text-opacity: 1;
+	color: rgba(59, 130, 246, var(--tw-text-opacity));
 }
 .focus\:text-gray-200:focus {
 	--tw-text-opacity: 1;

@@ -47,6 +47,9 @@ Route::middleware(['auth'])->group(function () {
     | Replies routes group.
     */
     Route::post('/replies/store', [ReplyController::class, 'store'])->name('replies.store');
+    Route::get('/replies/{reply:id}/edit', [ReplyController::class, 'edit'])->name('replies.edit');
+    Route::post('/replies/{reply:id}/update', [ReplyController::class, 'update'])->name('replies.update');
+
 
 });
 

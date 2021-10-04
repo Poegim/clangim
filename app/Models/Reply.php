@@ -24,6 +24,11 @@ class Reply extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function lastEditor(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'edited_by');
+    }
+
     public function body(): string
     {
         return $this->body;

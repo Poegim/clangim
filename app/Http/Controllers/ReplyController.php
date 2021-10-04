@@ -11,7 +11,7 @@ class ReplyController extends Controller
 
     public function store(Request $request)
     {
-        $this->authorize('create', Thread::class);
+        $this->authorize('create', Reply::class);
 
         $request->validate([
 
@@ -41,14 +41,32 @@ class ReplyController extends Controller
         //
     }
 
-    public function edit($id)
+    public function edit(Reply $reply)
     {
-        //
+        return view('replies.edit', compact('reply'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Reply $reply)
     {
-        //
+        $this->authorize('update', $reply);
+
+        $request->validate([
+
+            'body' => [
+                'required',
+                'min:13',
+            ],
+
+        ], [
+            'body.min' => 'The body field requires at least 2 characters.'
+        ]);
+        
+        $reply->body = $request->body;
+        $reply->edited_by = auth()->user()->id;
+        $reply->save();
+
+        return redirect()->route('threads.show', $reply->thread->slug)->with('success', 'Reply saved.');
+
     }
 
     public function destroy($id)

@@ -1,7 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Back to <x-zondicon-arrow-thin-right class="w-6 h-6 pb-1 my-5 inline"/> 
             <a href="{{route('categories.show', $thisCategory->slug)}}"
                 class="hover:text-blue-500 focus:text-blue-500" >
                 {{$thisCategory->name}}

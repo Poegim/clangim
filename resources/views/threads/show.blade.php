@@ -1,7 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Back to <x-zondicon-arrow-thin-right class="w-6 h-6 pb-1 my-5 inline"/> 
             <a href="{{route('categories.show', $thread->category->slug)}}"
                 class="hover:text-blue-500 focus:text-blue-500" >
                 {{$thread->category->name}}
@@ -66,7 +65,7 @@
 
                                     @endcan
                                     @can('update', $reply)        
-                                    <a href="">
+                                    <a href="{{ route('replies.edit', $reply)}}">
                                         <x-zondicon-edit-pencil class="w-6 h-6 inline ml-4 hover:text-gray-300 focus:text-gray-300"/>
                                     </a>
                                     @endcan
@@ -74,7 +73,11 @@
                             </div>
                             <div class="mt-2 p-2">
                                 {!! $reply->body() !!}
-
+                                @if ($reply->edited_by)
+                                <span class="block text-xs text-gray-400 italic mt-3">
+                                    Edited by: {{ $reply->lastEditor->name}}, at {{$reply->updated_at}}.
+                                </span>
+                            @endif
                             </div>
 
 

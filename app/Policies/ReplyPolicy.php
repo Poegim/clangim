@@ -11,6 +11,7 @@ class ReplyPolicy
     use HandlesAuthorization;
 
     const DELETE = 'delete';
+    const UPDATE = 'update';
 
     public function viewAny(User $user): bool
     {
