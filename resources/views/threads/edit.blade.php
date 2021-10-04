@@ -34,18 +34,21 @@
                                 />
                                 <x-jet-input-error for="title" class="mt-2 mb-2" />
 
-                                <x-jet-label for="image" value="{{ __('Upload image') }}" />
+                                <x-jet-label for="image" value="{{ __('Upload image') }}" class="mt-2 mb-2"/>
                                 <input name="image" id="image" type="file">
                                 <x-jet-input-error for="image" class="mt-2 mb-2" />
 
-                                <x-jet-label for="category" value="{{ __('Category:') }}" />
-                                <select name="category" id="category" class="rounded">
+                                <x-jet-label for="category" value="{{ __('Category:') }}" class="mt-2 mb-2"/>
+                                <select name="category" id="category" class="rounded block mb-2">
                                     @foreach ($categories as $category)
                                         <option value="{{$category->id}}" {{ $category->id == $thread->category_id ? 'selected' : null }}>{{$category->name}}</option>
                                     @endforeach
                                 </select>
                                 <x-jet-input-error for="category" class="mt-2 mb-2" />
 
+                                <x-jet-label for="remove_image" value="{{ __('Remove Image') }}" class="inline mt-6"/>
+                                <x-checkbox name="remove_image" class="inline-block mt-2 mb-2"/>
+                                <x-jet-input-error for="remove_image" class="mt-2 mb-2" />
 
                                 <x-trix name="body" class="mt-4" > {{ old('body') ? old('body') : $thread->body}}</x-trix>
                                 <x-jet-input-error for="body" class="mt-2 mb-2" />

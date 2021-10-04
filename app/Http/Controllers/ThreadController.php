@@ -9,6 +9,7 @@ use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use File;
 
 class ThreadController extends Controller
 {
@@ -120,6 +121,8 @@ class ThreadController extends Controller
 
     public function update(Request $request, Thread $thread)
     {
+        //dd($request->remove_image);
+
         $this->authorize('update', $thread);
 
         $imgPath = NULL;
@@ -135,7 +138,7 @@ class ThreadController extends Controller
 
             'body' => [
                 'required',
-                'min:2',
+                'min:13',
             ],
 
             'image' => [
@@ -147,16 +150,20 @@ class ThreadController extends Controller
 
         ]);
 
+        if ($request->remove_image == "on")
+        {
+            $request->image = NULL;
+            File::delete($thread->img_path);
+            $thread->img_path = NULL;
+
+        }
+
+
         if ($request->image != NULL)
         {
-
-            //Remove old image, need to be implemented here.
             if ($thread->img_path != NULL)
             {
-                if (!unlink($thread->img_path))
-                {
-                    abort(403, 'Cant remove original image');
-                }
+                File::delete($thread->img_path);
             }
 
             $threadImage = $request->file('image');
@@ -170,6 +177,8 @@ class ThreadController extends Controller
             $thread->img_path = $imgPath;
 
         }
+
+
 
         $thread->title = $request->title;
         $thread->slug = Str::slug($request->title);
