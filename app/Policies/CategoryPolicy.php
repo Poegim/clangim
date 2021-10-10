@@ -14,12 +14,12 @@ class CategoryPolicy
 
     public function viewAny(User $user): bool
     {
-        return $user->isPlayer();
+        return $user->isInactive();
     }
 
     public function view(User $user, Category $category): bool
     {
-        return $category->hidden ? $user->isViceCaptain() : $user->isPlayer();
+        return $category->hidden ? $user->isViceCaptain() : $user->isInactive();
     }
 
     public function create(User $user): bool
@@ -27,12 +27,12 @@ class CategoryPolicy
         return $user->isAdmin();
     }
 
-    public function update(User $user): bool
+    public function update(User $user, Category $category): bool
     {
         return $user->isCaptain();
     }
 
-    public function delete(User $user): bool
+    public function delete(User $user, Category $category): bool
     {
         return $user->isAdmin();
     }

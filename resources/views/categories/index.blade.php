@@ -13,8 +13,16 @@
 
                 <div class="p-6 sm:px-20 border-b border-gray-200">
                     @can('create', App\Models\Category::class)                    
-                    <div class="flex justify-end">
-                        <x-clangim.green-button-link href="{{ route('categories.create') }}">Add category</x-clangim.green-button-link>
+                    <div class="flex justify-between">
+                        <span>
+                            <x-clarity-talk-bubbles-line class="w-16 h-16 text-blue-700 inline"/>
+                            <span>
+                                Welcome! Let's talk!
+                            </span>
+                        </span>
+
+                        <x-clangim.dark-button-link href="{{ route('categories.create') }}">Add category
+                        </x-clangim.dark-button-link>
                     </div>
                     @endcan
 
@@ -22,19 +30,19 @@
 
                         @foreach ($categories as $category)
                         @can('view', $category)
-                        <div class="col-span-5 md:col-span-6 py-2 pl-2 inline-flex justify-between bg-gray-200 rounded-full mt-2">
+                        <div class="col-span-5 md:col-span-6 py-2 pl-2 inline-flex justify-between bg-gray-200 rounded-t-lg mt-2">
                             <div class="inline-flex">
                                 <a href="{{route('categories.show', $category->slug)}}" class="text-xl text-gray-700 hover:text-blue-700 focus:text-blue-700">
                                     {{ $category->name }}
                                 </a>
 
                             </div>
-                            @can('update', App\Models\Category::class)                    
+                            @can('update', $category)                    
                             <div class="inline-flex gap-2 pr-2">
                                 <a href="{{ route('categories.edit', $category->slug) }}" title="Edit" class=""
-                                    ><x-zondicon-edit-pencil class="w-5 h-5 md:w-4 md:h-4 mt-1 text-blue-500 hover:text-gray-900 focus:text-gray-900"/>
+                                    ><x-zondicon-edit-pencil class="w-5 h-5 md:w-4 md:h-4 mt-1 text-gray-500 hover:text-gray-700 focus:text-gray-900"/>
                                 </a>
-                                @can('delete', App\Models\Category::class)                    
+                                @can('delete', $category)                    
 
                                 <livewire:category.delete :category="$category" :key="$category->id()">
                                     
@@ -43,7 +51,6 @@
                             @endcan
 
                         </div>
-
 
                         <div class="col-span-4 md:col-span-6 mt-0 italic mb-3 text-gray-500 text-xs md:text-sm pl-2 border-b-2">
                             {{ $category->description }}

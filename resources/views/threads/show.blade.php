@@ -18,14 +18,12 @@
                 <div class="p-6 sm:px-20 border-b border-gray-200">
 
                     <div class="w-full flex justify-center">
-                            <img src="{{asset($thread->img_path)}}" class="rounded-2xl overflow-hidden w-full" alt="{{$thread->img_path}}">
+                            <img src="{{asset($thread->image)}}" class="rounded-2xl overflow-hidden w-full" alt="{{$thread->image}}">
                     </div>
 
                     <div class="mt-4 border rounded-t-xl overflow-hidden">
 
-
-
-                        <div class="bg-blue-900 text-white p-2 flex justify-between">
+                        <div class="bg-gray-200 text-gray-600 p-2 flex justify-between">
                             <div>
                                 <img class="h-8 w-8 rounded-full object-cover inline"
                                 src="{{ $thread->user->profile_photo_url }}" alt="{{ $thread->user->name }}" />
@@ -40,7 +38,7 @@
                                 @can('update', $thread)                    
 
                                 <a href="{{route('threads.edit', $thread)}}">
-                                    <x-zondicon-edit-pencil class="w-6 h-6 inline ml-4 hover:text-gray-300 focus:text-gray-300"/>
+                                    <x-zondicon-edit-pencil class="w-6 h-6 inline ml-4 text-gray-500 hover:text-gray-700 focus:text-gray-700"/>
                                 </a>
                                 @endcan
                             </div>
@@ -56,10 +54,9 @@
                         </div>
                     </div>
 
-
                     @foreach ($replies as $reply)
                         <div class="mt-4 border rounded-t-xl overflow-hidden">
-                            <div class="p-2 bg-blue-900 text-white flex justify-between">
+                            <div class="p-2 bg-gray-200 text-gray-500 flex justify-between">
                                 <div>
                                     <img class="h-8 w-8 rounded-full object-cover inline"
                                     src="{{ $reply->user->profile_photo_url }}" alt="{{ $reply->user->name }}" />
@@ -73,7 +70,7 @@
                                     @endcan
                                     @can('update', $reply)        
                                     <a href="{{ route('replies.edit', $reply)}}">
-                                        <x-zondicon-edit-pencil class="w-6 h-6 inline ml-4 hover:text-gray-300 focus:text-gray-300"/>
+                                        <x-zondicon-edit-pencil class="w-6 h-6 inline ml-4 text-gray-500 hover:text-gray-700 focus:text-gray-700"/>
                                     </a>
                                     @endcan
                                 </div>
@@ -86,7 +83,6 @@
                                 </span>
                             @endif
                             </div>
-
 
                         </div>
                     @endforeach

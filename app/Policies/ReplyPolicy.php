@@ -11,21 +11,20 @@ class ReplyPolicy
     use HandlesAuthorization;
 
     const DELETE = 'delete';
-    const UPDATE = 'update';
 
     public function viewAny(User $user): bool
     {
-        return $user->isPlayer();
+        return $user->isInactive();
     }
 
     public function view(User $user, Reply $reply): bool
     {
-        return $user->isPlayer();
+        return $user->isInactive();
     }
 
     public function create(User $user): bool
     {
-        return $user->isPlayer();
+        return $user->isInactive();
     }
 
     public function update(User $user, Reply $reply): bool

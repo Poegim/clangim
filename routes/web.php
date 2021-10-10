@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\ReplyController;
 
@@ -16,9 +17,7 @@ use App\Http\Controllers\ReplyController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/', [PostController::class, 'index'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
 

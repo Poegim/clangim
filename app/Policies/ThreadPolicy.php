@@ -14,12 +14,26 @@ class ThreadPolicy
 
     public function view(User $user, Thread $thread): bool
     {
-        return $user->isViceCaptain() || (($user->isPlayer()) && (!$thread->category->hidden));
+        if(($user->isViceCaptain()) && (is_object($thread->category)))
+        {
+            return true;
+        }
+        elseif((is_object($thread->category)))
+        {
+            if (($user->isInactive()) && (!$thread->category->hidden))
+            {
+                return true;
+            }
+        } else
+        {
+            return false;
+        }
+
     }
 
     public function create(User $user): bool
     {
-        return $user->isPlayer();
+        return $user->isInactive();
     }
 
     public function update(User $user, Thread $thread): bool

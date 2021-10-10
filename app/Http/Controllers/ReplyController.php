@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Reply;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class ReplyController extends Controller
 {
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $this->authorize('create', Reply::class);
 
@@ -34,19 +36,18 @@ class ReplyController extends Controller
         
     }
 
-
     public function show($id)
     {
-        //
+        //Considerate in future, after beta release.
     }
 
-    public function edit(Reply $reply)
+    public function edit(Reply $reply): View
     {
         $this->authorize('update', $reply);
         return view('replies.edit', compact('reply'));
     }
 
-    public function update(Request $request, Reply $reply)
+    public function update(Request $request, Reply $reply): RedirectResponse
     {
         $this->authorize('update', $reply);
 

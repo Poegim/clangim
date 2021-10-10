@@ -6,7 +6,7 @@
         wire:loading.attr="disabled"
         >
         <x-zondicon-trash
-        class="w-5 h-5 md:w-4 md:h-4 mt-1 text-red-600 hover:text-gray-900 focus:text-gray-900"
+        class="w-5 h-5 md:w-4 md:h-4 mt-1 text-gray-500 hover:text-gray-700 focus:text-gray-700"
 
         />
     </a>

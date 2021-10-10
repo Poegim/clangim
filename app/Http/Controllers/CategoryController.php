@@ -17,8 +17,8 @@ class CategoryController extends Controller
     {
         $this->authorize('viewAny', Category::class);
 
-        //auth()->user()->isViceCaptain() ? $categories = Category::all() : $categories = Category::where('hidden', false)->get();
         $categories = Category::all();
+        
         return view('categories.index', [
             'categories' => $categories
             ]);

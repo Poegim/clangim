@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('description');
-            $table->smallInteger('hidden')->default(0);
+            $table->smallInteger('hidden')->default(0)->comment('Is this category hidden for non-captain users?');
             $table->timestamps();
             $table->softDeletes();
         });

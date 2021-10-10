@@ -14,20 +14,20 @@ use File;
 class ThreadController extends Controller
 {
 
-    public function create(Request $request): view
+    public function create(Request $request): View
     {
         $this->authorize('create', Thread::class);
 
         $thisCategory = Category::where('slug', '=', $request->segment(2))->firstOrfail();
 
-        auth()->user()->isCaptain() ? $categories = Category::all() : $categories = Category::where('hidden', '!=', true)->get();
+        auth()->user()->isCaptain() ? 
+            $categories = Category::all() : $categories = Category::where('hidden', false)->get();
 
         return view('threads.create', [
             'thisCategory' => $thisCategory,
             'categories' => $categories,
         ]);
     }
-
 
     public function store(Request $request): RedirectResponse
     {
@@ -76,25 +76,19 @@ class ThreadController extends Controller
         $thread->title = $request->title;
         $thread->slug = Str::slug($request->title);
         $thread->body = $request->body;
-        $thread->img_path = $imgPath;
+        $thread->image = $imgPath;
         $thread->category_id = $request->category;
         $thread->user_id = auth()->user()->id;
         $thread->save();
 
-        return redirect()->route('threads.show', $thread->slug)->with('success', 'Thread has been added.');
+        return redirect()->route('categories.show', $thread->category->slug)->with('success', 'Thread added successfully.');
 
     }
-
 
     public function show(Thread $thread): View
     {
 
         $this->authorize('view', $thread);
-
-        if ($thread->category->deleted_at != NULL)
-        {
-            abort(403, 'This page has been deleted.');
-        }
 
         $replies = $thread->replies()->paginate(50);
 
@@ -121,11 +115,7 @@ class ThreadController extends Controller
 
     public function update(Request $request, Thread $thread)
     {
-        //dd($request->remove_image);
-
         $this->authorize('update', $thread);
-
-        $imgPath = NULL;
 
         $request->validate([
             'title' => [
@@ -153,17 +143,17 @@ class ThreadController extends Controller
         if ($request->remove_image == "on")
         {
             $request->image = NULL;
-            File::delete($thread->img_path);
-            $thread->img_path = NULL;
+            File::delete($thread->image);
+            $thread->image = NULL;
 
         }
 
 
         if ($request->image != NULL)
         {
-            if ($thread->img_path != NULL)
+            if ($thread->image != NULL)
             {
-                File::delete($thread->img_path);
+                File::delete($thread->image);
             }
 
             $threadImage = $request->file('image');
@@ -174,11 +164,9 @@ class ThreadController extends Controller
             $uploadLocation = 'images/threads/';
             $threadImage->move($uploadLocation,$imgName);
             $imgPath = 'images/threads/'.$imgName;
-            $thread->img_path = $imgPath;
+            $thread->image = $imgPath;
 
         }
-
-
 
         $thread->title = $request->title;
         $thread->slug = Str::slug($request->title);
@@ -190,6 +178,5 @@ class ThreadController extends Controller
         return redirect()->route('threads.show', $thread->slug)->with('success', 'Thread has been updated.');
 
     }
-
 
 }
