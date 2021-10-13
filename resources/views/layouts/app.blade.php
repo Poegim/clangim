@@ -35,10 +35,12 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                {{ $slot }}                
             </main>
         </div>
 
+        @include('layouts.footer')
+        
         @stack('modals')
         @livewireScripts
         @bukScripts

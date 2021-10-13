@@ -22,15 +22,15 @@ class UsersTableSeeder extends Seeder
         ]);
 
         User::factory()->create([
-            'name' => 'John',
-            'email' => 'john@example.com',
+            'name' => 'alpha',
+            'email' => 'alpha@example.com',
             'role' => User::CAPTAIN,
             'password' => bcrypt('password'),
         ]);
 
         User::factory()->create([
-            'name' => 'Dallas',
-            'email' => 'dallas@example.com',
+            'name' => 'Beta',
+            'email' => 'beta@example.com',
             'role' => User::VICE_CAPTAIN,
             'password' => bcrypt('password'),
         ]);
@@ -44,15 +44,15 @@ class UsersTableSeeder extends Seeder
 
 
         User::factory()->create([
-            'name' => 'Gamma',
-            'email' => 'gamma@example.com',
+            'name' => 'Iota',
+            'email' => 'iota@example.com',
             'role' => User::INACTIVE,
             'password' => bcrypt('password'),
         ]);
 
         User::factory()->create([
-            'name' => 'Alpha',
-            'email' => 'alpha@example.com',
+            'name' => 'Eta',
+            'email' => 'eta@example.com',
             'role' => User::EX_MEMBER,
             'password' => bcrypt('password'),
         ]);

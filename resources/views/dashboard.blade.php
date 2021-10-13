@@ -12,4 +12,7 @@
             </div>
         </div>
     </div>
+
+    @include('layouts.blog')
+
 </x-app-layout>

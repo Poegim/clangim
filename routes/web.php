@@ -1,10 +1,10 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\ReplyController;
+use App\Http\Controllers\ThreadController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +17,19 @@ use App\Http\Controllers\ReplyController;
 |
 */
 
-Route::get('/', [PostController::class, 'index'])->name('dashboard');
+Route::get('/', function () {
+
+    return view('dashboard', [
+        'posts' => Post::paginate(10),
+    ]);
+
+})->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
 
     /*
     | Categories routes group.
     */
-
     Route::get('/category/all', [CategoryController::class, 'index'])->name('categories.index');
     Route::get('/category/create/', [CategoryController::class, 'create'])->name('categories.create');
     Route::post('/category/store', [CategoryController::class, 'store'])->name('categories.store');
@@ -41,7 +46,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/thread/{thread:slug}/update', [ThreadController::class, 'update'])->name('threads.update');
     Route::get('/thread/{category:slug}/create', [ThreadController::class, 'create'])->name('threads.create');
 
-    
     /*
     | Replies routes group.
     */
