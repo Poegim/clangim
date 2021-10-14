@@ -1,15 +1,15 @@
-<div class="mt-4">
+<div>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
-            @foreach ($posts as $post)
-            
-            <div 
+
+        @foreach ($posts as $post)
+        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12">
+            <div
             class="py-4 px-6 sm:px-20 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold">
 
                 <span class="block lg:inline ">
                     <img class="h-8 w-8 mr-2 rounded-full object-cover inline"
-                    src="{{ $post->user->profile_photo_url }}" alt="{{ $post->user->name }}" 
+                    src="{{ $post->user->profile_photo_url }}" alt="{{ $post->user->name }}"
                     />
                     {{ $post->title }}
                 </span>
@@ -37,9 +37,9 @@
                     </div>
                 </a>
             </div>
-
-            @endforeach
-
         </div>
+        @endforeach
+
+
     </div>
 </div>

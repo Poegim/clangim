@@ -20,7 +20,7 @@ class ThreadController extends Controller
 
         $thisCategory = Category::where('slug', '=', $request->segment(2))->firstOrfail();
 
-        auth()->user()->isCaptain() ? 
+        auth()->user()->isCaptain() ?
             $categories = Category::all() : $categories = Category::where('hidden', false)->get();
 
         return view('threads.create', [
@@ -38,7 +38,7 @@ class ThreadController extends Controller
 
         $request->validate([
             'title' => [
-                'required', 
+                'required',
                 'string',
                 'min:3',
                 'max:35',
@@ -47,7 +47,7 @@ class ThreadController extends Controller
 
             'body' => [
                 'required',
-                'min:2',
+                'min:13',
             ],
 
             'image' => [
@@ -119,7 +119,7 @@ class ThreadController extends Controller
 
         $request->validate([
             'title' => [
-                'required', 
+                'required',
                 'string',
                 'min:3',
                 'max:35',

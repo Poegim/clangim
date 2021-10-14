@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,12 +21,19 @@ use App\Http\Controllers\CategoryController;
 Route::get('/', function () {
 
     return view('dashboard', [
-        'posts' => Post::paginate(10),
+        'posts' => Post::orderByDesc('id')->paginate(10),
     ]);
 
 })->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
+
+    /*
+    * Posts
+    */
+    Route::get('post/create', [PostController::class, 'create'])->name('post.create');
+    Route::post('post/store', [PostController::class, 'store'])->name('post.store');
+
 
     /*
     | Categories routes group.

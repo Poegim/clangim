@@ -82,6 +82,20 @@
 
 
                         <x-slot name="content">
+
+                            @can('create', App\Models\Post::class)
+                            <div class="block px-4 py-2 text-xs text-gray-400">
+                                {{ __('Posts') }}
+                            </div>
+                            <x-jet-dropdown-link href="{{ route('post.create') }}">
+                                {{ __('Create Post') }}
+                            </x-jet-dropdown-link>
+                            @endcan
+
+
+
+                            <div class="border-t border-gray-100"></div>
+
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
