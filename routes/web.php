@@ -26,6 +26,14 @@ Route::get('/', function () {
 
 })->name('dashboard');
 
+/*
+* Posts
+*/
+Route::get('/post/{post:slug}', [PostController::class, 'show'])->name('post.show');
+
+/*
+* Auth start here.
+*/
 Route::middleware(['auth'])->group(function () {
 
     /*
@@ -33,6 +41,7 @@ Route::middleware(['auth'])->group(function () {
     */
     Route::get('post/create', [PostController::class, 'create'])->name('post.create');
     Route::post('post/store', [PostController::class, 'store'])->name('post.store');
+
 
 
     /*

@@ -21,7 +21,7 @@
     <body class="font-sans antialiased">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-100 pb-12">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
@@ -35,12 +35,12 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}                
+                {{ $slot }}
             </main>
         </div>
 
         @include('layouts.footer')
-        
+
         @stack('modals')
         @livewireScripts
         @bukScripts
