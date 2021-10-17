@@ -57,6 +57,8 @@ class ThreadController extends Controller
                 'mimes:jpg,png',
             ],
 
+        ], [
+            'body.min' => 'Body field requires at least 2 characters.'
         ]);
 
         if ($request->image != NULL)
@@ -99,7 +101,7 @@ class ThreadController extends Controller
     }
 
 
-    public function edit(Thread $thread)
+    public function edit(Thread $thread): View
     {
 
         $this->authorize('update', $thread);
@@ -113,7 +115,7 @@ class ThreadController extends Controller
     }
 
 
-    public function update(Request $request, Thread $thread)
+    public function update(Request $request, Thread $thread): RedirectResponse
     {
         $this->authorize('update', $thread);
 
@@ -138,6 +140,8 @@ class ThreadController extends Controller
                 'mimes:jpg,png',
             ],
 
+        ], [
+            'body.min' => 'Body field requires at least 2 characters.'
         ]);
 
         if ($request->remove_image == "on")

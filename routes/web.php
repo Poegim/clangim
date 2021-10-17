@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 
 /*
@@ -18,35 +19,19 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
-    return view('dashboard', [
-        'posts' => Post::orderByDesc('id')->paginate(10),
-    ]);
 
-})->name('dashboard');
-
-/*
-* Posts
-*/
-Route::get('/post/{post:slug}', [PostController::class, 'show'])->name('post.show');
-
-/*
-* Auth start here.
-*/
+// Auth routes.
 Route::middleware(['auth'])->group(function () {
 
-    /*
-    * Posts
-    */
+    // Posts.
     Route::get('post/create', [PostController::class, 'create'])->name('post.create');
     Route::post('post/store', [PostController::class, 'store'])->name('post.store');
+    Route::get('post/{post:slug}/edit', [PostController::class, 'edit'])->name('post.edit');
+    Route::post('post/{post:slug}/update', [PostController::class, 'update'])->name('post.update');
 
-
-
-    /*
-    | Categories routes group.
-    */
+    // Categories.
     Route::get('/category/all', [CategoryController::class, 'index'])->name('categories.index');
     Route::get('/category/create/', [CategoryController::class, 'create'])->name('categories.create');
     Route::post('/category/store', [CategoryController::class, 'store'])->name('categories.store');
@@ -54,22 +39,22 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/category/{category:slug}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
     Route::post('/category/{category:slug}/update', [CategoryController::class, 'update'])->name('categories.update');
 
-    /*
-    | Threads routes group.
-    */
+    // Threads.
     Route::post('/thread', [ThreadController::class, 'store'])->name('threads.store');
     Route::get('/thread/{thread:slug}', [ThreadController::class, 'show'])->name('threads.show');
     Route::get('/thread/{thread:slug}/edit', [ThreadController::class, 'edit'])->name('threads.edit');
     Route::post('/thread/{thread:slug}/update', [ThreadController::class, 'update'])->name('threads.update');
     Route::get('/thread/{category:slug}/create', [ThreadController::class, 'create'])->name('threads.create');
 
-    /*
-    | Replies routes group.
-    */
+    // Replies.
     Route::post('/replies/store', [ReplyController::class, 'store'])->name('replies.store');
     Route::get('/replies/{reply:id}/edit', [ReplyController::class, 'edit'])->name('replies.edit');
     Route::post('/replies/{reply:id}/update', [ReplyController::class, 'update'])->name('replies.update');
 
-
 });
+
+// Non-auth routes.
+
+// Posts.
+Route::get('/post/{post:slug}', [PostController::class, 'show'])->name('post.show');
 

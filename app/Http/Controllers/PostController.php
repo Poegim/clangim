@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\File;
+use Illuminate\Http\RedirectResponse;
 
 class PostController extends Controller
 {
@@ -21,7 +23,7 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $this->authorize('create', Post::class);
 
@@ -32,7 +34,7 @@ class PostController extends Controller
                 'required',
                 'string',
                 'min:3',
-                'max:35',
+                'max:55',
                 Rule::unique('posts'),
             ],
 
@@ -48,6 +50,8 @@ class PostController extends Controller
                 'mimes:jpg,png',
             ],
 
+        ],[
+            'body.min' => 'Body field requires at least 2 characters.'
         ]);
 
         if ($request->image != NULL)
@@ -75,20 +79,80 @@ class PostController extends Controller
 
     }
 
-    public function show(Post $post)
+    public function show(Post $post): View
     {
         return view('posts.show', compact('post'));
     }
 
-    public function edit(Post $post)
+    public function edit(Post $post): View
     {
-        //
+        return view('posts.edit', compact('post'));
     }
 
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Post $post): RedirectResponse
     {
-        //
-    }
+        $this->authorize('update', $post);
 
+        $request->validate([
+            'title' => [
+                'required',
+                'string',
+                'min:3',
+                'max:55',
+                Rule::unique('posts')->ignore($post->id, 'id'),
+            ],
+
+            'body' => [
+                'required',
+                'min:13',
+            ],
+
+            'image' => [
+                'image',
+                'max:512',
+                'dimensions:min_width=50,min_height=50,max_height=1024,max_width=1024',
+                'mimes:jpg,png',
+            ],
+
+        ],[
+            'body.min' => 'Body field requires at least 2 characters.'
+        ]);
+
+        if ($request->remove_image == "on")
+        {
+            $request->image = NULL;
+            File::delete($post->image);
+            $post->image = NULL;
+
+        }
+
+        if ($request->image != NULL)
+        {
+            if ($post->image != NULL)
+            {
+                File::delete($post->image);
+            }
+
+            $postImage = $request->file('image');
+
+            $nameGen = hexdec(uniqid());
+            $imgExtension = strtolower($postImage->getClientOriginalExtension());
+            $imgName = $nameGen . '.' . $imgExtension;
+            $uploadLocation = 'images/posts/';
+            $postImage->move($uploadLocation,$imgName);
+            $imgPath = 'images/posts/'.$imgName;
+            $post->image = $imgPath;
+
+        }
+
+        $post->title = $request->title;
+        $post->slug = Str::slug($request->title);
+        $post->body = $request->body;
+        $post->edited_by = auth()->user()->id;
+        $post->save();
+
+        return redirect()->route('post.show', $post->slug)->with('success', 'Post has been updated.');
+
+    }
 
 }

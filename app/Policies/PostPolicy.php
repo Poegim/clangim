@@ -10,6 +10,8 @@ class PostPolicy
 {
     use HandlesAuthorization;
 
+    const DELETE = 'delete';
+
     public function viewAny(User $user)
     {
         //

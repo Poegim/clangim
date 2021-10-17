@@ -17,7 +17,7 @@ class CategoryController extends Controller
     {
         $this->authorize('viewAny', Category::class);
 
-        $categories = Category::all();
+        $categories = Category::with('threads.replies')->get();
         
         return view('categories.index', [
             'categories' => $categories

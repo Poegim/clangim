@@ -19,9 +19,11 @@
 
             <div class="px-6 sm:px-20 text-gray-500 pt-6">
 
+                @if ($post->image)
                 <div>
                     <img src="{{ asset($post->image) }}" class="object-cover h-96 w-full md:w-96 rounded-lg float-left mr-6 mb-4">
                 </div>
+                @endif
 
                 <div>
                     {!! $post->body() !!}
@@ -30,14 +32,36 @@
             </div>
 
             <div class="px-6 sm:px-20 pb-4 pt-4 clear-both">
-                <a href="https://laravel.com/docs">
-                    <div class="text-sm font-semibold text-indigo-700">
-                            <a href=""></a><div>Comments (6)</div>
+
+                <div class="flex justify-between">
+                    
+                    <div>
+                        <a href="{{ route('post.show', $post->slug) }}" 
+                            class="text-sm font-semibold text-indigo-700"
+                            >
+                            Comments ({{$post->postComments->count()}})
+                        </a>
                     </div>
-                </a>
+
+                    @can('delete', $post)     
+                    <div class="px-6 sm:px-20 pb-4 pt-4 clear-both flex justify-end gap-2">
+                        <a href="{{ route('post.edit', $post->slug) }}" 
+                        class="text-sm font-semibold text-indigo-500 focus:text-indigo-700 hover:text-indigo-700">
+                            <x-zondicon-edit-pencil class="w-5 h-5"/>
+                        </a>
+    
+                        <livewire:post.delete :post="$post" :key="$post->id">
+    
+                    </div>
+                    @endcan
+
+                </div>
+
             </div>
         </div>
         @endforeach
+
+        {{ $posts->links() }}
 
     </div>
 </div>

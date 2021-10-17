@@ -5,6 +5,14 @@
         </h2>
     </x-slot>
 
+    <x-alert 
+    type="success" 
+    class="bg-green-700 text-green-100 p-4" 
+    x-data="{ show: true }" 
+    x-show="show" 
+    x-init="setTimeout(() => show = false, 3000)" 
+    />
+
     <div class="pt-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
