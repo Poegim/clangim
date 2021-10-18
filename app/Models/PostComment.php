@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -24,9 +25,19 @@ class PostComment extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function editedBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     public function body(): string
     {
         return $this->body;
+    }
+
+    public function updatedAt(): string
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at)->diffForHumans();
     }
 
 }

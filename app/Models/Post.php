@@ -27,9 +27,19 @@ class Post extends Model
         return $this->body;
     }
 
+    public function editedBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     public function createdAt(): string
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at);
 
+    }
+
+    public function updatedAt(): string
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at)->diffForHumans();
     }
 }

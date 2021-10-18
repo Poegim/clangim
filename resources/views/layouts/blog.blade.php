@@ -43,14 +43,16 @@
                         </a>
                     </div>
 
-                    @can('delete', $post)     
+                    @can('update', $post)     
                     <div class="px-6 sm:px-20 pb-4 pt-4 clear-both flex justify-end gap-2">
                         <a href="{{ route('post.edit', $post->slug) }}" 
                         class="text-sm font-semibold text-indigo-500 focus:text-indigo-700 hover:text-indigo-700">
                             <x-zondicon-edit-pencil class="w-5 h-5"/>
                         </a>
-    
+                        
+                        @can('delete', $post)
                         <livewire:post.delete :post="$post" :key="$post->id">
+                        @endcan
     
                     </div>
                     @endcan

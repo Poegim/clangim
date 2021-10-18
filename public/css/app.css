@@ -2133,13 +2133,13 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(67, 56, 202, var(--tw-text-opacity));
 }
-.hover\:text-red-700:hover {
-	--tw-text-opacity: 1;
-	color: rgba(185, 28, 28, var(--tw-text-opacity));
-}
 .hover\:text-blue-500:hover {
 	--tw-text-opacity: 1;
 	color: rgba(59, 130, 246, var(--tw-text-opacity));
+}
+.hover\:text-red-700:hover {
+	--tw-text-opacity: 1;
+	color: rgba(185, 28, 28, var(--tw-text-opacity));
 }
 .hover\:text-gray-300:hover {
 	--tw-text-opacity: 1;
@@ -2236,10 +2236,6 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(67, 56, 202, var(--tw-text-opacity));
 }
-.focus\:text-red-700:focus {
-	--tw-text-opacity: 1;
-	color: rgba(185, 28, 28, var(--tw-text-opacity));
-}
 .focus\:text-gray-900:focus {
 	--tw-text-opacity: 1;
 	color: rgba(17, 24, 39, var(--tw-text-opacity));
@@ -2247,6 +2243,10 @@ select {
 .focus\:text-blue-500:focus {
 	--tw-text-opacity: 1;
 	color: rgba(59, 130, 246, var(--tw-text-opacity));
+}
+.focus\:text-red-700:focus {
+	--tw-text-opacity: 1;
+	color: rgba(185, 28, 28, var(--tw-text-opacity));
 }
 .focus\:text-gray-300:focus {
 	--tw-text-opacity: 1;
