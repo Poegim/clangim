@@ -48,31 +48,43 @@
 
                 </div>
 
+                
                 <div class="px-6 sm:px-20 pb-4 pt-4 clear-both flex justify-end gap-2">
+                @can('update', $post)
                     <a href="{{ route('post.edit', $post->slug) }}" 
                     class="text-sm font-semibold text-indigo-500 focus:text-indigo-700 hover:text-indigo-700">
                         <x-zondicon-edit-pencil class="w-5 h-5"/>
                     </a>
+                @endcan
 
+                @can('delete', $post)
                     <livewire:post.delete :post="$post" :key="$post->id">
-
+                @endcan
                 </div>
                 
             </div>
         </div>
     </div>    
 
-    @include('posts.comments.show');
+    @include('post-comments.show');
 
     @can( 'create', App\Models\PostComment::class)
+    <form action="{{ route('postComment.store') }}" method="post">
+        @csrf
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-6 p-12">
+
+                <input type="hidden" name="post_id" value="{{$post->id}}">
+                <input type="hidden" name="post_slug" value="{{$post->slug}}">
 
                 <x-trix name="body" class="mt-4" value="{{old('body')}}"/>
                 <x-jet-input-error for="body" class="mt-2 mb-2" />
 
+                <x-jet-button class="mt-2">Save Comment</x-jet-button>
+
             </div>
         </div>
+    </form>
     @endcan
 
 </x-app-layout>

@@ -1,22 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Posts;
 
 use App\Models\Post;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\RedirectResponse;
 
 class PostController extends Controller
 {
-    public function index(): View
-    {
-        return view('dashboard');
-    }
-
     public function create(): View
     {
         $this->authorize('create', Post::class);

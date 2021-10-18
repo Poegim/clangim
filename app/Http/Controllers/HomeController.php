@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index(): View
     {
-        $posts = Post::withCount('postComments')->paginate(10);
+        $posts = Post::withCount('postComments')->get();
         return view('dashboard', compact('posts'));
         
     }

@@ -25,15 +25,19 @@
 
             </div>
 
+            
             <div class="px-6 sm:px-20 pb-4 pt-4 clear-both flex justify-end gap-2">
-                <a href="" 
+            @can('update', $postComment)
+                <a href="{{ route('postComment.edit', $postComment->id) }}" 
                 class="text-sm font-semibold text-indigo-500 focus:text-indigo-700 hover:text-indigo-700">
                     <x-zondicon-edit-pencil class="w-5 h-5"/>
                 </a>
-                <a href="" 
-                class="text-sm font-semibold text-red-500 focus:text-red-700 hover:text-red-700">
-                    <x-zondicon-trash class="w-5 h-5"/>
-                </a>
+            @endcan
+
+            @can('delete', $postComment)
+            <livewire:post-comment.delete :postComment="$postComment" :key="$postComment->id">
+            @endcan
+
             </div>
             
         </div>

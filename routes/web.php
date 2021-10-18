@@ -1,12 +1,13 @@
 <?php
 
-use App\Models\Post;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ReplyController;
-use App\Http\Controllers\ThreadController;
-use App\Http\Controllers\CategoryController;
+
+use App\Http\Controllers\Posts\PostCommentController;
+use App\Http\Controllers\Posts\PostController;
+use App\Http\Controllers\Forum\ReplyController;
+use App\Http\Controllers\Forum\ThreadController;
+use App\Http\Controllers\Forum\CategoryController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,11 @@ Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
 // Auth routes.
 Route::middleware(['auth'])->group(function () {
+
+    // PostComments.
+    Route::post('/postComment/store', [PostCommentController::class, 'store'])->name('postComment.store');
+    Route::get('/postComment/{postComment:id}/edit', [PostCommentController::class, 'edit'])->name('postComment.edit');
+    Route::post('/postComment/{postComment:id}/update', [PostCommentController::class, 'update'])->name('postComment.update');
 
     // Posts.
     Route::get('post/create', [PostController::class, 'create'])->name('post.create');

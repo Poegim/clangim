@@ -10,38 +10,42 @@ class PostCommentPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(User $user)
-    {
-        //
-    }
+    const DELETE = 'delete';
 
-    public function view(User $user, PostComment $postComment)
-    {
-        //
-    }
-
-    public function create(User $user)
+    public function create(User $user): bool
     {
         return $user->isInactive();
     }
 
-    public function update(User $user, PostComment $postComment)
+    public function update(User $user, PostComment $postComment): bool
     {
-        return $user->isViceCaptain() || $postComment->user->id == $user->id;
+        if ($postComment->user->isCaptain())
+        {
+            return $user->isCaptain() && $postComment->user->id == $user->id || $user->isAdmin();
+        } elseif(!$postComment->user->isCaptain())
+        {
+            return $user->isViceCaptain() || $postComment->user->id == $user->id;
+
+        } else
+        {
+            return false;
+        }
+
     }
 
-    public function delete(User $user, PostComment $postComment)
+    public function delete(User $user, PostComment $postComment): bool
     {
-        return $user->isViceCaptain();
+        if ($postComment->user->isCaptain())
+        {
+            return $user->isCaptain() && $postComment->user->id == $user->id || $user->isAdmin();
+        } elseif(!$postComment->user->isCaptain())
+        {
+            return $user->isViceCaptain();
+
+        } else
+        {
+            return false;
+        }    
     }
 
-    public function restore(User $user, PostComment $postComment)
-    {
-        //
-    }
-
-    public function forceDelete(User $user, PostComment $postComment)
-    {
-        //
-    }
 }

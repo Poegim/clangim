@@ -37,13 +37,4 @@ class ReplyPolicy
         return $user->isViceCaptain();
     }
 
-    public function restore(User $user, Reply $reply)
-    {
-        //
-    }
-
-    public function forceDelete(User $user, Reply $reply)
-    {
-        //
-    }
 }

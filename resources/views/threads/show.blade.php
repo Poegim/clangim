@@ -88,10 +88,6 @@
                     @endforeach
 
                     <div class="mt-4 p-2">
-                        {{ $replies->links() }}
-                    </div>
-
-                    <div class="mt-4 p-2">
                         <form action="{{route('replies.store')}}" method="POST">
                             @csrf
                             <input type="hidden" name="thread_id" id="thread_id" value="{{$thread->id}}">

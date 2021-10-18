@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Forum;
 
+use File;
 use App\Models\Thread;
 use App\Models\Category;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use File;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 
 class ThreadController extends Controller
 {
@@ -92,7 +93,7 @@ class ThreadController extends Controller
 
         $this->authorize('view', $thread);
 
-        $replies = $thread->replies()->paginate(50);
+        $replies = $thread->replies;
 
         return view('threads.show', [
             'thread' => $thread,

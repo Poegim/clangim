@@ -12,39 +12,39 @@ class PostPolicy
 
     const DELETE = 'delete';
 
-    public function viewAny(User $user)
-    {
-        //
-    }
-
-    public function view(User $user, Post $post)
-    {
-        //
-    }
-
-    public function create(User $user)
+    public function create(User $user): bool
     {
         return $user->isViceCaptain();
     }
 
-    public function update(User $user, Post $post)
+    public function update(User $user, Post $post): bool
     {
-        return $user->isCaptain() || $post->user->id == $user->id;
+        if ($post->user->isCaptain())
+        {
+            return $user->isCaptain() && $post->user->id == $user->id || $user->isAdmin();
+        } elseif(!$post->user->isCaptain())
+        {
+            return $user->isViceCaptain() || $post->user->id == $user->id;
+
+        } else
+        {
+            return false;
+        }
     }
 
-    public function delete(User $user, Post $post)
+    public function delete(User $user, Post $post): bool
     {
-        return $user->isCaptain();
+        if ($post->user->isCaptain())
+        {
+            return $user->isCaptain() && $post->user->id == $user->id || $user->isAdmin();
+        } elseif(!$post->user->isCaptain())
+        {
+            return $user->isViceCaptain();
+
+        } else
+        {
+            return false;
+        } 
     }
 
-    public function restore(User $user, Post $post)
-    {
-        //
-    }
-
-
-    public function forceDelete(User $user, Post $post)
-    {
-        //
-    }
 }
