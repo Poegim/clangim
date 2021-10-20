@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\PostComment;
+use App\Models\Posts\PostComment;
 use Illuminate\Database\Seeder;
 
 class PostCommentsTableSeeder extends Seeder

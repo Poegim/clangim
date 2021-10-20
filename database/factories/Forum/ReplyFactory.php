@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Forum;
 
 use Carbon\Carbon;
-use App\Models\Reply;
+use App\Models\Forum\Reply;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ReplyFactory extends Factory

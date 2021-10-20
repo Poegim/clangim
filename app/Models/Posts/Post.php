@@ -1,33 +1,26 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Posts;
 
 use Carbon\Carbon;
-use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class PostComment extends Model
+class Post extends Model
 {
     use HasFactory;
-    
-    protected $touches = ['post'];
-
-    public function post(): BelongsTo
-    {
-        return $this->belongsTo(Post::class, 'post_id');
-    }
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
     }
 
-    public function editedBy(): BelongsTo
+    public function postComments(): HasMany
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->hasMany(PostComment::class);
     }
 
     public function body(): string
@@ -35,9 +28,19 @@ class PostComment extends Model
         return $this->body;
     }
 
+    public function editedBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function createdAt(): string
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at);
+
+    }
+
     public function updatedAt(): string
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at)->diffForHumans();
     }
-
 }

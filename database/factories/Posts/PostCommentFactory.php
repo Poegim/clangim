@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Posts;
 
 use Carbon\Carbon;
-use App\Models\PostComment;
+use App\Models\Posts\PostComment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PostCommentFactory extends Factory

@@ -4,7 +4,6 @@ namespace App\Http\Livewire\PostComment;
 
 use Livewire\Component;
 use Livewire\Redirector;
-use App\Models\PostComment;
 use App\Policies\PostCommentPolicy;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 

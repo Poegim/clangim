@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Thread;
+use App\Models\Forum\Thread;
 use Illuminate\Database\Seeder;
 
 class ThreadsTableSeeder extends Seeder

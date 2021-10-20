@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Forum;
 
 use File;
-use App\Models\Thread;
-use App\Models\Category;
+use App\Models\Forum\Thread;
+use App\Models\Forum\Category;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;

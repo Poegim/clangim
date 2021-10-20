@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\PostComment;
+use App\Models\Posts\PostComment;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 

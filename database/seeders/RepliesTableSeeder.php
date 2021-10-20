@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Reply;
+use App\Models\Forum\Reply;
 use Illuminate\Database\Seeder;
 
 class RepliesTableSeeder extends Seeder

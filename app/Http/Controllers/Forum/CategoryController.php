@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Forum;
 
-use App\Models\Category;
+use App\Models\Forum\Category;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;

@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use App\Models\Reply;
-use App\Models\Thread;
-use App\Models\Category;
-use App\Models\Post;
-use App\Models\PostComment;
+use App\Models\Forum\Reply;
+use App\Models\Forum\Thread;
+use App\Models\Forum\Category;
+use App\Models\Posts\Post;
+use App\Models\Posts\PostComment;
 use App\Policies\ReplyPolicy;
 use App\Policies\ThreadPolicy;
 use App\Policies\CategoryPolicy;

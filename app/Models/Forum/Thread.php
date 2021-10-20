@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Forum;
 
 use Carbon\Carbon;
 use App\Models\User;
-use App\Models\Reply;
-use App\Models\Category;
+use App\Models\Forum\Reply;
+use App\Models\Forum\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;

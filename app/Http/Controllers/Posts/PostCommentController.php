@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Posts;
 
 use Illuminate\View\View;
-use App\Models\PostComment;
+use App\Models\Posts\PostComment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;

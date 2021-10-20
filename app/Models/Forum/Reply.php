@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Forum;
 
 use Carbon\Carbon;
 use App\Models\User;
-use App\Models\Thread;
+use App\Models\Forum\Thread;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
