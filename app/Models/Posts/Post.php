@@ -36,7 +36,6 @@ class Post extends Model
     public function createdAt(): string
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at);
-
     }
 
     public function updatedAt(): string

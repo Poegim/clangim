@@ -3,10 +3,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\GamesTableSeeder;
 use Database\Seeders\PostsTableSeeder;
 use Database\Seeders\UsersTableSeeder;
 use Database\Seeders\RepliesTableSeeder;
 use Database\Seeders\ThreadsTableSeeder;
+use Database\Seeders\ClanWarsTableSeeder;
 use Database\Seeders\CategoriesTableSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,6 +28,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RepliesTableSeeder::class);
         $this->call(PostsTableSeeder::class);
         $this->call(PostCommentsTableSeeder::class);
+        $this->call(ClanWarsTableSeeder::class);
+        $this->call(GamesTableSeeder::class);
 
     }
 }

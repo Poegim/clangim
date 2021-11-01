@@ -17,6 +17,7 @@ class CreateGamesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('clan_war_id');
             $table->foreign('clan_war_id')->references('id')->on('clan_wars')->onDelete('cascade');
+            $table->tinyInteger('type');
             $table->tinyInteger('result')->nullable();
             $table->integer('home_player_1')->nullable();
             $table->integer('home_player_2')->nullable();

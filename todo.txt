@@ -1,1 +1,4 @@
-edit post view is broken.
+Redesign games editing as one by one, we need typical CRUD.
+
+Route names standarize.
+Graphic design standarize (forum).

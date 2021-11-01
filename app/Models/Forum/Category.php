@@ -20,7 +20,7 @@ class Category extends Model
 
     public function threads(): HasMany
     {
-        return $this->hasMany(Thread::class, 'category_id')->orderByDesc('updated_at');;
+        return $this->hasMany(Thread::class, 'category_id')->orderByDesc('updated_at');
     }
 
     public function threadsLimited(): HasMany

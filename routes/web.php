@@ -1,13 +1,17 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ClanWars\ClanWarController;
+use App\Http\Controllers\ClanWars\GameController;
 use App\Http\Controllers\Posts\PostCommentController;
 use App\Http\Controllers\Posts\PostController;
 use App\Http\Controllers\Forum\ReplyController;
 use App\Http\Controllers\Forum\ThreadController;
 use App\Http\Controllers\Forum\CategoryController;
 use App\Http\Controllers\HomeController;
+
+use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +29,16 @@ Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
 // Auth routes.
 Route::middleware(['auth'])->group(function () {
+
+    // Clan Wars
+    Route::get('/clan-wars/create', [ClanWarController::class, 'create'])->name('clan-wars.create');
+    Route::post('/clan-wars/store', [ClanWarController::class, 'store'])->name('clanWars.store');
+
+    //Games
+    Route::post('/games/{clanWar:id}/store', [GameController::class, 'store'])->name('games.store');
+    Route::get('/games/{clanWar:id}/edit', [GameController::class, 'edit'])->name('games.edit');
+    Route::post('/games/{clanWar:id}/update' , [GameController::class, 'update'])->name('games.update');
+    
 
     // PostComments.
     Route::post('/postComment/store', [PostCommentController::class, 'store'])->name('postComment.store');
@@ -60,6 +74,9 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Non-auth routes.
+
+// Clan Wars.
+Route::get('/clan-wars/all', [ClanWarController::class, 'index'])->name('clan-wars.index');
 
 // Posts.
 Route::get('/post/{post:slug}', [PostController::class, 'show'])->name('post.show');

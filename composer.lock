@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "107f524f11626cc53eea6879df3b0c90",
+    "content-hash": "b0e1b05627f62daa6b6345223b415849",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -470,6 +470,71 @@
                 "source": "https://github.com/codeat3/blade-clarity-icons/tree/1.2.0"
             },
             "time": "2021-08-21T15:29:23+00:00"
+        },
+        {
+            "name": "codeat3/blade-govicons",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codeat3/blade-govicons.git",
+                "reference": "b33818c1b6ba31d302c73a16ef2bd9e35717bab4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codeat3/blade-govicons/zipball/b33818c1b6ba31d302c73a16ef2bd9e35717bab4",
+                "reference": "b33818c1b6ba31d302c73a16ef2bd9e35717bab4",
+                "shasum": ""
+            },
+            "require": {
+                "blade-ui-kit/blade-icons": "^1.0",
+                "illuminate/support": "^8.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "codeat3/phpcs-styles": "dev-main",
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Codeat3\\BladeGovIcons\\BladeGovIconsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Codeat3\\BladeGovIcons\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Swapnil Sarwe",
+                    "homepage": "https://swapnilsarwe.com"
+                },
+                {
+                    "name": "Dries Vints",
+                    "homepage": "https://driesvints.com"
+                }
+            ],
+            "description": "A package to easily make use of Gov Icons in your Laravel Blade views.",
+            "homepage": "https://github.com/codeat3/blade-govicons",
+            "keywords": [
+                "blade",
+                "gov",
+                "icons",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/codeat3/blade-govicons/issues",
+                "source": "https://github.com/codeat3/blade-govicons/tree/1.0.0"
+            },
+            "time": "2021-06-01T17:19:34+00:00"
         },
         {
             "name": "dasprid/enum",

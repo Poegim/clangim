@@ -16,11 +16,12 @@ class CreateClanWarsTable extends Migration
         Schema::create('clan_wars', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->date('date');
-            $table->integer('one_vs_one');
-            $table->integer('two_vs_two');
-            $table->integer('three_vs_three');
-            $table->integer('four_vs_four');
+            $table->datetime('date');
+            $table->unsignedBigInteger('user_id');
+            $table->integer('one_vs_one')->default(0);
+            $table->integer('two_vs_two')->default(0);
+            $table->integer('three_vs_three')->default(0);
+            $table->integer('four_vs_four')->default(0);
             $table->timestamps();
         });
     }

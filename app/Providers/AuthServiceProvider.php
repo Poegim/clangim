@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\ClanWars\Models\ClanWar;
+use App\ClanWars\Models\Game;
 use App\Models\Forum\Reply;
 use App\Models\Forum\Thread;
 use App\Models\Forum\Category;
@@ -10,6 +12,8 @@ use App\Models\Posts\PostComment;
 use App\Policies\ReplyPolicy;
 use App\Policies\ThreadPolicy;
 use App\Policies\CategoryPolicy;
+use App\Policies\ClanWarPolicy;
+use App\Policies\GamePolicy;
 use App\Policies\PostCommentPolicy;
 use App\Policies\PostPolicy;
 use Illuminate\Support\Facades\Gate;
@@ -28,7 +32,9 @@ class AuthServiceProvider extends ServiceProvider
         Category::class => CategoryPolicy::class,
         Reply::class => ReplyPolicy::class,
         Post::class => PostPolicy::class,
-        PostComment::class => PostCommentPolicy::class, 
+        PostComment::class => PostCommentPolicy::class,
+        ClanWar::class => ClanWarPolicy::class,
+        Game::class => GamePolicy::class,
 
     ];
 

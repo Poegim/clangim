@@ -16,9 +16,6 @@
                     <div class="flex justify-between">
                         <span>
                             <x-clarity-talk-bubbles-line class="w-16 h-16 text-blue-700 inline"/>
-                            <span>
-                                Welcome! Let's talk!
-                            </span>
                         </span>
 
                         <x-clangim.dark-button-link href="{{ route('categories.create') }}">Add category
@@ -30,7 +27,7 @@
 
                         @foreach ($categories as $category)
                         @can('view', $category)
-                        <div class="col-span-5 md:col-span-6 py-2 pl-2 inline-flex justify-between bg-gray-200 rounded-t-lg mt-2">
+                        <div class="col-span-5 md:col-span-6 py-2 pl-2 inline-flex justify-between bg-gray-50 shadow rounded-t-lg mt-2">
                             <div class="inline-flex">
                                 <a href="{{route('categories.show', $category->slug)}}" class="text-xl text-gray-700 hover:text-blue-700 focus:text-blue-700">
                                     {{ $category->name }}
@@ -52,7 +49,7 @@
 
                         </div>
 
-                        <div class="col-span-4 md:col-span-6 mt-0 italic mb-3 text-gray-500 text-xs md:text-sm pl-2 border-b-2">
+                        <div class="col-span-4 md:col-span-6 mt-2 italic mb-3 text-gray-500 text-xs md:text-sm pl-2 border-b-2">
                             {{ $category->description }}
                             <span class="ml-4 text-xs text-gray-500 italic mt-2">
                                 {{ $category->threads->count()}} - threads.
@@ -76,7 +73,7 @@
                                     @if ($thread->replies != NULL)
                                         {{$thread->replies->count()}} replies
                                     @else
-                                        0
+                                        0 replies
                                     @endif
                                     
                                 </div>

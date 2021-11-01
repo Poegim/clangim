@@ -18,7 +18,7 @@
                     <x-jet-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.index')">
                         {{ __('Forum') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="">
+                    <x-jet-nav-link href="{{ route('clan-wars.index') }}" :active="request()->routeIs('clan-wars.index')">
                         {{ __('Clan Wars') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="">
@@ -153,7 +153,7 @@
             <x-jet-responsive-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.index')">
                 {{ __('Forum') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="">
+            <x-jet-responsive-nav-link href=" {{ route('clan-wars.index') }}" :active="request()->routeIs('clan-wars.index')">
                 {{ __('Clan Wars') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="">
@@ -166,7 +166,6 @@
                 {{ __('Users') }}
             </x-jet-responsive-nav-link>
 
-
         </div>
 
 
@@ -175,6 +174,7 @@
         <div class="pt-4 pb-1 border-t border-gray-200">
 
             <div class="flex items-center px-4">
+
                 @auth
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                 <div class="flex-shrink-0 mr-3">
@@ -194,6 +194,16 @@
             </div>
 
             <div class="mt-3 space-y-1">
+
+                <!-- Create Post -->
+                @can('create', App\Models\Post::class)
+                <x-jet-responsive-nav-link href="{{ route('post.create') }}"
+                    :active="request()->routeIs('post.create')">
+                    {{ __('Create Post') }}
+                </x-jet-responsive-nav-link>
+                @endcan
+
+
                 @auth
                 <!-- Account Management -->
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}"
