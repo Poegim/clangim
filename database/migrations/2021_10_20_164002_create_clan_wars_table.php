@@ -18,10 +18,6 @@ class CreateClanWarsTable extends Migration
             $table->string('title');
             $table->datetime('date');
             $table->unsignedBigInteger('user_id');
-            $table->integer('one_vs_one')->default(0);
-            $table->integer('two_vs_two')->default(0);
-            $table->integer('three_vs_three')->default(0);
-            $table->integer('four_vs_four')->default(0);
             $table->timestamps();
         });
     }

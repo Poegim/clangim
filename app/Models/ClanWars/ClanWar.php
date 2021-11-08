@@ -26,7 +26,7 @@ class ClanWar extends Model
 
     public function games(): HasMany
     {
-        return $this->hasMany(Game::class)->orderByDesc('updated_at');
+        return $this->hasMany(Game::class)->orderBy('id');
     }
 
     public function gamesCount():int

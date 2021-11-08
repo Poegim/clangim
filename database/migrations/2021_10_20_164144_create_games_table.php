@@ -19,14 +19,14 @@ class CreateGamesTable extends Migration
             $table->foreign('clan_war_id')->references('id')->on('clan_wars')->onDelete('cascade');
             $table->tinyInteger('type');
             $table->tinyInteger('result')->nullable();
-            $table->integer('home_player_1')->nullable();
-            $table->integer('home_player_2')->nullable();
-            $table->integer('home_player_3')->nullable();
-            $table->integer('home_player_4')->nullable();
-            $table->integer('enemy_player_1')->nullable();
-            $table->integer('enemy_player_2')->nullable();
-            $table->integer('enemy_player_3')->nullable();
-            $table->integer('enemy_player_4')->nullable();
+            $table->unsignedBigInteger('home_player_1')->nullable();
+            $table->unsignedBigInteger('home_player_2')->nullable();
+            $table->unsignedBigInteger('home_player_3')->nullable();
+            $table->unsignedBigInteger('home_player_4')->nullable();
+            $table->string('enemy_player_1')->nullable();
+            $table->string('enemy_player_2')->nullable();
+            $table->string('enemy_player_3')->nullable();
+            $table->string('enemy_player_4')->nullable();
             $table->timestamps();
         });
     }
