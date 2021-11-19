@@ -2,13 +2,17 @@
 
 namespace App\Policies;
 
-use App\Models\Game;
+use App\Models\ClanWars\Game;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class GamePolicy
 {
     use HandlesAuthorization;
+
+    const CREATE = 'create';
+    const DELETE = 'delete';
+    const UPDATE = 'update';
 
     public function viewAny(User $user)
     {

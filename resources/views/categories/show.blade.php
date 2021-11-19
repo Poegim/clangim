@@ -16,7 +16,7 @@
 
                 <div class="p-6 sm:px-20 border-b border-gray-200 bg-white">
                     
-                    @can('create', App\Models\Thread::class)                    
+                    @can('create', App\Models\Forum\Thread::class)                    
                     <div class="flex justify-end">
                         <x-clangim.dark-button-link href="{{ route('threads.create', $category->slug) }}">Add thread</x-clangim.dark-button-link>
                     </div>

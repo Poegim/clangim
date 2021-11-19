@@ -1,4 +1,4 @@
-<div class="">
+<div>
 
     <a
         class="cursor-pointer text-gray-200"

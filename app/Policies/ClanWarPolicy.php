@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\ClanWar;
+use App\Models\ClanWars\ClanWar;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -10,6 +10,8 @@ class ClanWarPolicy
 {
     use HandlesAuthorization;
 
+    const CREATE = 'create';
+    const UPDATE = 'update';
     const DELETE = 'delete';
 
     public function viewAny(User $user)

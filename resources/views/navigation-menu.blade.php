@@ -83,7 +83,7 @@
 
                         <x-slot name="content">
 
-                            @can('create', App\Models\Post::class)
+                            @can('create', App\Models\Posts\Post::class)
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Posts') }}
                             </div>
@@ -196,7 +196,7 @@
             <div class="mt-3 space-y-1">
 
                 <!-- Create Post -->
-                @can('create', App\Models\Post::class)
+                @can('create', App\Models\Posts\Post::class)
                 <x-jet-responsive-nav-link href="{{ route('post.create') }}"
                     :active="request()->routeIs('post.create')">
                     {{ __('Create Post') }}

@@ -68,9 +68,9 @@ class GameController extends Controller
 
     public function edit(ClanWar $clanWar)
     {
-        $games = Game::where('clan_war_id', $clanWar->id)->get();
-
-        return view('games.edit', compact(['clanWar', 'games']));
+        return view('games.edit', [
+            'clanWar' => $clanWar,
+        ]);
     }
 
     public function update(Request $request, Game $game)

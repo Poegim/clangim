@@ -35,9 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/clan-wars/store', [ClanWarController::class, 'store'])->name('clanWars.store');
 
     //Games
-    // Route::post('/games/{clanWar:id}/store', [GameController::class, 'store'])->name('games.store');
     Route::get('/games/{clanWar:id}/edit', [GameController::class, 'edit'])->name('games.edit');
-    // Route::post('/games/{clanWar:id}/update' , [GameController::class, 'update'])->name('games.update');
     
 
     // PostComments.
