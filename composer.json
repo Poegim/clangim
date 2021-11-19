@@ -9,6 +9,7 @@
         "blade-ui-kit/blade-ui-kit": "^0.3.1",
         "blade-ui-kit/blade-zondicons": "^1.1",
         "codeat3/blade-clarity-icons": "^1.2",
+        "codeat3/blade-fontisto-icons": "^1.0",
         "codeat3/blade-govicons": "^1.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -20,7 +21,6 @@
         "owenvoke/blade-fontawesome": "^1.9"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.6",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",

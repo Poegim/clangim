@@ -27,53 +27,7 @@
                                 />
                                 <x-jet-input-error for="title" class="mt-2" />
 
-
-                                <x-jet-label for="one_vs_one" value="{{ __('One vs One games:') }}" class="mt-8"/>
-                                <x-jet-input 
-                                    id="one_vs_one" 
-                                    class="block mt-1" 
-                                    type="number" 
-                                    name="one_vs_one" 
-                                    min="0" 
-                                    :value="old('one_vs_one') ? old('one_vs_one') : 0"                                    
-                                />
-                                <x-jet-input-error for="one_vs_one" class="mt-2" />
-
-                                <x-jet-label for="two_vs_two" value="{{ __('Two vs Two games:') }}" class="mt-2"/>
-                                <x-jet-input 
-                                    id="two_vs_two" 
-                                    class="block mt-1" 
-                                    type="number" 
-                                    name="two_vs_two" 
-                                    min="0" 
-                                    :value="old('two_vs_two') ? old('two_vs_two') : 0"                                    
-                                />
-                                <x-jet-input-error for="two_vs_two" class="mt-2" />
-
-                                <x-jet-label for="three_vs_three" value="{{ __('Three vs Three games:') }}" class="mt-2"/>
-                                <x-jet-input 
-                                    id="three_vs_three" 
-                                    class="block mt-1" 
-                                    type="number" 
-                                    name="three_vs_three" 
-                                    min="0" 
-                                    :value="old('three_vs_three') ? old('three_vs_three') : 0"                                    
-                                />
-                                <x-jet-input-error for="three_vs_three" class="mt-2" />
-
-                                <x-jet-label for="four_vs_four" value="{{ __('Four vs Four games:') }}" class="mt-2"/>
-                                <x-jet-input 
-                                    id="four_vs_four" 
-                                    class="block mt-1" 
-                                    type="number" 
-                                    name="four_vs_four" 
-                                    min="0" 
-                                    :value="old('four_vs_four') ? old('four_vs_four') : 0"                                    
-                                />
-                                <x-jet-input-error for="four_vs_four" class="mt-2" />
-
-
-                                <x-jet-label for="date" value="{{ __('Date') }}" class="mt-8"/>
+                                <x-jet-label for="date" value="{{ __('Date') }}" class="mt-4"/>
                                 <x-jet-input id="date" class="block mt-1" type="date" name="date" :value="old('date')" />
                                 <x-jet-input-error for="date" class="mt-" />
 

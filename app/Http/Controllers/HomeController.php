@@ -10,7 +10,8 @@ class HomeController extends Controller
 {
     public function index(): View
     {
-        $posts = Post::withCount('postComments')->get();
+        $posts = Post::withCount('postComments')->orderByDesc('created_at')->get();
+        
         return view('dashboard', compact('posts'));
         
     }

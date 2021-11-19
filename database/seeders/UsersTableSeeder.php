@@ -22,44 +22,44 @@ class UsersTableSeeder extends Seeder
         ]);
 
         User::factory()->create([
-            'name' => 'Alpha',
-            'email' => 'alpha@example.com',
+            'name' => 'Captain',
+            'email' => 'captain@example.com',
             'role' => User::CAPTAIN,
             'password' => bcrypt('password'),
         ]);
 
         User::factory()->create([
-            'name' => 'Beta',
-            'email' => 'beta@example.com',
+            'name' => 'Vice',
+            'email' => 'vice@example.com',
             'role' => User::VICE_CAPTAIN,
             'password' => bcrypt('password'),
         ]);
 
         User::factory()->create([
-            'name' => 'Proxima',
-            'email' => 'proxima@example.com',
+            'name' => 'Player',
+            'email' => 'player@example.com',
             'role' => User::PLAYER,
             'password' => bcrypt('password'),
         ]);
 
 
         User::factory()->create([
-            'name' => 'Iota',
-            'email' => 'iota@example.com',
+            'name' => 'Inactive',
+            'email' => 'inactive@example.com',
             'role' => User::INACTIVE,
             'password' => bcrypt('password'),
         ]);
 
         User::factory()->create([
-            'name' => 'Eta',
-            'email' => 'eta@example.com',
+            'name' => 'Ex',
+            'email' => 'ex@example.com',
             'role' => User::EX_MEMBER,
             'password' => bcrypt('password'),
         ]);
 
         User::factory()->create([
-            'name' => 'Omega',
-            'email' => 'omega@example.com',
+            'name' => 'User',
+            'email' => 'user@example.com',
             'role' => User::USER,
             'password' => bcrypt('password'),
         ]);

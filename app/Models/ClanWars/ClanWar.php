@@ -12,7 +12,14 @@ class ClanWar extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     protected $dates = ['date'];
+
+    protected $casts = [
+        'date' => 'datetime:Y-m-d TH:i:s'
+    ];
+
 
     public function id(): int
     {
@@ -26,7 +33,7 @@ class ClanWar extends Model
 
     public function games(): HasMany
     {
-        return $this->hasMany(Game::class)->orderByDesc('updated_at');
+        return $this->hasMany(Game::class)->orderBy('id');
     }
 
     public function gamesCount():int

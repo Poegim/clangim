@@ -1,4 +1,13 @@
-Redesign games editing as one by one, we need typical CRUD.
+MODULES
+-- Replayes
+-- Statistics
+-- Front Page
 
-Route names standarize.
-Graphic design standarize (forum).
+SMALL FIXES
+-- Route names standarize
+-- Graphic design standarize (forum)
+-- Better notifications (udemy school csm course?)
+
+FINAL CHECK
+-- Authorizations
+-- Mobile First

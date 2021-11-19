@@ -83,7 +83,7 @@
 
     @include('post-comments.show');
 
-    @can( 'create', App\Models\PostComment::class)
+    @can( 'create', App\Models\Forum\PostComment::class)
     <form action="{{ route('postComment.store') }}" method="post">
         @csrf
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
