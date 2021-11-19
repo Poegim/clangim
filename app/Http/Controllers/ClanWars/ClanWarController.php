@@ -2,66 +2,36 @@
 
 namespace App\Http\Controllers\ClanWars;
 
-use App\Http\Controllers\Controller;
-use App\Models\ClanWars\ClanWar;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+use App\Models\ClanWars\Game;
+use App\Models\ClanWars\ClanWar;
+use App\Http\Controllers\Controller;
 
 class ClanWarController extends Controller
 {
     public function index()
     {
-
-        return view('clan-wars.index', [
-            'clanWars' => ClanWar::all(),
-        ]);
-    }
-
-    public function create()
-    {
-        return view('clan-wars.create');
-    }
-
-    public function store(Request $request)
-    {
-        $this->authorize('create', ClanWar::class);
-
-        $this->validate($request, [
-            'title' => [
-                'required', 
-                'string',
-                Rule::unique('clan_wars'),
-            ],
-            'date' => ['required'],
-        ]);
-
-        $clanWar = new ClanWar;
-        $clanWar->title = $request->title;
-        $clanWar->user_id = auth()->user()->id;
-        $clanWar->date = $request->date;
-        $clanWar->save();
-
-        return redirect()->route('games.edit', $clanWar->id);
-
+        return view('clan-wars.index');
     }
 
     public function show(ClanWar $clanWar)
     {
-        //
+        $wonGames = Game::where('clan_war_id', $clanWar->id)->where('result', '1')->get();
+        $loseGames = Game::where('clan_war_id', $clanWar->id)->where('result', '0')->get();
+        $score = $wonGames->count() . ' : ' .$loseGames->count(); 
+
+        if($wonGames->count() > $loseGames->count())
+        {
+            $result = 'WIN';
+        } elseif($wonGames->count() < $loseGames->count())
+        {
+            $result = 'LOSE';
+        } elseif($wonGames->count() == $loseGames->count())
+        {
+            $result = 'DRAW';
+        }
+
+        return view('clan-wars.show', compact('clanWar', 'result', 'score'));
     }
 
-    public function edit(ClanWar $clanWar)
-    {
-        //
-    }
-
-    public function update(Request $request, ClanWar $clanWar)
-    {
-        //
-    }
-
-    public function destroy(ClanWar $clanWar)
-    {
-        //
-    }
 }

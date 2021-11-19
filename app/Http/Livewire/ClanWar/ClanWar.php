@@ -14,7 +14,7 @@ class ClanWar extends Component
 {
     use AuthorizesRequests;
 
-    public $createModalVisibility = false;
+    public $createAndEditModalVisibility = false;
     public $deleteModalVisibility = false;
 
     public $modelId;
@@ -26,23 +26,36 @@ class ClanWar extends Component
 
     public function rules(): array
     {
-        return [
-            'title' => [
-                'required', 
-                'string',
-                Rule::unique('clan_wars'),
-            ],
-            'date' => ['required'],
-        ];
+        if($this->modelId == NULL) 
+        {
+            return [
+                'title' => [
+                    'required', 
+                    'string',
+                    Rule::unique('clan_wars'),
+                ],
+                'date' => ['required'],
+            ];
+        } else
+        {
+            return [
+                'title' => [
+                    'required', 
+                    'string',
+                    Rule::unique('clan_wars')->ignore($this->modelId, 'id'),
+                ],
+                'date' => ['required'],
+            ]; 
+        }
+
     }
 
     public function showCreateModal(): void
     {
-        $this->authorize(ClanWarPolicy::CREATE, ClanWarModel::class);
         $this->title = null;
         $this->date = null;
         $this->resetErrorBag();
-        $this->createModalVisibility = true;
+        $this->createAndEditModalVisibility = true;
     }
 
     public function create()
@@ -53,13 +66,13 @@ class ClanWar extends Component
         ClanWarModel::create($this->modelData());
         $this->reset();
         session()->flash('success', 'Game added.');
-        $this->createModalVisibility = false;
+        $this->createAndEditModalVisibility = false;
 
     }
 
     public function read(): Collection
     {
-        $clanWars = ClanWarModel::all();
+        $clanWars = ClanWarModel::orderByDesc('date')->get();
         return $clanWars;
     }
 
@@ -68,7 +81,7 @@ class ClanWar extends Component
         $this->modelId = $id;
         $this->loadModel();
         $this->resetErrorBag();
-        $this->createModalVisibility = true;
+        $this->createAndEditModalVisibility = true;
     }
 
     public function update():void
@@ -82,8 +95,7 @@ class ClanWar extends Component
 
         session()->flash('success', 'Clan war updated.');
         $this->reset();
-        $this->createModalVisibility = false;
-
+        $this->createAndEditModalVisibility = false;
 
     }
 

@@ -16,10 +16,6 @@ class ClanWar extends Model
 
     protected $dates = ['date'];
 
-    protected $casts = [
-        'date' => 'datetime:Y-m-d TH:i:s'
-    ];
-
 
     public function id(): int
     {

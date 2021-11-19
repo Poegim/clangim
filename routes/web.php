@@ -30,10 +30,6 @@ Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 // Auth routes.
 Route::middleware(['auth'])->group(function () {
 
-    // Clan Wars
-    Route::get('/clan-wars/create', [ClanWarController::class, 'create'])->name('clan-wars.create');
-    Route::post('/clan-wars/store', [ClanWarController::class, 'store'])->name('clanWars.store');
-
     //Games
     Route::get('/games/{clanWar:id}/edit', [GameController::class, 'edit'])->name('games.edit');
     
@@ -74,7 +70,8 @@ Route::middleware(['auth'])->group(function () {
 // Non-auth routes.
 
 // Clan Wars.
-Route::get('/clan-wars/all', [ClanWarController::class, 'index'])->name('clan-wars.index');
+Route::get('/clan-wars', [ClanWarController::class, 'index'])->name('clan-wars.index');
+Route::get('/clan-wars/{clanWar:id}', [ClanWarController::class, 'show'])->name('clan-wars.show');
 
 // Posts.
 Route::get('/post/{post:slug}', [PostController::class, 'show'])->name('post.show');

@@ -56,7 +56,10 @@
                                     
                                 <tr>
                                     <td class="px-2 py-4">
-                                        <div class="text-sm text-gray-900">{{$clanWar->title}}
+                                        <div class="text-sm text-gray-900">
+                                            <a href="{{route('clan-wars.show', $clanWar->id)}}">
+                                                {{$clanWar->title}}
+                                            </a>
                                         </div>
                                         <div class="text-sm text-gray-500"><!-- Somethin here? --></div>
                                     </td>
@@ -115,7 +118,7 @@
 
 
     <!-- Create Modal Form -->
-    <x-jet-dialog-modal wire:model="createModalVisibility">
+    <x-jet-dialog-modal wire:model="createAndEditModalVisibility">
         <x-slot name="title" >
             {{ __("Add Clan War") }} {{ $modelId }}
 
@@ -133,7 +136,7 @@
                 <x-jet-input-error for="title" class="mt-2" />
 
                 <x-jet-label for="date" value="{{ __('Date') }}" class="mt-4"/>
-                <x-jet-input id="date" class="block mt-1" type="datetime-local" name="date" wire:model='date'/>
+                <x-jet-input id="date" class="block mt-1" type="datetime-local" name="date" wire:model.debounce.800ms='date'/>
                 <x-jet-input-error for="date" class="mt-" />
 
             </div>
@@ -143,7 +146,7 @@
 
         <x-slot name="footer">
             <x-jet-secondary-button
-            wire:click="$toggle('createModalVisibility')"
+            wire:click="$toggle('createAndEditModalVisibility')"
             wire:loading.attr="disabled"
             >
                 {{ __("Cancel")}}
