@@ -8,7 +8,7 @@ use App\Http\Controllers\Forum\ReplyController;
 use App\Http\Controllers\Forum\ThreadController;
 use App\Http\Controllers\Forum\CategoryController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\Replays\ReplayController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,22 +29,28 @@ Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
 // Auth routes.
 Route::middleware(['auth'])->group(function () {
-
+    
+    //Replays
+    Route::get('/replays/create', [ReplayController::class, 'create'])->name('replays.create');
+    Route::post('/replays/store', [ReplayController::class, 'store'])->name('replays.store');
+    Route::get('/replays/{replay:id}/edit', [ReplayController::class, 'edit'])->name('replays.edit');
+    Route::post('/replays/{replay:id}/update', [ReplayController::class, 'update'])->name('replays.update');
+    
     //Games
     Route::get('/games/{clanWar:id}/edit', [GameController::class, 'edit'])->name('games.edit');
     
-
+    
     // PostComments.
     Route::post('/postComment/store', [PostCommentController::class, 'store'])->name('postComment.store');
     Route::get('/postComment/{postComment:id}/edit', [PostCommentController::class, 'edit'])->name('postComment.edit');
     Route::post('/postComment/{postComment:id}/update', [PostCommentController::class, 'update'])->name('postComment.update');
-
+    
     // Posts.
     Route::get('post/create', [PostController::class, 'create'])->name('post.create');
     Route::post('post/store', [PostController::class, 'store'])->name('post.store');
     Route::get('post/{post:slug}/edit', [PostController::class, 'edit'])->name('post.edit');
     Route::post('post/{post:slug}/update', [PostController::class, 'update'])->name('post.update');
-
+    
     // Categories.
     Route::get('/category/all', [CategoryController::class, 'index'])->name('categories.index');
     Route::get('/category/create/', [CategoryController::class, 'create'])->name('categories.create');
@@ -52,19 +58,19 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/category/{category:slug}', [CategoryController::class, 'show'])->name('categories.show');
     Route::get('/category/{category:slug}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
     Route::post('/category/{category:slug}/update', [CategoryController::class, 'update'])->name('categories.update');
-
+    
     // Threads.
     Route::post('/thread', [ThreadController::class, 'store'])->name('threads.store');
     Route::get('/thread/{thread:slug}', [ThreadController::class, 'show'])->name('threads.show');
     Route::get('/thread/{thread:slug}/edit', [ThreadController::class, 'edit'])->name('threads.edit');
     Route::post('/thread/{thread:slug}/update', [ThreadController::class, 'update'])->name('threads.update');
     Route::get('/thread/{category:slug}/create', [ThreadController::class, 'create'])->name('threads.create');
-
+    
     // Replies.
     Route::post('/replies/store', [ReplyController::class, 'store'])->name('replies.store');
     Route::get('/replies/{reply:id}/edit', [ReplyController::class, 'edit'])->name('replies.edit');
     Route::post('/replies/{reply:id}/update', [ReplyController::class, 'update'])->name('replies.update');
-
+    
 });
 
 // Non-auth routes.
@@ -75,4 +81,8 @@ Route::get('/clan-wars/{clanWar:id}', [ClanWarController::class, 'show'])->name(
 
 // Posts.
 Route::get('/post/{post:slug}', [PostController::class, 'show'])->name('post.show');
+
+//Replays
+Route::get('/replays', [ReplayController::class, 'index'])->name('replays.index');
+
 

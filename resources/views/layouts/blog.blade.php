@@ -63,5 +63,11 @@
         </div>
         @endforeach
 
+        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-8 p-4">
+
+            {{$posts->links()}}
+
+        </div>
+
     </div>
 </div>

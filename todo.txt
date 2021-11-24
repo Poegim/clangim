@@ -1,7 +1,10 @@
 MODULES
--- Replayes
+-- Replays
 -- Statistics
 -- Front Page
+
+MINOR ADDONS
+-- Country Flags for players and teams
 
 SMALL FIXES
 -- Route names standarize
@@ -11,3 +14,9 @@ SMALL FIXES
 FINAL CHECK
 -- Authorizations
 -- Mobile First
+-- Paginations
+-- Replay validation commented code.
+-- Refactor
+
+AFTER FINAL CHECK
+-- Readme.md

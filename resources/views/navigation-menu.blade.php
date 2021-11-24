@@ -21,7 +21,7 @@
                     <x-jet-nav-link href="{{ route('clan-wars.index') }}" :active="request()->routeIs('clan-wars.index')">
                         {{ __('Clan Wars') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="">
+                    <x-jet-nav-link href="{{ route('replays.index') }}" :active="request()->routeIs('replays.index')">
                         {{ __('Replays') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="">
@@ -156,7 +156,7 @@
             <x-jet-responsive-nav-link href=" {{ route('clan-wars.index') }}" :active="request()->routeIs('clan-wars.index')">
                 {{ __('Clan Wars') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="">
+            <x-jet-responsive-nav-link href="{{ route('replays.index') }}" :active="request()->routeIs('replays.index')">
                 {{ __('Replays') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="">
