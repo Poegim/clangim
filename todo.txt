@@ -1,10 +1,13 @@
 MODULES
 -- Replays
+-- Users
 -- Statistics
 -- Front Page
 
 MINOR ADDONS
 -- Country Flags for players and teams
+-- Add log for crytical error, like unable to remove replay.
+-- Add new log notifications for Admin accout?
 
 SMALL FIXES
 -- Route names standarize

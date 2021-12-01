@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Replays;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use stdClass;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use App\Models\Replays\Replay;
+use App\Http\Controllers\Controller;
 use App\Http\Traits\Replay as ReplayTrait;
 
 class ReplayController extends Controller
@@ -13,7 +16,8 @@ class ReplayController extends Controller
 
     public function index(): View
     {
-        return view('replays.index');
+        $replays = Replay::orderByDesc('created_at')->get();
+        return view('replays.index', compact('replays'));
     }
 
     public function create(): View
@@ -21,7 +25,7 @@ class ReplayController extends Controller
         return view('replays.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
 
         $this->validate($request, [
@@ -33,26 +37,48 @@ class ReplayController extends Controller
             ]
         );
 
+        //This should be done as new validate() rule or RULE::(?) - in future.
+
         $file = $request->file('file');
-        $replayData = $this->validateReplay($file);
-        dd($replayData);
 
-        dd('Error, we are too much ahead.');
+        // ++ add extension check .rep?
 
-        $nameGen = hexdec(uniqid());
-        $imgName = $nameGen . '.rep';
-        $uploadLocation = 'replays/';
-        $file->move($uploadLocation,$imgName);
-        $filePath = 'replays/'.$imgName;
+        $newFilePath = $this->saveFile($file);
+        $replayData = $this->validateReplay($newFilePath);
 
+        if (!empty($replayData->Errors[0]))
+        {
+            return redirect()->route('replays.create')->withErrors(['file' => $replayData->Errors[0]]);
+        }
 
+        //Yes this, inside both comments.
+                        
+        Replay::create($this->generateDataForModel($replayData->Data, $request->title, $newFilePath));
 
-        Replay::create([
-            'title' => $request->title,
-            'file'  => $filePath,
-            'user_id'   => auth()->user()->id,
-        ]);
-
+        return redirect()->route('replays.index')->with('success', 'Replay added!');
 
     }
+
+    public function generateDataForModel(stdClass $replayData, string $title, string $newFilePath): array
+    {
+        $generatedData = [
+            'title'     => $title,
+            'file'      => $newFilePath,
+            'players_count' => count($replayData->Header->Players),
+            'user_id'   => auth()->user()->id,
+        ];
+
+        for ($i=0; $i < count($replayData->Header->Players); $i++) 
+        {           
+            $generatedData['player_'.($i+1)] =  $replayData->Header->Players[$i]->Name;
+            $generatedData['player_'.($i+1).'_team'] =  $replayData->Header->Players[$i]->Team;
+            $generatedData['player_'.($i+1).'_race'] =  $replayData->Header->Players[$i]->Race->Name;
+            $generatedData['player_'.($i+1).'_apm'] =  $replayData->Computed->PlayerDescs[$i]->APM;
+            $generatedData['player_'.($i+1).'_eapm'] =  $replayData->Computed->PlayerDescs[$i]->EAPM;
+        }
+
+        return $generatedData;
+
+    }
+
 }

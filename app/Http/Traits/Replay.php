@@ -3,6 +3,7 @@
 namespace App\Http\Traits;
 
 use stdClass;
+use Illuminate\Support\Facades\File;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
@@ -11,32 +12,25 @@ trait Replay
 
     public $replay;
 
-    public function validateReplay($file): stdClass
+    public function validateReplay($filePath): stdClass
     {
 
         $this->replay = new stdClass();
         $this->replay->Errors = [];
 
-        // $fileExtension = strtolower($file->getClientOriginalExtension());
-        
-        // if($fileExtension != 'rep')
-        // {
-        //     array_push($this->replay->Errors, 'Invalid extension.');
-        //     return $this->replay;
-        // }
-
-        $executeScrep = new Process(['screp.exe', 'replayz/sc2.SC2Replay', null]);
+        $executeScrep = new Process(['screp.exe', $filePath]);
         $executeScrep->run();
 
         if (!$executeScrep->isSuccessful()) {
 
-            // Uncomment after final check, or remove.
-            // if (env('APP_ENV') == 'local') {
-            //     throw new ProcessFailedException($executeScrep);
-            //     exit(1);
-            // }
+            $this->removeFile($filePath) ? null : abort(403, 'Contact administrator, unable to remove file!');
 
-            if (($executeScrep->getOutput()) == "Failed to parse replay: Decoder.Section() error: not a replay file\n")
+            if (env('APP_ENV') == 'local') {
+                throw new ProcessFailedException($executeScrep);
+                exit(1);
+            }
+
+            if ($executeScrep->getOutput() == "Failed to parse replay: Decoder.Section() error: not a replay file\n")
             {
                 array_push($this->replay->Errors, 'Not a replay!');
                 return $this->replay;
@@ -49,8 +43,39 @@ trait Replay
         
         $this->replay->Data = json_decode($executeScrep->getOutput());
 
+        if ($this->checkReplayEngine($this->replay->Data) == false)
+        {
+            array_push($this->replay->Errors, 'Invalid engine.');
+            $this->removeFile($filePath) ? null : abort(403, 'Contact administrator, unable to remove file!');
+            return $this->replay;
+        }
+
+        // dd($this->replay);
+
         return $this->replay;
 
+    }
+
+    public function saveFile($file): string
+    {
+
+        $generatedName = hexdec(uniqid());
+        $fileName = $generatedName . '.rep';
+        $uploadLocation = 'replayz/';
+        $file->move($uploadLocation,$fileName);
+        $newReplayPath = 'replayz/'.$fileName;
+        return $newReplayPath;
+
+    }
+
+    public function removeFile(string $filePath): bool
+    {
+        return File::delete($filePath) ? true : false;
+    }
+
+    public function checkReplayEngine(stdClass $data): bool
+    {
+        return $data->Header->Engine->ShortName == "BW" ? true : false;
     }
 
 }

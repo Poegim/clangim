@@ -29,95 +29,26 @@
 
                                 @can('create', App\Models\Replays\Replay::class)
 
-                                <x-clangim.dark-button-link class="cursor-pointer" href="{{route('replays.create')}}">Add
+                                <x-clangim.dark-button-link class="cursor-pointer" href="{{route('replays.create')}}">
+                                    Add
                                     Replay
                                 </x-clangim.dark-button-link>
 
                                 @endcan
                             </div>
 
-                            <div class="flex flex-col mt-6 mb-4">
-                                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                            <table class="min-w-full divide-y divide-gray-200">
-                                                <thead class="bg-gray-50">
-                                                    <tr>
-                                                        <th scope="col"
-                                                            class="px-1 sm:px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                            Title
-                                                        </th>
-                                                        <th scope="col"
-                                                            class="px-1 sm:px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                            Date
-                                                        </th>
-                                                        <th scope="col"
-                                                            class="px-1 sm:px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                            Comments
-                                                        </th>
-                                                        <th scope="col"
-                                                            class="px-1 sm:px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                            Score
-                                                        </th>
-                                                        <th scope="col"
-                                                            class="px-1 sm:px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                            Added by
-                                                        </th>
-                                                        <th scope="px-1 col" class="relative sm:px-2 py-3">
-                                                            <span class="sr-only">Actions</span>
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="bg-white divide-y divide-gray-200">
-
-                                                    {{-- @foreach ($clanWars as $clanWar) --}}
-
-                                                    <tr>
-                                                        <td class="px-1 sm:px-2 py-4 text-sm text-gray-500">
-                                                            Title
-                                                        </td>
-                                                        <td class="px-1 sm:px-2 py-4 text-sm text-gray-500">
-                                                            Date
-                                                        </td>
-                                                        <td class="px-1 sm:px-2 py-4 text-sm text-gray-500">
-                                                            Count
-                                                        </td>
-                                                        <td class="px-1 sm:px-2 py-4 text-sm text-gray-500">
-                                                            Score
-                                                        </td>
-                                                        <td class="px-1 sm:px-2 py-4 text-sm text-gray-500">
-                                                            Name
-                                                        </td>
-                                                        <td class="px-1 sm:px-2 py-4 text-center text-sm font-medium ">
-
-                                                            Actions
-
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td colspan="6" class="text-xs text-gray-500">
-                                                            Players list, Players list, Players list, Players list,
-                                                            Players list,
-                                                        </td>
-                                                    </tr>
-
-                                                    {{-- @endforeach --}}
-
-                                                    <!-- Next line -->
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-
                     </div>
-
                 </div>
 
             </div>
+
+            @foreach ($replays as $replay)
+
+            @include('replays.replay')
+
+            @endforeach
+
         </div>
     </div>
 </x-app-layout>
