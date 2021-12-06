@@ -18,6 +18,7 @@ class CreateReplaysTable extends Migration
             $table->string('title');
             $table->string('file');
             $table->integer('players_count');
+            $table->integer('downloads_counter')->default(0);
             $table->string('player_1')->nullable();
             $table->integer('player_1_team')->nullable();
             $table->string('player_1_race')->nullable();
@@ -58,8 +59,8 @@ class CreateReplaysTable extends Migration
             $table->string('player_8_race')->nullable();
             $table->integer('player_8_apm')->nullable();
             $table->integer('player_8_eapm')->nullable();
-            $table->string('winnner')->nullable();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('edited_by')->nullable();
             $table->timestamps();
         });
     }

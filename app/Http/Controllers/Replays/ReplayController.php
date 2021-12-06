@@ -20,6 +20,13 @@ class ReplayController extends Controller
         return view('replays.index', compact('replays'));
     }
 
+    public function show(Replay $replay): View
+    {
+        return view('replays.show', [
+            'replay' => $replay,
+        ]);
+    }
+
     public function create(): View
     {
         return view('replays.create');
@@ -78,6 +85,25 @@ class ReplayController extends Controller
         }
 
         return $generatedData;
+
+    }
+
+    public function edit(Replay $replay): View
+    {
+        return view('replays.edit', compact('replay'));
+    }
+
+    public function update(Request $request, Replay $replay)
+    {
+        $this->validate($request, [
+            'title' => ['required', 'string', 'min:2'],
+        ]);
+
+        $replay->title = $request->title;
+        $replay->edited_by = auth()->user()->id;
+        $replay->save();
+
+        return redirect()->route('replays.show', $replay->id)->with('success', 'Replay updated.');
 
     }
 

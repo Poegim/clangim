@@ -10,15 +10,7 @@ class ReplayPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(User $user)
-    {
-        //
-    }
-
-    public function view(User $user, Replay $replay)
-    {
-        //
-    }
+    const DELETE = 'delete';
 
     public function create(User $user)
     {
@@ -42,16 +34,17 @@ class ReplayPolicy
 
     public function delete(User $user, Replay $replay)
     {
-        return $user->isCaptain();
+        if ($replay->user->isCaptain())
+        {
+            return $user->isCaptain() && $replay->user->id == $user->id || $user->isAdmin();
+        } elseif(!$replay->user->isCaptain())
+        {
+            return $user->isViceCaptain();
+
+        } else
+        {
+            return false;
+        }
     }
 
-    public function restore(User $user, Replay $replay)
-    {
-        //
-    }
-
-    public function forceDelete(User $user, Replay $replay)
-    {
-        //
-    }
 }

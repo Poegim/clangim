@@ -10,6 +10,7 @@ use App\Models\Forum\Category;
 use App\Models\Posts\Post;
 use App\Models\Posts\PostComment;
 use App\Models\Replays\Replay;
+use App\Models\Replays\ReplayComment;
 use App\Policies\ReplyPolicy;
 use App\Policies\ThreadPolicy;
 use App\Policies\CategoryPolicy;
@@ -17,6 +18,7 @@ use App\Policies\ClanWarPolicy;
 use App\Policies\GamePolicy;
 use App\Policies\PostCommentPolicy;
 use App\Policies\PostPolicy;
+use App\Policies\ReplayCommentPolicy;
 use App\Policies\ReplayPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -29,6 +31,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
+
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
         Thread::class => ThreadPolicy::class,
         Category::class => CategoryPolicy::class,
@@ -38,6 +41,7 @@ class AuthServiceProvider extends ServiceProvider
         ClanWar::class => ClanWarPolicy::class,
         Game::class => GamePolicy::class,
         Replay::class => ReplayPolicy::class,
+        ReplayComment::class => ReplayCommentPolicy::class,
 
     ];
 

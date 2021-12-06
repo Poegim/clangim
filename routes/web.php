@@ -8,10 +8,9 @@ use App\Http\Controllers\Forum\ReplyController;
 use App\Http\Controllers\Forum\ThreadController;
 use App\Http\Controllers\Forum\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Replays\ReplayCommentController;
 use App\Http\Controllers\Replays\ReplayController;
 use Illuminate\Support\Facades\Route;
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -29,21 +28,27 @@ Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
 // Auth routes.
 Route::middleware(['auth'])->group(function () {
+
+    //ReplaysComment
+    Route::post('/replay-comments/store', [ReplayCommentController::class, 'store'])->name('replayComment.store');
+    Route::get('/replay-comments/{replayComment:id}/edit', [ReplayCommentController::class, 'edit'])->name('replayComment.edit');
+    Route::post('/replay-comments/{replayComment:id}/update', [ReplayCommentController::class, 'update'])->name('replayComment.update');
+
     
     //Replays
     Route::get('/replays/create', [ReplayController::class, 'create'])->name('replays.create');
     Route::post('/replays/store', [ReplayController::class, 'store'])->name('replays.store');
-    Route::get('/replays/{replay:id}/edit', [ReplayController::class, 'edit'])->name('replays.edit');
-    Route::post('/replays/{replay:id}/update', [ReplayController::class, 'update'])->name('replays.update');
+    Route::get('/replays/{replay}/edit', [ReplayController::class, 'edit'])->name('replays.edit');
+    Route::post('/replays/{replay}/update', [ReplayController::class, 'update'])->name('replays.update');
     
     //Games
     Route::get('/games/{clanWar:id}/edit', [GameController::class, 'edit'])->name('games.edit');
     
     
     // PostComments.
-    Route::post('/postComment/store', [PostCommentController::class, 'store'])->name('postComment.store');
-    Route::get('/postComment/{postComment:id}/edit', [PostCommentController::class, 'edit'])->name('postComment.edit');
-    Route::post('/postComment/{postComment:id}/update', [PostCommentController::class, 'update'])->name('postComment.update');
+    Route::post('/post-comment/store', [PostCommentController::class, 'store'])->name('postComment.store');
+    Route::get('/post-comment/{postComment:id}/edit', [PostCommentController::class, 'edit'])->name('postComment.edit');
+    Route::post('/post-comment/{postComment:id}/update', [PostCommentController::class, 'update'])->name('postComment.update');
     
     // Posts.
     Route::get('post/create', [PostController::class, 'create'])->name('post.create');
@@ -84,5 +89,6 @@ Route::get('/post/{post:slug}', [PostController::class, 'show'])->name('post.sho
 
 //Replays
 Route::get('/replays', [ReplayController::class, 'index'])->name('replays.index');
+Route::get('/replays/{replay:id}', [ReplayController::class, 'show'])->name('replays.show');
 
 

@@ -45,7 +45,7 @@
 
             @foreach ($replays as $replay)
 
-            @include('replays.replay')
+                <x-clangim.replays.replay :replay="$replay" />
 
             @endforeach
 

@@ -61,9 +61,9 @@ trait Replay
 
         $generatedName = hexdec(uniqid());
         $fileName = $generatedName . '.rep';
-        $uploadLocation = 'replayz/';
+        $uploadLocation = '../storage/app/public/replays/';
         $file->move($uploadLocation,$fileName);
-        $newReplayPath = 'replayz/'.$fileName;
+        $newReplayPath = '../storage/app/public/replays/'.$fileName;
         return $newReplayPath;
 
     }
