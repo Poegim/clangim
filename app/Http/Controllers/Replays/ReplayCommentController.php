@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Replays;
 
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Carbon;
+use Illuminate\View\View;
 use App\Http\Controllers\Controller;
 use App\Models\Replays\ReplayComment;
 
@@ -45,13 +46,28 @@ class ReplayCommentController extends Controller
         //
     }
 
-    public function edit(ReplayComment $replayComment)
+    public function edit(ReplayComment $replayComment): View
     {
-        return 'edit';
+        $this->authorize('update', $replayComment);
+
+        return view('replay-comments.edit', compact('replayComment'));
     }
 
     public function update(Request $request, ReplayComment $replayComment)
     {
-        //
+        $this->authorize('update', $replayComment);
+
+        $this->validate($request, [
+            'body' => ['required', 'string', 'min:13'],
+            
+            ], [
+            'body.min' => 'Body field requires at least 2 characters.',
+        ]);
+
+        $replayComment->body = $request->body;
+        $replayComment->edited_by = auth()->user()->id;
+        $replayComment->save();
+
+        return redirect()->route('replays.show', $replayComment->replay->id)->with('success', 'Comment updated.');
     }
 }

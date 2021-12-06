@@ -20,7 +20,7 @@
             <x-jet-secondary-button
             wire:click="$toggle('modalVisibility')"
             wire:loading.attr="disabled"
-            >
+            >   
                 {{ __("Cancel")}}
             </x-jet-secondary-button>
 

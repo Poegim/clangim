@@ -27,7 +27,7 @@ class PostComment extends Model
 
     public function editedBy(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'edited_by');
     }
 
     public function body(): string

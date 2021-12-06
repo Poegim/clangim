@@ -31,8 +31,8 @@ Route::middleware(['auth'])->group(function () {
 
     //ReplaysComment
     Route::post('/replay-comments/store', [ReplayCommentController::class, 'store'])->name('replayComment.store');
-    Route::get('/replay-comments/{replayComment:id}/edit', [ReplayCommentController::class, 'edit'])->name('replayComment.edit');
-    Route::post('/replay-comments/{replayComment:id}/update', [ReplayCommentController::class, 'update'])->name('replayComment.update');
+    Route::get('/replay-comments/{replayComment}/edit', [ReplayCommentController::class, 'edit'])->name('replayComment.edit');
+    Route::post('/replay-comments/{replayComment}/update', [ReplayCommentController::class, 'update'])->name('replayComment.update');
 
     
     //Replays

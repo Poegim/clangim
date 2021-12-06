@@ -29,12 +29,13 @@ class ReplayController extends Controller
 
     public function create(): View
     {
+        $this->authorize('create', Replay::class);
         return view('replays.create');
     }
 
     public function store(Request $request): RedirectResponse
     {
-
+        $this->authorize('create', Replay::class);
         $this->validate($request, [
                 'title' => ['required', 'string', 'min:3',],
                 'file'  => 'required|file|mimetypes:application/octet-stream',
@@ -90,11 +91,13 @@ class ReplayController extends Controller
 
     public function edit(Replay $replay): View
     {
+        $this->authorize('update', $replay);
         return view('replays.edit', compact('replay'));
     }
 
     public function update(Request $request, Replay $replay)
     {
+        $this->authorize('update', $replay);
         $this->validate($request, [
             'title' => ['required', 'string', 'min:2'],
         ]);

@@ -21,16 +21,16 @@
 
     <div class="px-6 sm:px-20 pb-4 pt-4 clear-both">
 
-        <div class="flex justify-between">
+        <div class="flex justify-between py-4">
 
-            <div class="text-xs text-gray-500 italic">
+            <div class="text-xs text-gray-500 italic mt-1">
                 @if($comment->edited_by != null)
-                Edited: {{ $comment->updatedAt() }}, by {{ $comment->user->name }}.
+                Edited: {{ $comment->updatedAt() }}, by {{ $comment->editedBy->name }}.
                 @endif
             </div>
 
             @can('update', $comment)     
-            <div class="px-6 sm:px-20 pb-4 pt-4 clear-both flex justify-end gap-2">
+            <div class="flex justify-end gap-2">
                 <a href="{{ route('replayComment.edit', $comment->id) }}" 
                 class="text-sm font-semibold text-indigo-500 focus:text-indigo-700 hover:text-indigo-700">
                     <x-zondicon-edit-pencil class="w-5 h-5"/>

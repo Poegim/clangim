@@ -60,16 +60,28 @@
                 </a>
                 @endif
             </div>
+
+            <div class="text-xs text-gray-500 italic mt-1">
+                @if($replay->edited_by != null)
+                Edited: {{ $replay->updatedAt() }}, by {{ $replay->editedBy->name }}.
+                @endif
+            </div>
+
+
         </div>
 
-        <div class="flex justify-end gap-2 pr-6 sm:pr-20">      
-            <a href="{{ route('replays.edit', $replay) }}">
-                <x-zondicon-edit-pencil class="w-5 h-5 text-indigo-600 focus:text-indigo-800 hover:text-indigo-800"/>
-            </a>
+        @can('update', $replay)
+            <div class="flex justify-end gap-2 pr-6 sm:pr-20">      
+                <a href="{{ route('replays.edit', $replay) }}">
+                    <x-zondicon-edit-pencil class="w-5 h-5 text-indigo-600 focus:text-indigo-800 hover:text-indigo-800"/>
+                </a>
+                @can('delete', $replay)
+                <livewire:replay.delete :replay="$replay" />
+                @endcan
 
-            <livewire:replay.delete :replay="$replay" />
+            </div>
+        @endcan
 
-        </div>
 
 
     </div>

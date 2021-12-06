@@ -31,7 +31,7 @@
 
                     <div class="text-xs text-gray-500 italic">
                         @if($postComment->edited_by != null)
-                        Edited: {{ $postComment->updatedAt() }}, by {{ $postComment->user->name }}.
+                        Edited: {{ $postComment->updatedAt() }}, by {{ $postComment->editedBy->name }}.
                         @endif
                     </div>
 

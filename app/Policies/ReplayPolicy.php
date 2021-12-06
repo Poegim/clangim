@@ -40,7 +40,7 @@ class ReplayPolicy
         } elseif(!$replay->user->isCaptain())
         {
             return $user->isViceCaptain();
-
+            
         } else
         {
             return false;

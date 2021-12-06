@@ -1,5 +1,4 @@
 MODULES
--- Replays
 -- Users
 -- Statistics
 -- Front Page

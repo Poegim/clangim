@@ -1920,11 +1920,11 @@ select {
 .pb-6 {
 	padding-bottom: 1.5rem;
 }
-.pt-8 {
-	padding-top: 2rem;
-}
 .pr-6 {
 	padding-right: 1.5rem;
+}
+.pt-8 {
+	padding-top: 2rem;
 }
 .text-left {
 	text-align: left;
@@ -2244,6 +2244,10 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(67, 56, 202, var(--tw-text-opacity));
 }
+.hover\:text-indigo-800:hover {
+	--tw-text-opacity: 1;
+	color: rgba(55, 48, 163, var(--tw-text-opacity));
+}
 .hover\:text-blue-500:hover {
 	--tw-text-opacity: 1;
 	color: rgba(59, 130, 246, var(--tw-text-opacity));
@@ -2279,10 +2283,6 @@ select {
 .hover\:text-indigo-900:hover {
 	--tw-text-opacity: 1;
 	color: rgba(49, 46, 129, var(--tw-text-opacity));
-}
-.hover\:text-indigo-800:hover {
-	--tw-text-opacity: 1;
-	color: rgba(55, 48, 163, var(--tw-text-opacity));
 }
 .focus\:z-10:focus {
 	z-index: 10;
@@ -2657,16 +2657,17 @@ select {
 		padding-right: 0.5rem;
 	}
 
+	.sm\:px-12 {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+
 	.sm\:pt-0 {
 		padding-top: 0px;
 	}
 
 	.sm\:pb-4 {
 		padding-bottom: 1rem;
-	}
-
-	.sm\:pr-12 {
-		padding-right: 3rem;
 	}
 
 	.sm\:pr-20 {
@@ -2795,10 +2796,6 @@ select {
 
 	.md\:pl-20 {
 		padding-left: 5rem;
-	}
-
-	.md\:pr-12 {
-		padding-right: 3rem;
 	}
 
 	.md\:text-left {
