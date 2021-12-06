@@ -17,6 +17,7 @@ class Delete extends Component
 
     public function loadModal(): void
     {
+        $this->authorize(PostCommentPolicy::DELETE, $this->postComment);
         $this->resetErrorBag();
         $this->modalVisibility = true;
     }

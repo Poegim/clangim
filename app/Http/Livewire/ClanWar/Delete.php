@@ -17,6 +17,7 @@ class Delete extends Component
 
     public function loadModal(): void
     {
+        $this->authorize(ClanWarPolicy::DELETE, $this->clanWar);
         $this->resetErrorBag();
         $this->modalVisibility = true;
     }

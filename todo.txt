@@ -3,15 +3,16 @@ MODULES
 -- Statistics
 -- Front Page
 
+IMPORTANT FIXES AND ADDONS
+-- Smart and manual check for replay data loading of screp, dependings of environment.
+
 MINOR ADDONS
 -- Country Flags for players and teams
--- Add log for crytical error, like unable to remove replay.
--- Add new log notifications for Admin accout?
 
 SMALL FIXES
 -- Route names standarize
 -- Graphic design standarize (forum)
--- Better notifications (udemy school csm course?)
+-- Better and standarized notifications
 
 FINAL CHECK
 -- Authorizations
@@ -22,3 +23,8 @@ FINAL CHECK
 
 AFTER FINAL CHECK
 -- Readme.md
+
+FUTURE OR OPTIONAL
+ -- Change screp folder?
+ -- Add log for crytical error, like unable to remove replay.
+ -- Add new log notifications for Admin accout?

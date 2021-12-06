@@ -15,9 +15,13 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+
+                    @can('viewAny', App\Models\Forum\Category::class)
                     <x-jet-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.index')">
                         {{ __('Forum') }}
                     </x-jet-nav-link>
+                    @endcan
+                    
                     <x-jet-nav-link href="{{ route('clan-wars.index') }}" :active="request()->routeIs('clan-wars.index')">
                         {{ __('Clan Wars') }}
                     </x-jet-nav-link>
@@ -150,9 +154,11 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
+            @can('viewAny', App\Models\Forum\Category::class)
             <x-jet-responsive-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.index')">
                 {{ __('Forum') }}
             </x-jet-responsive-nav-link>
+            @endcan
             <x-jet-responsive-nav-link href=" {{ route('clan-wars.index') }}" :active="request()->routeIs('clan-wars.index')">
                 {{ __('Clan Wars') }}
             </x-jet-responsive-nav-link>

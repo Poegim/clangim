@@ -50,8 +50,6 @@ trait Replay
             return $this->replay;
         }
 
-        // dd($this->replay);
-
         return $this->replay;
 
     }

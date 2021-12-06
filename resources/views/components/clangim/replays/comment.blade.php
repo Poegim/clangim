@@ -37,7 +37,7 @@
                 </a>
                 
                 @can('delete', $comment)
-                <livewire:post-comment.delete :comment="$comment" :key="$comment->id">
+                    <livewire:replay-comment.delete :replayComment="$comment" :key="$comment->id">
                 @endcan
 
             </div>
