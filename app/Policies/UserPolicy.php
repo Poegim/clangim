@@ -26,12 +26,42 @@ class UserPolicy
 
     public function update(User $user, User $model)
     {
-        //
+        if ($model->isCaptain())
+        {
+            return $user->isAdmin();
+
+        } elseif($model->isViceCaptain())
+        {
+            return $user->isCaptain();
+
+        }   elseif(!$model->isCaptain())
+        {
+            return $user->isViceCaptain();
+
+        } else
+        {
+            return false;
+        }
     }
 
     public function delete(User $user, User $model)
     {
-        //
+        if ($model->isCaptain())
+        {
+            return $user->isAdmin();
+
+        } elseif($model->isViceCaptain())
+        {
+            return $user->isCaptain();
+
+        }   elseif(!$model->isCaptain())
+        {
+            return $user->isViceCaptain();
+
+        } else
+        {
+            return false;
+        }
     }
 
     public function restore(User $user, User $model)

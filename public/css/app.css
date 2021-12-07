@@ -1926,6 +1926,9 @@ select {
 .pt-8 {
 	padding-top: 2rem;
 }
+.pl-4 {
+	padding-left: 1rem;
+}
 .text-left {
 	text-align: left;
 }
@@ -2655,11 +2658,6 @@ select {
 	.sm\:px-2 {
 		padding-left: 0.5rem;
 		padding-right: 0.5rem;
-	}
-
-	.sm\:px-12 {
-		padding-left: 3rem;
-		padding-right: 3rem;
 	}
 
 	.sm\:pt-0 {

@@ -68,6 +68,39 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function role():string
+    {
+        switch ($this->role) {
+            case '1':
+                return 'ADMIN';
+                break;
+            
+            case '2':
+                return 'CAPTAIN';
+                break;
+
+            case '3':
+                return 'VICE_CAPTAIN';
+                break;
+            
+            case '4':
+                return 'PLAYER';
+                break;
+            
+            case '5':
+                return 'INACTIVE';
+                break;
+            
+            case '6':
+                return 'EX_MEMBER';
+                break;
+
+            case '7':
+                return 'USER';
+                break;
+        }
+    }
+
     public function isAdmin(): bool
     {
         return $this->role == self::ADMIN ? true : false;

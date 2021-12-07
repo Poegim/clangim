@@ -10,6 +10,7 @@ use App\Http\Controllers\Forum\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Replays\ReplayCommentController;
 use App\Http\Controllers\Replays\ReplayController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,9 @@ Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
 // Auth routes.
 Route::middleware(['auth'])->group(function () {
+
+    //Users
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
     //ReplaysComment
     Route::post('/replay-comments/store', [ReplayCommentController::class, 'store'])->name('replayComment.store');
