@@ -145,15 +145,25 @@
             </div>
             <div class="mt-2">
                 <x-jet-label for="role" value="{{ __('Role') }}" />
+
                 <select name="role" id="role" class="rounded block w-full mt-2" wire:model.debounce.800ms="role">
+
+                        @if (auth()->user()->isAdmin())
                         <option value="1" {{ $role == 1 ? 'selected' : null }}>ADMIN</option>
+                        @endif
+
+                        @if (auth()->user()->isCaptain())
                         <option value="2" {{ $role == 2 ? 'selected' : null }}>CAPTAIN</option>
+                        @endif
+
                         <option value="3" {{ $role == 3 ? 'selected' : null }}>VICE_CAPTAIN</option>
                         <option value="4" {{ $role == 4 ? 'selected' : null }}>PLAYER</option>
                         <option value="5" {{ $role == 5 ? 'selected' : null }}>INACTIVE</option>
                         <option value="6" {{ $role == 6 ? 'selected' : null }}>EX_PLAYER</option>
                         <option value="7" {{ $role == 7 ? 'selected' : null }}>USER</option>
+                        
                 </select>
+
                 <x-jet-input-error for="role" class="mt-2" />
             </div>
         </x-slot>

@@ -29,10 +29,10 @@
                         {{ __('Replays') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="">
-                        {{ __('Team Statistics') }}
+                        {{ __('Team') }}
                     </x-jet-nav-link>
 
-                    @if ((auth()->check()) && (auth()->user()->role <= App\Models\User::VICE_CAPTAIN))
+                    @if ((auth()->check()) && (auth()->user()->isViceCaptain()))
                         <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
                             {{ __('Users') }}
                         </x-jet-nav-link>
@@ -151,26 +151,35 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
+
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
+
             @can('viewAny', App\Models\Forum\Category::class)
             <x-jet-responsive-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.index')">
                 {{ __('Forum') }}
             </x-jet-responsive-nav-link>
             @endcan
+
             <x-jet-responsive-nav-link href=" {{ route('clan-wars.index') }}" :active="request()->routeIs('clan-wars.index')">
                 {{ __('Clan Wars') }}
             </x-jet-responsive-nav-link>
+
             <x-jet-responsive-nav-link href="{{ route('replays.index') }}" :active="request()->routeIs('replays.index')">
                 {{ __('Replays') }}
             </x-jet-responsive-nav-link>
+
             <x-jet-responsive-nav-link href="">
                 {{ __('Team') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
-                {{ __('Users') }}
-            </x-jet-responsive-nav-link>
+
+            @if ((auth()->check()) && (auth()->user()->isViceCaptain()))
+                <x-jet-responsive-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                    {{ __('Users') }}
+                </x-jet-responsive-nav-link>
+            @endif
+
 
         </div>
 
