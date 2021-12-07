@@ -66,10 +66,10 @@ class User extends Component
         $this->user->email = $this->email;
         $this->user->role = $this->role;
         $this->user->save();
-
         $this->editModalVisibility = false;
-        $this->reset();
-        $this->resetErrorBag();
+
+        session()->flash('success', 'User data saved.');
+        
     }
 
     public function showDeleteModal(Int $userId): void
@@ -101,7 +101,7 @@ class User extends Component
 
     public function loadUsers(): void
     {
-        $this->users = UserModel::where('role', '!=', '1')->get();
+        $this->users = UserModel::where('id', '!=', '1')->get();
     }
 
     public function render(): View

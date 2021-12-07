@@ -1,6 +1,5 @@
 MODULES
--- Users
--- Statistics
+-- Team, with stats.
 -- Front Page
 
 IMPORTANT FIXES AND ADDONS
@@ -13,7 +12,6 @@ SMALL FIXES
 -- Route names standarize
 -- Graphic design standarize (forum)
 -- Better and standarized notifications
--- User rules / changes, requires change in two or more places, shoulde be one.
 
 FINAL CHECK
 -- Authorizations
