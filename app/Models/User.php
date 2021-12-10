@@ -36,6 +36,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'country',
+        'race',
     ];
 
     /**
@@ -68,7 +71,17 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function role():string
+    public function countryFlagURL(): string
+    {
+        return 'images/country_flags/'.strtolower($this->country).'.png';
+    }
+
+    public function ingameRaceURL()
+    {
+        //
+    }
+
+    public function role(): string
     {
         switch ($this->role) {
             case '1':

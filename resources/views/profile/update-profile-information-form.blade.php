@@ -27,15 +27,19 @@
                 <x-jet-label for="photo" value="{{ __('Photo') }}" />
 
                 <!-- Current Profile Photo -->
-                <div class="mt-2" x-show="! photoPreview">
+                <div class="mt-2 flex justify-between" x-show="! photoPreview">
                     <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
+
+                    <img src="{{ asset($this->user->countryFlagURL()) }}" alt="{{ $this->user->country }}" class="rounded-full h-20 w-20 object-cover">
                 </div>
 
                 <!-- New Profile Photo Preview -->
-                <div class="mt-2" x-show="photoPreview">
+                <div class="mt-2 flex justify-between" x-show="photoPreview">
                     <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
                           x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
                     </span>
+
+                    <img src="{{ asset($this->user->countryFlagURL()) }}" alt="{{ $this->user->country }}" class="rounded-full h-20 w-20 object-cover">
                 </div>
 
                 <x-jet-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
@@ -65,6 +69,32 @@
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
+
+        <!-- Country -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="country" value="{{ __('Country / Region / Union') }}" />
+            <select name="country" id="country" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block" wire:model.defer="state.country">
+                @foreach (config('countries.country_list') as $key => $country))
+                    <option value="{{$key}}">{{$country}}</option>
+                @endforeach
+            </select>
+            <x-jet-input-error for="country" class="mt-2" />
+        </div>
+
+
+        <!-- Race -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="race" value="{{ __('Ingame Race') }}" />
+            <select name="race" id="race" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block" wire:model.defer="state.race">
+                    <option value="none">None</option>
+                    <option value="protoss">Protoss</option>
+                    <option value="terran">Terran</option>
+                    <option value="zerg">Zerg</option>
+                    <option value="random">Random</option>
+            </select>
+            <x-jet-input-error for="race" class="mt-2" />
+        </div>
+
     </x-slot>
 
     <x-slot name="actions">

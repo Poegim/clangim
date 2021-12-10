@@ -10,8 +10,10 @@ use App\Http\Controllers\Forum\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Replays\ReplayCommentController;
 use App\Http\Controllers\Replays\ReplayController;
+use App\Http\Controllers\Team\TeamController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -95,4 +97,5 @@ Route::get('/post/{post:slug}', [PostController::class, 'show'])->name('post.sho
 Route::get('/replays', [ReplayController::class, 'index'])->name('replays.index');
 Route::get('/replays/{replay:id}', [ReplayController::class, 'show'])->name('replays.show');
 
-
+//Team
+Route::get('team', [TeamController::class, 'index'])->name('team.index');

@@ -6,9 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\ClanWars\Game;
 use App\Models\ClanWars\ClanWar;
 use App\Http\Controllers\Controller;
+use App\Http\Traits\ClanWarResult;
 
 class ClanWarController extends Controller
 {
+
+    use ClanWarResult;
+
     public function index()
     {
         return view('clan-wars.index');
@@ -16,22 +20,10 @@ class ClanWarController extends Controller
 
     public function show(ClanWar $clanWar)
     {
-        $wonGames = Game::where('clan_war_id', $clanWar->id)->where('result', '1')->get();
-        $loseGames = Game::where('clan_war_id', $clanWar->id)->where('result', '0')->get();
-        $score = $wonGames->count() . ' : ' .$loseGames->count(); 
+        $results = $this->clanWarResult($clanWar);
+        $score = $results->wins . ' : ' .$results->losses; 
 
-        if($wonGames->count() > $loseGames->count())
-        {
-            $result = 'WIN';
-        } elseif($wonGames->count() < $loseGames->count())
-        {
-            $result = 'LOSE';
-        } elseif($wonGames->count() == $loseGames->count())
-        {
-            $result = 'DRAW';
-        }
-
-        return view('clan-wars.show', compact('clanWar', 'result', 'score'));
+        return view('clan-wars.show', compact('clanWar', 'results', 'score'));
     }
 
 }

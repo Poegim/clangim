@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\ClanWars;
 
-
 use Illuminate\Http\Request;
 use App\Models\ClanWars\ClanWar;
 use App\Http\Controllers\Controller;

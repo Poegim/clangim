@@ -28,7 +28,7 @@
                     <x-jet-nav-link href="{{ route('replays.index') }}" :active="request()->routeIs('replays.index')">
                         {{ __('Replays') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="">
+                    <x-jet-nav-link href="{{ route('team.index') }}" :active="request()->routeIs('team.index')">
                         {{ __('Team') }}
                     </x-jet-nav-link>
 
@@ -170,7 +170,7 @@
                 {{ __('Replays') }}
             </x-jet-responsive-nav-link>
 
-            <x-jet-responsive-nav-link href="">
+            <x-jet-responsive-nav-link href="{{ route('team.index') }}" :active="request()->routeIs('team.index')">
                 {{ __('Team') }}
             </x-jet-responsive-nav-link>
 

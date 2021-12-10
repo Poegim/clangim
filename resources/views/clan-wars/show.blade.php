@@ -27,7 +27,7 @@
                 <div class="px-6 sm:px-20 pb-4 pt-4 clear-both">
 
                     <div class="my-4">
-                        Result: {{$result}} ({{$score}}).
+                        Result: {{$results->finalResult}} ({{$results->wins}} : {{$results->losses}}).
                     </div>
 
                     @foreach ($clanWar->games as $game)

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\ClanWar;
 
+use App\Http\Traits\ClanWarResult;
 use Livewire\Component;
 use Illuminate\Support\Carbon;
 use App\Policies\ClanWarPolicy;
@@ -13,6 +14,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class ClanWar extends Component
 {
     use AuthorizesRequests;
+    use ClanWarResult;
 
     public $createAndEditModalVisibility = false;
     public $deleteModalVisibility = false;
@@ -73,6 +75,12 @@ class ClanWar extends Component
     public function read(): Collection
     {
         $clanWars = ClanWarModel::orderByDesc('date')->get();
+
+        foreach($clanWars as $clanWar)
+        {
+            $clanWar->results = $this->clanWarResult($clanWar);
+        }
+
         return $clanWars;
     }
 

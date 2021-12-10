@@ -3,10 +3,13 @@ MODULES
 -- Front Page
 
 IMPORTANT FIXES AND ADDONS
--- Smart and manual check for replay data loading of screp, dependings of environment.
+-- Replay parsing on different environments
+-- Replays score
 
 MINOR ADDONS
 -- Country Flags for players and teams
+-- This team flag
+-- Users SC Race
 
 SMALL FIXES
 -- Route names standarize
@@ -17,11 +20,12 @@ FINAL CHECK
 -- Authorizations
 -- Mobile First
 -- Paginations
--- Replay validation commented code.
+-- Prepare deploy version and deploy content data
 -- Refactor
 
 AFTER FINAL CHECK
 -- Readme.md
+
 
 FUTURE OR OPTIONAL
  -- Change screp folder?

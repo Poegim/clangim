@@ -58,7 +58,8 @@
                                     <td class="px-2 py-4">
                                         <div class="text-sm text-gray-900">
                                             <a href="{{route('clan-wars.show', $clanWar->id)}}">
-                                                {{$clanWar->title}}
+                                                {{$clanWar->title}} 
+                                                ({{$clanWar->results->wins}}:{{$clanWar->results->losses}})
                                             </a>
                                         </div>
                                         <div class="text-sm text-gray-500"><!-- Somethin here? --></div>
