@@ -1,11 +1,10 @@
 ## IMPORTANT CONFIG INFO
-APP_ENV in .ENV file should be set as 'production' on production environment.
+<p>APP_ENV in .ENV file should be set as 'production' on production environment.</p>
+<p>Users roles are stored in App/Models/User model.</p>
 
-Users roles are stored in App/Models/User model.
-
-## Resources
-Ingame races icons by https://www.pngegg.com/
-Flags by <a href='https://www.freepik.com/vectors/icons'>Icons vector created by luis_molinero - www.freepik.com</a>
+## Media Resources
+<p>Ingame races icons by https://www.pngegg.com/</p>
+<p>Flags by <a href='https://www.freepik.com/vectors/icons'>Icons vector created by luis_molinero - www.freepik.com</a></p>
 
 
 
