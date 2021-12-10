@@ -13,8 +13,8 @@ MINOR ADDONS
 
 SMALL FIXES
 -- Route names standarize
--- Graphic design standarize (forum)
--- Better and standarized notifications
+-- Graphic design standarize (forum, edit button, delete button)
+-- Standarize notifications
 
 FINAL CHECK
 -- Authorizations

@@ -121,8 +121,11 @@
     <!-- Create Modal Form -->
     <x-jet-dialog-modal wire:model="createAndEditModalVisibility">
         <x-slot name="title" >
-            {{ __("Add Clan War") }} {{ $modelId }}
-
+            @if($modelId == NULL)
+            {{ __("Add Clan War") }}
+            @else
+            {{ __("Edit Clan War: ") }} {{ $modelId }}
+            @endif
         </x-slot>
 
         <x-slot name="content">
@@ -135,6 +138,15 @@
                     required autofocus 
                 />
                 <x-jet-input-error for="title" class="mt-2" />
+
+                <!-- Country -->
+                <x-jet-label class="mt-2" for="country" value="{{ __('Country / Region / Union') }}" />
+                <select name="country" id="country" class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block" wire:model.debounce.800ms="enemy_flag">
+                    @foreach (config('countries.country_list') as $key => $country))
+                        <option value="{{$key}}">{{$country}}</option>
+                    @endforeach
+                </select>
+                <x-jet-input-error for="country" class="mt-2" />
 
                 <x-jet-label for="date" value="{{ __('Date') }}" class="mt-4"/>
                 <x-jet-input id="date" class="block mt-1" type="datetime-local" name="date" wire:model.debounce.800ms='date'/>

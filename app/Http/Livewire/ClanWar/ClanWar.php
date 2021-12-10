@@ -22,8 +22,10 @@ class ClanWar extends Component
     public $modelId;
     public $clanWar;
 
+    //Database columns
     public $title;
     public $date;
+    public $enemy_flag;
     public $user_id;
 
     public function rules(): array
@@ -37,6 +39,7 @@ class ClanWar extends Component
                     Rule::unique('clan_wars'),
                 ],
                 'date' => ['required'],
+                'enemy_flag' => ['required'],
             ];
         } else
         {
@@ -47,6 +50,7 @@ class ClanWar extends Component
                     Rule::unique('clan_wars')->ignore($this->modelId, 'id'),
                 ],
                 'date' => ['required'],
+                'enemy_flag' => ['required'],
             ]; 
         }
 
@@ -56,6 +60,7 @@ class ClanWar extends Component
     {
         $this->title = null;
         $this->date = null;
+        $this->enemy_flag = 'EA';
         $this->resetErrorBag();
         $this->createAndEditModalVisibility = true;
     }
@@ -98,6 +103,7 @@ class ClanWar extends Component
         $this->validate();
 
         $this->clanWar->title = $this->title;
+        $this->clanWar->enemy_flag = $this->enemy_flag;
         $this->clanWar->date = Carbon::createFromFormat('Y-m-d\TH:i', $this->date)->format('Y-m-d H:i:s');
         $this->clanWar->save();
 
@@ -113,6 +119,7 @@ class ClanWar extends Component
         {
             $data = ClanWarModel::findOrFail($this->modelId);
             $this->title = $data->title;
+            $this->enemy_flag = $data->enemy_flag;
             $this->date = $data->date->format('Y-m-d\TH:i');
             $this->clanWar = $data;
         }
@@ -122,6 +129,7 @@ class ClanWar extends Component
     {
         return [
             'title' => $this->title,
+            'enemy_flag'    => $this->enemy_flag,
             'date'  => $this->date,
             'user_id' => auth()->user()->id,
         ];

@@ -3,6 +3,7 @@
 return  [ 'country_list' => 
             [
             "EU" => "European Union",
+            "EA" => "Earth",
             "AF" => "Afghanistan",
             "AL" => "Albania",
             "DZ" => "Algeria",

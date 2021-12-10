@@ -16,6 +16,7 @@ class CreateClanWarsTable extends Migration
         Schema::create('clan_wars', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('enemy_flag')->default('EA');
             $table->datetime('date');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
