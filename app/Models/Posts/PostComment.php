@@ -14,6 +14,10 @@ class PostComment extends Model
     use HasFactory;
     
     protected $touches = ['post'];
+    protected $with = [
+        'user',
+        'editedBy',
+    ];
 
     public function post(): BelongsTo
     {

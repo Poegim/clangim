@@ -13,6 +13,11 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $with = [
+        'user',
+        'postComments',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

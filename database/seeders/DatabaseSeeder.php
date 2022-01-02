@@ -10,6 +10,8 @@ use Database\Seeders\RepliesTableSeeder;
 use Database\Seeders\ThreadsTableSeeder;
 use Database\Seeders\ClanWarsTableSeeder;
 use Database\Seeders\CategoriesTableSeeder;
+use Database\Seeders\GameHomePlayersTableSeeder;
+use Database\Seeders\GameEnemyPlayersTableSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,6 +32,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PostCommentsTableSeeder::class);
         $this->call(ClanWarsTableSeeder::class);
         $this->call(GamesTableSeeder::class);
+        $this->call(GameEnemyPlayersTableSeeder::class);
+        $this->call(GameHomePlayersTableSeeder::class);
 
     }
 }

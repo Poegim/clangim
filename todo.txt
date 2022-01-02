@@ -1,15 +1,16 @@
 MODULES
 -- Team, with stats.
 -- Front Page
+-- Clan Wars
 
 IMPORTANT FIXES AND ADDONS
--- Replay parsing on different environments
+-- Replays parsing on different environments
 -- Replays score
 
 MINOR ADDONS
--- Country Flags for players and teams
+-- View: Country Flags for players and teams
 -- This team flag
--- Users SC Race
+-- View: Users SC Race
 
 SMALL FIXES
 -- Route names standarize
