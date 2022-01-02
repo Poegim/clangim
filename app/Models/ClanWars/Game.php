@@ -2,10 +2,11 @@
 
 namespace App\Models\ClanWars;
 
-use App\Models\User;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\ClanWars\GameHomePlayer;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ClanWars\GameEnemyPlayer;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Game extends Model
 {
@@ -13,24 +14,14 @@ class Game extends Model
 
     protected $guarded = [];
 
-    public function homePlayerOne(): BelongsTo
+    public function homePlayers()
     {
-        return $this->belongsTo(User::class, 'home_player_1');
+        return $this->hasMany(GameHomePlayer::class, 'game_id');
     }
 
-    public function homePlayerTwo(): BelongsTo
+    public function enemyPlayers()
     {
-        return $this->belongsTo(User::class, 'home_player_2');
-    }
-
-    public function homePlayerThree(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'home_player_3');
-    }
-
-    public function homePlayerFour(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'home_player_4');
+        return $this->hasMany(GameEnemyPlayer::class, 'game_id');
     }
 
     public function id(): int
