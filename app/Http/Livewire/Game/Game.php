@@ -6,20 +6,31 @@ use Livewire\Component;
 use App\Models\ClanWars\Game as GameModel;
 use App\Models\ClanWars\GameEnemyPlayer;
 use App\Models\ClanWars\GameHomePlayer;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 
 class Game extends Component
 {
     public $clanWar;
+
     public $gameModel;
     public $modelId;
 
-    public $editTypeModalVisibility = false;
-    public $deleteModalVisibility = false;
+    public $homePlayerModel;
+    public $enemyPlayerModel;
 
-    public $type;
     public $homePlayers;
     public $enemyPlayers;
+
+    public $editTypeModalVisibility = false;
+    public $editHomePlayerModalVisibility = false;
+    public $deleteModalVisibility = false;
+
+    //Html inputs
+    public $type;
+    public $home_player;
+    public $enemy_player;
+
 
     public function showEditTypeModal(int $id): void
     {
@@ -29,6 +40,22 @@ class Game extends Component
         $this->editTypeModalVisibility = true;
     }
 
+    public function showEditHomePlayerModal(int $id): void
+    {
+        $this->homePlayerModel = GameHomePlayer::findOrFail($id);
+        $this->home_player = $this->homePlayerModel->user_id;
+        $this->resetErrorBag();
+        $this->editHomePlayerModalVisibility = true;
+    }
+
+    public function showDeleteModal(int $id): void
+    {
+        $this->modelId = $id;
+        $this->loadModel();
+        $this->resetErrorBag();
+        $this->deleteModalVisibility = true;
+    }
+
     public function updateType()
     {
         if($this->type == $this->gameModel->type)
@@ -36,7 +63,6 @@ class Game extends Component
             $this->editTypeModalVisibility = false;
         } else
         {
-
             if($this->type < $this->gameModel->type)
             {
 
@@ -49,7 +75,6 @@ class Game extends Component
                         ->orderBy('created_at', 'desc')
                         ->limit($homePlayers - $this->type)
                         ->delete();
-
                 }
 
                 if($enemyPlayers > $this->type)
@@ -59,7 +84,6 @@ class Game extends Component
                         ->limit($homePlayers - $this->type)
                         ->delete();
                 }
-
             }
 
             $this->gameModel->type = $this->type;
@@ -67,6 +91,22 @@ class Game extends Component
             $this->editTypeModalVisibility = false;
             session()->flash('success', 'Game type updated.');
         }
+    }
+
+    public function updateHomePlayer()
+    {
+        $this->homePlayerModel->user_id = $this->home_player;
+        $this->homePlayerModel->save();
+        $this->editHomePlayerModalVisibility = false;
+        session()->flash('success', 'Home player updated.');
+
+    }
+
+    public function deleteGame()
+    {
+        $this->gameModel->delete();
+        $this->deleteModalVisibility = false;
+        session()->flash('success', 'Game deleted.');
     }
 
     public function loadModel(): Void
@@ -91,6 +131,7 @@ class Game extends Component
     {
         return view('livewire.game.game', [
             'games' => $this->read(),
+            'teamPlayers' => User::where('role', '<=', 5)->where('role', '>', 1)->get(),
         ]);
     }
 

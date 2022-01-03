@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="shadow-xl sm:rounded-lg overflow-hidden">
 
-                <div class="py-6 sm:px-20 border-b border-gray-200 bg-white">
+                <div class="py-6 px-0 sm:px-20 border-b border-gray-200 bg-white">
 
                     <livewire:clan-war.clan-war />
 
