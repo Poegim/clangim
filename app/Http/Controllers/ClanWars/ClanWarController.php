@@ -21,6 +21,7 @@ class ClanWarController extends Controller
     public function show(ClanWar $clanWar)
     {
         $results = $this->clanWarResult($clanWar);
+        
         $score = $results->wins . ' : ' .$results->losses; 
 
         return view('clan-wars.show', compact('clanWar', 'results', 'score'));

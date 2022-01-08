@@ -27,167 +27,67 @@
                 <div class="px-6 sm:px-12 pb-4 pt-4 clear-both">
 
                     <div class="my-4">
-                        Result: {{$results->finalResult}} ({{$results->wins}} : {{$results->losses}}).
+                        Result:
+                        <span class="text-lg font-bold">{{$results->finalResult}}</span>
+                        ({{$results->wins}} : {{$results->losses}}).
                     </div>
 
-                    @foreach ($clanWar->games as $game)
-                    <div class="mb-4 border-b-1">
-                        <div class="flex justify-between">
-                            <div>
-                                <span class="mt-2 inline text-sm text-gray-500">Type: {{ $game->type() }},
-                                    (id:{{$game->id}})</span>
-                                @if ($game->result == 1)
-                                <x-fontisto-smiley class="w-5 h-5 ml-4 text-green-500 mb-1 inline" />
-                                @endif
+                    <div class="grid lg:grid-cols-2 gap-2 pb-6">
+                        @foreach ($clanWar->games as $game)
+                        <div class="rounded overflow-hidden shadow-lg mt-4 pb-8 relative">
+                            <div class="px-6 bg bg">
+                                <div class="mb-4 border-b-1">
+                                    <div class="flex justify-between">
+                                        <div>
+                                            <span class="mt-2 inline text-sm text-gray-500">Type: {{ $game->type() }},
+                                                (id:{{$game->id}})</span>
+                                            @if ($game->result == 1)
+                                            <x-fontisto-smiley class="w-5 h-5 ml-4 text-green-500 mb-1 inline" />
+                                            @endif
 
-                                @if ($game->result == 0)
-                                <x-fontisto-neutral class="w-5 h-5 ml-4 text-red-600 mb-1 inline" />
-                                @endif
+                                            @if ($game->result == 0)
+                                            <x-fontisto-neutral class="w-5 h-5 ml-4 text-red-600 mb-1 inline" />
+                                            @endif
 
+                                        </div>
+
+                                    </div>
+
+                                    <div class="text-gray-700 grid grid-cols-3">
+
+                                        <div>
+                                            @if ($game->homePlayers != NULL)
+                                            @foreach ($game->homePlayers as $homePlayer)
+                                            <div class="text-lg">
+                                                {{ $homePlayer->user->name}}
+                                            </div>
+                                            @endforeach
+                                            @endif
+                                        </div>
+                                        <div class="text-center">vs</div>
+                                        <div>
+                                            @if ($game->enemyPlayers != NULL)
+                                            @foreach ($game->enemyPlayers as $enemyPlayer)
+                                            <div class="text-lg">
+                                                {{ $enemyPlayer->name}}
+                                            </div>
+                                            @endforeach
+                                            @endif
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
 
+                            <div class="h-2 absolute bottom-0 w-full bg-gradient-to-r {{$game->result == 1 ? 'from-green-400' : 'from-red-400'}}">
+                                
+                            </div>
                         </div>
+                        @endforeach
 
-                        <div class="text-gray-700 grid grid-cols-3">
-                            @switch($game->type())
-                            @case('1v1')
-                            <div>
-                                @if ($game->homePlayerOne != NULL)
-                                {{ $game->homePlayerOne->name }}
-                                @endif
-                            </div>
-                            <div class="text-center">vs</div>
-                            <div>
-                                @if ($game->enemy_player_1 != NULL)
-                                {{ $game->enemy_player_1 }}
-                                @endif
-                            </div>
-                            @break
-
-                            @case('2v2')
-                            <div>
-                                @if ($game->homePlayerOne != NULL)
-                                {{ $game->homePlayerOne->name }}
-                                @endif
-                            </div>
-                            <div class="text-center">vs</div>
-                            <div>
-                                @if ($game->enemy_player_1 != NULL)
-                                {{ $game->enemy_player_1 }}
-                                @endif
-                            </div>
-
-                            <div>
-                                @if ($game->homePlayerTwo != NULL)
-                                {{ $game->homePlayerTwo->name }}
-                                @endif
-                            </div>
-                            <div class="text-center"></div>
-                            <div>
-                                @if ($game->enemy_player_2 != NULL)
-                                {{ $game->enemy_player_2 }}
-                                @endif
-                            </div>
-                            @break
-
-                            @case('3v3')
-                            <div>
-                                @if ($game->homePlayerOne != NULL)
-                                {{ $game->homePlayerOne->name }}
-                                @endif
-                            </div>
-                            <div class="text-center">vs</div>
-                            <div>
-                                @if ($game->enemy_player_1 != NULL)
-                                {{ $game->enemy_player_1 }}
-                                @endif
-                            </div>
-
-                            <div>
-                                @if ($game->homePlayerTwo != NULL)
-                                {{ $game->homePlayerTwo->name }}
-                                @endif
-                            </div>
-                            <div class="text-center"></div>
-                            <div>
-                                @if ($game->enemy_player_2 != NULL)
-                                {{ $game->enemy_player_2 }}
-                                @endif
-                            </div>
-
-                            <div>
-                                @if ($game->homePlayerThree != NULL)
-                                {{ $game->homePlayerThree->name }}
-                                @endif
-                            </div>
-                            <div class="text-center"></div>
-                            <div>
-                                @if ($game->enemy_player_3 != NULL)
-                                {{ $game->enemy_player_3 }}
-                                @endif
-                            </div>
-                            @break
-
-                            @case('4v4')
-                            <div>
-                                @if ($game->homePlayerOne != NULL)
-                                {{ $game->homePlayerOne->name }}
-                                @endif
-                            </div>
-                            <div class="text-center">vs</div>
-                            <div>
-                                @if ($game->enemy_player_1 != NULL)
-                                {{ $game->enemy_player_1 }}
-                                @endif
-                            </div>
-
-                            <div>
-                                @if ($game->homePlayerTwo != NULL)
-                                {{ $game->homePlayerTwo->name }}
-                                @endif
-                            </div>
-                            <div class="text-center"></div>
-                            <div>
-                                @if ($game->enemy_player_2 != NULL)
-                                {{ $game->enemy_player_2 }}
-                                @endif
-                            </div>
-
-                            <div>
-                                @if ($game->homePlayerThree != NULL)
-                                {{ $game->homePlayerThree->name }}
-                                @endif
-                            </div>
-                            <div class="text-center"></div>
-                            <div>
-                                @if ($game->enemy_player_3 != NULL)
-                                {{ $game->enemy_player_3 }}
-                                @endif
-                            </div>
-
-                            <div>
-                                @if ($game->homePlayerFour != NULL)
-                                {{ $game->homePlayerFour->name }}
-                                @endif
-                            </div>
-                            <div class="text-center"></div>
-                            <div>
-                                @if ($game->enemy_player_4 != NULL)
-                                {{ $game->enemy_player_4 }}
-                                @endif
-                            </div>
-
-                            @break
-                            @default
-
-                            @endswitch
-                        </div>
                     </div>
-                    @endforeach
 
                 </div>
-
             </div>
         </div>
-    </div>
 </x-app-layout>

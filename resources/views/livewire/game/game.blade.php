@@ -115,6 +115,11 @@
                     @endcan
                 </div>
             </div>
+
+            <div class="h-2 absolute bottom-0 w-full bg-gradient-to-r {{$game->result == 1 ? 'from-green-400' : 'from-red-400'}}">
+            </div>
+
+            
         </div>
         @endforeach
 
