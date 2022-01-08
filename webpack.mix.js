@@ -17,6 +17,13 @@ mix.js('resources/js/app.js', 'public/js')
         require('tailwindcss'),
     ]);
 
+mix.webpackConfig({
+    devServer: {
+        host: '0.0.0.0',
+        port: 8080,
+    },
+});
+
 if (mix.inProduction()) {
     mix.version();
 }

@@ -31,7 +31,7 @@ class PostCommentController extends Controller
         $postComment->user_id = auth()->user()->id;
         $postComment->save();
 
-        return redirect()->route('post.show', $request->post_slug)->with('success', 'Post added successfully.');
+        return redirect()->route('post.show', $request->post_slug)->with('success', 'Comment added successfully.');
     }
 
     public function show(PostComment $postComment)

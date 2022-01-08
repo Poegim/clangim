@@ -45,12 +45,7 @@ class ReplayController extends Controller
             ]
         );
 
-        //This should be done as new validate() rule or RULE::(?) - in future.
-
         $file = $request->file('file');
-
-        // ++ add extension check .rep?
-
         $newFilePath = $this->saveFile($file);
         $replayData = $this->validateReplay($newFilePath);
 
@@ -58,9 +53,12 @@ class ReplayController extends Controller
         {
             return redirect()->route('replays.create')->withErrors(['file' => $replayData->Errors[0]]);
         }
+        
+        if(!isset($replayData->Data))
+        {
+            $replayData->Data = new stdClass();
+        }
 
-        //Yes this, inside both comments.
-                        
         Replay::create($this->generateDataForModel($replayData->Data, $request->title, $newFilePath));
 
         return redirect()->route('replays.index')->with('success', 'Replay added!');
@@ -69,20 +67,32 @@ class ReplayController extends Controller
 
     public function generateDataForModel(stdClass $replayData, string $title, string $newFilePath): array
     {
-        $generatedData = [
-            'title'     => $title,
-            'file'      => $newFilePath,
-            'players_count' => count($replayData->Header->Players),
-            'user_id'   => auth()->user()->id,
-        ];
-
-        for ($i=0; $i < count($replayData->Header->Players); $i++) 
-        {           
-            $generatedData['player_'.($i+1)] =  $replayData->Header->Players[$i]->Name;
-            $generatedData['player_'.($i+1).'_team'] =  $replayData->Header->Players[$i]->Team;
-            $generatedData['player_'.($i+1).'_race'] =  $replayData->Header->Players[$i]->Race->Name;
-            $generatedData['player_'.($i+1).'_apm'] =  $replayData->Computed->PlayerDescs[$i]->APM;
-            $generatedData['player_'.($i+1).'_eapm'] =  $replayData->Computed->PlayerDescs[$i]->EAPM;
+        if($replayData == new stdClass)
+        {
+            $generatedData = [
+                'title'     => $title,
+                'file'      => $newFilePath,
+                'players_count' => 0,
+                'user_id'   => auth()->user()->id,
+            ];
+            
+        } else
+        {
+            $generatedData = [
+                'title'     => $title,
+                'file'      => $newFilePath,
+                'players_count' => count($replayData->Header->Players),
+                'user_id'   => auth()->user()->id,
+            ];
+    
+            for ($i=0; $i < count($replayData->Header->Players); $i++) 
+            {           
+                $generatedData['player_'.($i+1)] =  $replayData->Header->Players[$i]->Name;
+                $generatedData['player_'.($i+1).'_team'] =  $replayData->Header->Players[$i]->Team;
+                $generatedData['player_'.($i+1).'_race'] =  $replayData->Header->Players[$i]->Race->Name;
+                $generatedData['player_'.($i+1).'_apm'] =  $replayData->Computed->PlayerDescs[$i]->APM;
+                $generatedData['player_'.($i+1).'_eapm'] =  $replayData->Computed->PlayerDescs[$i]->EAPM;
+            }
         }
 
         return $generatedData;

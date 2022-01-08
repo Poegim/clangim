@@ -5,7 +5,7 @@
     wire:click="loadModal"
     wire:loading.attr="disabled"
     >
-        <x-zondicon-trash
+        <x-clarity-trash-line
         class="w-5 h-5 md:w-4 md:h-4 text-gray-500 hover:text-gray-700 focus:text-gray-700 inline mb-1"
         />
     </a>

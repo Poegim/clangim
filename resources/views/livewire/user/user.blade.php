@@ -1,12 +1,5 @@
 <div>
-    <div>
-        <x-alert type="success" class="bg-green-700 text-green-100 p-2 mb-4" x-data="{ show: true }" x-show="show"
-        x-init="setTimeout(() => show = false, 3000)" 
-        x-transition:leave="transition ease-in duration-300"
-        x-transition:leave-start="opacity-100 transform scale-100"
-        x-transition:leave-end="opacity-0 transform scale-50"
-        />
-    </div>
+    <x-notification></x-notification>
 
     <div>
         <div class="flex justify-between px-1">
@@ -74,7 +67,7 @@
                                                     wire:click="showEditModal({{$itemUser->id}})"
                                                     wire:loading.attr="disabled"
                                                     >
-                                                        <x-zondicon-edit-pencil class="w-5 h-5 text-indigo-600 focus:text-indigo-800 hover:text-indigo-800"/>
+                                                        <x-clarity-note-edit-line class="w-5 h-5 text-indigo-600 focus:text-indigo-800 hover:text-indigo-800"/>
                                                     </a>
                                                     @can('delete', $itemUser)
                                                     <button 
@@ -82,7 +75,7 @@
                                                         wire:click="showDeleteModal({{$itemUser->id}})"
                                                         wire:loading.attr="disabled"
                                                         >
-                                                        <x-zondicon-trash class="w-5 h-5"/>
+                                                        <x-clarity-trash-line class="w-5 h-5"/>
                                                 </button>
                                                     @endcan
 

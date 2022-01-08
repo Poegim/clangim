@@ -1,6 +1,6 @@
 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12">
     <div
-    class="py-4 px-6 sm:px-20 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold">
+    class="py-4 px-6 sm:px-12 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold">
 
         <span class="block lg:inline ">
             <img class="h-8 w-8 mr-2 rounded-full object-cover inline"
@@ -13,7 +13,13 @@
         </span>
     </div>
 
-    <div class="px-6 sm:px-20 text-gray-500 py-6 grid grid-cols-2">
+    <div class="px-6 sm:px-12 text-gray-500 py-6 grid grid-cols-2">
+
+        @if($replay->players_count == 0)
+        <div class="col-span-2">
+            This app requires linux server to read replays data.
+        </div>
+        @endif
 
         @if ($playerOne->name)
         <x-clangim.replays.player :player="$playerOne" /> 
@@ -50,7 +56,7 @@
     </div>
     <div class="flex justify-between">
 
-        <div class="flex justify-start pb-6 px-6 sm:px-20 gap-2">
+        <div class="flex justify-start pb-6 px-6 sm:px-12 gap-2">
             <livewire:replay.download :downloadsCounter='$replay->downloadsCounter()' :modelId="$replay->id" :key="$replay->id" />
             <div>
                 @if (!Request::segment(2))
@@ -73,7 +79,7 @@
         @can('update', $replay)
             <div class="flex justify-end gap-2 pr-6 sm:pr-20">      
                 <a href="{{ route('replays.edit', $replay) }}">
-                    <x-zondicon-edit-pencil class="w-5 h-5 text-indigo-600 focus:text-indigo-800 hover:text-indigo-800"/>
+                    <x-clarity-note-edit-line class="w-5 h-5 text-indigo-600 focus:text-indigo-800 hover:text-indigo-800"/>
                 </a>
                 @can('delete', $replay)
                 <livewire:replay.delete :replay="$replay" />

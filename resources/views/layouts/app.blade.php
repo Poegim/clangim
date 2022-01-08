@@ -23,6 +23,7 @@
 
     </head>
     <body class="font-sans antialiased">
+        
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100 pb-12">
@@ -45,9 +46,11 @@
 
         @include('layouts.footer')
 
+        
         @stack('modals')
         @livewireScripts
         @bukScripts
+        @include('cookie-consent::index')
 
     </body>
 </html>

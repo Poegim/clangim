@@ -5,13 +5,7 @@
         </h2>
     </x-slot>
 
-    <div>
-        <x-alert type="success" class="bg-green-700 text-green-100 p-2 mb-4" x-data="{ show: true }"
-            x-show="show" x-init="setTimeout(() => show = false, 3000)"
-            x-transition:leave="transition ease-in duration-300"
-            x-transition:leave-start="opacity-100 transform scale-100"
-            x-transition:leave-end="opacity-0 transform scale-50" />
-    </div>
+    <x-notification></x-notification>
 
     <div>
 

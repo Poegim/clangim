@@ -13,4 +13,3 @@ window.addEventListener("trix-file-accept", function(event)
   }
 );
 
-

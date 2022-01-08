@@ -4,7 +4,7 @@
         wire:click="loadModal"
         wire:loading.attr="disabled"
         >
-        <x-zondicon-trash class="w-5 h-5"/>
+        <x-clarity-trash-line class="w-5 h-5"/>
     </a>
 
     <x-jet-dialog-modal wire:model="modalVisibility">

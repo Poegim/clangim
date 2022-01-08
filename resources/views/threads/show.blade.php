@@ -9,13 +9,13 @@
         </h2>
     </x-slot>
 
-    <x-alert type="success" class="bg-green-700 text-green-100 p-4" x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" />
+    <x-notification></x-notification>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="shadow-xl sm:rounded-lg overflow-hidden">
 
-                <div class="p-6 sm:px-20 border-b border-gray-200 bg-white">
+                <div class="p-6 sm:px-12 border-b border-gray-200 bg-white">
 
                     <div class="w-full flex justify-center">
                             <img src="{{asset($thread->image)}}" class="rounded-2xl overflow-hidden w-full" alt="{{$thread->image}}">
@@ -38,7 +38,7 @@
                                 @can('update', $thread)                    
 
                                 <a href="{{route('threads.edit', $thread)}}">
-                                    <x-zondicon-edit-pencil class="w-6 h-6 inline ml-4 text-gray-500 hover:text-gray-700 focus:text-gray-700"/>
+                                    <x-clarity-note-edit-line class="w-6 h-6 inline ml-4 text-gray-500 hover:text-gray-700 focus:text-gray-700"/>
                                 </a>
                                 @endcan
                             </div>
@@ -70,7 +70,7 @@
                                     @endcan
                                     @can('update', $reply)        
                                     <a href="{{ route('replies.edit', $reply)}}">
-                                        <x-zondicon-edit-pencil class="w-6 h-6 inline ml-4 text-gray-500 hover:text-gray-700 focus:text-gray-700"/>
+                                        <x-clarity-note-edit-line class="w-6 h-6 inline ml-4 text-gray-500 hover:text-gray-700 focus:text-gray-700"/>
                                     </a>
                                     @endcan
                                 </div>

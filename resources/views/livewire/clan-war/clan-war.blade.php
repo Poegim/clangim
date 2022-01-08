@@ -1,13 +1,5 @@
 <div>
-    <div>
-        <x-alert type="success" class="bg-green-700 text-green-100 p-2 mb-4" x-data="{ show: true }" x-show="show"
-        x-init="setTimeout(() => show = false, 3000)" 
-        x-transition:leave="transition ease-in duration-300"
-        x-transition:leave-start="opacity-100 transform scale-100"
-        x-transition:leave-end="opacity-0 transform scale-50"
-        />
-    </div>
-
+    <x-notification></x-notification>
     <div>
         <div class="flex justify-between px-1">
 
@@ -73,7 +65,7 @@
                                         @can('update', $clanWar)
 
                                         <a href="{{route('games.edit', $clanWar->id)}}">
-                                            <x-clarity-note-edit-solid 
+                                            <x-clarity-note-edit-line 
                                             class="w-5 h-5 md:w-4 md:h-4 text-gray-500 hover:text-gray-700 focus:text-gray-700 inline mb-1"
                                             />
                                         </a>
@@ -97,7 +89,7 @@
                                         <button
                                             wire:click='showEditModal({{$clanWar->id}})'
                                             class="text-indigo-600 hover:text-indigo-900 ">
-                                            <x-zondicon-edit-pencil
+                                            <x-clarity-note-edit-line
                                             class="w-5 h-5 md:w-4 md:h-4 text-gray-500 hover:text-gray-700 focus:text-gray-700 inline mr-2 mb-1"
                                             />
                                         </button>

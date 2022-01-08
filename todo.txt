@@ -4,17 +4,16 @@ MODULES
 -- Clan Wars
 
 IMPORTANT FIXES AND ADDONS
--- Replays parsing on different environments
 -- Replays score
 
 MINOR ADDONS
 -- View: Country Flags for players and teams
 -- This team flag
--- View: Users SC Race
+-- View: Users SC Race and Flags
 
 SMALL FIXES
 -- Route names standarize
--- Graphic design standarize (forum, edit button, delete button)
+-- Graphic design standarize (forum, edit button, delete button, big icons (tank etc))
 -- Standarize notifications
 
 FINAL CHECK
