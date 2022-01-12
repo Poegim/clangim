@@ -3,13 +3,14 @@
 namespace App\Models\Replays;
 
 use App\Models\User;
-use App\Models\Replays\ReplayComment;
+use App\Models\Replays\Score;
 use Illuminate\Support\Carbon;
+use App\Models\Replays\ReplayComment;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Replay extends Model
 {
@@ -35,6 +36,18 @@ class Replay extends Model
     public function downloadsCounter(): int
     {
         return $this->downloads_counter;
+    }
+
+    public function scores(): HasMany
+    {
+        return $this->hasMany(Score::class, 'replay_id');
+    }
+
+    public function averageScore()
+    {
+        $scoresCount = $this->scores->count();
+        $sum = $this->scores->sum('score');
+        return round($sum/$scoresCount, 1);
     }
 
     public function playerOneTeam(): string

@@ -1,10 +1,8 @@
 MODULES
 -- Team, with stats.
 -- Front Page
--- Clan Wars
 
 IMPORTANT FIXES AND ADDONS
--- Replays score
 
 MINOR ADDONS
 -- View: Country Flags for players and teams
@@ -14,7 +12,6 @@ MINOR ADDONS
 SMALL FIXES
 -- Route names standarize
 -- Graphic design standarize (forum, edit button, delete button, big icons (tank etc))
--- Standarize notifications
 
 FINAL CHECK
 -- Authorizations
