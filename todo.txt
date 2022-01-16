@@ -1,8 +1,12 @@
+
+Random order to-do list for Clangim project
+
 MODULES
 -- Team, with stats.
 -- Front Page
 
 IMPORTANT FIXES AND ADDONS
+-- Mail notifications about incoming CWs
 
 MINOR ADDONS
 -- View: Country Flags for players and teams
@@ -22,10 +26,11 @@ FINAL CHECK
 
 AFTER FINAL CHECK
 -- Readme.md
+-- Docs with logged and unlogged screens, with mobile and desktop view
 
 
 FUTURE OR OPTIONAL
- -- Change screp folder?
- -- Add log for crytical error, like unable to remove replay.
- -- Add new log notifications for Admin accout?
+ -- Change screp folder
+ -- Add log for crytical error, like unable to remove files/replay etc
+ -- Add log notifications for Admin/Captain account
  -- Dark mode

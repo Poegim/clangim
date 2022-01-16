@@ -73,7 +73,7 @@ class Score extends Component
         $scoresCount = $this->replay->scores->count();
         $sum = $this->replay->scores->sum('score');
         
-        $this->averageScore = number_format(round($sum/$scoresCount, 1), 1, '.', '');
+        $sum != 0 ? $this->averageScore = number_format(round($sum/$scoresCount, 1), 1, '.', '') : $this->averageScore = '';
     }
 
     public function render()
