@@ -6,12 +6,13 @@ MODULES
 -- Front Page
 
 IMPORTANT FIXES AND ADDONS
--- Mail notifications about incoming CWs
+-- Mail notifications about incoming CWs, news.
 
 MINOR ADDONS
 -- View: Country Flags for players and teams
 -- This team flag
 -- View: Users SC Race and Flags
+-- BattleID / ShieldBatteryID
 
 SMALL FIXES
 -- Route names standarize

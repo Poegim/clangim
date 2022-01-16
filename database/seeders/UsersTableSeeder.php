@@ -25,6 +25,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Captain',
             'email' => 'captain@example.com',
             'role' => User::CAPTAIN,
+            'race' => 'protoss',
             'password' => bcrypt('password'),
         ]);
 
@@ -32,6 +33,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'Vice',
             'email' => 'vice@example.com',
             'role' => User::VICE_CAPTAIN,
+            'race' => 'terran',
+            'country' => 'PE',
             'password' => bcrypt('password'),
         ]);
 
@@ -39,6 +42,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'Player',
             'email' => 'player@example.com',
             'role' => User::PLAYER,
+            'race' => 'zerg',
+            'country' => 'DE',
             'password' => bcrypt('password'),
         ]);
 
@@ -47,6 +52,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'Inactive',
             'email' => 'inactive@example.com',
             'role' => User::INACTIVE,
+            'race' => 'random',
+            'country' => 'PL',
             'password' => bcrypt('password'),
         ]);
 

@@ -153,7 +153,7 @@
                         <option value="4" {{ $role == 4 ? 'selected' : null }}>PLAYER</option>
                         <option value="5" {{ $role == 5 ? 'selected' : null }}>INACTIVE</option>
                         <option value="6" {{ $role == 6 ? 'selected' : null }}>EX_PLAYER</option>
-                        <option value="7" {{ $role == 7 ? 'selected' : null }}>USER</option>
+                        <option value="7" {{ $role == 7 ? 'selected' : null }} {{ $role < 7 ? ' disabled' : null }}>USER</option>
                         
                 </select>
 

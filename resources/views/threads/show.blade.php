@@ -24,12 +24,28 @@
                     <div class="mt-4 border rounded-t-xl overflow-hidden">
 
                         <div class="bg-gray-200 text-gray-600 p-2 flex justify-between">
-                            <div>
-                                <img class="h-8 w-8 rounded-full object-cover inline"
-                                src="{{ $thread->user->profile_photo_url }}" alt="{{ $thread->user->name }}" />
-                                {{$thread->user->name}}, {{$thread->createdAt()}}
+
+                            <div class="relative h-8">
+
+                                <div class="inline absolute z-20">
+                                    <img class="h-8 w-8 rounded-full object-cover inline"
+                                    src="{{ $thread->user->profile_photo_url }}" alt="{{ $thread->user->name }}"
+                                    />
+                                    
+                                </div>
+                                
+                                <div class="inline left-5 z-10 absolute">
+                                    <img class="h-8 w-8 rounded-full object-cover inline"
+                                    src="{{ $thread->user->countryFlagURL() }}" alt="{{ $thread->user->country }}"
+                                    />
+                                </div>
+                
+                                <div class="ml-14 h-full mt-1">
+                                    {{$thread->user->name}}
+                                </div>
                             </div>
-                            <div>
+
+                            <div class="mt-1">
                                 @can('delete', $thread)                    
 
                                 <livewire:thread.delete :thread="$thread" :key="$thread->id()">
@@ -57,13 +73,28 @@
                     @foreach ($replies as $reply)
                         <div class="mt-4 border rounded-t-xl overflow-hidden">
                             <div class="p-2 bg-gray-200 text-gray-500 flex justify-between">
-                                <div>
-                                    <img class="h-8 w-8 rounded-full object-cover inline"
-                                    src="{{ $reply->user->profile_photo_url }}" alt="{{ $reply->user->name }}" />
-                                    {{$reply->user->name}}, {{$reply->createdAt()}}
+
+                                <div class="relative h-8">
+
+                                    <div class="inline absolute z-20">
+                                        <img class="h-8 w-8 rounded-full object-cover inline"
+                                        src="{{ $reply->user->profile_photo_url }}" alt="{{ $reply->user->name }}"
+                                        />
+                                        
+                                    </div>
+                                    
+                                    <div class="inline left-5 z-10 absolute">
+                                        <img class="h-8 w-8 rounded-full object-cover inline"
+                                        src="{{ $reply->user->countryFlagURL() }}" alt="{{ $reply->user->country }}"
+                                        />
+                                    </div>
+                    
+                                    <div class="ml-14 h-full mt-1">
+                                        {{$reply->user->name}}
+                                    </div>
                                 </div>
 
-                                <div>
+                                <div class="mt-1">
                                     @can('delete', $reply)                    
                                     <livewire:reply.delete :reply="$reply" :key="$reply->id()">
 

@@ -17,7 +17,7 @@ class TeamStatsTable extends Component
     public function booted()
     {
         $this->setStats();
-        $this->sortTable('players', 'wins');
+        $this->sortTable('wins');
     }
 
     public function render()

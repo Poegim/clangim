@@ -95,6 +95,20 @@
             <x-jet-input-error for="race" class="mt-2" />
         </div>
 
+        <!-- Battle ID -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="battleid" value="{{ __('Battle ID') }}" />
+            <x-jet-input id="battleid" type="text" class="mt-1 block w-full" wire:model.defer="state.battleid" autocomplete="battleid" />
+            <x-jet-input-error for="battleid" class="mt-2" />
+        </div>
+
+        <!-- ShieldBattery ID -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="shieldid" value="{{ __('ShieldBattery ID') }}" />
+            <x-jet-input id="shieldid" type="text" class="mt-1 block w-full" wire:model.defer="state.shieldid" autocomplete="shieldid" />
+            <x-jet-input-error for="shieldid" class="mt-2" />
+        </div>
+
     </x-slot>
 
     <x-slot name="actions">

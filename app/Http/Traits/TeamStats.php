@@ -12,7 +12,7 @@ trait TeamStats
         
         $this->players = $this->players->sortBy([
             [$sortBy, $descOrAsc],
-            ['games', 'desc'],
+            ['losses', 'asc'],
         ]);
 
         $this->tableSortedBy = $sortBy;

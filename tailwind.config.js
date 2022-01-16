@@ -13,6 +13,7 @@ module.exports = {
         ],
         safelist: [
             'from-red-400',
+            'from-red-800',
             'from-blue-400',
             'from-indigo-400',
             'from-purple-400',
@@ -20,6 +21,11 @@ module.exports = {
             'from-pink-400',
             'from-yellow-400',
             'from-green-400',
+            'via-red-400',
+            'via-yellow-400',
+            'to-indigo-800',
+            'to-yellow-400',
+            'to-black'
         ]
     },
 

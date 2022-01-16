@@ -6,12 +6,28 @@
             <div
             class="py-4 px-6 sm:px-12 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold">
 
-                <span class="block lg:inline ">
-                    <img class="h-8 w-8 mr-2 rounded-full object-cover inline"
-                    src="{{ $post->user->profile_photo_url }}" alt="{{ $post->user->name }}"
-                    />
-                    <a href="{{ route('post.show', $post->slug) }}">{{ $post->title }}</a>
-                </span>
+                <div class="block lg:inline">
+
+                    <div class="relative">
+
+                        <div class="inline absolute z-20">
+                            <img class="h-8 w-8 rounded-full object-cover inline"
+                            src="{{ $post->user->profile_photo_url }}" alt="{{ $post->user->name }}"
+                            />
+                            
+                        </div>
+                        
+                        <div class="inline  left-5 z-10 absolute">
+                            <img class="h-8 w-8 rounded-full object-cover inline"
+                            src="{{ $post->user->countryFlagURL() }}" alt="{{ $post->user->country }}"
+                            />
+                        </div>
+
+                    </div>
+                    
+                    <a href="{{ route('post.show', $post->slug) }}" class="ml-14">{{ $post->title }}</a>
+                    
+                </div>
                 <span class="mt-2 block lg:inline text-xs italic">
                     {{ $post->createdAt() }}, by {{ $post->user->name }}
                 </span>

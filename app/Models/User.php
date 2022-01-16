@@ -3,9 +3,10 @@
 namespace App\Models;
 
 use App\Models\ClanWars\Game;
-use App\Models\ClanWars\GameHomePlayer;
+use Illuminate\Support\Carbon;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
+use App\Models\ClanWars\GameHomePlayer;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -76,12 +77,47 @@ class User extends Authenticatable
 
     public function countryFlagURL(): string
     {
-        return 'images/country_flags/'.strtolower($this->country).'.png';
+        return asset('images/country_flags/'.strtolower($this->country).'.png');
+    }
+
+    public function ingameRace()
+    {
+        return ucfirst($this->race);
+    }
+
+    public function teamRaceBackground(): string
+    {
+        switch ($this->race) {
+            case 'none':
+                return 'from-gray-400';
+                break;
+            
+            case 'random':
+                return 'from-red-800 via-yellow-400 to-indigo-800';
+                break;
+
+            case 'protoss':
+                return 'from-yellow-400 to-black';
+                break;
+
+            case 'zerg':
+                return 'from-red-400 to-black';
+                break;
+
+            case 'terran':
+                return 'from-indigo-400 to-black';
+                break;
+        }
     }
 
     public function ingameRaceURL()
     {
         //
+    }
+
+    public function createdAt(): string
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('Y-m-d');
     }
 
     public function role(): string
@@ -96,7 +132,7 @@ class User extends Authenticatable
                 break;
 
             case '3':
-                return 'VICE_CAPTAIN';
+                return 'VICE CAPTAIN';
                 break;
             
             case '4':
@@ -108,7 +144,7 @@ class User extends Authenticatable
                 break;
             
             case '6':
-                return 'EX_MEMBER';
+                return 'EX MEMBER';
                 break;
 
             case '7':

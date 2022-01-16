@@ -13,7 +13,7 @@ class TeamController extends Controller
         $formerPlayers = User::where('role', 6)->get();
         $players = User::where('role', '<=', 5)->where('role', '>', 1)->get();
         $teamList = $players->sortBy([
-            ['role', 'desc'],
+            ['role', 'asc'],
         ]);
 
         return view('team.index', compact('players', 'formerPlayers', 'teamList'));

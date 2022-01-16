@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->smallInteger('role')->default(User::USER);
             $table->string('country')->default('EU');
             $table->string('race')->default('none');
+            $table->string('battleid')->default('');
+            $table->string('shieldid')->default('');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

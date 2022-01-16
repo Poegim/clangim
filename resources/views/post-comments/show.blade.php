@@ -6,12 +6,27 @@
             <div
             class="py-4 px-6 sm:px-12 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold">
 
-                <span class="block lg:inline ">
-                    <img class="h-8 w-8 mr-2 rounded-full object-cover inline"
+            <div class="relative">
+
+                <div class="inline absolute z-20">
+                    <img class="h-8 w-8 rounded-full object-cover inline"
                     src="{{ $postComment->user->profile_photo_url }}" alt="{{ $postComment->user->name }}"
                     />
-                    {{ $postComment->user->name }}
+                    
+                </div>
+                
+                <div class="inline  left-5 z-10 absolute">
+                    <img class="h-8 w-8 rounded-full object-cover inline"
+                    src="{{ $postComment->user->countryFlagURL() }}" alt="{{ $postComment->user->country }}"
+                    />
+                </div>
+
+                <span class="ml-14">
+                    {{$postComment->user->name}}
                 </span>
+            </div>
+
+                
                 <span class="mt-2 block lg:inline text-xs italic">
                     {{ $postComment->created_at }}, by {{ $postComment->user->name }}
                 </span>
