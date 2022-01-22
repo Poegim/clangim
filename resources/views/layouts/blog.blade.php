@@ -52,7 +52,7 @@
                 <div class="flex justify-between">
                     
                     <div>
-                        <a href="{{ route('post.show', $post->slug) }}" 
+                        <a href="{{ route('post.show', $post->slug) }}#comments" 
                             class="text-sm font-semibold text-indigo-700"
                             >
                             Comments ({{$post->postComments->count()}})
@@ -60,11 +60,14 @@
                     </div>
 
                     @can('update', $post)     
-                    <div class="px-6 sm:px-12 pb-4 pt-4 clear-both flex justify-end gap-2">
-                        <a href="{{ route('post.edit', $post->slug) }}" 
-                        class="text-sm font-semibold text-indigo-500 focus:text-indigo-700 hover:text-indigo-700">
-                            <x-clarity-note-edit-line class="w-5 h-5"/>
-                        </a>
+                    <div class="px-6 sm:px-12 pb-4 clear-both flex justify-end gap-2">
+                        <div>
+                            <a href="{{ route('post.edit', $post->slug) }}" 
+                                class="text-sm font-semibold text-indigo-500 focus:text-indigo-700 hover:text-indigo-700">
+                                    <x-clarity-note-edit-line class="w-5 h-5"/>
+                            </a>
+                        </div>
+
                         
                         @can('delete', $post)
                         <livewire:post.delete :post="$post" :key="$post->id">

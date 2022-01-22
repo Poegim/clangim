@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Posts\PostComment;
 use Illuminate\Database\Seeder;
+use App\Models\Replays\ReplayComment;
 
-class PostCommentsTableSeeder extends Seeder
+class ReplayCommentsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class PostCommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        PostComment::factory()->count(250)->create();
+        ReplayComment::factory()->count(rand(10,30))->create();
     }
 }

@@ -27,7 +27,7 @@
         </span>
     </div>
 
-    <div class="px-6 sm:px-12 text-gray-500 py-6 grid grid-cols-2">
+    <div class="px-6 sm:px-12 text-gray-500 py-6">
 
         {!! $comment->body !!}
 

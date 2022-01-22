@@ -23,7 +23,7 @@ class ReplyFactory extends Factory
     public function definition()
     {
         return [
-            'body'              => $this->faker->text(rand(100,1000)),
+            'body'              => $this->faker->realText(rand(100,1000)),
             'thread_id'         => rand(1,15),
             'user_id'           => rand(1,5),
             'created_at'        => Carbon::now(),

@@ -47,6 +47,8 @@
 
             </div>
 
+            <span id="comments"></span>
+
             @foreach ($replay->comments as $comment)
             <x-clangim.replays.comment :comment="$comment" />
             @endforeach

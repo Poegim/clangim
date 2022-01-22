@@ -86,7 +86,9 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
+
+    <span id="comments"></span>
 
     @include('post-comments.show');
 

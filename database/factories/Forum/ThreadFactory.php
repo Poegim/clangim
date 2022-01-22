@@ -22,9 +22,9 @@ class ThreadFactory extends Factory
     public function definition()
     {
         return [
-            'title'         => $this->faker->text(30),
+            'title'         => $this->faker->realText(30),
             'slug'          => $this->faker->unique()->slug,
-            'body'          => $this->faker->paragraph(7, true),
+            'body'          => $this->faker->realText(rand(100,1000)),
             'category_id'   => rand(1,3),
             'user_id'     => rand(1,5),
         ];

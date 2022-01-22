@@ -16,7 +16,6 @@ class CreateReplayCommentsTable extends Migration
         Schema::create('replay_comments', function (Blueprint $table) {
             $table->id();
             $table->text('body');
-            $table->integer('score')->nullable();
             $table->unsignedBigInteger('replay_id');
             $table->foreign('replay_id')->references('id')->on('replays')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');

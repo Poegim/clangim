@@ -47,7 +47,7 @@
             <livewire:replay.download :downloadsCounter='$replay->downloadsCounter()' :modelId="$replay->id" :key="$replay->id" />
             <div>
                 @if (!Request::segment(2))
-                <a href="{{route('replays.show', $replay->id)}}" class="text-sm font-semibold text-indigo-700"
+                <a href="{{route('replays.show', $replay->id)}}#comments" class="text-sm font-semibold text-indigo-700"
                     >
                     Comment ({{$replay->comments()->count()}})
                 </a>
@@ -59,7 +59,6 @@
                 Edited: {{ $replay->updatedAt() }}, by {{ $replay->editedBy->name }}.
                 @endif
             </div>
-
 
         </div>
 

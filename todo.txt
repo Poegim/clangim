@@ -37,6 +37,7 @@ AFTER FINAL CHECK
 
 
 FUTURE OR OPTIONAL
+ -- Sorting replays
  -- Team Logo
  -- BG Image
  -- Likes ? as web user points ?

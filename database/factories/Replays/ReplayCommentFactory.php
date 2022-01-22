@@ -1,19 +1,21 @@
 <?php
 
-namespace Database\Factories\Posts;
+namespace Database\Factories\Replays;
 
-use Carbon\Carbon;
-use App\Models\Posts\PostComment;
+use App\Models\Replays\ReplayComment;
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PostCommentFactory extends Factory
+class ReplayCommentFactory extends Factory
 {
+
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = PostComment::class;
+    protected $model = ReplayComment::class;
+
 
     /**
      * Define the model's default state.
@@ -23,8 +25,8 @@ class PostCommentFactory extends Factory
     public function definition()
     {
         return [
-            'body'              => $this->faker->realText(rand(10,500)),
-            'post_id'           => rand(1,31),
+            'body'              => $this->faker->realText(rand(100,1000)),
+            'replay_id'         => rand(1,5),
             'user_id'           => rand(1,5),
             'created_at'        => Carbon::now(),
         ];

@@ -2,23 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ClanWars\ClanWar;
-use App\Models\Posts\Post;
 use Illuminate\View\View;
+use App\Models\Posts\Post;
 use Illuminate\Http\Request;
+use App\Models\Replays\Replay;
+use Illuminate\Support\Carbon;
+use App\Models\ClanWars\ClanWar;
 
 class HomeController extends Controller
 {
+    public $replays;
+
     public function index()
     {
-        $posts = Post::withCount('postComments')->orderByDesc('created_at')->paginate(10);
-        $clanWars = ClanWar::where('date', '>', now())->with('user')->orderBy('date', 'asc')->get();
-        
+        $posts = Post::withCount('postComments')
+                        ->orderBy('created_at', 'desc')
+                        ->orderBy('id', 'desc')
+                        ->paginate(10);
 
+        $clanWars = ClanWar::where('date', '>', now())->with('user')->orderBy('date', 'asc')->get();
+        $this->replays = Replay::orderBy('created_at', 'asc')->with('comments')->limit(5)->get();
+
+        $this->getAverageReplayScores();
+     
         return view('dashboard', [
-            'posts' => $posts,
-            'clanWars' => $clanWars,
+            'posts'         => $posts,
+            'clanWars'      => $clanWars,
+            'replays'       => $this->replays,
         ]);
         
+    }
+
+    public function getAverageReplayScores(): void
+    {
+        foreach($this->replays as $replay)
+        {
+            $scoresCount = $replay->scores->count();
+            $sum = $replay->scores->sum('score');
+            $sum != 0 ? $replay->averageScore = number_format(round($sum/$scoresCount, 1), 1, '.', '') : $replay->averageScore = 'n/s';
+        }
+
     }
 }

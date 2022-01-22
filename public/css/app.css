@@ -1331,6 +1331,9 @@ select {
 .mb-2 {
 	margin-bottom: 0.5rem;
 }
+.mr-1 {
+	margin-right: 0.25rem;
+}
 .ml-14 {
 	margin-left: 3.5rem;
 }
@@ -2196,9 +2199,6 @@ select {
 .tracking-wider {
 	letter-spacing: 0.05em;
 }
-.tracking-wide {
-	letter-spacing: 0.025em;
-}
 .text-gray-500 {
 	--tw-text-opacity: 1;
 	color: rgba(107, 114, 128, var(--tw-text-opacity));
@@ -2643,6 +2643,10 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(229, 231, 235, var(--tw-text-opacity));
 }
+.focus\:text-gray-400:focus {
+	--tw-text-opacity: 1;
+	color: rgba(156, 163, 175, var(--tw-text-opacity));
+}
 .focus\:outline-none:focus {
 	outline: 2px solid transparent;
 	outline-offset: 2px;
@@ -2754,6 +2758,10 @@ select {
 
 	.sm\:ml-auto {
 		margin-left: auto;
+	}
+
+	.sm\:ml-14 {
+		margin-left: 3.5rem;
 	}
 
 	.sm\:block {
@@ -3026,6 +3034,10 @@ select {
 		border-left-width: 1px;
 	}
 
+	.md\:p-12 {
+		padding: 3rem;
+	}
+
 	.md\:px-2 {
 		padding-left: 0.5rem;
 		padding-right: 0.5rem;
@@ -3064,6 +3076,10 @@ select {
 		margin-left: 9rem;
 	}
 
+	.lg\:ml-14 {
+		margin-left: 3.5rem;
+	}
+
 	.lg\:inline {
 		display: inline;
 	}
@@ -3090,6 +3106,10 @@ select {
 
 	.lg\:justify-between {
 		justify-content: space-between;
+	}
+
+	.lg\:p-12 {
+		padding: 3rem;
 	}
 
 	.lg\:px-8 {
