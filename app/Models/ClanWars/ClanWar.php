@@ -22,6 +22,11 @@ class ClanWar extends Model
         return $this->id;
     }
 
+    public function countryFlagURL(): string
+    {
+        return asset('images/country_flags/'.strtolower($this->enemy_flag).'.png');
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');

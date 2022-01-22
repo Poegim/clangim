@@ -25,7 +25,9 @@ module.exports = {
             'via-yellow-400',
             'to-indigo-800',
             'to-yellow-400',
-            'to-black'
+            'to-black',
+            'left-8',
+            'left-9',
         ]
     },
 

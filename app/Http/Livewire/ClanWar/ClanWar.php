@@ -30,8 +30,9 @@ class ClanWar extends Component
 
     public function rules(): array
     {
+        
         if($this->modelId == NULL) 
-        {
+        {   
             return [
                 'title' => [
                     'required', 
@@ -46,8 +47,9 @@ class ClanWar extends Component
             return [
                 'title' => [
                     'required', 
+                    Rule::unique('clan_wars')->ignore($this->title, 'title'),
                     'string',
-                    Rule::unique('clan_wars')->ignore($this->modelId, 'id'),
+                    
                 ],
                 'date' => ['required'],
                 'enemy_flag' => ['required'],
@@ -101,7 +103,6 @@ class ClanWar extends Component
     {
         $this->authorize(ClanWarPolicy::UPDATE, $this->clanWar);
         $this->validate();
-
         $this->clanWar->title = $this->title;
         $this->clanWar->enemy_flag = $this->enemy_flag;
         $this->clanWar->date = Carbon::createFromFormat('Y-m-d\TH:i', $this->date)->format('Y-m-d H:i:s');

@@ -54,6 +54,6 @@
         <div>
             <x-clarity-star-solid class="w-24 h-24 text-yellow-200"/>
         </div>
-        <div class="absolute top-10 {{abs($averageScore) == 10 ? 'left-8' : 'left-9'}} font-extrabold" wire:model='averageScore'>{{$averageScore}}</div>
+        <div class="absolute top-10 {{ $starTextClass }} font-extrabold" wire:model='averageScore'>{{$averageScore}}</div>
     </div>
 </div>  

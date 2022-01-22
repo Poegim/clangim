@@ -23,7 +23,7 @@
                             <thead class="bg-gray-50">
                                 <tr>
                                     <th scope="col"
-                                        class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Title
                                     </th>
                                     <th scope="col"
@@ -47,9 +47,12 @@
                                 @foreach ($clanWars as $clanWar)
                                     
                                 <tr>
-                                    <td class="px-2 py-4">
+                                    <td class="p-4">
                                         <div class="text-sm text-gray-900">
                                             <a href="{{route('clan-wars.show', $clanWar->id)}}">
+                                                <img class="h-8 w-8 rounded-full object-cover inline"
+                                                src="{{ $clanWar->countryFlagURL() }}" alt="{{ $clanWar->enemy_flag }}"
+                                                />
                                                 {{$clanWar->title}} 
                                                 ({{$clanWar->results->wins}}:{{$clanWar->results->losses}})
                                             </a>

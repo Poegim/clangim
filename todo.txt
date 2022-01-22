@@ -2,27 +2,33 @@
 Random order to-do list for Clangim project
 
 MODULES
--- Team, with stats.
 -- Front Page
 
+Frontpage OVERVIEW
+    -- ClanWars
+    -- User points
+    -- Last Replays
+    -- Blog
+
 IMPORTANT FIXES AND ADDONS
--- Mail notifications about incoming CWs, news.
+-- User web points
+-- Mail notifications about incoming CWs, news
 
 MINOR ADDONS
 -- View: Country Flags for players and teams
 -- This team flag
 -- View: Users SC Race and Flags
--- BattleID / ShieldBatteryID
 
 SMALL FIXES
 -- Route names standarize
 -- Graphic design standarize (forum, edit button, delete button, big icons (tank etc))
 
 FINAL CHECK
+-- Demo and deploy content data seeds
+-- Prepare deploy version
 -- Authorizations
--- Mobile First
 -- Paginations
--- Prepare deploy version and deploy content data
+-- Mobile First
 -- Refactor
 
 AFTER FINAL CHECK
@@ -31,6 +37,9 @@ AFTER FINAL CHECK
 
 
 FUTURE OR OPTIONAL
+ -- Team Logo
+ -- BG Image
+ -- Likes ? as web user points ?
  -- Change screp folder
  -- Add log for crytical error, like unable to remove files/replay etc
  -- Add log notifications for Admin/Captain account

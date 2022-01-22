@@ -12,23 +12,24 @@ class Score extends Component
     public $replay;
     public $userReplayScore;
     public $averageScore;
+    public $starTextClass = 'left-9';
 
     //DB colums.
     public $score;
     public $user_id;
 
-    public function mount()
+    public function mount(): void
     {
         $this->loadUser();
     }
 
-    public function setScore(int $score)
+    public function setScore(int $score): void
     {
         $this->score = $score;
         $this->saveUserScore();
     }
  
-    public function saveUserScore()
+    public function saveUserScore(): void
     {
         if($this->userReplayScore != null)
         {   
@@ -43,7 +44,7 @@ class Score extends Component
         
     }
 
-    public function prepareData()
+    public function prepareData(): array
     {
         return [
             'score' => $this->score,
@@ -53,7 +54,7 @@ class Score extends Component
 
     }
 
-    public function loadUser()
+    public function loadUser(): void
     {
         if(auth()->check())
         {
@@ -67,13 +68,24 @@ class Score extends Component
         }
     }
 
-    public function loadReplay()
+    public function loadReplay(): void
     {
         $this->replay = Replay::findOrfail($this->passedId);
         $scoresCount = $this->replay->scores->count();
         $sum = $this->replay->scores->sum('score');
         
         $sum != 0 ? $this->averageScore = number_format(round($sum/$scoresCount, 1), 1, '.', '') : $this->averageScore = '';
+
+        $this->setStarCssClass();
+        
+    }
+
+    public function setStarCssClass(): void
+    {
+        if (!is_string($this->averageScore))
+        {
+            abs($this->averageScore) == 10 ? $this->starTextClass = 'left-8' : $this->starTextClass = 'left-9';
+        }
     }
 
     public function render()
