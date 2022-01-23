@@ -62,8 +62,6 @@
 
         </div>
 
-
-
         @can('update', $replay)
             <div class="flex justify-end gap-2 pr-6 sm:pr-20">      
                 <a href="{{ route('replays.edit', $replay) }}">

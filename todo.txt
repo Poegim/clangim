@@ -9,12 +9,10 @@ MINOR ADDONS
 -- View: Users SC Race and Flags
 
 SMALL FIXES
--- Replays title in index and show
 -- Route names standarize
 -- Graphic design standarize (forum, edit button, delete button, big icons (tank etc))
 
 FINAL CHECK
--- Long replay title homepage
 -- Demo and deploy content data seeds
 -- Prepare deploy version
 -- Authorizations

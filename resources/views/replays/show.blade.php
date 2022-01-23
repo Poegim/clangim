@@ -31,7 +31,7 @@
                         </div>
         
                         <div class="ml-14 h-full mt-1">
-                            {{$replay->user->name}}
+                            {{$replay->title}}</span>
                         </div>
                     </div>
                     <span class="mt-2 block lg:inline text-xs italic">

@@ -98,11 +98,11 @@
 
         <div class="mt-4 ml-2 lg:ml-14">
             @foreach ($replays as $replay)
-                <div class="rounded-lg bg-gray-200 p-2 mb-2 flex justify-between">
+                <div class="rounded-lg bg-gray-100 px-2 py-3 mb-2 flex justify-between h-12">
                     <div class="w-1/2">
                         <a href="{{ route('replays.show', $replay->id) }}"
                             class="hover:text-gray-600 focus:text-gray-600"    
-                        >{{$replay->title}}</a>
+                        >{{\Illuminate\Support\Str::limit($replay->title, 22, '...')}}</a>
                         
                     </div>
                     <div class="flex justify-between w-1/2">
@@ -144,31 +144,28 @@
 
             @foreach ($topUsers as $topUser)
 
-                <div class="p-2">
-
-                    <div class="inline text-gray-700 font-semibold tracking-wider">
-                        {{$topUser->points}} PTS
-                    </div>
-
-                    <div class="inline z-20">
-                        <img class="h-8 w-8 rounded-full object-cover inline"
-                        src="{{ $topUser->profile_photo_url }}" alt="{{ $topUser->name }}"
-                        />
-                        
-                    </div>
-                    
-                    <div class="inline  left-5 z-10">
-                        <img class="h-8 w-8 rounded-full object-cover inline"
-                        src="{{ $topUser->countryFlagURL() }}" alt="{{ $topUser->country }}"
-                        />
-                    </div>
-
-                    <div class="inline text-gray-700 tracking-wider">
-                        {{$topUser->name}}
-                    </div>
-
+            <div class="rounded-lg bg-gray-100 p-2 mb-2 h-12">
+                <div class="inline text-gray-700 font-semibold tracking-wider ml-4">
+                    {{$topUser->points}} PTS
                 </div>
 
+                <div class="inline">
+                    <img class="h-8 w-8 rounded-full object-cover inline"
+                    src="{{ $topUser->profile_photo_url }}" alt="{{ $topUser->name }}"
+                    />
+                    
+                </div>
+                
+                <div class="inline">
+                    <img class="h-8 w-8 rounded-full object-cover inline"
+                    src="{{ $topUser->countryFlagURL() }}" alt="{{ $topUser->country }}"
+                    />
+                </div>
+
+                <div class="inline text-gray-700 tracking-wider">
+                    {{$topUser->name}}
+                </div>
+            </div>
                 
             @endforeach
             

@@ -41,28 +41,30 @@
 
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12">
                 <div
-                class="py-4 px-6 sm:px-12 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold">
-            
-                <div class="relative">
+                    class="py-4 px-6 sm:px-12 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold">
 
-                    <div class="inline absolute z-20">
-                        <img class="h-8 w-8 rounded-full object-cover inline"
-                        src="{{ $replay->user->profile_photo_url }}" alt="{{ $replay->user->name }}"
-                        />
+                    <div class="relative">
+
+                        <div class="inline absolute z-20">
+                            <img class="h-8 w-8 rounded-full object-cover inline"
+                            src="{{ $replay->user->profile_photo_url }}" alt="{{ $replay->user->name }}"
+                            />
+                            
+                        </div>
                         
+                        <div class="inline left-5 z-10 absolute">
+                            <img class="h-8 w-8 rounded-full object-cover inline"
+                            src="{{ $replay->user->countryFlagURL() }}" alt="{{ $replay->user->country }}"
+                            />
+                        </div>
+        
+                        <div class="ml-14 h-full mt-1">
+                            <a href="{{route('replays.show', $replay->id)}}">{{$replay->title}}</a>
+                        </div>
                     </div>
-                    
-                    <div class="inline left-5 z-10 absolute">
-                        <img class="h-8 w-8 rounded-full object-cover inline"
-                        src="{{ $replay->user->countryFlagURL() }}" alt="{{ $replay->user->country }}"
-                        />
-                    </div>
-    
-                    <div class="ml-14 h-full mt-1">
-                        {{$replay->user->name}}
-                    </div>
-                </div>
-
+                    <span class="mt-2 block lg:inline text-xs italic">
+                        {{ $replay->createdAt() }}, by {{ $replay->user->name }}
+                    </span>
                 </div>
             
                 <div class="py-4 px-6 sm:px-12">

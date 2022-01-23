@@ -18,7 +18,7 @@ class ReplayController extends Controller
 
     public function index(): View
     {
-        $replays = Replay::orderByDesc('created_at')->get();
+        $replays = Replay::orderBy('id', 'desc')->get();
         return view('replays.index', compact('replays'));
     }
 

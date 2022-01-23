@@ -5,7 +5,7 @@
         <div class="flex justify-between px-1">
 
             <span>
-                <x-clarity-users-solid class="w-16 h-16 text-blue-700 inline" />
+                <x-clarity-users-line class="w-16 h-16 text-blue-700 inline" />
             </span>
 
         </div>

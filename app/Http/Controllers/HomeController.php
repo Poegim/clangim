@@ -23,7 +23,7 @@ class HomeController extends Controller
 
         $clanWars = ClanWar::where('date', '>', now())->with('user')->orderBy('date', 'asc')->get();
 
-        $this->replays = Replay::orderBy('created_at', 'asc')->with('comments')->limit(5)->get();
+        $this->replays = Replay::orderBy('id', 'desc')->with('comments')->limit(5)->get();
         $this->getAverageReplayScores();
 
         $topUsers = User::orderBy('points', 'desc')->limit(5)->get();
