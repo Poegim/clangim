@@ -10,10 +10,13 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use App\Http\Traits\HasPoints;
 use Illuminate\Http\RedirectResponse;
 
 class ThreadController extends Controller
 {
+
+    use HasPoints;
 
     public function create(Request $request): View
     {
@@ -83,6 +86,8 @@ class ThreadController extends Controller
         $thread->category_id = $request->category;
         $thread->user_id = auth()->user()->id;
         $thread->save();
+
+        $this->incrementUserPoints();
 
         return redirect()->route('categories.show', $thread->category->slug)->with('success', 'Thread added successfully.');
 

@@ -1,17 +1,6 @@
-
-Random order to-do list for Clangim project
-
 MODULES
--- Front Page
-
-Frontpage OVERVIEW
-    -- ClanWars
-    -- User points
-    -- Last Replays
-    -- Blog
 
 IMPORTANT FIXES AND ADDONS
--- User web points
 -- Mail notifications about incoming CWs, news
 
 MINOR ADDONS
@@ -20,10 +9,12 @@ MINOR ADDONS
 -- View: Users SC Race and Flags
 
 SMALL FIXES
+-- Replays title in index and show
 -- Route names standarize
 -- Graphic design standarize (forum, edit button, delete button, big icons (tank etc))
 
 FINAL CHECK
+-- Long replay title homepage
 -- Demo and deploy content data seeds
 -- Prepare deploy version
 -- Authorizations
@@ -40,7 +31,7 @@ FUTURE OR OPTIONAL
  -- Sorting replays
  -- Team Logo
  -- BG Image
- -- Likes ? as web user points ?
+ -- Likes ?
  -- Change screp folder
  -- Add log for crytical error, like unable to remove files/replay etc
  -- Add log notifications for Admin/Captain account

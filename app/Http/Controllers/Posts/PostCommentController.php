@@ -6,10 +6,14 @@ use Illuminate\View\View;
 use App\Models\Posts\PostComment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Traits\HasPoints;
 use Illuminate\Http\RedirectResponse;
 
 class PostCommentController extends Controller
 {
+
+    use HasPoints;
+
     public function store(Request $request): RedirectResponse
     {
 
@@ -31,6 +35,8 @@ class PostCommentController extends Controller
         $postComment->user_id = auth()->user()->id;
         $postComment->save();
 
+        $this->incrementUserPoints();
+        
         return redirect()->route('post.show', $request->post_slug)->with('success', 'Comment added successfully.');
     }
 

@@ -6,10 +6,12 @@ use App\Models\Forum\Reply;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Traits\HasPoints;
 use Illuminate\Http\RedirectResponse;
 
 class ReplyController extends Controller
 {
+    use HasPoints;
 
     public function store(Request $request): RedirectResponse
     {
@@ -32,6 +34,8 @@ class ReplyController extends Controller
         $reply->thread_id = $request->thread_id;
         $reply->user_id = auth()->user()->id;
         $reply->save();
+
+        $this->incrementUserPoints();
 
         return back()->with('success', 'Reply saved.');
         

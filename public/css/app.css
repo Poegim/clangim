@@ -2643,10 +2643,6 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(229, 231, 235, var(--tw-text-opacity));
 }
-.focus\:text-gray-400:focus {
-	--tw-text-opacity: 1;
-	color: rgba(156, 163, 175, var(--tw-text-opacity));
-}
 .focus\:outline-none:focus {
 	outline: 2px solid transparent;
 	outline-offset: 2px;
@@ -2758,10 +2754,6 @@ select {
 
 	.sm\:ml-auto {
 		margin-left: auto;
-	}
-
-	.sm\:ml-14 {
-		margin-left: 3.5rem;
 	}
 
 	.sm\:block {
@@ -3032,10 +3024,6 @@ select {
 
 	.md\:border-l {
 		border-left-width: 1px;
-	}
-
-	.md\:p-12 {
-		padding: 3rem;
 	}
 
 	.md\:px-2 {

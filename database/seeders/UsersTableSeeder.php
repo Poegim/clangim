@@ -18,6 +18,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@example.com',
             'role' => User::ADMIN,
+            'points' => rand(1,35),
+            'country' => array_rand(config('countries.country_list'), 1),
             'password' => bcrypt('password'),
         ]);
 
@@ -25,6 +27,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'Captain',
             'email' => 'captain@example.com',
             'role' => User::CAPTAIN,
+            'points' => rand(1,35),
+            'country' => array_rand(config('countries.country_list'), 1),
             'race' => 'protoss',
             'password' => bcrypt('password'),
         ]);
@@ -33,8 +37,9 @@ class UsersTableSeeder extends Seeder
             'name' => 'Vice',
             'email' => 'vice@example.com',
             'role' => User::VICE_CAPTAIN,
+            'points' => rand(1,35),
+            'country' => array_rand(config('countries.country_list'), 1),
             'race' => 'terran',
-            'country' => 'PE',
             'password' => bcrypt('password'),
         ]);
 
@@ -42,8 +47,9 @@ class UsersTableSeeder extends Seeder
             'name' => 'Player',
             'email' => 'player@example.com',
             'role' => User::PLAYER,
+            'points' => rand(1,35),
+            'country' => array_rand(config('countries.country_list'), 1),
             'race' => 'zerg',
-            'country' => 'DE',
             'password' => bcrypt('password'),
         ]);
 
@@ -52,8 +58,9 @@ class UsersTableSeeder extends Seeder
             'name' => 'Inactive',
             'email' => 'inactive@example.com',
             'role' => User::INACTIVE,
+            'points' => rand(1,35),
+            'country' => array_rand(config('countries.country_list'), 1),
             'race' => 'random',
-            'country' => 'PL',
             'password' => bcrypt('password'),
         ]);
 
@@ -61,6 +68,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'Ex',
             'email' => 'ex@example.com',
             'role' => User::EX_MEMBER,
+            'points' => rand(1,35),
+            'country' => array_rand(config('countries.country_list'), 1),
             'password' => bcrypt('password'),
         ]);
 
@@ -68,6 +77,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'User',
             'email' => 'user@example.com',
             'role' => User::USER,
+            'points' => rand(1,35),
+            'country' => array_rand(config('countries.country_list'), 1),
             'password' => bcrypt('password'),
         ]);
 

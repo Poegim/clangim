@@ -7,10 +7,14 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Carbon;
 use Illuminate\View\View;
 use App\Http\Controllers\Controller;
+use App\Http\Traits\HasPoints;
 use App\Models\Replays\ReplayComment;
 
 class ReplayCommentController extends Controller
 {
+
+    use HasPoints;
+
     public function store(Request $request): RedirectResponse
     {
         $this->authorize('create', ReplayComment::class);
@@ -24,6 +28,8 @@ class ReplayCommentController extends Controller
         ]);
 
         ReplayComment::Create($this->modelData($request));
+
+        $this->incrementUserPoints();
 
         return redirect()->route('replays.show', $request->replay_id)->with('success', 'Comment added.');
 

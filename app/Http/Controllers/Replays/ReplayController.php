@@ -8,11 +8,13 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Replays\Replay;
 use App\Http\Controllers\Controller;
+use App\Http\Traits\HasPoints;
 use App\Http\Traits\Replay as ReplayTrait;
 
 class ReplayController extends Controller
 {
     use ReplayTrait;
+    use HasPoints;
 
     public function index(): View
     {
@@ -61,6 +63,7 @@ class ReplayController extends Controller
 
         Replay::create($this->generateDataForModel($replayData->Data, $request->title, $newFilePath));
 
+        $this->incrementUserPoints();
         return redirect()->route('replays.index')->with('success', 'Replay added!');
 
     }

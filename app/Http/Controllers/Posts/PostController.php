@@ -8,11 +8,15 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use App\Http\Traits\HasPoints;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\RedirectResponse;
 
 class PostController extends Controller
 {
+
+    use HasPoints;
+
     public function create(): View
     {
         $this->authorize('create', Post::class);
@@ -70,6 +74,8 @@ class PostController extends Controller
         $post->image = $imgPath;
         $post->user_id = auth()->user()->id;
         $post->save();
+
+        $this->incrementUserPoints();
 
         return redirect()->route('dashboard')->with('success', 'Post added successfully.');
 
