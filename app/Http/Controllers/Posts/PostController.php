@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers\Posts;
 
-use App\Models\Posts\Post;
+use App\Models\User;
 use Illuminate\View\View;
+use App\Mail\NewPostEmail;
+use App\Models\Posts\Post;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Traits\HasPoints;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
-use App\Http\Traits\HasPoints;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
 
 class PostController extends Controller
@@ -76,6 +79,7 @@ class PostController extends Controller
         $post->save();
 
         $this->incrementUserPoints();
+        $this->sendEmailAboutNewPost($post);
 
         return redirect()->route('dashboard')->with('success', 'Post added successfully.');
 
@@ -154,6 +158,20 @@ class PostController extends Controller
         $post->save();
 
         return redirect()->route('post.show', $post->slug)->with('success', 'Post has been updated.');
+
+    }
+
+    public function sendEmailAboutNewPost(Post $post)
+    {
+        $users = User::where('role', '<=', User::INACTIVE)->where('role', '>', User::ADMIN)->get();
+
+        foreach($users as $user)
+        {
+            Mail::to($user->email)->send(new NewPostEmail($post));
+            if(env('MAIL_HOST', false) == 'smtp.mailtrap.io'){
+                sleep(1);
+            }
+        }
 
     }
 

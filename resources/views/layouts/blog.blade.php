@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
         @foreach ($posts as $post)
-        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12">
+        <div class="bg-white overflow-hidden shadow-xl rounded-lg mt-12">
             <div
             class="py-4 px-6 sm:px-12 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold">
 

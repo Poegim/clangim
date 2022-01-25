@@ -29,12 +29,32 @@ class ReplyPolicy
 
     public function update(User $user, Reply $reply): bool
     {
-        return $user->isViceCaptain() || $reply->user_id == $user->id;
+        if ($reply->user->isCaptain())
+        {
+            return $user->isCaptain() && $reply->user->id == $user->id || $user->isAdmin();
+        } elseif(!$reply->user->isCaptain())
+        {
+            return $user->isViceCaptain() || $reply->user->id == $user->id;
+
+        } else
+        {
+            return false;
+        }
     }
 
     public function delete(User $user, Reply $reply): bool
     {
-        return $user->isViceCaptain();
+        if ($reply->user->isCaptain())
+        {
+            return $user->isCaptain() && $reply->user->id == $user->id || $user->isAdmin();
+        } elseif(!$reply->user->isCaptain())
+        {
+            return $user->isViceCaptain();
+            
+        } else
+        {
+            return false;
+        }
     }
 
 }

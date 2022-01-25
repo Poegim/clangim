@@ -54,7 +54,7 @@
                                 @can('update', $thread)                    
 
                                 <a href="{{route('threads.edit', $thread)}}">
-                                    <x-clarity-note-edit-line class="w-6 h-6 inline ml-4 text-gray-500 hover:text-gray-700 focus:text-gray-700"/>
+                                    <x-clarity-note-edit-line class="w-6 h-6 inline mr-2 text-gray-500 hover:text-gray-700 focus:text-gray-700"/>
                                 </a>
                                 @endcan
                             </div>
@@ -101,7 +101,7 @@
                                     @endcan
                                     @can('update', $reply)        
                                     <a href="{{ route('replies.edit', $reply)}}">
-                                        <x-clarity-note-edit-line class="w-6 h-6 inline ml-4 text-gray-500 hover:text-gray-700 focus:text-gray-700"/>
+                                        <x-clarity-note-edit-line class="w-6 h-6 inline mr-2 text-gray-500 hover:text-gray-700 focus:text-gray-700"/>
                                     </a>
                                     @endcan
                                 </div>

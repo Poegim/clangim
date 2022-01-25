@@ -1,13 +1,15 @@
 <!-- component -->
 <div class="p-1 tracking-wider">
 
-        <div class="bg-gray-200 rounded-md flex justify-center items-center flex-col p-2">
-            <div 
-                class="shadow-lg shadow-purple-200 w-full rounded bg-gradient-to-bl {{ $player->teamRaceBackground() }} flex flex-col justify-center items-center p-4">
-            <img class="w-20 h-20 object-cover rounded-full mb-2" src="{{ $player->profile_photo_url }}" alt="logo">
-            <p class="text-gray-100 font-semibold">{{ $player->name }}</p>
-            </div>
+    <div class="bg-gray-200 rounded-md flex justify-center items-center flex-col p-2">
 
+        <div 
+            class="relative shadow-lg shadow-purple-200 w-full rounded bg-gradient-to-bl {{ $player->teamRaceBackground() }} overflow-hidden flex flex-col justify-center items-center p-4">
+            <img class="w-20 h-20 object-cover rounded-full mb-2 z-30" src="{{ $player->profile_photo_url }}" alt="logo">
+            <img src="{{asset('images/races/'.$player->race.'.png')}}" alt="" class="absolute opacity-20 z-20">
+        <p class="text-gray-100 font-semibold">{{ $player->name }}</p>
+        </div>
+        
         <div class="text-gray-100 shadow-lg shadow-gray-300 w-full bg-gradient-to-br from-gray-800 to-gray-400 p-4 rounded mt-2 relative">
         <p class="font-bold">{{$player->name}} <img src="{{ asset($player->countryFlagURL()) }}" 
             alt="{{ $player->country }}" 
@@ -25,7 +27,6 @@
         </p>
             
         </div>
-    
 
     </div>
 </div>

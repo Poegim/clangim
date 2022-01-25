@@ -39,7 +39,7 @@
 
                             <div class="mt-4">
                                 <x-jet-button class="mt-2" type="submit">Save</x-jet-button>
-                                <x-clangim.red-button-link href="route('replays.index')">Cancel</x-clangim.red-button-link>
+                                <x-clangim.red-button-link href="{{route('replays.index')}}">Cancel</x-clangim.red-button-link>
                             </div>
 
                         </div>

@@ -17,7 +17,7 @@
 
         <div class="flex flex-col mt-6 mb-4">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="py-2 align-middle inline-block min-w-full px-2 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
@@ -69,7 +69,7 @@
 
                                         <a href="{{route('games.edit', $clanWar->id)}}">
                                             <x-clarity-note-edit-line 
-                                            class="w-5 h-5 md:w-4 md:h-4 text-gray-500 hover:text-gray-700 focus:text-gray-700 inline mb-1"
+                                            class="w-5 h-5 text-gray-500 hover:text-gray-700 focus:text-gray-700 inline mb-1"
                                             />
                                         </a>
 
@@ -79,7 +79,7 @@
                                         {{ $clanWar->user->name }}
                                     </td>
                                     <td
-                                        class="px-0 md:px-2 py-4 text-center text-sm font-medium ">
+                                        class="px-0 md:px-2 py-4 text-left sm:text-center text-sm font-medium ">
 
                                         @can('delete', $clanWar)
 
@@ -93,7 +93,7 @@
                                             wire:click='showEditModal({{$clanWar->id}})'
                                             class="text-indigo-600 hover:text-indigo-900 ">
                                             <x-clarity-note-edit-line
-                                            class="w-5 h-5 md:w-4 md:h-4 text-gray-500 hover:text-gray-700 focus:text-gray-700 inline mr-2 mb-1"
+                                            class="w-5 h-5 text-gray-500 hover:text-gray-700 focus:text-gray-700 inline mr-2 mb-1"
                                             />
                                         </button>
 

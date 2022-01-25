@@ -1,12 +1,11 @@
 MODULES
 
 IMPORTANT FIXES AND ADDONS
--- Mail notifications about incoming CWs, news
 
 MINOR ADDONS
--- View: Country Flags for players and teams
+-- Clan war show view, flags, races
 -- This team flag
--- View: Users SC Race and Flags
+-- View: Users SC Race
 
 SMALL FIXES
 -- Route names standarize
@@ -26,6 +25,9 @@ AFTER FINAL CHECK
 
 
 FUTURE OR OPTIONAL
+ -- Queue emails?
+ -- Better replays view, more details
+ -- Email view
  -- Sorting replays
  -- Team Logo
  -- BG Image

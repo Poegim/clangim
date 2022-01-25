@@ -1198,6 +1198,9 @@ select {
 .z-50 {
 	z-index: 50;
 }
+.z-30 {
+	z-index: 30;
+}
 .z-20 {
 	z-index: 20;
 }
@@ -2350,6 +2353,9 @@ select {
 .opacity-50 {
 	opacity: 0.5;
 }
+.opacity-20 {
+	opacity: 0.2;
+}
 .opacity-10 {
 	opacity: 0.1;
 }
@@ -2925,6 +2931,10 @@ select {
 
 	.sm\:text-left {
 		text-align: left;
+	}
+
+	.sm\:text-center {
+		text-align: center;
 	}
 }
 @media (min-width: 768px) {
