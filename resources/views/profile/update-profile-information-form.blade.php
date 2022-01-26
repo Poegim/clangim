@@ -112,7 +112,7 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-jet-action-message class="mr-3" on="saved">
+        <x-jet-action-message class="mr-3" on="save">
             {{ __('Saved.') }}
         </x-jet-action-message>
 

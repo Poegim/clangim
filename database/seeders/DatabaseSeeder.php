@@ -10,6 +10,7 @@ use Database\Seeders\ReplaysTableSeeder;
 use Database\Seeders\RepliesTableSeeder;
 use Database\Seeders\ThreadsTableSeeder;
 use Database\Seeders\ClanWarsTableSeeder;
+use Database\Seeders\SettingsTableSeeder;
 use Database\Seeders\CategoriesTableSeeder;
 use Database\Seeders\ReplayCommentsTableSeeder;
 use Database\Seeders\GameHomePlayersTableSeeder;
@@ -39,6 +40,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ReplaysTableSeeder::class); 
         $this->call(ReplayCommentsTableSeeder::class); 
         $this->call(ScoresTableSeeder::class); 
+        $this->call(SettingsTableSeeder::class); 
 
     }
 }

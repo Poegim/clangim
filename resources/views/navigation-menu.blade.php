@@ -115,7 +115,22 @@
                             </x-jet-dropdown-link>
                             @endif
 
+                            @if (auth()->check() && auth()->user()->isAdmin())
+                            
                             <div class="border-t border-gray-100"></div>
+                            <!-- Team Management -->
+                            <div class="block px-4 py-2 text-xs text-gray-400">
+                                {{ __('Manage Team') }}
+                            </div>
+
+                            <x-jet-dropdown-link href="{{ route('team.settings') }}">
+                                {{ __('Team Settings') }}
+                            </x-jet-dropdown-link>
+
+                            @endif                           
+
+                            <div class="border-t border-gray-100"></div>
+
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
@@ -232,6 +247,15 @@
                     {{ __('API Tokens') }}
                 </x-jet-responsive-nav-link>
                 @endif
+
+                @if (auth()->check() && auth()->user()->isAdmin())
+                            
+                <x-jet-responsive-nav-link href="{{ route('team.settings') }}"
+                    :active="request()->routeIs('team.settings')">
+                    {{ __('Team Settings') }}
+                </x-jet-responsive-nav-link>
+
+                @endif         
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">

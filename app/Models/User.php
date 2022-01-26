@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Traits\HasCountry;
 use App\Models\ClanWars\Game;
 use Illuminate\Support\Carbon;
 use Laravel\Sanctum\HasApiTokens;
@@ -19,6 +20,7 @@ class User extends Authenticatable
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
+    use HasCountry;
     use Notifiable;
     use TwoFactorAuthenticatable;
 
@@ -74,11 +76,6 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
-    public function countryFlagURL(): string
-    {
-        return asset('images/country_flags/'.strtolower($this->country).'.png');
-    }
 
     public function ingameRace()
     {

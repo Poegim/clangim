@@ -17,6 +17,12 @@ class TeamController extends Controller
         ]);
 
         return view('team.index', compact('players', 'formerPlayers', 'teamList'));
-
     }
+
+    public function settings(): View
+    {
+        return view('team.settings');
+    }
+
+
 }
