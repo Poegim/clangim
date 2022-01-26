@@ -35,12 +35,12 @@ Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 // Test email
 Route::get('/email', function () {
 
-    // $user = User::where('id', 1)->first();
-    // $clanWar = ClanWar::where('id', 1)->first();
-    // return new ClanWarEmail($clanWar, $user);
+    $user = User::where('id', 1)->first();
+    $clanWar = ClanWar::where('id', 1)->first();
+    return new ClanWarEmail($clanWar, $user);
 
-    $post = Post::where('id', 1)->first();
-    return new NewPostEmail($post);
+    // $post = Post::where('id', 1)->first();
+    // return new NewPostEmail($post);
 
 
 });

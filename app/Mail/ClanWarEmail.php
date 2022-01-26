@@ -9,7 +9,7 @@ use App\Models\ClanWars\ClanWar;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ClanWarEmail extends Mailable
+class ClanWarEmail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 

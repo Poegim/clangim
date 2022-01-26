@@ -38,7 +38,12 @@ class SendCWEmailsCommand extends Command
         {
             foreach($users as $user)
             {
-                Mail::to($user->email)->send(new ClanWarEmail($clanWar, $user));
+                Mail::to($user->email)
+                    ->send((new ClanWarEmail($clanWar, $user))
+                    ->subject(env('APP_NAME').' - Incoming Clan War!.')
+                );
+
+                //Local env requiremend due to mailtrap limits.
                 $this->info($user->name);
                 if(env('MAIL_HOST', false) == 'smtp.mailtrap.io'){
                     sleep(1);

@@ -167,10 +167,17 @@ class PostController extends Controller
 
         foreach($users as $user)
         {
-            Mail::to($user->email)->send(new NewPostEmail($post));
+
+            Mail::to($user->email)
+            ->queue((new NewPostEmail($post))
+            ->subject(env('APP_NAME').' - New Post has been added!')
+            );
+
+            //Required on local env due to mailtrap engine limits.
             if(env('MAIL_HOST', false) == 'smtp.mailtrap.io'){
                 sleep(1);
             }
+
         }
 
     }

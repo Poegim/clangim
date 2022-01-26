@@ -3,12 +3,13 @@ MODULES
 IMPORTANT FIXES AND ADDONS
 
 MINOR ADDONS
+-- Team Logo
 -- Clan war show view, flags, races
 -- This team flag
 -- View: Users SC Race
 
 SMALL FIXES
--- Route names standarize
+-- Improve replays view
 -- Graphic design standarize (forum, edit button, delete button, big icons (tank etc))
 
 FINAL CHECK
@@ -23,13 +24,14 @@ AFTER FINAL CHECK
 -- Readme.md
 -- Docs with logged and unlogged screens, with mobile and desktop view
 
+DEPLOY REQUIREMENTS
+-- queue:work
+-- schedule:work
 
 FUTURE OR OPTIONAL
- -- Queue emails?
- -- Better replays view, more details
+ -- Route names standarize
  -- Email view
  -- Sorting replays
- -- Team Logo
  -- BG Image
  -- Likes ?
  -- Change screp folder
