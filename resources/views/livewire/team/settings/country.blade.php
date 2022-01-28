@@ -5,7 +5,7 @@
     </div>
     <div class="shadow-xl sm:rounded-lg overflow-hidden col-span-2">
 
-        <div class="py-12 px-2 sm:px-12 border-b border-gray-200 bg-white">
+        <div class="pt-6 pb-10 px-2 sm:px-12 border-b border-gray-200 bg-white">
             <!-- Country -->
             <div class="mt-2 mb-4 flex justify-between" x-show="! photoPreview">
                 <img src="{{$this->countryFlagURL()}}" alt="{{$country}}" class="rounded-full h-20 w-20 object-cover">

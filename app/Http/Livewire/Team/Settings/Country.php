@@ -17,7 +17,6 @@ class Country extends Component
     {
         $this->setting = Setting::where('name', '=', 'flag')->first();
         $this->country = $this->setting->value;
-
     }
 
     public function rules()

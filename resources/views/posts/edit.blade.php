@@ -31,7 +31,7 @@
                                 <x-jet-input-error for="title" class="mt-2 mb-2" />
 
                                 <x-jet-label for="image" value="{{ __('Upload / remove image') }}" />
-                                <input name="image" id="image" type="file">
+                                <input name="image" id="image" type="file" class="p-1 shadow border hover:border-indigo-300 rounded">
                                 <x-jet-input-error for="image" class="mt-2 mb-2" />
 
                                 <div>
