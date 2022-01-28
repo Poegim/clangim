@@ -3,35 +3,33 @@ MODULES
 IMPORTANT FIXES AND ADDONS
 
 MINOR ADDONS
-    -- Team Logo
-    -- Clan war show view, flags, races
-    -- This team flag
-    -- View: Users SC Race
 
 SMALL FIXES
-    -- Improve replays view
-    -- Graphic design standarize (forum, edit button, delete button, big icons (tank etc))
 
 FINAL CHECK
+    -- Refactor backend
+    -- Refactor frontend
+        -- Mobile First
+        -- Paginations
+    -- Authorizations
     -- Demo and deploy content data seeds
     -- Prepare deploy version
-    -- Authorizations
-    -- Paginations
-    -- Mobile First
-    -- Refactor
-    -- Deploy env check
+    -- Recheck/factor backend
+    -- Recheck/factor frontend
+    -- Deploy on prod envinronment check
 
 AFTER FINAL CHECK
     -- Readme.md
     -- Docs with logged and unlogged screens, with mobile and desktop view
 
 FUTURE OR OPTIONAL
+    -- Dark mode
+    -- Improve replays view
     -- Route names standarize
-    -- Email view
+    -- Email view ??
     -- Sorting replays
     -- BG Image
-    -- Likes ?
+    -- Likes
     -- Change screp folder
-    -- Add log for crytical error, like unable to remove files/replay etc
+    -- Add log error, like unable to remove files/replay etc
     -- Add log notifications for Admin/Captain account
-    -- Dark mode

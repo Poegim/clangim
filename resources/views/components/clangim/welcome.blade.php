@@ -1,4 +1,4 @@
-<div class="p-6 sm:px-12 bg-white border-b border-gray-200">
+<div class="p-2 sm:px-12 bg-white border-b border-gray-200">
     <div class="text-xl tracking-wider">
         <span>
             <x-govicon-tank class="w-12 h-12 text-blue-700 inline" />
@@ -17,7 +17,7 @@
                             <thead class="bg-gray-50">
                                 <tr>
                                     <th scope="col"
-                                        class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="p-2 sm:p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Title
                                     </th>
                                     <th scope="col"
@@ -39,14 +39,24 @@
                                 @foreach ($clanWars as $clanWar)
                                     
                                 <tr>
-                                    <td class="p-4">
-                                        <div class="text-sm text-gray-900">
-                                            <a href="{{route('clan-wars.show', $clanWar->id)}}">
-                                                <img class="h-8 w-8 rounded-full object-cover inline"
+                                    <td class="p-2 sm:p-4">
+                                        <div class="text-sm text-gray-900 flex justify-between">
+                                            
+                                            <div>
+                                                <img class="w-5 h-5 sm:h-8 sm:w-8 rounded-full object-cover inline"
+                                                src="{{ asset('images/country_flags/'.strtolower($teamFlag->value).'.png') }}" alt="{{ $teamFlag->value }}"
+                                                />
+                                            </div>
+                                            <div><a href="{{route('clan-wars.show', $clanWar->id)}}">{{$clanWar->title}}</a> </div>
+                                            <div>
+                                                <img class="w-5 h-5 sm:h-8 sm:w-8 rounded-full object-cover inline"
                                                 src="{{ $clanWar->countryFlagURL() }}" alt="{{ $clanWar->enemy_flag }}"
                                                 />
-                                                {{$clanWar->title}} 
-                                            </a>
+                                            </div>
+                                            
+                                                
+                                                
+                                            
                                         </div>
                                         <div class="text-sm text-gray-500"><!-- Somethin here? --></div>
                                     </td>

@@ -9,6 +9,7 @@ use App\Policies\ClanWarPolicy;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Collection;
 use App\Models\ClanWars\ClanWar as ClanWarModel;
+use App\Models\Team\Setting;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class ClanWar extends Component
@@ -140,6 +141,7 @@ class ClanWar extends Component
     {
         return view('livewire.clan-war.clan-war', [
             'clanWars' => $this->read(),
+            'teamFlag' => Setting::where('name', '=', 'flag')->first(),
         ]);
     }
 }

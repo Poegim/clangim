@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Replays\Replay;
 use Illuminate\Support\Carbon;
 use App\Models\ClanWars\ClanWar;
+use App\Models\Team\Setting;
 
 class HomeController extends Controller
 {
@@ -22,6 +23,7 @@ class HomeController extends Controller
                         ->paginate(10);
 
         $clanWars = ClanWar::where('date', '>', now())->with('user')->orderBy('date', 'asc')->get();
+        $teamFlag = Setting::where('name', '=', 'flag')->first();
 
         $this->replays = Replay::orderBy('id', 'desc')->with('comments')->limit(5)->get();
         $this->getAverageReplayScores();
@@ -33,6 +35,7 @@ class HomeController extends Controller
             'clanWars'      => $clanWars,
             'replays'       => $this->replays,
             'topUsers'      => $topUsers,
+            'teamFlag'      => $teamFlag
         ]);
         
     }

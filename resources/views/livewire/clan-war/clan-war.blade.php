@@ -48,16 +48,22 @@
                                     
                                 <tr>
                                     <td class="p-4">
-                                        <div class="text-sm text-gray-900">
-                                            <a href="{{route('clan-wars.show', $clanWar->id)}}">
-                                                <img class="h-8 w-8 rounded-full object-cover inline"
+                                        <div class="text-sm text-gray-900 flex justify-between">
+                                            
+                                            <div>
+                                                <img class="w-5 h-5 sm:h-8 sm:w-8 rounded-full object-cover inline"
+                                                src="{{ asset('images/country_flags/'.strtolower($teamFlag->value).'.png') }}" alt="{{ $teamFlag->value }}"
+                                                />
+                                            </div>
+                                            <div><a href="{{route('clan-wars.show', $clanWar->id)}}">{{$clanWar->title}} ({{$clanWar->results->wins}}:{{$clanWar->results->losses}})</a> </div>
+                                            <div>
+                                                <img class="w-5 h-5 sm:h-8 sm:w-8 rounded-full object-cover inline"
                                                 src="{{ $clanWar->countryFlagURL() }}" alt="{{ $clanWar->enemy_flag }}"
                                                 />
-                                                {{$clanWar->title}} 
-                                                ({{$clanWar->results->wins}}:{{$clanWar->results->losses}})
-                                            </a>
+                                            </div>                                          
                                         </div>
                                         <div class="text-sm text-gray-500"><!-- Somethin here? --></div>
+                                        
                                     </td>
                                     <td class="px-2 py-4 text-sm text-gray-500">
                                         {{ $clanWar->date() }}

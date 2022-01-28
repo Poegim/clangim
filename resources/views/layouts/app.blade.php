@@ -22,7 +22,7 @@
 
 
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased tracking-wide">
         
         <x-jet-banner />
 

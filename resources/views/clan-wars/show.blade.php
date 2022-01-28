@@ -28,7 +28,7 @@
 
                     <div class="my-4">
                         Result:
-                        <span class="text-lg font-bold">{{$results->finalResult}}</span>
+                        <span class="font-bold">{{$results->finalResult}}</span>
                         ({{$results->wins}} : {{$results->losses}}).
                     </div>
 
@@ -59,6 +59,16 @@
                                             @if ($game->homePlayers != NULL)
                                             @foreach ($game->homePlayers as $homePlayer)
                                             <div class="text-lg">
+                                                <img 
+                                                src="{{asset('images/races/'.$homePlayer->user->race.'.png')}}" 
+                                                alt="{{$homePlayer->user->race}}"
+                                                class="w-6 h-6 rounded-full inline object-cover"
+                                                >
+                                                <img 
+                                                src="{{asset('images/country_flags/'.strtolower($homePlayer->user->country).'.png')}}" 
+                                                alt="{{$homePlayer->user->country}}"
+                                                class="w-6 h-6 rounded-full inline"
+                                                >
                                                 {{ $homePlayer->user->name}}
                                             </div>
                                             @endforeach
@@ -79,8 +89,12 @@
                                 </div>
                             </div>
 
-                            <div class="h-2 absolute bottom-0 w-full bg-gradient-to-r {{$game->result == 1 ? 'from-green-400' : 'from-red-400'}}">
-                                
+                            <div class="pl-4  tracking-widest text-xs py-2 absolute bottom-0 w-full bg-gradient-to-r {{$game->result == 1 ? 'from-green-400' : 'from-red-400'}}">
+                                @if($game->result == 1)
+                                WIN
+                                @else
+                                LOSE
+                                @endif
                             </div>
                         </div>
                         @endforeach
