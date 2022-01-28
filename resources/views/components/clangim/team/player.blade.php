@@ -7,7 +7,7 @@
             class="relative shadow-lg shadow-purple-200 w-full rounded bg-gradient-to-bl {{ $player->teamRaceBackground() }} overflow-hidden flex flex-col justify-center items-center p-4">
             <img class="w-20 h-20 object-cover rounded-full mb-2 z-30" src="{{ $player->profile_photo_url }}" alt="logo">
             <img src="{{asset('images/races/'.$player->race.'.png')}}" alt="" class="absolute opacity-20 z-20">
-        <p class="text-gray-100 font-semibold">{{ $player->name }}</p>
+        <p class="text-white text-2xl font-semibold z-30">{{ $player->name }}</p>
         </div>
         
         <div class="text-gray-100 shadow-lg shadow-gray-300 w-full bg-gradient-to-br from-gray-800 to-gray-400 p-4 rounded mt-2 relative">

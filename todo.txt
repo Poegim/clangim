@@ -3,6 +3,7 @@ MODULES
 IMPORTANT FIXES AND ADDONS
 
 MINOR ADDONS
+    -- Former players list
 
 SMALL FIXES
 
