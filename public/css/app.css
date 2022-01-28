@@ -1950,6 +1950,10 @@ select {
 .bg-no-repeat {
 	background-repeat: no-repeat;
 }
+.object-contain {
+	-o-object-fit: contain;
+	   object-fit: contain;
+}
 .object-cover {
 	-o-object-fit: cover;
 	   object-fit: cover;
@@ -1957,6 +1961,10 @@ select {
 .object-fill {
 	-o-object-fit: fill;
 	   object-fit: fill;
+}
+.object-scale-down {
+	-o-object-fit: scale-down;
+	   object-fit: scale-down;
 }
 .p-2 {
 	padding: 0.5rem;
