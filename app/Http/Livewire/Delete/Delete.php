@@ -57,6 +57,16 @@ class Delete extends Component
                 return redirect()->route('categories.index');
                 break;
 
+            case 'App\Models\Forum\Thread':
+                return redirect()->route('categories.show', $this->temporaryItem->category->slug);
+                break;
+
+            case 'App\Models\Forum\Reply':
+                return redirect()->route('threads.show', $this->temporaryItem->thread->slug);
+                break;
+
+
+
             default:
                 return redirect()->route('dashboard');
                 break;

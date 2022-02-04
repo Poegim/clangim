@@ -24,8 +24,12 @@
             </div>
             @endif
 
-            @if (($item != NULL) && ($item->slug) && (!$item->name))
+            @if ($item->postComments)
                 <a href="{{ route('post.show', $item->slug) }}" class="ml-14">{{ $item->title }}</a>
+            @endif
+
+            @if($item->replies)
+            <a href="{{ route('threads.show', $item->slug) }}" class="ml-14">{{ $item->title }}</a>
             @endif
 
             @if (($item != NULL) && ($item->name))
@@ -77,6 +81,7 @@
             <div class="clear-both flex justify-end gap-2 px-2 sm:px-10 pb-6">
 
                 @switch(get_class($item))
+
                     @case('App\Models\Posts\Post')
                         <a href="{{ route('post.edit', $item->slug) }}"
                         class="edit-link">
@@ -93,6 +98,15 @@
 
                     @case('App\Models\Forum\Category')
                         <a href="{{ route('categories.edit', $item->slug) }}"
+                            title="Edit"
+                            class="edit-link"
+                            >
+                            <x-clarity-note-edit-line class="w-5 h-5"/>
+                        </a>
+                        @break
+
+                    @case('App\Models\Forum\Thread')
+                        <a href="{{ route('threads.edit', $item->slug) }}"
                             title="Edit"
                             class="edit-link"
                             >

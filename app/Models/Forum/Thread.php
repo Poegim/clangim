@@ -34,9 +34,14 @@ class Thread extends Model
         return $this->body;
     }
 
+    public function updatedAt(): string
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at)->diffForHumans();
+    }
+
     public function createdAt(): string
     {
-        return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->diffForHumans();
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at);
     }
 
     public function lastReply(): HasOne
