@@ -4,7 +4,7 @@
             <a href="{{route('categories.show', $thread->category->slug)}}"
                 class="hover:text-blue-500 focus:text-blue-500" >
                 {{$thread->category->name}}
-            </a> 
+            </a>
             / {{ $thread->title}}
         </h2>
     </x-slot>
@@ -31,27 +31,27 @@
                                     <img class="h-8 w-8 rounded-full object-cover inline"
                                     src="{{ $thread->user->profile_photo_url }}" alt="{{ $thread->user->name }}"
                                     />
-                                    
+
                                 </div>
-                                
+
                                 <div class="inline left-5 z-10 absolute">
                                     <img class="h-8 w-8 rounded-full object-cover inline"
                                     src="{{ $thread->user->countryFlagURL() }}" alt="{{ $thread->user->country }}"
                                     />
                                 </div>
-                
+
                                 <div class="ml-14 h-full mt-1">
                                     {{$thread->user->name}}
                                 </div>
                             </div>
 
                             <div class="mt-1">
-                                @can('delete', $thread)                    
+                                @can('delete', $thread)
 
                                 <livewire:thread.delete :thread="$thread" :key="$thread->id()">
 
                                 @endcan
-                                @can('update', $thread)                    
+                                @can('update', $thread)
 
                                 <a href="{{route('threads.edit', $thread)}}">
                                     <x-clarity-note-edit-line class="w-6 h-6 inline mr-2 text-gray-500 hover:text-gray-700 focus:text-gray-700"/>
@@ -64,7 +64,7 @@
                             {!! $thread->body() !!}
                             @if ($thread->edited_by)
                                 <span class="block text-xs text-gray-400 italic mt-3">
-                                    Edited by: {{ $thread->lastEditor->name}}, at {{$thread->updated_at}}.
+                                    Edited by: {{ $thread->editedBy->name}}, at {{$thread->updated_at}}.
                                 </span>
                             @endif
                         </div>
@@ -80,26 +80,26 @@
                                         <img class="h-8 w-8 rounded-full object-cover inline"
                                         src="{{ $reply->user->profile_photo_url }}" alt="{{ $reply->user->name }}"
                                         />
-                                        
+
                                     </div>
-                                    
+
                                     <div class="inline left-5 z-10 absolute">
                                         <img class="h-8 w-8 rounded-full object-cover inline"
                                         src="{{ $reply->user->countryFlagURL() }}" alt="{{ $reply->user->country }}"
                                         />
                                     </div>
-                    
+
                                     <div class="ml-14 h-full mt-1">
                                         {{$reply->user->name}}
                                     </div>
                                 </div>
 
                                 <div class="mt-1">
-                                    @can('delete', $reply)                    
+                                    @can('delete', $reply)
                                     <livewire:reply.delete :reply="$reply" :key="$reply->id()">
 
                                     @endcan
-                                    @can('update', $reply)        
+                                    @can('update', $reply)
                                     <a href="{{ route('replies.edit', $reply)}}">
                                         <x-clarity-note-edit-line class="w-6 h-6 inline mr-2 text-gray-500 hover:text-gray-700 focus:text-gray-700"/>
                                     </a>
@@ -110,7 +110,7 @@
                                 {!! $reply->body() !!}
                                 @if ($reply->edited_by)
                                 <span class="block text-xs text-gray-400 italic mt-3">
-                                    Edited by: {{ $reply->lastEditor->name}}, at {{$reply->updated_at}}.
+                                    Edited by: {{ $reply->editedBy->name}}, at {{$reply->updated_at}}.
                                 </span>
                             @endif
                             </div>

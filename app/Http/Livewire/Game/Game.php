@@ -7,10 +7,15 @@ use Livewire\Component;
 use App\Models\ClanWars\GameHomePlayer;
 use App\Models\ClanWars\GameEnemyPlayer;
 use App\Models\ClanWars\Game as GameModel;
+use App\Policies\ClanWarPolicy;
+use App\Policies\GamePolicy;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Game extends Component
 {
+
+    use AuthorizesRequests;
 
     public $clanWar;
 
@@ -51,6 +56,7 @@ class Game extends Component
 
     public function showAddGameModal(): void
     {
+        $this->authorize(ClanWarPolicy::UPDATE, $this->clanWar);
         $this->add_game_type = 1;
         $this->add_game_result = 1;
         $this->resetErrorBag();
@@ -60,6 +66,7 @@ class Game extends Component
 
     public function showAddHomePlayerModal(int $gameId): void
     {
+        $this->authorize(ClanWarPolicy::UPDATE, $this->clanWar);
         $this->modelId = $gameId;
         $this->resetErrorBag();
         $this->addHomePlayerModalVisibility = true;
@@ -68,6 +75,7 @@ class Game extends Component
 
     public function showAddEnemyPlayerModal(int $gameId): void
     {
+        $this->authorize(ClanWarPolicy::UPDATE, $this->clanWar);
         $this->add_enemy_player = null;
         $this->modelId = $gameId;
         $this->resetErrorBag();
@@ -77,6 +85,7 @@ class Game extends Component
 
     public function storeGame(): void
     {
+        $this->authorize(ClanWarPolicy::UPDATE, $this->clanWar);
         $this->validate([
             'add_game_type' => [
                 'required', 'integer', 'min:1', 'max:4',
@@ -98,6 +107,7 @@ class Game extends Component
 
     public function storeEnemyPlayer(): void
     {
+        $this->authorize(ClanWarPolicy::UPDATE, $this->clanWar);
 
         $this->validate(
             ['add_enemy_player' => [
@@ -117,7 +127,9 @@ class Game extends Component
     }
 
     public function storeHomePlayer(): void
-    {           
+    {
+        $this->authorize(ClanWarPolicy::UPDATE, $this->clanWar);
+
         $this->validate(
             [
                 'add_home_player' => [
@@ -139,6 +151,7 @@ class Game extends Component
 
     public function showEditGameModal(int $id): void
     {
+        $this->authorize(ClanWarPolicy::UPDATE, $this->clanWar);
         $this->modelId = $id;
         $this->loadModel();
         $this->resetErrorBag();
@@ -147,6 +160,7 @@ class Game extends Component
 
     public function showEditHomePlayerModal(int $id): void
     {
+        $this->authorize(ClanWarPolicy::UPDATE, $this->clanWar);
         $this->homePlayerModel = GameHomePlayer::findOrFail($id);
         $this->home_player = $this->homePlayerModel->user_id;
         $this->resetErrorBag();
@@ -155,14 +169,16 @@ class Game extends Component
 
     public function showEditEnemyPlayerModal(int $id): void
     {
+        $this->authorize(ClanWarPolicy::UPDATE, $this->clanWar);
         $this->enemyPlayerModel = GameEnemyPlayer::findOrFail($id);
         $this->enemy_player = $this->enemyPlayerModel->name;
         $this->resetErrorBag();
         $this->editEnemyPlayerModalVisibility = true;
     }
 
-    public function updateGame()
+    public function updateGame(): void
     {
+        $this->authorize(ClanWarPolicy::UPDATE, $this->clanWar);
         $this->validate([
 
             'type' => [
@@ -171,9 +187,9 @@ class Game extends Component
             'result' => [
                 'required', 'integer', 'min:0', 'max:1',
             ],
-            
+
         ]);
-        
+
         if($this->type < $this->gameModel->type)
         {
 
@@ -205,9 +221,9 @@ class Game extends Component
         session()->flash('success', 'Game updated.');
     }
 
-    public function updateHomePlayer()
+    public function updateHomePlayer(): void
     {
-
+        $this->authorize(ClanWarPolicy::UPDATE, $this->clanWar);
         $this->validate(
             [
                 'home_player' => [
@@ -227,17 +243,14 @@ class Game extends Component
         $this->modelId = $id;
         $this->modelType = $modelType;
 
-        if($this->modelType == 'game')
-        {
-            $this->loadModel();
-        }
-
+        $this->authorize(ClanWarPolicy::UPDATE, $this->clanWar);
         $this->resetErrorBag();
         $this->deleteModalVisibility = true;
     }
 
-    public function deleteGame()
+    public function deleteGame(): void
     {
+        $this->authorize(ClanWarPolicy::UPDATE, $this->clanWar);
         $this->gameModel->delete();
         $this->deleteModalVisibility = false;
         session()->flash('success', 'Game deleted.');
@@ -246,6 +259,7 @@ class Game extends Component
     public function deleteHomePlayer()
     {
         $homePlayer = GameHomePlayer::findOrFail($this->modelId);
+        $this->authorize(ClanWarPolicy::UPDATE, $this->clanWar);
         $homePlayer->delete();
         $this->deleteModalVisibility = false;
         session()->flash('success', 'Home Player deleted.');
@@ -253,8 +267,9 @@ class Game extends Component
 
     public function deleteEnemyPlayer()
     {
+        $this->authorize(ClanWarPolicy::UPDATE, $this->clanWar);
         $enemyPlayer = GameEnemyPlayer::findOrFail($this->modelId);
-        $enemyPlayer->delete();        
+        $enemyPlayer->delete();
         $this->deleteModalVisibility = false;
         session()->flash('success', 'Enemy Player deleted.');
     }

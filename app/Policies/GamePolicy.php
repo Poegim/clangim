@@ -14,16 +14,6 @@ class GamePolicy
     const DELETE = 'delete';
     const UPDATE = 'update';
 
-    public function viewAny(User $user)
-    {
-        //
-    }
-
-    public function view(User $user, Game $game)
-    {
-        //
-    }
-
     public function create(User $user): bool
     {
         return $user->isViceCaptain();
@@ -39,13 +29,4 @@ class GamePolicy
         return $user->isViceCaptain();
     }
 
-    public function restore(User $user, Game $game)
-    {
-        //
-    }
-
-    public function forceDelete(User $user, Game $game)
-    {
-        //
-    }
 }

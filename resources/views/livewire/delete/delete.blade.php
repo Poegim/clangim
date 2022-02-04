@@ -1,5 +1,5 @@
 <div class="inline text-gray-700">
-    <a 
+    <a
         class="cursor-pointer text-sm font-semibold text-red-500 focus:text-red-700 hover:text-red-700"
         wire:click="loadModal"
         wire:loading.attr="disabled"
@@ -9,11 +9,11 @@
 
     <x-jet-dialog-modal wire:model="modalVisibility">
         <x-slot name="title" >
-            {{ __("Delete Post") }}
+            {{ __("Delete Item") }}
         </x-slot>
 
         <x-slot name="content">
-            {{ __("CRITICAL WARNING! Removing this post will also delete all comments inside. Are you sure you want to delete this post?")}}
+            {{ __("CRITICAL WARNING! Are you sure want to delete? You cant undo this action!")}}
         </x-slot>
 
         <x-slot name="footer">
@@ -24,8 +24,8 @@
                 {{ __("Cancel")}}
             </x-jet-secondary-button>
 
-            <x-jet-danger-button wire:click="deletePost" wire:loading.attr='disabled'>
-                {{ __("Delete Post")}}
+            <x-jet-danger-button wire:click="delete" wire:loading.attr='disabled'>
+                {{ __("Delete")}}
             </x-jet-danger-button>
         </x-slot>
     </x-jet-dialog-modal>

@@ -3,3 +3,8 @@
 @import 'tailwindcss/utilities';
 
 .trix-button-group--file-tools { display: none !important; }
+
+.edit-link {
+    @apply text-sm font-semibold text-indigo-500 focus:text-indigo-700 hover:text-indigo-700;
+}
+

@@ -9,21 +9,6 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(User $user)
-    {
-        //
-    }
-
-    public function view(User $user, User $model)
-    {
-        //
-    }
-
-    public function create(User $user)
-    {
-        //
-    }
-
     public function update(User $user, User $model)
     {
         if ($model->isCaptain())
@@ -64,14 +49,4 @@ class UserPolicy
         }
     }
 
-    public function restore(User $user, User $model)
-    {
-        //
-    }
-
-    public function forceDelete(User $user, User $model)
-    {
-        //
-    }
-    
 }

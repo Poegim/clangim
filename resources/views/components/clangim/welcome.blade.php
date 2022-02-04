@@ -14,72 +14,44 @@
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-50">
-                                <tr>
+                            {{-- <thead class="bg-gray-50">
+                                <tr class="">
                                     <th scope="col"
-                                        class="p-2 sm:p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="text-center p-2 sm:p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Title
                                     </th>
                                     <th scope="col"
-                                        class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class=" text-center px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Date
                                     </th>
-                                    <th scope="col"
-                                        class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Games
-                                    </th>
-                                    <th scope="col"
-                                        class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Added by
-                                    </th>
-
                                 </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
+                            </thead> --}}
+                            <tbody class="bg-white divide-y divide-gray-200 text-center">
                                 @foreach ($clanWars as $clanWar)
-                                    
+
                                 <tr>
                                     <td class="p-2 sm:p-4">
                                         <div class="text-sm text-gray-900 flex justify-between">
-                                            
+
                                             <div>
-                                                <img class="w-5 h-5 sm:h-8 sm:w-8 rounded-full object-cover inline"
+                                                <img class="h-8 w-8 rounded-full object-cover inline"
                                                 src="{{ asset('images/country_flags/'.strtolower($teamFlag->value).'.png') }}" alt="{{ $teamFlag->value }}"
                                                 />
                                             </div>
                                             <div><a href="{{route('clan-wars.show', $clanWar->id)}}">{{$clanWar->title}}</a> </div>
                                             <div>
-                                                <img class="w-5 h-5 sm:h-8 sm:w-8 rounded-full object-cover inline"
+                                                <img class="h-8 w-8 rounded-full object-cover inline"
                                                 src="{{ $clanWar->countryFlagURL() }}" alt="{{ $clanWar->enemy_flag }}"
                                                 />
                                             </div>
-                                            
-                                                
-                                                
-                                            
+
                                         </div>
                                         <div class="text-sm text-gray-500"><!-- Somethin here? --></div>
                                     </td>
                                     <td class="px-2 py-4 text-sm text-gray-500">
                                         {{ $clanWar->date() }}
                                     </td>
-                                    <td class="px-2 py-4 text-sm text-gray-500">
-                                        {{ $clanWar->gamesCount() }}
 
-                                        @can('update', $clanWar)
-
-                                        <a href="{{route('games.edit', $clanWar->id)}}">
-                                            <x-clarity-note-edit-line 
-                                            class="w-5 h-5 md:w-4 md:h-4 text-gray-500 hover:text-gray-700 focus:text-gray-700 inline mb-1"
-                                            />
-                                        </a>
-
-                                        @endcan
-                                    </td>
-                                    <td class="px-2 py-4 text-sm text-gray-500">
-                                        {{ $clanWar->user->name }}
-                                    </td>
-                                    
                                 </tr>
 
                                 @endforeach
@@ -111,15 +83,15 @@
                 <div class="rounded-lg bg-gray-100 px-2 py-3 mb-2 flex justify-between h-12">
                     <div class="w-1/2">
                         <a href="{{ route('replays.show', $replay->id) }}"
-                            class="hover:text-gray-600 focus:text-gray-600"    
+                            class="hover:text-gray-600 focus:text-gray-600"
                         >{{\Illuminate\Support\Str::limit($replay->title, 22, '...')}}</a>
-                        
+
                     </div>
                     <div class="flex justify-between w-1/2">
                         <div title="Comments" class="ml-2 mr-1 w-1/3">
                             <a href="{{route('replays.show', $replay->id)}}#comments" class="text-sm font-semibold hover:text-gray-600 focus:text-gray-600"
                                 >
-                                <x-clarity-block-quote-line class="inline w-5 h-5"/>                         
+                                <x-clarity-block-quote-line class="inline w-5 h-5"/>
                                 {{$replay->comments->count()}}
                             </a>
 
@@ -163,9 +135,9 @@
                     <img class="h-8 w-8 rounded-full object-cover inline"
                     src="{{ $topUser->profile_photo_url }}" alt="{{ $topUser->name }}"
                     />
-                    
+
                 </div>
-                
+
                 <div class="inline">
                     <img class="h-8 w-8 rounded-full object-cover inline"
                     src="{{ $topUser->countryFlagURL() }}" alt="{{ $topUser->country }}"
@@ -176,9 +148,9 @@
                     {{$topUser->name}}
                 </div>
             </div>
-                
+
             @endforeach
-            
+
         </div>
     </div>
 

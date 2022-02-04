@@ -18,11 +18,11 @@ class ReplayCommentController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $this->authorize('create', ReplayComment::class);
-       
+
         $this->validate($request, [
             'body' => ['required', 'string', 'min:13'],
             'replay_id' => ['required'],
-            
+
         ], [
             'body.min' => 'Body field requires at least 2 characters.',
         ]);
@@ -47,11 +47,6 @@ class ReplayCommentController extends Controller
     }
 
 
-    public function show(ReplayComment $replayComment)
-    {
-        //
-    }
-
     public function edit(ReplayComment $replayComment): View
     {
         $this->authorize('update', $replayComment);
@@ -59,13 +54,13 @@ class ReplayCommentController extends Controller
         return view('replay-comments.edit', compact('replayComment'));
     }
 
-    public function update(Request $request, ReplayComment $replayComment)
+    public function update(Request $request, ReplayComment $replayComment): RedirectResponse
     {
         $this->authorize('update', $replayComment);
 
         $this->validate($request, [
             'body' => ['required', 'string', 'min:13'],
-            
+
             ], [
             'body.min' => 'Body field requires at least 2 characters.',
         ]);

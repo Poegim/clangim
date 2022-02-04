@@ -55,7 +55,7 @@ class ReplayController extends Controller
         {
             return redirect()->route('replays.create')->withErrors(['file' => $replayData->Errors[0]]);
         }
-        
+
         if(!isset($replayData->Data))
         {
             $replayData->Data = new stdClass();
@@ -78,7 +78,7 @@ class ReplayController extends Controller
                 'players_count' => 0,
                 'user_id'   => auth()->user()->id,
             ];
-            
+
         } else
         {
             $generatedData = [
@@ -87,9 +87,9 @@ class ReplayController extends Controller
                 'players_count' => count($replayData->Header->Players),
                 'user_id'   => auth()->user()->id,
             ];
-    
-            for ($i=0; $i < count($replayData->Header->Players); $i++) 
-            {           
+
+            for ($i=0; $i < count($replayData->Header->Players); $i++)
+            {
                 $generatedData['player_'.($i+1)] =  $replayData->Header->Players[$i]->Name;
                 $generatedData['player_'.($i+1).'_team'] =  $replayData->Header->Players[$i]->Team;
                 $generatedData['player_'.($i+1).'_race'] =  $replayData->Header->Players[$i]->Race->Name;
@@ -108,7 +108,7 @@ class ReplayController extends Controller
         return view('replays.edit', compact('replay'));
     }
 
-    public function update(Request $request, Replay $replay)
+    public function update(Request $request, Replay $replay): RedirectResponse
     {
         $this->authorize('update', $replay);
         $this->validate($request, [

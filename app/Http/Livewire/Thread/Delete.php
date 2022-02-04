@@ -17,10 +17,8 @@ class Delete extends Component
 
     public function loadModal(): void
     {
-
         $this->resetErrorBag();
         $this->modalVisibility = true;
-
     }
 
     public function deleteThread(): Redirector

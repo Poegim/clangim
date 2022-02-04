@@ -16,35 +16,31 @@ class CategoryController extends Controller
     public function index(): View
     {
         $this->authorize('viewAny', Category::class);
+        $categories = Category::with('threads.editedBy')->get();
 
-        $categories = Category::with('threads.lastEditor')->get();
-        
         return view('categories.index', [
             'categories' => $categories
             ]);
     }
-        
-    
+
+
     public function show(Category $category): View
     {
         $this->authorize('view', $category);
-
         return view('categories.show', compact('category'));
     }
 
-    
+
     public function create(): View
     {
         $this->authorize('create', Category::class);
-
         return view('categories.create');
     }
 
-    
+
     public function store(Request $request): RedirectResponse
     {
         $this->authorize('create', Category::class);
-
         $this->validate($request, [
             'name' => [
                 'required',
@@ -73,19 +69,17 @@ class CategoryController extends Controller
         return redirect()->route('categories.index')->with('success', 'Category added.');
     }
 
-    
+
     public function edit(Category $category): View
     {
         $this->authorize('update', $category);
-
         return view('categories.edit', compact('category'));
     }
 
-    
+
     public function update(Request $request, Category $category): RedirectResponse
     {
         $this->authorize('update', $category);
-
         $this->validate($request, [
             'name' => [
                 'required',

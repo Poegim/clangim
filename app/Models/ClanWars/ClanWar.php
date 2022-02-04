@@ -2,6 +2,7 @@
 
 namespace App\Models\ClanWars;
 
+use App\Http\Traits\HasUser;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class ClanWar extends Model
 {
     use HasFactory;
+    use HasUser;
 
     protected $guarded = [];
 
@@ -25,11 +27,6 @@ class ClanWar extends Model
     public function countryFlagURL(): string
     {
         return asset('images/country_flags/'.strtolower($this->enemy_flag).'.png');
-    }
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function games(): HasMany

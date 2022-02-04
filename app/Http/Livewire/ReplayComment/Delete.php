@@ -6,6 +6,8 @@ use Livewire\Component;
 use App\Models\Replays\ReplayComment;
 use App\Policies\ReplayCommentPolicy;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\View\View;
+use Livewire\Redirector;
 
 class Delete extends Component
 {
@@ -14,7 +16,7 @@ class Delete extends Component
     public $replayComment;
     public $modalVisibility = false;
 
-    public function loadModal(ReplayComment $replayComment)
+    public function loadModal(ReplayComment $replayComment): void
     {
         $this->authorize(ReplayCommentPolicy::DELETE, $this->replayComment);
 
@@ -22,7 +24,7 @@ class Delete extends Component
         $this->modalVisibility = true;
     }
 
-    public function deleteReplayComment()
+    public function deleteReplayComment(): Redirector
     {
         $this->authorize(ReplayCommentPolicy::DELETE, $this->replayComment);
 
@@ -32,7 +34,7 @@ class Delete extends Component
         return redirect()->route('replays.show', $replay)->with('success', 'Comment deleted.');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.replay-comment.delete');
     }

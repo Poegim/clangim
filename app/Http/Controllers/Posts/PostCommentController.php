@@ -36,14 +36,10 @@ class PostCommentController extends Controller
         $postComment->save();
 
         $this->incrementUserPoints();
-        
+
         return redirect()->route('post.show', $request->post_slug)->with('success', 'Comment added successfully.');
     }
 
-    public function show(PostComment $postComment)
-    {
-        //
-    }
 
     public function edit(PostComment $postComment): View
     {
@@ -52,7 +48,7 @@ class PostCommentController extends Controller
         return view('post-comments.edit', compact('postComment'));
     }
 
-    public function update(Request $request, PostComment $postComment)
+    public function update(Request $request, PostComment $postComment): RedirectResponse
     {
         $this->authorize('update', $postComment);
 

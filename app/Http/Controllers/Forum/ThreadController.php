@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Forum;
 
-use File;
+use Illuminate\Support\Facades\File;
 use App\Models\Forum\Thread;
 use App\Models\Forum\Category;
 use Illuminate\View\View;
@@ -97,7 +97,6 @@ class ThreadController extends Controller
     {
 
         $this->authorize('view', $thread);
-
         $replies = $thread->replies;
 
         return view('threads.show', [

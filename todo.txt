@@ -1,15 +1,15 @@
 MODULES
+    -- Footer
 
 IMPORTANT FIXES AND ADDONS
 
 MINOR ADDONS
-    -- Former players list
 
 SMALL FIXES
 
 FINAL CHECK
-    -- Refactor backend
-    -- Refactor frontend
+    -- Refactor backend (1)
+    -- Refactor frontend (0)
         -- Mobile First
         -- Paginations
     -- Authorizations

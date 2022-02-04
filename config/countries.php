@@ -1,6 +1,13 @@
 <?php
 
-return  [ 'country_list' => 
+/*
+|--------------------------------------------------------------------------
+|   Country list
+|--------------------------------------------------------------------------
+|   Country list, on any changes please update country images.
+*/
+
+return  [ 'country_list' =>
             [
             "EU" => "European Union",
             "EA" => "Earth",

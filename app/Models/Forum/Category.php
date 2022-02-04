@@ -25,7 +25,7 @@ class Category extends Model
 
     public function threadsLimited(): HasMany
     {
-        return $this->hasMany(Thread::class, 'category_id')->limit(5)->orderByDesc('updated_at');
+        return $this->hasMany(Thread::class, 'category_id')->with('user')->with('replies')->limit(5)->orderByDesc('updated_at');
     }
 
 }

@@ -2,31 +2,22 @@
 
 namespace App\Models\Replays;
 
-use App\Models\User;
+use App\Http\Traits\HasEditedBy;
+use App\Http\Traits\HasUser;
 use App\Models\Replays\Score;
 use Illuminate\Support\Carbon;
 use App\Models\Replays\ReplayComment;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Replay extends Model
 {
     use HasFactory;
+    use HasEditedBy;
+    use HasUser;
 
     public $guarded = [];
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
-
-    public function editedBy(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'edited_by');
-    }
 
     public function comments(): HasMany
     {
@@ -43,7 +34,7 @@ class Replay extends Model
         return $this->hasMany(Score::class, 'replay_id');
     }
 
-    public function averageScore()
+    public function averageScore(): float
     {
         $scoresCount = $this->scores->count();
         $sum = $this->scores->sum('score');
@@ -77,7 +68,7 @@ class Replay extends Model
             case '8':
                 return 'from-indigo-400';
                 break;
-            
+
             default:
                 return 'from-red-400';
                 break;
@@ -111,7 +102,7 @@ class Replay extends Model
             case '8':
                 return 'from-indigo-400';
                 break;
-            
+
             default:
                 return 'from-red-400';
                 break;
@@ -145,7 +136,7 @@ class Replay extends Model
             case '8':
                 return 'from-indigo-400';
                 break;
-            
+
             default:
                 return 'from-red-400';
                 break;
@@ -179,7 +170,7 @@ class Replay extends Model
             case '8':
                 return 'from-indigo-400';
                 break;
-            
+
             default:
                 return 'from-red-400';
                 break;
@@ -213,7 +204,7 @@ class Replay extends Model
             case '8':
                 return 'from-indigo-400';
                 break;
-            
+
             default:
                 return 'from-red-400';
                 break;
@@ -247,7 +238,7 @@ class Replay extends Model
             case '8':
                 return 'from-indigo-400';
                 break;
-            
+
             default:
                 return 'from-red-400';
                 break;
@@ -281,7 +272,7 @@ class Replay extends Model
             case '8':
                 return 'from-indigo-400';
                 break;
-            
+
             default:
                 return 'from-red-400';
                 break;
@@ -315,13 +306,13 @@ class Replay extends Model
             case '8':
                 return 'from-indigo-400';
                 break;
-            
+
             default:
                 return 'from-red-400';
                 break;
         }
     }
-    
+
     public function createdAt(): string
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at);
@@ -331,5 +322,5 @@ class Replay extends Model
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', $this->updated_at)->diffForHumans();
     }
-    
+
 }

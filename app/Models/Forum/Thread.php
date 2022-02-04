@@ -2,8 +2,9 @@
 
 namespace App\Models\Forum;
 
+use App\Http\Traits\HasEditedBy;
+use App\Http\Traits\HasUser;
 use Carbon\Carbon;
-use App\Models\User;
 use App\Models\Forum\Reply;
 use App\Models\Forum\Category;
 use Illuminate\Database\Eloquent\Model;
@@ -15,16 +16,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Thread extends Model
 {
     use HasFactory;
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function lastEditor(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'edited_by');
-    }
+    use HasEditedBy;
+    use HasUser;
 
     public function category(): BelongsTo
     {

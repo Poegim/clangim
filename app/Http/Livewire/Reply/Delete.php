@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\Redirector;
 use App\Policies\ReplyPolicy;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\View\View;
 
 class Delete extends Component
 {
@@ -17,10 +18,8 @@ class Delete extends Component
 
     public function loadModal(): void
     {
-
         $this->resetErrorBag();
         $this->modalVisibility = true;
-
     }
 
     public function deleteReply(): Redirector
@@ -35,7 +34,7 @@ class Delete extends Component
     }
 
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.reply.delete');
     }

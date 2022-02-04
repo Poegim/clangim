@@ -15,7 +15,7 @@ class HomeController extends Controller
 {
     public $replays;
 
-    public function index()
+    public function index(): View
     {
         $posts = Post::withCount('postComments')
                         ->orderBy('created_at', 'desc')
@@ -29,7 +29,7 @@ class HomeController extends Controller
         $this->getAverageReplayScores();
 
         $topUsers = User::orderBy('points', 'desc')->limit(5)->get();
-     
+
         return view('dashboard', [
             'posts'         => $posts,
             'clanWars'      => $clanWars,
@@ -37,7 +37,7 @@ class HomeController extends Controller
             'topUsers'      => $topUsers,
             'teamFlag'      => $teamFlag
         ]);
-        
+
     }
 
     public function getAverageReplayScores(): void

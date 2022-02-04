@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Replay;
 
+use Illuminate\View\View;
 use Livewire\Component;
-use App\Models\Replays\Replay;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class HomePageDownload extends Component
@@ -22,7 +22,7 @@ class HomePageDownload extends Component
 
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.replay.home-page-download');
     }

@@ -27,7 +27,7 @@ class ReplyController extends Controller
         ], [
             'body.min' => 'The body field requires at least 2 characters.'
         ]);
-        
+
 
         $reply = new Reply;
         $reply->body = $request->body;
@@ -38,12 +38,7 @@ class ReplyController extends Controller
         $this->incrementUserPoints();
 
         return back()->with('success', 'Reply saved.');
-        
-    }
 
-    public function show($id)
-    {
-        //Considerate in future, after beta release.
     }
 
     public function edit(Reply $reply): View
@@ -66,7 +61,7 @@ class ReplyController extends Controller
         ], [
             'body.min' => 'The body field requires at least 2 characters.'
         ]);
-        
+
         $reply->body = $request->body;
         $reply->edited_by = auth()->user()->id;
         $reply->save();

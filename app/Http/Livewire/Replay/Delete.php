@@ -7,6 +7,8 @@ use App\Models\Replays\Replay;
 use App\Policies\ReplayPolicy;
 use Illuminate\Support\Facades\File;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\View\View;
+use Livewire\Redirector;
 
 class Delete extends Component
 {
@@ -15,7 +17,7 @@ class Delete extends Component
     public $modalVisibility = false;
     public $replay;
 
-    public function loadModal(Replay $replay)
+    public function loadModal(Replay $replay): void
     {
         $this->authorize(ReplayPolicy::DELETE, $this->replay);
 
@@ -23,7 +25,7 @@ class Delete extends Component
         $this->modalVisibility = true;
     }
 
-    public function deleteReplay()
+    public function deleteReplay(): Redirector
     {
         $this->authorize(ReplayPolicy::DELETE, $this->replay);
         File::delete($this->replay->file);
@@ -32,7 +34,7 @@ class Delete extends Component
         return redirect()->route('replays.index')->with('success', 'Replay delete.');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.replay.delete');
     }

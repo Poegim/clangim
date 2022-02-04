@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Traits\HasPoints;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use App\Http\Traits\HasUser;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
@@ -19,6 +20,7 @@ class PostController extends Controller
 {
 
     use HasPoints;
+    use HasUser;
 
     public function create(): View
     {
@@ -161,7 +163,7 @@ class PostController extends Controller
 
     }
 
-    public function sendEmailAboutNewPost(Post $post)
+    public function sendEmailAboutNewPost(Post $post): Void
     {
         $users = User::where('role', '<=', User::INACTIVE)->where('role', '>', User::ADMIN)->get();
 

@@ -31,12 +31,12 @@ class ClanWar extends Component
 
     public function rules(): array
     {
-        
-        if($this->modelId == NULL) 
-        {   
+
+        if($this->modelId == NULL)
+        {
             return [
                 'title' => [
-                    'required', 
+                    'required',
                     'string',
                     Rule::unique('clan_wars'),
                 ],
@@ -47,14 +47,14 @@ class ClanWar extends Component
         {
             return [
                 'title' => [
-                    'required', 
+                    'required',
                     Rule::unique('clan_wars')->ignore($this->title, 'title'),
                     'string',
-                    
+
                 ],
                 'date' => ['required'],
                 'enemy_flag' => ['required'],
-            ]; 
+            ];
         }
 
     }
@@ -68,7 +68,7 @@ class ClanWar extends Component
         $this->createAndEditModalVisibility = true;
     }
 
-    public function create()
+    public function create(): void
     {
         $this->authorize(ClanWarPolicy::CREATE, ClanWarModel::class);
 
@@ -94,6 +94,8 @@ class ClanWar extends Component
 
     public function showEditModal($id): Void
     {
+        $this->authorize(ClanWarPolicy::UPDATE, ClanWarModel::class);
+
         $this->modelId = $id;
         $this->loadModel();
         $this->resetErrorBag();

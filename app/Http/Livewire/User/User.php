@@ -29,29 +29,29 @@ class User extends Component
         $this->resetErrorBag();
     }
 
-    public function showEditModal(Int $userId)
+    public function showEditModal(Int $userId): void
     {
         $this->loadUser($userId);
         $this->authorize('update', $this->user);
         $this->editModalVisibility = true;
     }
 
-    public function updateUser()
+    public function updateUser(): void
     {
         $this->authorize('update', $this->user);
         $userAccessLevel = auth()->user()->role;
 
         $this->validate([
             'name' => [
-                'required', 
-                'string', 
-                'max:255', 
+                'required',
+                'string',
+                'max:255',
                 Rule::unique('users')->ignore($this->user->id),
             ],
             'email' => [
-                'required', 
-                'email', 
-                'max:255', 
+                'required',
+                'email',
+                'max:255',
                 Rule::unique('users')->ignore($this->user->id),
             ],
             'role' => [
@@ -69,7 +69,7 @@ class User extends Component
         $this->editModalVisibility = false;
 
         session()->flash('success', 'User data saved.');
-        
+
     }
 
     public function showDeleteModal(Int $userId): void

@@ -2,7 +2,8 @@
 
 namespace App\Models\Replays;
 
-use App\Models\User;
+use App\Http\Traits\HasEditedBy;
+use App\Http\Traits\HasUser;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,20 +11,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ReplayComment extends Model
 {
-   
+
     use HasFactory;
+    use HasEditedBy;
+    use HasUser;
 
     protected $guarded = [];
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function editedBy(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'edited_by');
-    }
 
     public function replay(): BelongsTo
     {
