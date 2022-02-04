@@ -42,7 +42,7 @@ class Delete extends Component
 
     }
 
-    public function comebackRoute(): Redirector
+    public function comebackRoute()
     {
         switch ($this->class) {
             case 'App\Models\Posts\Post':
@@ -53,8 +53,12 @@ class Delete extends Component
                 return redirect()->route('post.show', $this->temporaryItem->post->slug);
                 break;
 
+            case 'App\Models\Forum\Category':
+                return redirect()->route('categories.index');
+                break;
+
             default:
-                $this->comebackRoute = 'dashboard';
+                return redirect()->route('dashboard');
                 break;
         }
     }

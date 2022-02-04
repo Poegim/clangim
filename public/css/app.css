@@ -2888,6 +2888,11 @@ select {
 		padding-right: 3rem;
 	}
 
+	.sm\:px-10 {
+		padding-left: 2.5rem;
+		padding-right: 2.5rem;
+	}
+
 	.sm\:pt-0 {
 		padding-top: 0px;
 	}
