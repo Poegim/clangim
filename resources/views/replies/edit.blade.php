@@ -15,30 +15,28 @@
 
     <div class="pb-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="shadow-xl sm:rounded-lg overflow-hidden">
 
-                <div class="p-6 sm:px-12 border-b border-gray-200 bg-white">
+            <x-clangim.window :item="$reply">
 
-                    <form action="{{ route('replies.update', $reply->id) }}" method="POST">
-                        @csrf
+                <form action="{{ route('replies.update', $reply->id) }}" method="POST">
+                    @csrf
+                    <div>
                         <div>
-                            <div>
-                                <x-trix name="body" class="mt-4" > {{old('body') ? old('body') : $reply->body}} </x-trix>
-                                <x-jet-input-error for="body" class="mt-2 mb-2" />
-                            </div>
-
-
-                            <div>
-                                <x-jet-button class="mt-2" type="submit">Save</x-jet-button>
-                                <x-clangim.red-button-link href="{{url()->previous()}}">Cancel</x-clangim.red-button-link>
-                            </div>
-
+                            <x-trix name="body" class="mt-4" > {{old('body') ? old('body') : $reply->body}} </x-trix>
+                            <x-jet-input-error for="body" class="mt-2 mb-2" />
                         </div>
-                    </form>
 
-                </div>
 
-            </div>
+                        <div>
+                            <x-jet-button class="mt-2" type="submit">Save</x-jet-button>
+                            <x-clangim.red-button-link href="{{url()->previous()}}">Cancel</x-clangim.red-button-link>
+                        </div>
+
+                    </div>
+                </form>
+
+            </x-clangim.window>
+
         </div>
     </div>
 </x-app-layout>

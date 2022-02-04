@@ -114,6 +114,15 @@
                         </a>
                         @break
 
+                    @case('App\Models\Forum\Reply')
+                        <a href="{{ route('replies.edit', $item->id) }}"
+                            title="Edit"
+                            class="edit-link"
+                            >
+                            <x-clarity-note-edit-line class="w-5 h-5"/>
+                        </a>
+                        @break
+
                     @default
 
                 @endswitch

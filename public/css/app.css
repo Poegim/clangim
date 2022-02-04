@@ -1198,9 +1198,6 @@ select {
 .col-span-2 {
 	grid-column: span 2 / span 2;
 }
-.col-span-5 {
-	grid-column: span 5 / span 5;
-}
 .col-span-4 {
 	grid-column: span 4 / span 4;
 }
@@ -2056,6 +2053,9 @@ select {
 .pb-10 {
 	padding-bottom: 2.5rem;
 }
+.pb-12 {
+	padding-bottom: 3rem;
+}
 .pt-10 {
 	padding-top: 2.5rem;
 }
@@ -2073,9 +2073,6 @@ select {
 }
 .pl-1 {
 	padding-left: 0.25rem;
-}
-.pb-12 {
-	padding-bottom: 3rem;
 }
 .text-left {
 	text-align: left;
@@ -2497,10 +2494,6 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(49, 46, 129, var(--tw-text-opacity));
 }
-.hover\:text-blue-700:hover {
-	--tw-text-opacity: 1;
-	color: rgba(29, 78, 216, var(--tw-text-opacity));
-}
 .hover\:text-blue-600:hover {
 	--tw-text-opacity: 1;
 	color: rgba(37, 99, 235, var(--tw-text-opacity));
@@ -2588,17 +2581,13 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(59, 130, 246, var(--tw-text-opacity));
 }
-.focus\:text-blue-700:focus {
+.focus\:text-blue-600:focus {
 	--tw-text-opacity: 1;
-	color: rgba(29, 78, 216, var(--tw-text-opacity));
+	color: rgba(37, 99, 235, var(--tw-text-opacity));
 }
 .focus\:text-gray-900:focus {
 	--tw-text-opacity: 1;
 	color: rgba(17, 24, 39, var(--tw-text-opacity));
-}
-.focus\:text-blue-600:focus {
-	--tw-text-opacity: 1;
-	color: rgba(37, 99, 235, var(--tw-text-opacity));
 }
 .focus\:outline-none:focus {
 	outline: 2px solid transparent;
