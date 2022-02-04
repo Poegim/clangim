@@ -7,15 +7,9 @@
 
     <div class="pb-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="shadow-xl sm:rounded-lg overflow-hidden">
 
-                <div class="py-6 px-0 sm:px-12 border-b border-gray-200 bg-white">
+            <livewire:clan-war.clan-war />
 
-                    <livewire:clan-war.clan-war />
-
-                </div>
-
-            </div>
         </div>
     </div>
 </x-app-layout>
