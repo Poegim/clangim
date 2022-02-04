@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="pb-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="shadow-xl sm:rounded-lg overflow-hidden">
 
@@ -49,15 +49,15 @@
                             <img class="h-8 w-8 rounded-full object-cover inline"
                             src="{{ $replay->user->profile_photo_url }}" alt="{{ $replay->user->name }}"
                             />
-                            
+
                         </div>
-                        
+
                         <div class="inline left-5 z-10 absolute">
                             <img class="h-8 w-8 rounded-full object-cover inline"
                             src="{{ $replay->user->countryFlagURL() }}" alt="{{ $replay->user->country }}"
                             />
                         </div>
-        
+
                         <div class="ml-14 h-full mt-1">
                             <a href="{{route('replays.show', $replay->id)}}">{{$replay->title}}</a>
                         </div>
@@ -66,7 +66,7 @@
                         {{ $replay->createdAt() }}, by {{ $replay->user->name }}
                     </span>
                 </div>
-            
+
                 <div class="py-4 px-6 sm:px-12">
                         <livewire:replay.score :passedId="$replay->id"/>
                 </div>

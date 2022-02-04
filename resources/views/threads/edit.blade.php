@@ -12,8 +12,8 @@
              </a>
         </h2>
     </x-slot>
-    
-    <div class="py-12">
+
+    <div class="pb-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="shadow-xl sm:rounded-lg overflow-hidden">
 
@@ -24,13 +24,13 @@
                         <div>
                             <div>
                                 <x-jet-label for="title" value="{{ __('Title:') }}" />
-                                <x-jet-input 
-                                    id="title" 
-                                    class="block mt-2 mb-2 w-full" 
-                                    type="text" 
-                                    name="title" 
-                                    :value="old('title') ? old('title') : $thread->title" 
-                                    required autofocus 
+                                <x-jet-input
+                                    id="title"
+                                    class="block mt-2 mb-2 w-full"
+                                    type="text"
+                                    name="title"
+                                    :value="old('title') ? old('title') : $thread->title"
+                                    required autofocus
                                 />
                                 <x-jet-input-error for="title" class="mt-2 mb-2" />
 
