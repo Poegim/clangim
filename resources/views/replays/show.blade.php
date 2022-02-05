@@ -50,7 +50,11 @@
             <span id="comments"></span>
 
             @foreach ($replay->comments as $comment)
-             <x-clangim.replays.comment :comment="$comment" />
+
+            <x-clangim.window :item="$comment">
+                {!!$comment->body!!}
+            </x-clangim.window>
+
             @endforeach
 
             <x-clangim.replays.addComment :replayId="$replay->id" />

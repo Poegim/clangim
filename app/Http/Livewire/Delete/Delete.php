@@ -65,7 +65,9 @@ class Delete extends Component
                 return redirect()->route('threads.show', $this->temporaryItem->thread->slug);
                 break;
 
-
+            case 'App\Models\Replays\ReplayComment':
+                return redirect()->route('replays.show', $this->temporaryItem->replay->id);
+                break;
 
             default:
                 return redirect()->route('dashboard');

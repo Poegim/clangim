@@ -45,7 +45,7 @@ class PostCommentPolicy
         } else
         {
             return false;
-        }    
+        }
     }
 
 }

@@ -5,26 +5,23 @@
         </h2>
     </x-slot>
 
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <x-clangim.window :item="NULL">
 
-    <div class="pt-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <x-clangim.window :item="NULL">
+            <div class="pb-2 pl-1">
+                <span class="tracking-widest text-lg">
+                    Players:
+                </span>
+            </div>
 
-                <div class="pb-2 pl-1">
-                    <span class="tracking-widest text-lg">
-                        Players:
-                    </span>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12">
+                @foreach ($teamList as $player)
+                <x-clangim.team.player :player="$player" />
+                @endforeach
+            </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12">
-                    @foreach ($teamList as $player)
-                    <x-clangim.team.player :player="$player" />
-                    @endforeach
-                </div>
+        </x-clangim.window>
 
-            </x-clangim.window>
-
-        </div>
     </div>
 
     <livewire:team.team-stats-table :players='$players' />

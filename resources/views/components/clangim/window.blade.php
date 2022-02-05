@@ -28,6 +28,10 @@
                 <span class="ml-14">{{ $item->user->name }}</span>
             @endif
 
+            @if ($item->replay)
+                <span class="ml-14">{{ $item->user->name }}</span>
+            @endif
+
             @if ($item->postComments)
                 <a href="{{ route('post.show', $item->slug) }}" class="ml-14">{{ $item->title }}</a>
             @endif
@@ -135,6 +139,15 @@
 
                     @case('App\Models\Forum\Reply')
                         <a href="{{ route('replies.edit', $item->id) }}"
+                            title="Edit"
+                            class="edit-link"
+                            >
+                            <x-clarity-note-edit-line class="w-5 h-5"/>
+                        </a>
+                        @break
+
+                    @case('App\Models\Replays\ReplayComment')
+                        <a href="{{ route('replayComment.edit', $item->id) }}"
                             title="Edit"
                             class="edit-link"
                             >

@@ -22,9 +22,10 @@ class PostPolicy
         if ($post->user->isCaptain())
         {
             return $user->isCaptain() && $post->user->id == $user->id || $user->isAdmin();
+
         } elseif(!$post->user->isCaptain())
         {
-            return $user->isViceCaptain() || $post->user->id == $user->id;
+            return $user->isViceCaptain();
 
         } else
         {
@@ -44,7 +45,7 @@ class PostPolicy
         } else
         {
             return false;
-        } 
+        }
     }
 
 }
