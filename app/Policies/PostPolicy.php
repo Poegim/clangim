@@ -38,6 +38,7 @@ class PostPolicy
         if ($post->user->isCaptain())
         {
             return $user->isCaptain() && $post->user->id == $user->id || $user->isAdmin();
+
         } elseif(!$post->user->isCaptain())
         {
             return $user->isViceCaptain();

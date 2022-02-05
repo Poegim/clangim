@@ -171,9 +171,4 @@
     </div>
     @endif
 
-    <!-- Dev only -->
-    @if ($item != NULL)
-    {{ dump(get_class($item)) }}
-    @endif
-
 </div>

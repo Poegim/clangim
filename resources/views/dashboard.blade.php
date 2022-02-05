@@ -16,6 +16,7 @@
                 :replays="$replays"
                 :topUsers="$topUsers"
                 :teamFlag="$teamFlag"
+                :topPlayers="$topPlayers"
                 />
 
             </div>
@@ -33,11 +34,9 @@
 
             @endforeach
 
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-8 p-4">
-
+            <x-clangim.window :item="null">
                 {{$posts->links()}}
-
-            </div>
+            </x-clangim.window>
 
         </div>
     </div>

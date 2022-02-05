@@ -29,13 +29,16 @@ class HomeController extends Controller
         $this->getAverageReplayScores();
 
         $topUsers = User::orderBy('points', 'desc')->limit(5)->get();
+        $topPlayers = User::where('role', '<=', 5)->where('role', '>', 1)->limit(5)->get();
+
 
         return view('dashboard', [
             'posts'         => $posts,
             'clanWars'      => $clanWars,
             'replays'       => $this->replays,
             'topUsers'      => $topUsers,
-            'teamFlag'      => $teamFlag
+            'teamFlag'      => $teamFlag,
+            'topPlayers'    => $topPlayers,
         ]);
 
     }

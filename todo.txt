@@ -1,6 +1,3 @@
-MODULES
-    -- Footer
-
 IMPORTANT FIXES AND ADDONS
 
 MINOR ADDONS
@@ -8,19 +5,23 @@ MINOR ADDONS
 SMALL FIXES
 
 FINAL CHECK
-    -- Refactor frontend
-        -- Mobile First
-        -- Paginations
+
+DOUBLE CHECK
+    -- Recheck/factor backend
+    -- Recheck/factor frontend
+    -- Mobile First
+    -- Paginations
     -- Authorizations
     -- Demo and deploy content data seeds
     -- Prepare deploy version
-    -- Recheck/factor backend
-    -- Recheck/factor frontend
-    -- Deploy on prod envinronment check
+    -- Prod envinronment check
 
 AFTER FINAL CHECK
     -- Readme.md
     -- Docs with logged and unlogged screens, with mobile and desktop view
+
+MODULES
+    -- Footer
 
 FUTURE OR OPTIONAL
     -- Dark mode
