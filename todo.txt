@@ -8,8 +8,7 @@ MINOR ADDONS
 SMALL FIXES
 
 FINAL CHECK
-    -- Refactor backend (1)
-    -- Refactor frontend (0)
+    -- Refactor frontend
         -- Mobile First
         -- Paginations
     -- Authorizations

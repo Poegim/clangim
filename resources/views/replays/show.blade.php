@@ -21,15 +21,15 @@
                             <img class="h-8 w-8 rounded-full object-cover inline"
                             src="{{ $replay->user->profile_photo_url }}" alt="{{ $replay->user->name }}"
                             />
-                            
+
                         </div>
-                        
+
                         <div class="inline left-5 z-10 absolute">
                             <img class="h-8 w-8 rounded-full object-cover inline"
                             src="{{ $replay->user->countryFlagURL() }}" alt="{{ $replay->user->country }}"
                             />
                         </div>
-        
+
                         <div class="ml-14 h-full mt-1">
                             {{$replay->title}}</span>
                         </div>
@@ -50,7 +50,7 @@
             <span id="comments"></span>
 
             @foreach ($replay->comments as $comment)
-            <x-clangim.replays.comment :comment="$comment" />
+             <x-clangim.replays.comment :comment="$comment" />
             @endforeach
 
             <x-clangim.replays.addComment :replayId="$replay->id" />

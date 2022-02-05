@@ -24,6 +24,10 @@
             </div>
             @endif
 
+            @if ($item->post)
+                <span class="ml-14">{{ $item->user->name }}</span>
+            @endif
+
             @if ($item->postComments)
                 <a href="{{ route('post.show', $item->slug) }}" class="ml-14">{{ $item->title }}</a>
             @endif
@@ -68,14 +72,29 @@
 
         <div class="flex justify-between">
 
-            @if(($item != NULL) && ($item->edited_by != null))
             <div class="text-xs text-gray-500 italic mb-1 px-2 sm:px-10 pb-6">
-                Edited: {{ $item->updatedAt() }}, by {{ $item->user->name }}.
-            </div>
-            @else
-            <div></div>
+            @if($item->postComments)
+            <a href="{{route('post.show', $item->slug)}}#comments"
+                class="text-sm font-semibold text-indigo-500 hover:text-indigo-700 focus:text-indigo-700"
+                >
+                <x-clarity-block-quote-line class="inline w-5 h-5"/> Comments
+                ({{$item->postComments->count()}})
+            </a>
             @endif
 
+            @if(($item != NULL) && ($item->edited_by != null))
+                <span class="ml-4">
+                    Edited: {{ $item->updatedAt() }}, by {{ $item->user->name }}.
+                </span>
+            @endif
+
+
+
+            @if($item->postComments)
+
+            @endif
+
+            </div>
 
             @can('update', $item)
             <div class="clear-both flex justify-end gap-2 px-2 sm:px-10 pb-6">

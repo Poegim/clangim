@@ -7,35 +7,26 @@
 
     <div class="pb-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="shadow-xl sm:rounded-lg overflow-hidden">
 
-                <div class="py-6 px-2 sm:px-12 border-b border-gray-200 bg-white">
+            <x-clangim.window :item="NULL">
+                <div class="flex justify-between px-1">
 
-                    <div>
-                        <x-notification></x-notification>
+                    <span>
+                        <x-clarity-replay-all-line class="w-16 h-16 text-blue-700 inline" />
+                    </span>
 
-                        <div>
-                            <div class="flex justify-between px-1">
+                    @can('create', App\Models\Replays\Replay::class)
 
-                                <span>
-                                    <x-clarity-replay-all-line class="w-16 h-16 text-blue-700 inline" />
-                                </span>
+                    <x-clangim.dark-button-link class="cursor-pointer" href="{{route('replays.create')}}">
+                        Add
+                        Replay
+                    </x-clangim.dark-button-link>
 
-                                @can('create', App\Models\Replays\Replay::class)
+                    @endcan
 
-                                <x-clangim.dark-button-link class="cursor-pointer" href="{{route('replays.create')}}">
-                                    Add
-                                    Replay
-                                </x-clangim.dark-button-link>
-
-                                @endcan
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
 
-            </div>
+            </x-clangim.window>
 
             @foreach ($replays as $replay)
 

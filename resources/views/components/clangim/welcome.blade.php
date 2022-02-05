@@ -94,7 +94,6 @@
                                 <x-clarity-block-quote-line class="inline w-5 h-5"/>
                                 {{$replay->comments->count()}}
                             </a>
-
                         </div>
 
                         <livewire:replay.home-page-download :replay="$replay" />
