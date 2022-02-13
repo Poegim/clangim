@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-400">
             {{ __('Replays') }}
         </h2>
     </x-slot>
@@ -12,7 +12,7 @@
                 <div class="flex justify-between px-1">
 
                     <span>
-                        <x-clarity-replay-all-line class="w-16 h-16 text-blue-700 inline" />
+                        <x-clarity-replay-all-line class="w-16 h-16 text-blue-700 inline dark:text-gray-200" />
                     </span>
 
                     @can('create', App\Models\Replays\Replay::class)

@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-400">
             <a href="{{route('categories.index')}}"
                 class="hover:text-blue-500 focus:text-blue-500" >
                 {{ __('Categories') }}
@@ -17,7 +17,7 @@
 
                 <div class="flex justify-between">
                     <span>
-                        <x-clarity-talk-bubbles-line class="w-16 h-16 text-blue-700 inline" />
+                        <x-clarity-talk-bubbles-line class="w-16 h-16 text-blue-700 inline dark:text-gray-200" />
                     </span>
 
                     @can('create', App\Models\Forum\Thread::class)

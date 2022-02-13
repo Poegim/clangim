@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-400">
             <a href="{{route('categories.show', $reply->thread->category->slug)}}"
                 class="hover:text-blue-500 focus:text-blue-500" >
                 {{$reply->thread->category->name}}

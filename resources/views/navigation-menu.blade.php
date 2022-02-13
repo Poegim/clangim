@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 dark:bg-black dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -21,7 +21,7 @@
                         {{ __('Forum') }}
                     </x-jet-nav-link>
                     @endcan
-                    
+
                     <x-jet-nav-link href="{{ route('clan-wars.index') }}" :active="request()->routeIs('clan-wars.index')">
                         {{ __('Clan Wars') }}
                     </x-jet-nav-link>
@@ -47,11 +47,11 @@
 
                     @guest
                     <a href="{{ route('login') }}"
-                    class="text-sm text-gray-600 hover:text-gray-800 px-2">Login
+                    class="text-sm text-gray-600 hover:text-gray-800 px-2 dark:text-gray-300 dark:hover:text-gray-100">Login
                     </a>
 
                     <a href="{{ route('register') }}"
-                    class="text-sm text-gray-600 hover:text-gray-800 px-2">Register
+                    class="text-sm text-gray-600 hover:text-gray-800 px-2 dark:text-gray-300 dark:hover:text-gray-100" >Register
                     </a>
                     @endguest
 
@@ -69,7 +69,7 @@
                             @else
                             <span class="inline-flex rounded-md">
                                 <button type="button"
-                                    class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                                    class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition dark:bg-black">
                                     {{ Auth::user()->name }}
 
                                     <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +116,7 @@
                             @endif
 
                             @if (auth()->check() && auth()->user()->isAdmin())
-                            
+
                             <div class="border-t border-gray-100"></div>
                             <!-- Team Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
@@ -127,7 +127,7 @@
                                 {{ __('Team Settings') }}
                             </x-jet-dropdown-link>
 
-                            @endif                           
+                            @endif
 
                             <div class="border-t border-gray-100"></div>
 
@@ -249,13 +249,13 @@
                 @endif
 
                 @if (auth()->check() && auth()->user()->isAdmin())
-                            
+
                 <x-jet-responsive-nav-link href="{{ route('team.settings') }}"
                     :active="request()->routeIs('team.settings')">
                     {{ __('Team Settings') }}
                 </x-jet-responsive-nav-link>
 
-                @endif         
+                @endif
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">

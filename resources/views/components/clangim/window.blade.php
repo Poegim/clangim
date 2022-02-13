@@ -1,7 +1,8 @@
-<div class="bg-white overflow-hidden shadow-xl rounded-lg mt-12">
+<div class="bg-white overflow-hidden shadow-xl rounded-lg mt-12 dark:bg-indigo-900 dark:text-white">
     @if($item != NULL)
+
     <div
-    class="py-4 px-2 sm:px-10 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold">
+    class="py-4 px-2 sm:px-10 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700">
 
         <div class="block lg:inline">
 
@@ -65,7 +66,7 @@
         </div>
         @endif
 
-        <div>
+        <div class="dark:text-gray-300">
             {{$slot}}
         </div>
 
@@ -79,7 +80,7 @@
             <div class="text-xs text-gray-500 italic mb-1 px-2 sm:px-10 pb-6">
             @if($item->postComments)
             <a href="{{route('post.show', $item->slug)}}#comments"
-                class="text-sm font-semibold text-indigo-500 hover:text-indigo-700 focus:text-indigo-700"
+                class="text-sm font-semibold text-indigo-500 hover:text-indigo-700 focus:text-indigo-700 dark:text-indigo-200 dark:hover:text-indigo-400"
                 >
                 <x-clarity-block-quote-line class="inline w-5 h-5"/> Comments
                 ({{$item->postComments->count()}})
@@ -87,12 +88,10 @@
             @endif
 
             @if(($item != NULL) && ($item->edited_by != null))
-                <span class="ml-4">
+                <span class="ml-4 dark:text-gray-400">
                     Edited: {{ $item->updatedAt() }}, by {{ $item->user->name }}.
                 </span>
             @endif
-
-
 
             @if($item->postComments)
 

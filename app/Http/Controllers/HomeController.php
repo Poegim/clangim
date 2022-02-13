@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\View\View;
 use App\Models\Posts\Post;
-use Illuminate\Http\Request;
 use App\Models\Replays\Replay;
-use Illuminate\Support\Carbon;
 use App\Models\ClanWars\ClanWar;
 use App\Models\Team\Setting;
 
@@ -30,7 +28,6 @@ class HomeController extends Controller
 
         $topUsers = User::orderBy('points', 'desc')->limit(5)->get();
         $topPlayers = User::where('role', '<=', 5)->where('role', '>', 1)->limit(5)->get();
-
 
         return view('dashboard', [
             'posts'         => $posts,

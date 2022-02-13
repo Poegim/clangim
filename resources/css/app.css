@@ -8,3 +8,12 @@
     @apply text-sm font-semibold text-indigo-500 focus:text-indigo-700 hover:text-indigo-700;
 }
 
+.slate
+{
+    background-color: #0f172a !important;
+}
+
+#toggle:checked ~ label div.toggle-dote
+{
+    @apply translate-x-3;
+}

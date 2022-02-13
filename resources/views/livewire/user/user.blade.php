@@ -5,7 +5,7 @@
         <div class="flex justify-between px-1">
 
             <span>
-                <x-clarity-users-line class="w-16 h-16 text-blue-700 inline" />
+                <x-clarity-users-line class="w-16 h-16 text-blue-700 inline dark:text-gray-200" />
             </span>
 
         </div>
@@ -41,7 +41,7 @@
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach ($users as $itemUser)
-                                    
+
                                 <tr>
                                     <td class="px-4 py-4">
                                         <div class="text-sm text-gray-900">
@@ -62,7 +62,7 @@
 
                                         <div class="flex justify-start">
                                             @can('update', $itemUser)
-                                                <div class="flex justify-end gap-2 pr-6 sm:pr-20">      
+                                                <div class="flex justify-end gap-2 pr-6 sm:pr-20">
                                                     <button
                                                     wire:click="showEditModal({{$itemUser->id}})"
                                                     wire:loading.attr="disabled"
@@ -70,7 +70,7 @@
                                                         <x-clarity-note-edit-line class="w-5 h-5 text-indigo-600 focus:text-indigo-800 hover:text-indigo-800"/>
                                                     </a>
                                                     @can('delete', $itemUser)
-                                                    <button 
+                                                    <button
                                                         class="cursor-pointer text-sm font-semibold text-red-500 focus:text-red-700 hover:text-red-700"
                                                         wire:click="showDeleteModal({{$itemUser->id}})"
                                                         wire:loading.attr="disabled"
@@ -154,7 +154,7 @@
                         <option value="5" {{ $role == 5 ? 'selected' : null }}>INACTIVE</option>
                         <option value="6" {{ $role == 6 ? 'selected' : null }}>EX_PLAYER</option>
                         <option value="7" {{ $role == 7 ? 'selected' : null }} {{ $role < 7 ? ' disabled' : null }}>USER</option>
-                        
+
                 </select>
 
                 <x-jet-input-error for="role" class="mt-2" />

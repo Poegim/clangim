@@ -1,6 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
+    darkMode: 'class',
     mode: 'jit',
     purge: {
         content: [
@@ -12,6 +13,12 @@ module.exports = {
         './resources/views/**/*.blade.php',
         ],
         safelist: [
+            'text-gray-50',
+            'dark:text-gray-800',
+            'text-gray-800',
+            'text-black',
+            'dark:text-gray-300',
+            'text-gray-300',
             'from-red-400',
             'from-red-800',
             'from-blue-400',

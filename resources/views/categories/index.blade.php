@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-400">
             {{ __('Categories') }}
         </h2>
     </x-slot>
@@ -14,7 +14,7 @@
 
                 <div class="flex justify-between">
                     <span>
-                        <x-clarity-talk-bubbles-line class="w-16 h-16 text-blue-700 inline" />
+                        <x-clarity-talk-bubbles-line class="w-16 h-16 text-blue-700 inline dark:text-gray-200" />
                     </span>
 
                     @can('create', App\Models\Category::class)
@@ -32,9 +32,9 @@
 
 
                     <div
-                        class="col-span-4 md:col-span-6 mt-2 italic mb-3 text-gray-500 text-xs md:text-sm pl-2 border-b-2">
+                        class="col-span-4 md:col-span-6 mt-2 italic mb-3 text-gray-500 text-xs md:text-sm pl-2 border-b-2 dark:text-blue-300">
                         {{ $category->description }}
-                        <span class="ml-4 text-xs text-gray-500 italic mt-2">
+                        <span class="ml-4 text-xs text-gray-500 italic mt-2 dark:text-blue-300">
                             {{ $category->threads->count()}} - threads.
                         </span>
                     </div>
