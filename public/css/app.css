@@ -2696,6 +2696,14 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
 }
+.dark .dark\:bg-gray-800 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+}
+.dark .dark\:bg-purple-900 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(76, 29, 149, var(--tw-bg-opacity));
+}
 .dark .dark\:text-gray-800 {
 	--tw-text-opacity: 1;
 	color: rgba(31, 41, 55, var(--tw-text-opacity));
@@ -2827,6 +2835,10 @@ select {
 .dark .dark\:hover\:text-gray-100:hover {
 	--tw-text-opacity: 1;
 	color: rgba(243, 244, 246, var(--tw-text-opacity));
+}
+.dark .dark\:hover\:text-gray-600:hover {
+	--tw-text-opacity: 1;
+	color: rgba(75, 85, 99, var(--tw-text-opacity));
 }
 .dark .dark\:focus\:text-gray-300:focus {
 	--tw-text-opacity: 1;
