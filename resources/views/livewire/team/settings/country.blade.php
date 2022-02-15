@@ -5,7 +5,7 @@
     </div>
     <div class="shadow-xl sm:rounded-lg overflow-hidden col-span-2">
 
-        <div class="pt-6 pb-10 px-2 sm:px-12 border-b border-gray-200 bg-white dark:bg-indigo-900 dark:text-white dark:border-indigo-700">
+        <div class="pt-6 pb-10 px-2 sm:px-12 border-b border-gray-200 bg-white dark:bg-gray-900 dark:text-white dark:border-gray-700">
             <!-- Country -->
             <div class="mt-2 mb-4 flex justify-between" x-show="! photoPreview">
                 <img src="{{$this->countryFlagURL()}}" alt="{{$country}}" class="rounded-full h-20 w-20 object-cover">
@@ -13,7 +13,7 @@
 
             <!-- Country -->
             <x-jet-label for="country" value="{{ __('Country / Region / Union') }}" />
-            <select name="country" id="country" class="mt-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-700" wire:model="country">
+            <select name="country" id="country" class="mt-2 border-gray-300 focus:border-gray-300 focus:ring focus:ring-gray-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-700" wire:model="country">
                 @foreach (config('countries.country_list') as $key => $item))
                     <option value="{{$key}}">{{$item}}</option>
                 @endforeach

@@ -3,7 +3,6 @@ IMPORTANT FIXES AND ADDONS
 MINOR ADDONS
 
 SMALL FIXES
-    -- Livewire modals dark mode
 
 FINAL CHECK
 
@@ -27,7 +26,6 @@ MODULES
 FUTURE OR OPTIONAL
     -- Theme color switcher
     -- Big LOGO
-    -- Dark mode
     -- Change Jetstream banner for x-notification
     -- Improve replays view
     -- Route names standarize
