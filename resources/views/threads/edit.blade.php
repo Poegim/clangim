@@ -32,7 +32,7 @@
                             <x-jet-input-error for="image" class="mt-2 mb-2" />
 
                             <x-jet-label for="category" value="{{ __('Category:') }}" class="mt-2 mb-2" />
-                            <select name="category" id="category" class="rounded block mb-2">
+                            <select name="category" id="category" class="rounded block mb-2 dark:text-gray-700">
                                 @foreach ($categories as $category)
                                 <option value="{{$category->id}}"
                                     {{ $category->id == $thread->category_id ? 'selected' : null }}>{{$category->name}}

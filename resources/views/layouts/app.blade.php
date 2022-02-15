@@ -78,8 +78,8 @@ x-bind:class="{'dark': darkMode}"
 
             @include('layouts.footer')
             @stack('modals')
-            @livewireScripts
             @bukScripts
+            @livewireScripts
             @include('cookie-consent::index')
         </div>
     </div>

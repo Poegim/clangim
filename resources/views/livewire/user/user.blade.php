@@ -2,59 +2,52 @@
     <x-notification></x-notification>
 
     <div>
-        <div class="flex justify-between px-1">
-
-            <span>
-                <x-clarity-users-line class="w-16 h-16 text-blue-700 inline dark:text-gray-200" />
-            </span>
-
-        </div>
 
         <div class="flex flex-col mt-6 mb-4">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-50">
+                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg dark:border-none">
+                        <table class="min-w-full divide-y divide-gray-200 dark:divide-none">
+                            <thead class="bg-gray-50 text-gray-500 dark:text-gray-300 dark:bg-purple-800 dark:divide-none">
                                 <tr>
                                     <th scope="col"
-                                        class="pl-4 pr-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="pl-4 pr-2 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                         ID
                                     </th>
                                     <th scope="col"
-                                        class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                         Name
                                     </th>
                                     <th scope="col"
-                                        class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                         Email
                                     </th>
                                     <th scope="col"
-                                        class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                         Role
                                     </th>
                                     <th scope="col"
-                                        class="pl-2 pr-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="pl-2 pr-4 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                         Actions
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
+                            <tbody class="bg-white text-gray-500 divide-y divide-gray-200 dark:bg-black dark:text-gray-300 dark:divide-none">
                                 @foreach ($users as $itemUser)
 
                                 <tr>
                                     <td class="px-4 py-4">
-                                        <div class="text-sm text-gray-900">
+                                        <div class="text-sm">
                                                 {{$itemUser->id}}
                                         </div>
                                     </td>
-                                    <td class="px-2 py-4 text-sm text-gray-500">
+                                    <td class="px-2 py-4 text-sm">
                                         {{ $itemUser->name }}
                                     </td>
-                                    <td class="px-2 py-4 text-sm text-gray-500">
+                                    <td class="px-2 py-4 text-sm">
                                         {{ $itemUser->email }}
                                     </td>
-                                    <td class="px-2 py-4 text-sm text-gray-500">
+                                    <td class="px-2 py-4 text-sm">
                                         {{ $itemUser->role() }}
                                     </td>
                                     <td
@@ -139,7 +132,7 @@
             <div class="mt-2">
                 <x-jet-label for="role" value="{{ __('Role') }}" />
 
-                <select name="role" id="role" class="rounded block w-full mt-2" wire:model.debounce.800ms="role">
+                <select name="role" id="role" class="rounded block w-full mt-2 dark:text-gray-600" wire:model.debounce.800ms="role">
 
                         @if (auth()->user()->isAdmin())
                         <option value="1" {{ $role == 1 ? 'selected' : null }}>ADMIN</option>

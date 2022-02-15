@@ -50,9 +50,14 @@
                                         src="{{ asset('images/country_flags/'.strtolower($teamFlag->value).'.png') }}"
                                         alt="{{ $teamFlag->value }}" />
                                 </div>
-                                <div class="text-center"><a
+
+                                <div class="text-center">
+                                    <a
+                                        class="dark:text-gray-300 dark:hover:text-gray-400"
                                         href="{{route('clan-wars.show', $clanWar->id)}}">{{$clanWar->title}}
-                                        ({{$clanWar->results->wins}}:{{$clanWar->results->losses}})</a> </div>
+                                        ({{$clanWar->results->wins}}:{{$clanWar->results->losses}})</a>
+                                </div>
+
                                 <div>
                                     <img class="w-5 h-5 sm:h-8 sm:w-8 rounded-full object-cover inline"
                                         src="{{ $clanWar->countryFlagURL() }}" alt="{{ $clanWar->enemy_flag }}" />
@@ -129,7 +134,7 @@
                 <!-- Country -->
                 <x-jet-label class="mt-2" for="country" value="{{ __('Country / Region / Union') }}" />
                 <select name="country" id="country"
-                    class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block"
+                    class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-700"
                     wire:model.debounce.800ms="enemy_flag">
                     @foreach (config('countries.country_list') as $key => $country))
                     <option value="{{$key}}">{{$country}}</option>

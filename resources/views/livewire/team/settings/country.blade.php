@@ -13,7 +13,7 @@
 
             <!-- Country -->
             <x-jet-label for="country" value="{{ __('Country / Region / Union') }}" />
-            <select name="country" id="country" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-700" wire:model="country">
+            <select name="country" id="country" class="mt-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-700" wire:model="country">
                 @foreach (config('countries.country_list') as $key => $item))
                     <option value="{{$key}}">{{$item}}</option>
                 @endforeach

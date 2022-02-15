@@ -4,7 +4,6 @@ MINOR ADDONS
 
 SMALL FIXES
     -- Livewire modals dark mode
-    -- Team settings dark mode switch bug
 
 FINAL CHECK
 
@@ -26,6 +25,8 @@ MODULES
     -- Footer
 
 FUTURE OR OPTIONAL
+    -- Theme color switcher
+    -- Big LOGO
     -- Dark mode
     -- Change Jetstream banner for x-notification
     -- Improve replays view

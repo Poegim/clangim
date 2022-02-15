@@ -4,10 +4,10 @@
 
     <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-2 pb-6">
         @foreach ($games as $game)
-        <div class="rounded overflow-hidden shadow-lg mt-4 pb-8 relative">
+        <div class="rounded overflow-hidden shadow-lg mt-4 pb-8 relative dark:bg-purple-900">
             <div class="px-6">
                 <div class="font-bold text-xl mb-2 mt-2">ID:{{$game->id()}}, type:{{$game->type()}}
-                
+
                     @if ($game->result == 1)
                     <x-fontisto-smiley class="w-5 h-5 ml-4 text-green-500 mb-1 inline" />
                     @endif
@@ -15,7 +15,7 @@
                     @if ($game->result == 0)
                     <x-fontisto-neutral class="w-5 h-5 ml-4 text-red-600 mb-1 inline" />
                     @endif
-                
+
                 </div>
                 <div class="grid grid-cols-2 mb-2">
                     <div>
@@ -116,10 +116,10 @@
                 </div>
             </div>
 
-            <div class="h-2 absolute bottom-0 w-full bg-gradient-to-r {{$game->result == 1 ? 'from-green-400' : 'from-red-400'}}">
+            <div class="h-2 absolute bottom-0 w-full bg-gradient-to-r {{$game->result == 1 ? 'from-green-400 dark:to-indigo-900' : 'from-red-400 dark:to-indigo-900'}}">
             </div>
 
-            
+
         </div>
         @endforeach
 
@@ -127,10 +127,10 @@
             <div class="px-20 py-6 flex justify-center">
 
                 <button class="rounded-full w-full border-2 text-black text-xs hover:bg-black hover:text-white shadow"
-                    wire:click='showAddGameModal'    
+                    wire:click='showAddGameModal'
                 >
                     <x-clarity-add-line class="w-1/3 inline pt-6" /> <div class="py-6">add game</div>
-                    
+
                 </button>
 
             </div>
@@ -150,7 +150,7 @@
                 <div>
                     <x-jet-label class="mt-2" for="add_game_type" value="{{ __('Game type:')}}" />
                     <select name="add_game_type" id="add_game_type"
-                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block"
+                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-600"
                         wire:model.debounce.800ms="add_game_type">
                         <option value="1">1v1</option>
                         <option value="2">2v2</option>
@@ -163,7 +163,7 @@
                 <div>
                     <x-jet-label class="mt-2" for="add_game_result" value="{{ __('Game result:')}}" />
                     <select name="add_game_result" id="add_game_result"
-                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block"
+                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-600"
                         wire:model="add_game_result">
                         <option value="1">WIN</option>
                         <option value="0">LOSE</option>
@@ -249,7 +249,7 @@
                 <div>
                     <x-jet-label class="mt-2" for="add_home_player" value="{{ __('Select player:')}}" />
                     <select name="add_home_player" id="add_home_player"
-                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block"
+                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-600"
                         wire:model="add_home_player">
 
                         @foreach ($teamPlayers as $teamPlayer)
