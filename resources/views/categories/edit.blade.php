@@ -29,7 +29,7 @@
                                     <div>
                                         <label>
                                             <input type="radio" name="hidden" value="0" checked>
-                                            <span class="ml-2 text-sm text-gray-600">
+                                            <span class="ml-2 text-sm text-gray-600 dark:text-gray-200">
                                                 {{ __('Visible for all.') }}
                                             </span>
                                         </label>
@@ -38,7 +38,7 @@
                                     <div>
                                         <label>
                                             <input type="radio" name="hidden" value="1">
-                                            <span class="ml-2 text-sm text-gray-600">
+                                            <span class="ml-2 text-sm text-gray-600 dark:text-gray-200">
                                                 {{ __('Only for Captains / Admins.') }}
                                             </span>
                                         </label>

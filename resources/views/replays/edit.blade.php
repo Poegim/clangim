@@ -14,7 +14,7 @@
                     @csrf
                     <div>
                         <div>
-                            <x-jet-label for="title" value="{{ __('Title:') }}" />
+                            <x-jet-label for="title" value="{{ __('Title:') }}"/>
                             <x-jet-input id="title" class="block mt-2 mb-2 w-full" type="text" name="title"
                                 :value="old('title') ? old('title') : $replay->title"
                                 placeholder="Fight fire with fire." required autofocus />

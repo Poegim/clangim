@@ -8,35 +8,35 @@
         @endif
 
         @if ($playerOne->name)
-        <x-clangim.replays.player :player="$playerOne" /> 
+        <x-clangim.replays.player :player="$playerOne" />
         @endif
 
         @if ($playerTwo->name)
-        <x-clangim.replays.player :player="$playerTwo" /> 
+        <x-clangim.replays.player :player="$playerTwo" />
         @endif
 
         @if ($playerThree->name)
-        <x-clangim.replays.player :player="$playerThree" /> 
+        <x-clangim.replays.player :player="$playerThree" />
         @endif
 
         @if ($playerFour->name)
-        <x-clangim.replays.player :player="$playerFour" /> 
+        <x-clangim.replays.player :player="$playerFour" />
         @endif
 
         @if ($playerFive->name)
-        <x-clangim.replays.player :player="$playerFive" /> 
+        <x-clangim.replays.player :player="$playerFive" />
         @endif
 
         @if ($playerSix->name)
-        <x-clangim.replays.player :player="$playerSix" /> 
+        <x-clangim.replays.player :player="$playerSix" />
         @endif
 
         @if ($playerSeven->name)
-        <x-clangim.replays.player :player="$playerSeven" /> 
+        <x-clangim.replays.player :player="$playerSeven" />
         @endif
 
         @if ($playerEight->name)
-        <x-clangim.replays.player :player="$playerEight" /> 
+        <x-clangim.replays.player :player="$playerEight" />
         @endif
 
     </div>
@@ -47,14 +47,14 @@
             <livewire:replay.download :downloadsCounter='$replay->downloadsCounter()' :modelId="$replay->id" :key="$replay->id" />
             <div>
                 @if (!Request::segment(2))
-                <a href="{{route('replays.show', $replay->id)}}#comments" class="text-sm font-semibold text-indigo-700"
+                <a href="{{route('replays.show', $replay->id)}}#comments" class="text-sm font-semibold text-indigo-700 hover:text-indigo-900 dark:text-indigo-200 dark:hover:text-indigo-400"
                     >
                     Comment ({{$replay->comments()->count()}})
                 </a>
                 @endif
             </div>
 
-            <div class="text-xs text-gray-500 italic mt-1">
+            <div class="text-xs text-gray-500 italic mt-1 ">
                 @if($replay->edited_by != null)
                 Edited: {{ $replay->updatedAt() }}, by {{ $replay->editedBy->name }}.
                 @endif
@@ -63,9 +63,9 @@
         </div>
 
         @can('update', $replay)
-            <div class="flex justify-end gap-2 pr-6 sm:pr-20">      
+            <div class="flex justify-end gap-2 pr-6 sm:pr-20">
                 <a href="{{ route('replays.edit', $replay) }}">
-                    <x-clarity-note-edit-line class="w-5 h-5 text-indigo-600 focus:text-indigo-800 hover:text-indigo-800"/>
+                    <x-clarity-note-edit-line class="w-5 h-5 text-indigo-600 focus:text-indigo-800 hover:text-indigo-800 "/>
                 </a>
                 @can('delete', $replay)
                 <livewire:replay.delete :replay="$replay" />

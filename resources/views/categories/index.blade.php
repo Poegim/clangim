@@ -10,20 +10,16 @@
     <div class="pb-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            <x-clangim.window :item="NULL">
+            @can('create', App\Models\Category::class)
+            <div class="flex justify-between mt-12">
+                <span>
+                    <x-clarity-talk-bubbles-line class="w-16 h-16 text-blue-700 inline dark:text-gray-200" />
+                </span>
 
-                <div class="flex justify-between">
-                    <span>
-                        <x-clarity-talk-bubbles-line class="w-16 h-16 text-blue-700 inline dark:text-gray-200" />
-                    </span>
-
-                    @can('create', App\Models\Category::class)
-                    <x-clangim.dark-button-link href="{{ route('categories.create') }}">Add category
-                    </x-clangim.dark-button-link>
-                    @endcan
-                </div>
-
-            </x-clangim.window>
+                <x-clangim.dark-button-link href="{{ route('categories.create') }}">Add category
+                </x-clangim.dark-button-link>
+            </div>
+            @endcan
 
             @foreach ($categories as $category)
             @can('view', $category)

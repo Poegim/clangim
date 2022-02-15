@@ -4,6 +4,7 @@ MINOR ADDONS
 
 SMALL FIXES
     -- Livewire modals dark mode
+    -- Team settings dark mode switch bug
 
 FINAL CHECK
 

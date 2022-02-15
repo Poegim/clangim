@@ -19,7 +19,7 @@
                                 :value="old('title')" placeholder="Fight fire with fire." required autofocus />
                             <x-jet-input-error for="title" class="mt-2 mb-2" />
 
-                            <x-jet-label for="file" value="{{ __('Upload Replay') }}" />
+                            <x-jet-label for="file" value="{{ __('Upload Replay') }}" class="mb-2"/>
                             <input name="file" id="file" type="file" accept=".rep"
                                 class="p-1 shadow border hover:border-indigo-300 rounded">
                             <x-jet-input-error for="file" class="mt-2 mb-2" />
