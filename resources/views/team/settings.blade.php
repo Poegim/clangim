@@ -11,6 +11,7 @@
 
             <livewire:team.settings.logo />
             <livewire:team.settings.country />
+            <livewire:team.settings.colors />
 
         </div>
     </div>

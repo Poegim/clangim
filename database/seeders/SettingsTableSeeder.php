@@ -29,6 +29,30 @@ class SettingsTableSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
+            [
+                'title' => 'color1',
+                'value' => 'dark:bg-gray-800',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'title' => 'color2',
+                'value' => 'dark:bg-gray-900',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'title' => 'color3',
+                'value' => 'dark:bg-indigo-800',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'title' => 'color4',
+                'value' => 'dark:bg-indigo-900',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
 
         ]);
     }

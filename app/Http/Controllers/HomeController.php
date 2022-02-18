@@ -21,7 +21,8 @@ class HomeController extends Controller
                         ->paginate(10);
 
         $clanWars = ClanWar::where('date', '>', now())->with('user')->orderBy('date', 'asc')->get();
-        $teamFlag = Setting::where('name', '=', 'flag')->first();
+        $settings = (object) config('settings');
+        $teamFlag = $settings->flag;
 
         $this->replays = Replay::orderBy('id', 'desc')->with('comments')->limit(5)->get();
         $this->getAverageReplayScores();
