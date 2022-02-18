@@ -2,7 +2,7 @@
 <form action="{{ route('replayComment.store') }}" method="post">
     @csrf
     <div class="mt-12">
-        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-6 p-2 sm:p-12 dark:bg-indigo-900 dark:text-white">
+        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-6 p-2 sm:p-12 {{config('settings.color2')}} dark:text-white">
 
             <input type="hidden" name="replay_id" value="{{$replayId}}">
 

@@ -1,11 +1,11 @@
 <div class="sm:grid sm:grid-cols-3 mt-10">
     <div class="mb-6 px-4 sm:px-0">
         <p class="text-lg">Logo</p>
-        <p class="font-extralight text-sm text-gray-500 mt-1">Upload or remove team logo.</p>
+        <p class="font-extralight text-sm text-gray-500 dark:text-gray-400 mt-1">Upload or remove team logo.</p>
     </div>
     <div class="shadow-xl sm:rounded-lg overflow-hidden col-span-2">
 
-        <div class="pt-6 pb-10 px-2 sm:px-12 border-b border-gray-200 bg-white dark:bg-gray-900 dark:text-white dark:border-gray-700">
+        <div class="pt-6 pb-10 px-2 sm:px-12 border-b border-gray-200 bg-white {{config('settings.color1')}} dark:text-white dark:border-gray-700">
             <form wire:submit.prevent="save">
 
                 @if ($logo != NULL)

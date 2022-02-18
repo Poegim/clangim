@@ -44,17 +44,17 @@ x-bind:class="{'dark': darkMode}"
         <div>
             <x-jet-banner />
 
-            <div class="min-h-screen bg-gray-100 pb-12 dark:text-gray-200 dark:bg-black" x-cloak>
+            <div class="min-h-screen bg-gray-100 pb-12 dark:text-gray-200 {{config('settings.color4')}}" x-cloak>
                 @livewire('navigation-menu')
 
                 <!-- Page Heading -->
                 @if (isset($header))
-                <header class="bg-white shadow dark:bg-black" x-cloak>
+                <header class="bg-white shadow {{config('settings.color1')}}" x-cloak>
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 grid grid-cols-2 ">
                         {{ $header }}
 
                         <div class="flex justify-end space-x-2">
-                            <span class="text-sm text-gray-800 dark:text-gray-500">Light</span>
+                            <span class="text-sm text-gray-800 dark:text-gray-400">Light</span>
                             <label for="toggle"
                                 class="w-9 h-5 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer duration-300 ease-in-out dark:bg-gray-600">
                                 <div

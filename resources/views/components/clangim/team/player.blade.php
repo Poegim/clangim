@@ -1,7 +1,7 @@
 <!-- component -->
 <div class="p-1 tracking-wider">
 
-    <div class="bg-gray-200 rounded-md flex justify-center items-center flex-col p-2 dark:bg-purple-900">
+    <div class="bg-gray-200 rounded-md flex justify-center items-center flex-col p-2 {{config('settings.color3')}}">
 
         <div
             class="relative shadow-lg shadow-purple-200 w-full rounded bg-gradient-to-bl {{ $player->teamRaceBackground() }} overflow-hidden flex flex-col justify-center items-center p-4">

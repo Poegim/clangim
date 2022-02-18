@@ -4,7 +4,7 @@
 
     <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-2 pb-6">
         @foreach ($games as $game)
-        <div class="rounded overflow-hidden shadow-lg mt-4 pb-8 relative dark:bg-purple-900">
+        <div class="rounded overflow-hidden shadow-lg mt-4 pb-8 relative {{config('settings.color3')}}">
             <div class="px-6">
                 <div class="font-bold text-xl mb-2 mt-2">ID:{{$game->id()}}, type:{{$game->type()}}
 

@@ -20,7 +20,7 @@
     <x-clangim.window :item="NULL">
         <div class="rounded-lg overflow-hidden">
             <table class="rounded-md min-w-full divide-y divide-gray-200 table-fixed dark:divide-none">
-                <thead class="bg-gray-50 text-gray-500 dark:text-gray-300 dark:bg-purple-800">
+                <thead class="bg-gray-50 text-gray-500 dark:text-gray-300 {{config('settings.color1')}}">
                     <tr>
                         <th scope="col" class="p-4 text-left text-xs font-medium uppercase tracking-wider">
                             Title
@@ -42,7 +42,7 @@
                 <tbody class="bg-white divide-y divide-gray-200 dark:divide-none">
                     @foreach ($clanWars as $clanWar)
 
-                    <tr class="dark:bg-black dark:text-gray-400">
+                    <tr class="{{config('settings.color4')}} dark:text-gray-300">
                         <td class="p-2 md:p-4">
                             <div class="text-sm flex justify-between">
                                 <div>

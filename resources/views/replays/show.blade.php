@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-400">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-300">
             {{ __($replay->title) }}
         </h2>
     </x-slot>
@@ -11,9 +11,9 @@
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12 dark:bg-indigo-900 dark:text-white">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12 {{config('settings.color2')}} dark:text-white">
                 <div
-                    class="py-4 px-6 sm:px-12 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700">
+                    class="py-4 px-6 sm:px-12 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold {{config('settings.color1')}} dark:text-gray-300 dark:border-gray-700">
 
                     <div class="relative">
 

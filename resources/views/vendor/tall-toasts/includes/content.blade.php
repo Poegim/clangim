@@ -1,5 +1,5 @@
 <div
-    class="overflow-hidden z-50 p-5 bg-white rounded-md border-l-8 shadow cursor-pointer pointer-events-auto select-none hover:bg-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800"
+    class="overflow-hidden z-50 p-5 bg-white rounded-md border-l-8 shadow cursor-pointer pointer-events-auto select-none hover:bg-gray-50 {{config('settings.color1')}} dark:hover:bg-gray-800"
     x-bind:class="{
                     'border-blue-700': toast.type === 'info',
                     'border-green-700': toast.type === 'success',

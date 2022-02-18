@@ -1,8 +1,8 @@
-<div class="bg-white overflow-hidden shadow-xl rounded-lg mt-12 dark:bg-indigo-900 dark:text-white">
+<div class="bg-white overflow-hidden shadow-xl rounded-lg mt-12 {{config('settings.color2')}} dark:text-white">
     @if($item != NULL)
 
     <div
-    class="py-4 px-2 sm:px-10 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700">
+    class="py-4 px-2 sm:px-10 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold {{config('settings.color1')}} dark:text-gray-300 dark:border-gray-700">
 
         <div class="block lg:inline">
 
@@ -88,7 +88,7 @@
             @endif
 
             @if(($item != NULL) && ($item->edited_by != null))
-                <span class="ml-4 dark:text-gray-400">
+                <span class="ml-4 dark:text-gray-300">
                     Edited: {{ $item->updatedAt() }}, by {{ $item->user->name }}.
                 </span>
             @endif

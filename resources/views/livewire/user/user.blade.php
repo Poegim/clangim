@@ -8,7 +8,7 @@
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg dark:border-none">
                         <table class="min-w-full divide-y divide-gray-200 dark:divide-none">
-                            <thead class="bg-gray-50 text-gray-500 dark:text-gray-300 dark:bg-purple-800 dark:divide-none">
+                            <thead class="bg-gray-50 text-gray-500 dark:text-gray-300 {{config('settings.color2')}} dark:divide-none">
                                 <tr>
                                     <th scope="col"
                                         class="pl-4 pr-2 py-3 text-left text-xs font-medium uppercase tracking-wider">
@@ -32,7 +32,7 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white text-gray-500 divide-y divide-gray-200 dark:bg-black dark:text-gray-300 dark:divide-none">
+                            <tbody class="bg-white text-gray-500 divide-y divide-gray-200 {{config('settings.color4')}} dark:text-gray-300 dark:divide-none">
                                 @foreach ($users as $itemUser)
 
                                 <tr>

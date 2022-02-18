@@ -1,4 +1,4 @@
-<div class="rounded-lg bg-white border-b border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:border-none pb-1">
+<div class="rounded-lg bg-white border-b border-gray-200 {{config('settings.color1')}} dark:border-none pb-1">
 
     <div class="grid grid-cols-1 lg:grid-cols-2">
         <div class="px-0 lg:px-8">
@@ -13,7 +13,7 @@
 
                 <div class="rounded-lg overflow-hidden dark:shadow-lg">
                 <table class="rounded-md min-w-full divide-y divide-gray-200 table-fixed dark:divide-none">
-                    <thead class="bg-gray-50 text-gray-500 dark:text-gray-300 dark:bg-purple-800">
+                    <thead class="bg-gray-50 text-gray-500 dark:text-gray-300 {{config('settings.color3')}}">
                         <tr>
                             <th scope="col"
                                 class="px-2 py-3 text-centertext-xs font-medium tracking-wider uppercase"
@@ -41,7 +41,7 @@
 
                             @foreach ($clanWars as $clanWar)
 
-                            <tr class="dark:bg-black dark:text-gray-400 h-10">
+                            <tr class="{{config('settings.color4')}} dark:text-gray-300 h-10">
                                 <td class="text-center pl-1">
                                     <img class="h-5 w-5 rounded-full object-cover inline"
                                     src="{{ asset('images/country_flags/'.strtolower($teamFlag).'.png') }}"
@@ -79,7 +79,7 @@
 
     </div>
 
-    <div class="rounded bg-gray-100 mt-12 bg-opacity-25 grid grid-cols-1 lg:grid-cols-2 mb-10 dark:bg-gray-900">
+    <div class="rounded bg-gray-100 mt-12 bg-opacity-25 grid grid-cols-1 lg:grid-cols-2 mb-10 {{config('settings.color1')}}">
 
         <div class="py-2 px-6 lg:px-8">
             <div class="flex items-center">
@@ -93,7 +93,7 @@
 
             <div class="mt-4 ml-2 lg:ml-14">
                 @foreach ($replays as $replay)
-                <div class="rounded-lg bg-gray-100 px-6 py-3 mb-2 flex justify-between h-12 dark:bg-indigo-800 dark:text-gray-300">
+                <div class="rounded-lg bg-gray-100 px-6 py-3 mb-2 flex justify-between h-12 {{config('settings.color3')}} dark:text-gray-300">
                     <div class="w-1/2">
                         <a href="{{ route('replays.show', $replay->id) }}"
                             class="font-semibold hover:text-gray-600 focus:text-gray-600 dark:hover:text-gray-900 dark:focus:text-gray-900">
@@ -139,7 +139,7 @@
 
                 @foreach ($topUsers as $topUser)
 
-                <div class="rounded-lg bg-gray-100 p-2 mb-2 h-12 text-gray-700 dark:bg-indigo-800 dark:text-gray-300">
+                <div class="rounded-lg bg-gray-100 p-2 mb-2 h-12 text-gray-700 {{config('settings.color3')}} dark:text-gray-300">
                     <div class="inline font-semibold tracking-wider ml-4">
                         {{$topUser->points}} PTS
                     </div>

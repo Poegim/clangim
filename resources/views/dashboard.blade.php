@@ -1,16 +1,16 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-400">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-300">
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
 
     <x-notification></x-notification>
 
-    <div class="pt-12 dark:bg-black">
+    <div class="pt-12 {{config('settings.color4')}}">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div
-            class="bg-white overflow-hidden shadow-xl sm:rounded-lg dark:bg-black">
+            class="bg-white overflow-hidden shadow-xl sm:rounded-lg bg-transparent">
 
                 <x-clangim.welcome
                 :clanWars="$clanWars"

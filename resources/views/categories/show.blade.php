@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-400">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-300">
             <a href="{{route('categories.index')}}"
                 class="hover:text-blue-500 focus:text-blue-500" >
                 {{ __('Categories') }}

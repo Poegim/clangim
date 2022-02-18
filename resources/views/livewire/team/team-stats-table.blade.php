@@ -10,7 +10,7 @@
 
         <div class="rounded-lg overflow-hidden dark:shadow-lg">
         <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-none">
-            <thead class="bg-gray-50 dark:bg-purple-800 dark:text-gray-300">
+            <thead class="bg-gray-50 {{config('settings.color3')}} dark:text-gray-300">
                 <tr>
                     <th scope="col"
                         class="px-2 py-3 text-left text-xs font-medium tracking-wider uppercase cursor-pointer w-2/5 focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-900 dark:hover:text-gray-900"
@@ -52,7 +52,7 @@
                     </th>
                 </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200 dark:divide-none dark:bg-black">
+            <tbody class="bg-white divide-y divide-gray-200 dark:divide-none {{config('settings.color4')}}">
                 @foreach ($players as $player)
 
                 <tr class="h-10">

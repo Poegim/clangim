@@ -1,15 +1,15 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-400">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-300">
             {{ __('Clan War:') }} {{$clanWar->title}}
         </h2>
     </x-slot>
 
     <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12 dark:bg-indigo-900 dark:text-white">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12 {{config('settings.color2')}} dark:text-white">
                 <div
-                    class="py-4 px-6 sm:px-12 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700">
+                    class="py-4 px-6 sm:px-12 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold {{config('settings.color1')}} dark:text-gray-300 dark:border-gray-700">
 
                     <span class="block lg:inline ">
                         <img class="h-8 w-8 mr-2 rounded-full object-cover inline"
@@ -34,7 +34,7 @@
 
                     <div class="grid lg:grid-cols-2 gap-2 pb-6">
                         @foreach ($clanWar->games as $game)
-                        <div class="rounded overflow-hidden shadow-lg mt-4 pb-8 relative dark:bg-purple-900">
+                        <div class="rounded overflow-hidden shadow-lg mt-4 pb-8 relative {{config('settings.color3')}}">
                             <div class="px-6">
                                 <div class="mb-4 border-b-1">
                                     <div class="flex justify-between">

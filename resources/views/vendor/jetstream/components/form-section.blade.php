@@ -15,7 +15,7 @@
             </div>
 
             @if (isset($actions))
-                <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md dark:bg-gray-900 dark:text-gray-200">
+                <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md {{config('settings.color1')}} dark:text-gray-200">
                     {{ $actions }}
                 </div>
             @endif
