@@ -44,8 +44,8 @@
                             <tr class="dark:bg-black dark:text-gray-400 h-10">
                                 <td class="text-center pl-1">
                                     <img class="h-5 w-5 rounded-full object-cover inline"
-                                    src="{{ asset('images/country_flags/'.strtolower($teamFlag->value).'.png') }}"
-                                    alt="{{ $teamFlag->value }}" />
+                                    src="{{ asset('images/country_flags/'.strtolower($teamFlag).'.png') }}"
+                                    alt="{{ $teamFlag }}" />
                                 </td>
                                 <td class="text-center">
                                     <a href="{{route('clan-wars.show', $clanWar->id)}}"
