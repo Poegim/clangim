@@ -1,14 +1,17 @@
 IMPORTANT FIXES AND ADDONS
+    -- Theme color switcher
+    -- Big LOGO + clan name + desc
 
 MINOR ADDONS
 
 SMALL FIXES
+    -- Hamburger menu bug
 
 FINAL CHECK
 
-DOUBLE CHECK
-    -- Recheck/factor backend
-    -- Recheck/factor frontend
+DOUBLE RE-CHECK
+    -- Refactor backend
+    -- Refactor frontend
     -- Mobile First
     -- Paginations
     -- Authorizations
@@ -24,8 +27,6 @@ MODULES
     -- Footer
 
 FUTURE OR OPTIONAL
-    -- Theme color switcher
-    -- Big LOGO
     -- Change Jetstream banner for x-notification
     -- Improve replays view
     -- Route names standarize

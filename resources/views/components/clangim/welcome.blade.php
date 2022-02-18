@@ -1,4 +1,4 @@
-<div class="bg-white border-b border-gray-200 dark:bg-black dark:border-gray-800 dark:border-none">
+<div class="rounded-lg bg-white border-b border-gray-200 dark:bg-gray-900 dark:border-gray-800 dark:border-none pb-1">
 
     <div class="grid grid-cols-1 lg:grid-cols-2">
         <div class="px-0 lg:px-8">
@@ -79,7 +79,7 @@
 
     </div>
 
-    <div class="rounded bg-gray-100 mt-12 bg-opacity-25 grid grid-cols-1 lg:grid-cols-2 mb-10 dark:bg-black">
+    <div class="rounded bg-gray-100 mt-12 bg-opacity-25 grid grid-cols-1 lg:grid-cols-2 mb-10 dark:bg-gray-900">
 
         <div class="py-2 px-6 lg:px-8">
             <div class="flex items-center">
