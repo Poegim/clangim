@@ -1,5 +1,4 @@
 IMPORTANT FIXES AND ADDONS
-    -- Big LOGO + clan name + desc
 
 MINOR ADDONS
 
@@ -25,7 +24,6 @@ MODULES
     -- Footer
 
 FUTURE OR OPTIONAL
-    -- Change Jetstream banner for x-notification
     -- Improve replays view
     -- Route names standarize
     -- Email view ??

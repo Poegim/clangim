@@ -1,6 +1,6 @@
 @if (session()->has('success'))
-<div 
-    class="p-4 text-white bg-green-500 grid grid-cols-2 fixed left-0 bottom-0 w-full z-10"
+<div
+    class="p-4 text-white bg-indigo-500 grid grid-cols-2 fixed left-0 bottom-0 w-full z-10"
     x-data="{ show: true }"
     x-show="show"
     x-transition:enter="transition ease-out duration-600"
@@ -10,7 +10,7 @@
     x-transition:leave-start="opacity-100 scale-100"
     x-transition:leave-end="opacity-0"
 >
-    
+
     <div>
         <x-clarity-success-line class="w-5 h-5 inline"/>
         <span>
