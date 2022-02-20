@@ -1,11 +1,9 @@
 IMPORTANT FIXES AND ADDONS
-    -- Theme color switcher
     -- Big LOGO + clan name + desc
 
 MINOR ADDONS
 
 SMALL FIXES
-    -- Hamburger menu bug
 
 FINAL CHECK
 
@@ -35,5 +33,3 @@ FUTURE OR OPTIONAL
     -- BG Image
     -- Likes
     -- Change screp folder
-    -- Add log error, like unable to remove files/replay etc
-    -- Add log notifications for Admin/Captain account

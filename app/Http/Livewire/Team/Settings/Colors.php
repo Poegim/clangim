@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Team\Settings;
 
 use Livewire\Component;
 use App\Models\Team\Setting;
+use Livewire\Redirector;
 
 class Colors extends Component
 {
@@ -39,7 +40,7 @@ class Colors extends Component
         ];
     }
 
-    public function save()
+    public function save(): Redirector
     {
         $this->color1->value = $this->color1value;
         $this->color1->save();
@@ -50,6 +51,7 @@ class Colors extends Component
         $this->color4->value = $this->color4value;
         $this->color4->save();
         $this->emit('saved');
+        return redirect()->route('team.settings');
     }
 
     public function render()

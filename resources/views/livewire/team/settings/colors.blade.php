@@ -1,7 +1,7 @@
 <div class="sm:grid sm:grid-cols-3 mt-10">
-    <div class="mb-6 px-4 sm:px-0">
-        <p class="text-lg">Colors pallete</p>
-        <p class="font-extralight text-sm text-gray-500 dark:text-gray-400 mt-1">Select colors for your team.</p>
+    <div class="mb-6 p-4">
+        <p class="text-lg">Dark mode</p>
+        <p class="font-extralight text-sm text-gray-500 dark:text-gray-400 mt-1">Select colors pallete for dark mode.</p>
     </div>
     <div class="shadow-xl sm:rounded-lg overflow-hidden col-span-2">
 

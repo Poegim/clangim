@@ -1,5 +1,5 @@
 <div class="sm:grid sm:grid-cols-3 mt-10">
-    <div class="mb-6 px-4 sm:px-0">
+    <div class="mb-6 p-4">
         <p class="text-lg">Logo</p>
         <p class="font-extralight text-sm text-gray-500 dark:text-gray-400 mt-1">Upload or remove team logo.</p>
     </div>
@@ -16,8 +16,9 @@
                 </div>
 
                 @endif
-
+                <x-jet-label for="photo" value="{{ __('Upload logo') }}"/>
                 <x-jet-input
+                    id="photo"
                     wire:model="photo"
                     type="file"
                     class="p-1 shadow border hover:border-gray-300 rounded w-full mt-2"

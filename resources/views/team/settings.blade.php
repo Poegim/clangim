@@ -10,6 +10,7 @@
         <div class="pt-10">
 
             <livewire:team.settings.logo />
+            <livewire:team.settings.description />
             <livewire:team.settings.country />
             <livewire:team.settings.colors />
 

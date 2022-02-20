@@ -1,5 +1,5 @@
 <div class="sm:grid sm:grid-cols-3 mt-10">
-    <div class="mb-6 px-4 sm:px-0">
+    <div class="mb-6 p-4">
         <p class="text-lg">Flag</p>
         <p class="font-extralight text-sm text-gray-500 dark:text-gray-400 mt-1">Select a team country/region flag.</p>
     </div>

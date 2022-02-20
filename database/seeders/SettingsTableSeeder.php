@@ -16,7 +16,12 @@ class SettingsTableSeeder extends Seeder
     public function run()
     {
         DB::table('settings')->insert([
-
+            [
+                'name' => 'description',
+                'value' => 'We are a Kraken from the sea.',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
             [
                 'name' => 'flag',
                 'value' => 'EU',
@@ -31,25 +36,25 @@ class SettingsTableSeeder extends Seeder
             ],
             [
                 'title' => 'color1',
-                'value' => 'dark:bg-gray-800',
+                'value' => 'dark:bg-black',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'title' => 'color2',
-                'value' => 'dark:bg-gray-900',
+                'value' => 'dark:bg-indigo-900',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'title' => 'color3',
-                'value' => 'dark:bg-indigo-800',
+                'value' => 'dark:bg-purple-800',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
                 'title' => 'color4',
-                'value' => 'dark:bg-indigo-900',
+                'value' => 'dark:bg-gray-900',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
