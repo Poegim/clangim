@@ -22,7 +22,9 @@
                     wire:model="photo"
                     type="file"
                     class="p-1 shadow border hover:border-gray-300 rounded w-full mt-2"
-                    accept=".jpg, .jpeg"/>
+                    accept=".jpg, .jpeg, .png"/>
+                <x-jet-input-error for="photo" class="mt-2" />
+
 
                 <div class="flex justify-end mt-4 gap-2">
                     <x-jet-action-message class="mr-3 mt-2" on="saved">

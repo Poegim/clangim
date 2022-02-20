@@ -1,12 +1,6 @@
 <!DOCTYPE html>
-<html
-x-cloak
-x-data="{darkMode: localStorage.getItem('dark') === 'true'}"
-x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
-x-bind:class="{'dark': darkMode}"
-
-
->
+<html x-cloak x-data="{darkMode: localStorage.getItem('dark') === 'true'}"
+    x-init="$watch('darkMode', val => localStorage.setItem('dark', val))" x-bind:class="{'dark': darkMode}">
 
 <head>
     <style>
@@ -43,7 +37,6 @@ x-bind:class="{'dark': darkMode}"
     <div :class="{'dark': darkMode === true}">
         <div>
             <x-jet-banner />
-
             <div class="min-h-screen bg-gray-100 pb-12 dark:text-gray-200 {{config('settings.color4')}}" x-cloak>
                 @livewire('navigation-menu')
 
@@ -69,6 +62,7 @@ x-bind:class="{'dark': darkMode}"
                     </div>
                 </header>
                 @endif
+
 
                 <!-- Page Content -->
                 <main>

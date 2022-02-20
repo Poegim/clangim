@@ -1,6 +1,14 @@
 @if (file_exists(public_path('storage/logo/logo.jpg')))
-<div class="inline w-10 h-10 rounded-full overflow-hidden">
-    <img src="{{asset('storage/logo/logo.jpg')}}" alt="Logo" class="w-10 h-10 rounded-full object-cover">
+<div class="w-full flex space-x-2">
+    <div class="inline rounded-full overflow-hidden">
+        <img src="{{asset('storage/logo/logo.jpg')}}" alt="Logo" class="w-10 h-10 rounded-full object-cover float-left">
+    </div>
+    <div class="ml-2 inline:block sm:hidden lg:inline-block pt-2 font-semibold uppercase leading-tight">
+        {{ env('APP_NAME') }}
+        <p class="text-xs normal-case text-gray-500 -mt-1">
+            {{config('settings.description')}}
+        </p>
+    </div>
 </div>
 @else
   <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {{ $attributes }}>

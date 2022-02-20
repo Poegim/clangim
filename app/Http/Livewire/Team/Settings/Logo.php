@@ -29,7 +29,7 @@ class Logo extends Component
             'photo' => [
                 'image',
                 'max:1024',
-                'mimes:jpg',
+                'mimes:jpg,jpeg,png',
             ],
         ]);
 

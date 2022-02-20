@@ -1,17 +1,22 @@
+
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100 {{config('settings.color1')}} dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
+        <div class="flex justify-between h-16 ">
+
+            <div class="w-full sm:w-1/4">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
+                <div class="mt-3">
                     <a href="{{ route('dashboard') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
+            </div>
+
+            <div class="flex justify-center w-1/6 md:w-2/4">
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:flex">
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
@@ -40,7 +45,7 @@
                 </div>
             </div>
 
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="hidden sm:flex sm:items-center sm:justify-end sm:ml-6 w-1/5">
 
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
@@ -215,8 +220,8 @@
 
                 <div>
                     @auth
-                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                    <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
+                    <div class="font-medium text-sm text-gray-500 dark:text-gray-400">{{ Auth::user()->email }}</div>
                     @endauth
                 </div>
 
