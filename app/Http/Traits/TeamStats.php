@@ -6,10 +6,10 @@ use Illuminate\Support\Facades\DB;
 
 trait TeamStats
 {
-    public function sortTable(string $sortBy)
+    public function sortTable(string $sortBy): void
     {
         $sortBy == 'name' ? $descOrAsc = 'asc' : $descOrAsc = 'desc';
-        
+
         $this->players = $this->players->sortBy([
             [$sortBy, $descOrAsc],
             ['losses', 'asc'],
@@ -19,7 +19,7 @@ trait TeamStats
 
     }
 
-    public function setStats()
+    public function setStats(): void
     {
         $this->homePlayersGames = DB::table('game_home_players')
         ->join('games', 'game_home_players.game_id', '=', 'games.id')
@@ -35,7 +35,7 @@ trait TeamStats
                 if($player->id == $game->user_id)
                 {
                     $game->result == 1 ? $player->wins++ : '';
-                    $game->result == 0 ? $player->losses++ : '';                    
+                    $game->result == 0 ? $player->losses++ : '';
                 }
             }
 

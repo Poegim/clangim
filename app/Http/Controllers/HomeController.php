@@ -7,7 +7,6 @@ use Illuminate\View\View;
 use App\Models\Posts\Post;
 use App\Models\Replays\Replay;
 use App\Models\ClanWars\ClanWar;
-use App\Models\Team\Setting;
 
 class HomeController extends Controller
 {

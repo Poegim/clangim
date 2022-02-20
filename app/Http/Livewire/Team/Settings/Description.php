@@ -16,14 +16,14 @@ class Description extends Component
         $this->description = $this->setting->value;
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             'description' => 'string', 'nullable',
         ];
     }
 
-    public function save()
+    public function save(): void
     {
         $this->setting->value = $this->description;
         $this->setting->save();

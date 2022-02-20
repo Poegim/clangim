@@ -13,7 +13,7 @@ class Country extends Component
     public $setting;
     public $country;
 
-    public function mount()
+    public function mount(): void
     {
         $this->setting = Setting::where('name', '=', 'flag')->first();
         $this->country = $this->setting->value;
@@ -26,7 +26,7 @@ class Country extends Component
         ];
     }
 
-    public function save()
+    public function save(): void
     {
         $this->setting->value = $this->country;
         $this->setting->save();

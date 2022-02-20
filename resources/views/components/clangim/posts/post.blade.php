@@ -49,7 +49,7 @@
 
         <div class="flex justify-between">
 
-            <div class="text-xs text-gray-500 italic">
+            <div class="text-xs text-gray-400 italic">
                 @if($post->edited_by != null)
                 Edited: {{ $post->updatedAt() }}, by {{ $post->user->name }}.
                 @endif

@@ -54,7 +54,7 @@
                 @endif
             </div>
 
-            <div class="text-xs text-gray-500 italic mt-1 ">
+            <div class="text-xs text-gray-400 italic mt-1 ">
                 @if($replay->edited_by != null)
                 Edited: {{ $replay->updatedAt() }}, by {{ $replay->editedBy->name }}.
                 @endif

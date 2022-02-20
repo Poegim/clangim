@@ -43,14 +43,14 @@ class SendCWEmailsCommand extends Command
                     ->subject(env('APP_NAME').' - Incoming Clan War!.')
                 );
 
-                //Local env requiremend due to mailtrap limits.
-                $this->info($user->name);
+                //Local env requirement due to mailtrap limits.
                 if(env('MAIL_HOST', false) == 'smtp.mailtrap.io'){
+                    $this->info($user->name);
                     sleep(1);
                 }
             }
         }
-        
+
         return Command::SUCCESS;
     }
 }

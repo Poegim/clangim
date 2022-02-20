@@ -8,7 +8,6 @@ use App\Models\ClanWars\GameHomePlayer;
 use App\Models\ClanWars\GameEnemyPlayer;
 use App\Models\ClanWars\Game as GameModel;
 use App\Policies\ClanWarPolicy;
-use App\Policies\GamePolicy;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 

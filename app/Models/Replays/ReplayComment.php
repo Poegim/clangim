@@ -23,7 +23,7 @@ class ReplayComment extends Model
         return $this->belongsTo(Replay::class);
     }
 
-    public function createdAt()
+    public function createdAt(): string
     {
         return $this->created_at;
     }

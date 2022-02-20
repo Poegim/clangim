@@ -4,7 +4,7 @@ namespace App\Http\Traits;
 
 trait HasPoints
 {
-    public function incrementUserPoints()
+    public function incrementUserPoints(): void
     {
         auth()->user()->increment('points');
     }

@@ -30,7 +30,7 @@ class Colors extends Component
         $this->color4value = $this->color4->value;
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             'color1' => 'required',

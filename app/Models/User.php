@@ -88,7 +88,7 @@ class User extends Authenticatable
             case 'none':
                 return 'from-gray-400';
                 break;
-            
+
             case 'random':
                 return 'from-red-800 via-yellow-400 to-indigo-800';
                 break;
@@ -107,11 +107,6 @@ class User extends Authenticatable
         }
     }
 
-    public function ingameRaceURL()
-    {
-        //
-    }
-
     public function createdAt(): string
     {
         return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('Y-m-d');
@@ -123,7 +118,7 @@ class User extends Authenticatable
             case '1':
                 return 'ADMIN';
                 break;
-            
+
             case '2':
                 return 'CAPTAIN';
                 break;
@@ -131,15 +126,15 @@ class User extends Authenticatable
             case '3':
                 return 'VICE CAPTAIN';
                 break;
-            
+
             case '4':
                 return 'PLAYER';
                 break;
-            
+
             case '5':
                 return 'INACTIVE';
                 break;
-            
+
             case '6':
                 return 'EX MEMBER';
                 break;

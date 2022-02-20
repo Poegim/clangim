@@ -38,7 +38,7 @@
 
                 <div class="flex justify-between">
 
-                    <div class="text-xs text-gray-500 italic">
+                    <div class="text-xs text-gray-400 italic">
                         @if($postComment->edited_by != null)
                         Edited: {{ $postComment->updatedAt() }}, by {{ $postComment->editedBy->name }}.
                         @endif

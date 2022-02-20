@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Team\Setting;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\File;
+use Livewire\Redirector;
 
 class Logo extends Component
 {
@@ -23,7 +24,7 @@ class Logo extends Component
 
     }
 
-    public function save()
+    public function save(): Redirector
     {
         $this->validate([
             'photo' => [
@@ -38,10 +39,10 @@ class Logo extends Component
         $this->setting->save();
         $this->logo = $this->setting->value;
         $this->emit('saved');
-        redirect()->route('team.settings');
+        return redirect()->route('team.settings');
     }
 
-    public function delete()
+    public function delete(): void
     {
         if($this->setting->value != null)
         {
@@ -50,7 +51,6 @@ class Logo extends Component
             File::move('storage/logo/logo.jpg', 'storage/logo/oldlogo.jpg');
             $this->emit('deleted');
             $this->logo = null;
-
         }
 
     }

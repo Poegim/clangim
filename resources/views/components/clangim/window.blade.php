@@ -88,7 +88,7 @@
             @endif
 
             @if(($item != NULL) && ($item->edited_by != null))
-                <span class="ml-4 dark:text-gray-300">
+                <span class="ml-4 dark:text-gray-400">
                     Edited: {{ $item->updatedAt() }}, by {{ $item->user->name }}.
                 </span>
             @endif
