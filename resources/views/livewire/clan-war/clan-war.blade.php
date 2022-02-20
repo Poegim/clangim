@@ -3,7 +3,7 @@
 
 
     @can('create', App\Models\ClanWars\ClanWar::class)
-    <div class="flex justify-between mt-12">
+    <div class="flex justify-between mt-12 px-2 sm:px-0">
 
         <span>
             <x-govicon-tank class="w-16 h-16 text-blue-700 inline dark:text-gray-200" />
@@ -62,9 +62,6 @@
                                     <img class="w-5 h-5 sm:h-8 sm:w-8 rounded-full object-cover inline"
                                         src="{{ $clanWar->countryFlagURL() }}" alt="{{ $clanWar->enemy_flag }}" />
                                 </div>
-                            </div>
-                            <div class="text-sm">
-                                <!-- Somethin here? -->
                             </div>
 
                         </td>

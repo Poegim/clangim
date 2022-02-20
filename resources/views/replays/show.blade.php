@@ -11,9 +11,9 @@
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12 {{config('settings.color2')}} dark:text-white">
+            <div class="bg-white overflow-hidden shadow-xl rounded-lg mt-12 {{config('settings.color2')}} dark:text-white">
                 <div
-                    class="py-4 px-6 sm:px-12 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold {{config('settings.color1')}} dark:text-gray-300 dark:border-gray-700">
+                    class="py-4 px-2 sm:px-12 border-b border-gray-200 bg-gray-200 lg:flex lg:justify-between text-gray-600 leading-7 font-semibold {{config('settings.color1')}} dark:text-gray-300 dark:border-gray-700">
 
                     <div class="relative">
 
@@ -39,7 +39,7 @@
                     </span>
                 </div>
 
-                <div class="py-4 px-6 sm:px-12">
+                <div class="py-4 px-2 sm:px-12">
                     <livewire:replay.score :passedId="$replay->id" />
                 </div>
 
@@ -52,7 +52,9 @@
             @foreach ($replay->comments as $comment)
 
             <x-clangim.window :item="$comment">
-                {!!$comment->body!!}
+                <div class="px-2 sm:px-0">
+                    {!!$comment->body!!}
+                </div>
             </x-clangim.window>
 
             @endforeach

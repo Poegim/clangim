@@ -7,9 +7,6 @@ SMALL FIXES
 FINAL CHECK
 
 DOUBLE RE-CHECK
-    -- Refactor backend
-    -- Refactor frontend
-    -- Mobile First
     -- Paginations
     -- Authorizations
     -- Demo and deploy content data seeds

@@ -1,5 +1,5 @@
 
-    <div class="px-6 sm:px-12 text-gray-500 pb-6 grid grid-cols-2">
+    <div class="px-2 sm:px-12 text-gray-500 pb-6 grid grid-cols-2">
 
         @if($replay->players_count == 0)
         <div class="col-span-2">
@@ -43,7 +43,7 @@
     <div class="flex justify-between">
 
 
-        <div class="flex justify-start pb-6 px-6 sm:px-12 gap-2">
+        <div class="flex justify-start pb-6 px-2 sm:px-12 gap-2">
             <livewire:replay.download :downloadsCounter='$replay->downloadsCounter()' :modelId="$replay->id" :key="$replay->id" />
             <div>
                 @if (!Request::segment(2))

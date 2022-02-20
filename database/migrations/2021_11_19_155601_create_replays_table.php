@@ -60,7 +60,9 @@ class CreateReplaysTable extends Migration
             $table->integer('player_8_apm')->nullable();
             $table->integer('player_8_eapm')->nullable();
             $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('edited_by')->nullable();
+            $table->foreign('edited_by')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

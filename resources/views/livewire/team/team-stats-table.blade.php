@@ -13,36 +13,36 @@
             <thead class="bg-gray-50 {{config('settings.color3')}} dark:text-gray-300">
                 <tr>
                     <th scope="col"
-                        class="px-2 py-3 text-left text-xs font-medium tracking-wider uppercase cursor-pointer w-2/5 focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-900 dark:hover:text-gray-900"
+                        class="px-2 py-3 text-left text-xs font-medium tracking-wider uppercase cursor-pointer w-2/5 focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-200 dark:hover:text-gray-200"
                         wire:click='sortTable("name")'>
 
                         Player
-                        <div class="inline {{$tableSortedBy!= 'name' ? 'text-gray-300 dark:text-gray-600' : 'text-black dark:text-gray-300'}} focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-900 dark:hover:text-gray-900">
+                        <div class="inline {{$tableSortedBy!= 'name' ? 'text-gray-300 dark:text-gray-600' : 'text-black dark:text-gray-300'}} focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-200 dark:hover:text-gray-200">
                             <x-clarity-sort-by-line class="inline w-5 h-5 mb-1" />
                         </div>
 
                     </th>
                     <th scope="col"
-                        class="px-2 py-3 text-center text-xs font-medium tracking-wider uppercase h-4 cursor-pointer focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-900 dark:hover:text-gray-900"
+                        class="px-2 py-3 text-center text-xs font-medium tracking-wider uppercase h-4 cursor-pointer focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-200 dark:hover:text-gray-200"
                         wire:click='sortTable("wins")'>
                         W
-                        <div class="inline {{$tableSortedBy!= 'wins' ? 'text-gray-300 dark:text-gray-600' : 'text-black dark:text-gray-300'}} focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-900 dark:hover:text-gray-900">
+                        <div class="inline {{$tableSortedBy!= 'wins' ? 'text-gray-300 dark:text-gray-600' : 'text-black dark:text-gray-300'}} focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-200 dark:hover:text-gray-200">
                             <x-clarity-sort-by-line class="inline w-5 h-5 mb-1" />
                         </div>
                     </th>
                     <th scope="col"
-                        class="px-2 py-3 text-center text-xs font-medium tracking-wider uppercase cursor-pointer focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-900 dark:hover:text-gray-900"
+                        class="px-2 py-3 text-center text-xs font-medium tracking-wider uppercase cursor-pointer focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-200 dark:hover:text-gray-200"
                         wire:click='sortTable("losses")'>
                         L
-                        <div class="inline {{$tableSortedBy!= 'losses' ? 'text-gray-300 dark:text-gray-600' : 'text-black dark:text-gray-300'}} focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-900 dark:hover:text-gray-900">
+                        <div class="inline {{$tableSortedBy!= 'losses' ? 'text-gray-300 dark:text-gray-600' : 'text-black dark:text-gray-300'}} focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-200 dark:hover:text-gray-200">
                             <x-clarity-sort-by-line class="inline w-5 h-5 mb-1" />
                         </div>
                     </th>
                     <th scope="col"
-                        class="px-2 py-3 text-center text-xs font-medium tracking-wider uppercase cursor-pointer focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-900 dark:hover:text-gray-900"
+                        class="px-2 py-3 text-center text-xs font-medium tracking-wider uppercase cursor-pointer focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-200 dark:hover:text-gray-200"
                         wire:click='sortTable("games")'>
                         G
-                        <div class="inline {{$tableSortedBy!= 'games' ? 'text-gray-300 dark:text-gray-600' : 'text-black dark:text-gray-300'}} focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-900 dark:hover:text-gray-900">
+                        <div class="inline {{$tableSortedBy!= 'games' ? 'text-gray-300 dark:text-gray-600' : 'text-black dark:text-gray-300'}} focus:text-gray-400 hover:text-gray-400 dark:focus:text-gray-200 dark:hover:text-gray-200">
                             <x-clarity-sort-by-line class="inline w-5 h-5 mb-1" />
                         </div>
                     </th>

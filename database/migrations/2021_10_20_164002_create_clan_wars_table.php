@@ -19,6 +19,7 @@ class CreateClanWarsTable extends Migration
             $table->string('enemy_flag')->default('EA');
             $table->datetime('date');
             $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

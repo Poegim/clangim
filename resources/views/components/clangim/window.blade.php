@@ -58,7 +58,7 @@
     </div>
     @endif
 
-    <div class="px-2 sm:px-10 text-gray-500 py-10">
+    <div class="px-0 sm:px-10 text-gray-500 py-10">
 
         @if (($item != NULL) && ($item->image))
         <div>
@@ -66,7 +66,7 @@
         </div>
         @endif
 
-        <div class="dark:text-gray-300">
+        <div class="dark:text-gray-300 px-2 sm:px-0">
             {{$slot}}
         </div>
 

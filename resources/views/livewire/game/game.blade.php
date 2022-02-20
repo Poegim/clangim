@@ -200,7 +200,7 @@
                 <div>
                     <x-jet-label class="mt-2" for="type" value="{{ __('Game type:')}}" />
                     <select name="type" id="type"
-                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block"
+                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-600"
                         wire:model.debounce.800ms="type">
                         <option value="1">1v1</option>
                         <option value="2">2v2</option>
@@ -213,7 +213,7 @@
                 <div>
                     <x-jet-label class="mt-2" for="result" value="{{ __('Game result:')}}" />
                     <select name="result" id="result"
-                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block"
+                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-600"
                         wire:model="result">
                         <option value="1">WIN</option>
                         <option value="0">LOSE</option>
