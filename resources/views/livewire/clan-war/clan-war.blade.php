@@ -40,6 +40,7 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200 dark:divide-none">
+
                     @foreach ($clanWars as $clanWar)
 
                     <tr class="{{config('settings.color4')}} dark:text-gray-300">
@@ -108,6 +109,10 @@
                 </tbody>
             </table>
         </div>
+    </x-clangim.window>
+
+    <x-clangim.window :item="NULL">
+            {{ $clanWars->links() }}
     </x-clangim.window>
 
     <!-- Create Modal Form -->

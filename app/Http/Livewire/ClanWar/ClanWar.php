@@ -11,11 +11,14 @@ use Illuminate\Support\Collection;
 use App\Models\ClanWars\ClanWar as ClanWarModel;
 use App\Models\Team\Setting;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Livewire\WithPagination;
 
 class ClanWar extends Component
 {
     use AuthorizesRequests;
     use ClanWarResult;
+    use WithPagination;
 
     public $createAndEditModalVisibility = false;
     public $deleteModalVisibility = false;
@@ -80,9 +83,9 @@ class ClanWar extends Component
 
     }
 
-    public function read(): Collection
+    public function read(): LengthAwarePaginator
     {
-        $clanWars = ClanWarModel::orderByDesc('date')->get();
+        $clanWars = ClanWarModel::orderByDesc('date')->paginate(20);
 
         foreach($clanWars as $clanWar)
         {
