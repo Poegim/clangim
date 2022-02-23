@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function index(): View
     {
         $this->authorize('viewAny', Category::class);
-        $categories = Category::with('threads.editedBy')->get();
+        $categories = Category::withCount('threads')->get();
 
         return view('categories.index', [
             'categories' => $categories

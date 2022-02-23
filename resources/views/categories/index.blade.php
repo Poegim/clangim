@@ -31,7 +31,7 @@
                         class="col-span-4 md:col-span-6 mt-2 italic mb-3 text-gray-500 text-xs md:text-sm pl-2 border-b-2 dark:text-blue-300">
                         {{ $category->description }}
                         <span class="ml-4 text-xs text-gray-500 italic mt-2 dark:text-blue-300">
-                            {{ $category->threads->count()}} - threads.
+                            {{ $category->threads_count}} - threads.
                         </span>
                     </div>
 
@@ -48,16 +48,15 @@
                     </div>
 
                     <div class="text-center text-sm text-gray-400 col-span-1">
-
-                        @if ($thread->replies != NULL)
-                        {{$thread->replies->count()}} replies
+                        @if ($thread->replies_count != 0)
+                        {{$thread->replies_count}} replies
                         @else
                         0 replies
                         @endif
 
                     </div>
                     <div class="text-center text-sm text-gray-400 col-span-1">
-                        @if ($thread->replies->count() == 0)
+                        @if ($thread->replies_count == 0)
                         {{ $thread->createdAt()}}, by {{ $thread->user->name}}
                         @else
                         {{ $thread->lastReply->createdAt()}}, by {{ $thread->lastReply->user->name}}

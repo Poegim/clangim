@@ -20,12 +20,12 @@ class Category extends Model
 
     public function threads(): HasMany
     {
-        return $this->hasMany(Thread::class, 'category_id')->orderByDesc('updated_at');
+        return $this->hasMany(Thread::class, 'category_id')->withCount('replies')->orderByDesc('updated_at');
     }
 
     public function threadsLimited(): HasMany
     {
-        return $this->hasMany(Thread::class, 'category_id')->with('user')->with('replies')->limit(5)->orderByDesc('updated_at');
+        return $this->hasMany(Thread::class, 'category_id')->with('user')->withCount('replies')->limit(5)->orderByDesc('updated_at');
     }
 
 }
