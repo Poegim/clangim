@@ -7,11 +7,10 @@ use Livewire\Component;
 use Illuminate\Support\Carbon;
 use App\Policies\ClanWarPolicy;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Collection;
 use App\Models\ClanWars\ClanWar as ClanWarModel;
 use App\Models\Team\Setting;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\AbstractPaginator;
 use Livewire\WithPagination;
 
 class ClanWar extends Component
@@ -83,9 +82,9 @@ class ClanWar extends Component
 
     }
 
-    public function read(): LengthAwarePaginator
+    public function read(): AbstractPaginator
     {
-        $clanWars = ClanWarModel::orderByDesc('date')->paginate(20);
+        $clanWars = ClanWarModel::orderByDesc('date')->simplePaginate(20);
 
         foreach($clanWars as $clanWar)
         {

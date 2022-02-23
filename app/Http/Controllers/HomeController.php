@@ -17,7 +17,7 @@ class HomeController extends Controller
         $posts = Post::withCount('postComments')
                         ->orderBy('created_at', 'desc')
                         ->orderBy('id', 'desc')
-                        ->paginate(10);
+                        ->simplePaginate(10);
 
         $clanWars = ClanWar::where('date', '>', now())->with('user')->orderBy('date', 'asc')->get();
         $settings = (object) config('settings');
