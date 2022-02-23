@@ -115,7 +115,7 @@
 
                         <div title="Score" class="mr-1 w-1/3">
                             <x-clarity-star-line class="inline w-5 h-5 mb-1" />
-                            {{$replay->averageScore}}
+                            {{$replay->averageScore()}}
                         </div>
 
 

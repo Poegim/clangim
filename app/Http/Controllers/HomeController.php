@@ -14,17 +14,27 @@ class HomeController extends Controller
 
     public function index(): View
     {
-        $posts = Post::withCount('postComments')
-                        ->orderBy('created_at', 'desc')
-                        ->orderBy('id', 'desc')
-                        ->simplePaginate(10);
+        $posts =
+            Post::withCount('postComments')
+                ->orderBy('created_at', 'desc')
+                ->orderBy('id', 'desc')
+                ->simplePaginate(10);
 
-        $clanWars = ClanWar::where('date', '>', now())->with('user')->orderBy('date', 'asc')->get();
+        $clanWars =
+            ClanWar::where('date', '>', now())
+                ->with('user')
+                ->orderBy('date', 'asc')
+                ->limit(5)
+                ->get();
+
+        $this->replays =
+            Replay::orderBy('id', 'desc')
+                ->with('comments')
+                ->limit(5)
+                ->get();
+
         $settings = (object) config('settings');
         $teamFlag = $settings->flag;
-
-        $this->replays = Replay::orderBy('id', 'desc')->with('comments')->limit(5)->get();
-        $this->getAverageReplayScores();
 
         $topUsers = User::orderBy('points', 'desc')->limit(5)->get();
         $topPlayers = User::where('role', '<=', 5)->where('role', '>', 1)->limit(5)->get();
@@ -40,14 +50,4 @@ class HomeController extends Controller
 
     }
 
-    public function getAverageReplayScores(): void
-    {
-        foreach($this->replays as $replay)
-        {
-            $scoresCount = $replay->scores->count();
-            $sum = $replay->scores->sum('score');
-            $sum != 0 ? $replay->averageScore = number_format(round($sum/$scoresCount, 1), 1, '.', '') : $replay->averageScore = 'n/s';
-        }
-
-    }
 }

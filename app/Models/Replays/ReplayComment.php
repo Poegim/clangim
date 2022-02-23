@@ -23,6 +23,20 @@ class ReplayComment extends Model
         return $this->belongsTo(Replay::class);
     }
 
+    public function averageScore()
+    {
+            $scoresCount = $this->scores->count();
+            $sum = $this->scores->sum('score');
+            if($sum != 0)
+            {
+                return $this->averageScore = number_format(round($sum/$scoresCount, 1), 1, '.', '');
+            }
+            else
+            {
+                return $this->averageScore = 'n/s';
+            }
+    }
+
     public function createdAt(): string
     {
         return $this->created_at;

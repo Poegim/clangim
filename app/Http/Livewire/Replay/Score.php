@@ -28,11 +28,11 @@ class Score extends Component
         $this->score = $score;
         $this->saveUserScore();
     }
- 
+
     public function saveUserScore(): void
     {
         if($this->userReplayScore != null)
-        {   
+        {
             $this->userReplayScore->update($this->prepareData());
 
         } else
@@ -41,7 +41,7 @@ class Score extends Component
         }
 
         $this->loadUser();
-        
+
     }
 
     public function prepareData(): array
@@ -59,7 +59,7 @@ class Score extends Component
         if(auth()->check())
         {
             $this->user_id = auth()->user()->id;
-        
+
             $this->userReplayScore = ReplaysScore::where('replay_id', $this->passedId)->where('user_id', auth()->user()->id)->first();
             if($this->userReplayScore != null)
             {
@@ -71,20 +71,16 @@ class Score extends Component
     public function loadReplay(): void
     {
         $this->replay = Replay::findOrfail($this->passedId);
-        $scoresCount = $this->replay->scores->count();
-        $sum = $this->replay->scores->sum('score');
-        
-        $sum != 0 ? $this->averageScore = number_format(round($sum/$scoresCount, 1), 1, '.', '') : $this->averageScore = '';
-
+        $this->averageScore = $this->replay->averageScore();
         $this->setStarCssClass();
-        
+
     }
 
     public function setStarCssClass(): void
     {
-        if (!is_string($this->averageScore))
+        if (!is_string($this->replay->averageScore()))
         {
-            abs($this->averageScore) == 10 ? $this->starTextClass = 'left-8' : $this->starTextClass = 'left-9';
+            abs($this->replay->averageScore()) == 10 ? $this->starTextClass = 'left-8' : $this->starTextClass = 'left-9';
         }
     }
 
