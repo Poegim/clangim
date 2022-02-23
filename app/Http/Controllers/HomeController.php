@@ -10,8 +10,6 @@ use App\Models\ClanWars\ClanWar;
 
 class HomeController extends Controller
 {
-    public $replays;
-
     public function index(): View
     {
         $posts =
@@ -27,22 +25,30 @@ class HomeController extends Controller
                 ->limit(5)
                 ->get();
 
-        $this->replays =
+        $replays =
             Replay::orderBy('id', 'desc')
                 ->with('comments')
+                ->limit(5)
+                ->get();
+
+        $topUsers =
+            User::orderBy('points', 'desc')
+                ->limit(5)
+                ->get();
+
+        $topPlayers =
+            User::where('role', '<=', 5)
+                ->where('role', '>', 1)
                 ->limit(5)
                 ->get();
 
         $settings = (object) config('settings');
         $teamFlag = $settings->flag;
 
-        $topUsers = User::orderBy('points', 'desc')->limit(5)->get();
-        $topPlayers = User::where('role', '<=', 5)->where('role', '>', 1)->limit(5)->get();
-
         return view('dashboard', [
             'posts'         => $posts,
             'clanWars'      => $clanWars,
-            'replays'       => $this->replays,
+            'replays'       => $replays,
             'topUsers'      => $topUsers,
             'teamFlag'      => $teamFlag,
             'topPlayers'    => $topPlayers,

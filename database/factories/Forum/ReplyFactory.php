@@ -24,7 +24,7 @@ class ReplyFactory extends Factory
     {
         return [
             'body'              => $this->faker->realText(rand(100,1000)),
-            'thread_id'         => rand(1,15),
+            'thread_id'         => rand(1,1500),
             'user_id'           => rand(1,5),
             'created_at'        => Carbon::now(),
         ];

@@ -8,6 +8,7 @@ FINAL CHECK
 
 DOUBLE RE-CHECK
     -- Paginations
+    -- Search for fns with should be in model class
     -- Authorizations
     -- Demo and deploy content data seeds
     -- Prepare deploy version

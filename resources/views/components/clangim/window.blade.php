@@ -37,6 +37,10 @@
                 <a href="{{ route('post.show', $item->slug) }}" class="ml-14">{{ $item->title }}</a>
             @endif
 
+            @if ($item->thread)
+                <span class="ml-14">{{ $item->user->name }}</span>
+            @endif
+
             @if($item->replies)
             <a href="{{ route('threads.show', $item->slug) }}" class="ml-14">{{ $item->title }}</a>
             @endif
@@ -55,6 +59,7 @@
             {{ $item->createdAt() }} @if($item->user), by {{ $item->user->name }}@endif
         </span>
         @endif
+
     </div>
     @endif
 
