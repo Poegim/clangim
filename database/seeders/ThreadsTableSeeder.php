@@ -14,6 +14,17 @@ class ThreadsTableSeeder extends Seeder
      */
     public function run()
     {
-        Thread::factory()->count(75)->create();
+        if(config('app.seed.type') == "demo")
+        {
+            Thread::factory()->count(15)->create();
+
+        } elseif(config('app.seed.type') == "deploy")
+        {
+            //
+        } elseif(config('app.seed.type') == "tests")
+        {
+            Thread::factory()->count(75)->create();
+        }
+
     }
 }

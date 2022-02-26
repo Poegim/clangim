@@ -30,7 +30,7 @@ class UsersTableSeeder extends Seeder
             User::factory()->create([
                 'name' => 'KopeT',
                 'email' => 'captain@example.com',
-                'role' => User::VICE_CAPTAIN,
+                'role' => User::CAPTAIN,
                 'battleid' => rand(1000,100000).'#kopet',
                 'shieldid' => rand(1000,100000).'#kopet',
                 'profile_photo_path' => 'profile-photos/1.jpg',
@@ -41,11 +41,11 @@ class UsersTableSeeder extends Seeder
             ]);
 
             User::factory()->create([
-                'name' => 'GibonY',
+                'name' => 'Ponyth',
                 'email' => 'vice@example.com',
                 'role' => User::VICE_CAPTAIN,
-                'battleid' => rand(1000,100000).'#gibony',
-                'shieldid' => rand(1000,100000).'#gibony',
+                'battleid' => rand(1000,100000).'#ponyth',
+                'shieldid' => rand(1000,100000).'#ponyth',
                 'profile_photo_path' => 'profile-photos/3.jpg',
                 'points' => rand(1,35),
                 'country' => array_rand(config('countries.country_list'), 1),
@@ -54,11 +54,11 @@ class UsersTableSeeder extends Seeder
             ]);
 
             User::factory()->create([
-                'name' => 'TrueCat',
+                'name' => 'OctopusZerg',
                 'email' => 'vice2@example.com',
                 'role' => User::VICE_CAPTAIN,
-                'battleid' => rand(1000,100000).'#truecat',
-                'shieldid' => rand(1000,100000).'#truecat',
+                'battleid' => rand(1000,100000).'#octopusZerg',
+                'shieldid' => rand(1000,100000).'#octopusZerg',
                 'profile_photo_path' => 'profile-photos/4.jpg',
                 'points' => rand(1,35),
                 'country' => array_rand(config('countries.country_list'), 1),

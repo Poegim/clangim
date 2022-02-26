@@ -39,7 +39,7 @@ class PostController extends Controller
                 'required',
                 'string',
                 'min:3',
-                'max:55',
+                'max:99',
                 Rule::unique('posts'),
             ],
 
@@ -112,7 +112,7 @@ class PostController extends Controller
                 'required',
                 'string',
                 'min:3',
-                'max:55',
+                'max:99',
                 Rule::unique('posts')->ignore($post->id, 'id'),
             ],
 

@@ -14,6 +14,17 @@ class RepliesTableSeeder extends Seeder
      */
     public function run()
     {
-        Reply::factory()->count(500)->create();
+        if(config('app.seed.type') == "demo")
+        {
+            Reply::factory()->count(50)->create();
+
+        } elseif(config('app.seed.type') == "deploy")
+        {
+            //
+        } elseif(config('app.seed.type') == "tests")
+        {
+            Reply::factory()->count(500)->create();
+        }
+
     }
 }

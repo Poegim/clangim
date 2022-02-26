@@ -1,5 +1,5 @@
 <div>
-    <footer class="text-gray-600 body-font bg-gray-700">
+    <footer class="text-gray-600 bg-gray-800 body-font {{config('settings.color1')}}">
       <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
           <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
@@ -78,7 +78,7 @@
           </div>
         </div>
       </div>
-      <div class="bg-gray-900">
+      <div class="bg-gray-700 {{config('settings.color4')}}">
         <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
           <p class="text-white text-sm text-center sm:text-left">2020  — {{ \Carbon\Carbon::now()->format('Y') }}
             <a href="https://github.com/poegim" rel="noopener noreferrer" class="text-gray-400 ml-1 hover:text-white" target="_blank">Jacek Winiarczyk</a>

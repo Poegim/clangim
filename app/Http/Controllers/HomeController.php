@@ -32,7 +32,8 @@ class HomeController extends Controller
                 ->get();
 
         $topUsers =
-            User::orderBy('points', 'desc')
+            User::where('id', '!=', 1)
+                ->orderBy('points', 'desc')
                 ->limit(5)
                 ->get();
 
