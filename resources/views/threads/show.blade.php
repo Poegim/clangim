@@ -26,9 +26,11 @@
             </x-clangim.window>
             @endforeach
 
+            @if ($replies->hasPages())
             <x-clangim.window :item="NULL">
                 {{ $replies->links() }}
             </x-clangim.window>
+            @endif
 
             <x-clangim.window :item="NULL">
                 <form action="{{route('replies.store')}}" method="POST">

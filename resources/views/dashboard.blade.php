@@ -35,11 +35,14 @@
 
             @endforeach
 
+            @if ($posts->hasPages())
             <x-clangim.window :item="null">
 
-                    {{$posts->links()}}
+                {{$posts->links()}}
 
             </x-clangim.window>
+            @endif
+
 
         </div>
     </div>

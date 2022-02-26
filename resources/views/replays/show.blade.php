@@ -59,9 +59,11 @@
 
             @endforeach
 
+            @if ($comments->hasPages())
             <x-clangim.window :item="NULL">
                 {{ $comments->links() }}
             </x-clangim.window>
+            @endif
 
             <x-clangim.replays.addComment :replayId="$replay->id" />
 

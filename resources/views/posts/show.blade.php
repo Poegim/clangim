@@ -27,9 +27,11 @@
         </x-clangim.window>
     @endforeach
 
+    @if ($postComments->hasPages())
     <x-clangim.window :item="NULL">
         {{ $postComments->links() }}
     </x-clangim.window>
+    @endif
 
     </div>
 

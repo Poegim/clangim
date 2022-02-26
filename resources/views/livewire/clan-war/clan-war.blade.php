@@ -111,9 +111,11 @@
         </div>
     </x-clangim.window>
 
+    @if ($clanWars->hasPages())
     <x-clangim.window :item="NULL">
             {{ $clanWars->links() }}
     </x-clangim.window>
+    @endif
 
     <!-- Create Modal Form -->
     <x-jet-dialog-modal wire:model="createAndEditModalVisibility">

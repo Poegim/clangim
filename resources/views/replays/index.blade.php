@@ -66,9 +66,11 @@
 
             @endforeach
 
+            @if ($replays->hasPages())
             <x-clangim.window :item="NULL">
                 {{$replays->links()}}
             </x-clangim.window>
+            @endif
 
         </div>
     </div>

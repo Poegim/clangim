@@ -72,9 +72,11 @@
                 </div>
             </x-clangim.window>
 
+            @if ($threads->hasPages())
             <x-clangim.window :item="NULL">
                 {{$threads->links()}}
             </x-clangim.window>
+            @endif
 
         </div>
     </div>
