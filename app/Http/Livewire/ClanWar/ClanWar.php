@@ -84,7 +84,7 @@ class ClanWar extends Component
 
     public function read(): AbstractPaginator
     {
-        $clanWars = ClanWarModel::orderByDesc('date')->simplePaginate(20);
+        $clanWars = ClanWarModel::orderByDesc('date')->paginate(20);
 
         foreach($clanWars as $clanWar)
         {

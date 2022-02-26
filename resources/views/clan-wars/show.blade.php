@@ -53,12 +53,11 @@
 
                                     </div>
 
-                                    <div class="text-gray-700 grid grid-cols-3 dark:text-gray-200">
-
-                                        <div>
+                                    <div class="text-gray-700 grid grid-cols-7 dark:text-gray-200">
+                                        <div class="col-span-3">
                                             @if ($game->homePlayers != NULL)
                                             @foreach ($game->homePlayers as $homePlayer)
-                                            <div class="text-lg">
+                                            <div class="text-md">
                                                 <img
                                                 src="{{asset('images/races/'.$homePlayer->user->race.'.png')}}"
                                                 alt="{{$homePlayer->user->race}}"
@@ -75,10 +74,10 @@
                                             @endif
                                         </div>
                                         <div class="text-center">vs</div>
-                                        <div>
+                                        <div class="col-span-3">
                                             @if ($game->enemyPlayers != NULL)
                                             @foreach ($game->enemyPlayers as $enemyPlayer)
-                                            <div class="text-lg h-8">
+                                            <div class="text-md w-full h-6">
                                                 {{ $enemyPlayer->name}}
                                             </div>
                                             @endforeach

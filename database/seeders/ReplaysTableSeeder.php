@@ -5,9 +5,15 @@ namespace Database\Seeders;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory;
+
+
 
 class ReplaysTableSeeder extends Seeder
 {
+
+    protected $faker;
+
     /**
      * Run the database seeds.
      *
@@ -15,6 +21,8 @@ class ReplaysTableSeeder extends Seeder
      */
     public function run()
     {
+
+        $this->faker = Factory::create();
 
         $replays = array(
             array('title' => 'Draco vs Sparkyz Leta',
@@ -66,7 +74,7 @@ class ReplaysTableSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             ),
-          
+
             array('title' => 'WhiteRa vs EX',
                 'file' => '../storage/app/public/replays/whitera.rep',
                 'players_count' => '2',
@@ -116,7 +124,7 @@ class ReplaysTableSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ),
-          
+
             array('title' => 'Bisu vs Flash',
                 'file' => '../storage/app/public/replays/bisu.rep',
                 'players_count' => '2',
@@ -166,7 +174,7 @@ class ReplaysTableSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ),
-          
+
             array('title' => 'Androide vs Advocate',
                 'file' => '../storage/app/public/replays/androide.rep',
                 'players_count' => '2',
@@ -216,7 +224,7 @@ class ReplaysTableSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ),
-          
+
             array(
                 'title' => 'Terror vs gosudark',
                 'file' => '../storage/app/public/replays/terror.rep',

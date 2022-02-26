@@ -35,7 +35,7 @@
                     <div class="text-gray-600 bg-gray-200 p-1 text-center">Last activity</div>
                     <div class="text-gray-600 bg-gray-200 p-1 text-center rounded-tr">Last by</div>
 
-                    @foreach ($category->threads as $thread)
+                    @foreach ($threads as $thread)
 
                     <div class="col-span-1 md:col-span-3 pt-1 pl-2">
                         <a href="{{route('threads.show', $thread->slug)}}"
@@ -43,7 +43,7 @@
                         >{{ $thread->title }}</a>
                     </div>
                     <div class="text-center pt-1">
-                        {{$thread->replies->count()}}
+                        {{$thread->replies_count}}
                     </div>
                     <div class="text-center pt-1">
 
@@ -70,6 +70,10 @@
                     @endforeach
 
                 </div>
+            </x-clangim.window>
+
+            <x-clangim.window :item="NULL">
+                {{$threads->links()}}
             </x-clangim.window>
 
         </div>

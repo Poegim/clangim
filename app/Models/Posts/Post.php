@@ -2,9 +2,9 @@
 
 namespace App\Models\Posts;
 
-use App\Http\Traits\HasEditedBy;
-use App\Http\Traits\HasUser;
 use Carbon\Carbon;
+use App\Http\Traits\HasUser;
+use App\Http\Traits\HasEditedBy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,14 +15,9 @@ class Post extends Model
     use HasEditedBy;
     use HasUser;
 
-    protected $with = [
-        'user',
-        'postComments',
-    ];
-
     public function postComments(): HasMany
     {
-        return $this->hasMany(PostComment::class);
+        return $this->hasMany(PostComment::class)->with('user');
     }
 
     public function body(): string

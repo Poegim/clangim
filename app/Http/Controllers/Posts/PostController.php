@@ -89,7 +89,12 @@ class PostController extends Controller
 
     public function show(Post $post): View
     {
-        return view('posts.show', compact('post'));
+        $postComments = $post->postComments();
+
+        return view('posts.show', [
+            'post' => $post,
+            'postComments' => $postComments->paginate(25),
+        ]);
     }
 
     public function edit(Post $post): View

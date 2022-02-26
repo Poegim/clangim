@@ -34,11 +34,19 @@ class Replay extends Model
         return $this->hasMany(Score::class, 'replay_id');
     }
 
-    public function averageScore(): float
+    public function averageScore(): mixed
     {
         $scoresCount = $this->scores->count();
         $sum = $this->scores->sum('score');
-        return round($sum/$scoresCount, 1);
+
+        if($sum != 0)
+        {
+            return round($sum/$scoresCount, 1);
+        }
+        else
+        {
+            return 'n/s';
+        }
     }
 
     public function playerOneTeam(): string

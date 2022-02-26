@@ -14,6 +14,6 @@ class ReplayCommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        ReplayComment::factory()->count(rand(10,30))->create();
+        ReplayComment::factory()->count(500)->create();
     }
 }

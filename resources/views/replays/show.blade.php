@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-300">
-            {{ __($replay->title) }}
+            {{ __("Replays: ".$replay->title) }}
         </h2>
     </x-slot>
 
@@ -49,7 +49,7 @@
 
             <span id="comments"></span>
 
-            @foreach ($replay->comments as $comment)
+            @foreach ($comments as $comment)
 
             <x-clangim.window :item="$comment">
                 <div class="px-2 sm:px-0">
@@ -58,6 +58,10 @@
             </x-clangim.window>
 
             @endforeach
+
+            <x-clangim.window :item="NULL">
+                {{ $comments->links() }}
+            </x-clangim.window>
 
             <x-clangim.replays.addComment :replayId="$replay->id" />
 

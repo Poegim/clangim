@@ -13,19 +13,27 @@
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
+    @if ((empty($_GET)) || (!empty($_GET) && $_GET["page"] == 1))
         <x-clangim.window :item="$post">
             {!! $post->body !!}
         </x-clangim.window>
+    @endif
 
     <span id="comments"></span>
 
-    @foreach ($post->postComments as $postComment)
+    @foreach ($postComments as $postComment)
         <x-clangim.window :item="$postComment">
             {!! $postComment->body !!}
         </x-clangim.window>
     @endforeach
 
+    <x-clangim.window :item="NULL">
+        {{ $postComments->links() }}
+    </x-clangim.window>
+
     </div>
+
+
 
     @can( 'create', App\Models\Forum\PostComment::class)
     <form action="{{ route('postComment.store') }}" method="post">

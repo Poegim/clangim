@@ -21,81 +21,210 @@ class GameEnemyPlayersTableSeeder extends Seeder
     {
         $this->faker = Factory::create();
 
-        DB::table('game_enemy_players')->insert([
+        if(config('app.seed.type') == "demo")
+        {
+            DB::table('game_enemy_players')->insert([
 
-            // 1v1
-            [
-                'name' => $this->faker->userName(),
-                'game_id' => 1,
-                'clan_war_id' => 1,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
+                // 1v1
+                [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 1,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
 
-            //2v2
-            [
-                'name' => $this->faker->userName(),
-                'game_id' => 2,
-                'clan_war_id' => 1,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'name' => $this->faker->userName(),
-                'game_id' => 2,
-                'clan_war_id' => 1,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
+                // 1v1
+                [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 2,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
 
-            //3v3
-            [
-                'name' => $this->faker->userName(),
-                'game_id' => 3,
-                'clan_war_id' => 1,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],            [
-                'name' => $this->faker->userName(),
-                'game_id' => 3,
-                'clan_war_id' => 1,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],            [
-                'name' => $this->faker->userName(),
-                'game_id' => 3,
-                'clan_war_id' => 1,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
+                // 1v1
+                [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 3,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
 
-            //4v4
-            [
-                'name' => $this->faker->userName(),
-                'game_id' => 4,
-                'clan_war_id' => 1,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],            [
-                'name' => $this->faker->userName(),
-                'game_id' => 4,
-                'clan_war_id' => 1,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],            [
-                'name' => $this->faker->userName(),
-                'game_id' => 4,
-                'clan_war_id' => 1,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],            [
-                'name' => $this->faker->userName(),
-                'game_id' => 4,
-                'clan_war_id' => 1,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
+                // 1v1
+                [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 4,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
 
-        ]);
+                //2v2
+                [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 5,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
+                [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 5,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
+
+                //2v2
+                [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 6,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
+                [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 6,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
+
+                //3v3
+                [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 7,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],            [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 7,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],            [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 7,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
+
+                //4v4
+                [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 8,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],            [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 8,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],            [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 8,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],            [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 8,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
+
+            ]);
+        } elseif(config('app.seed.type') == "deploy")
+        {
+
+        } elseif(config('app.seed.type') == "tests")
+        {
+            DB::table('game_enemy_players')->insert([
+
+                // 1v1
+                [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 1,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
+
+                //2v2
+                [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 2,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
+                [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 2,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
+
+                //3v3
+                [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 3,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],            [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 3,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],            [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 3,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
+
+                //4v4
+                [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 4,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],            [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 4,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],            [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 4,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],            [
+                    'name' => $this->faker->userName(),
+                    'game_id' => 4,
+                    'clan_war_id' => 1,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
+
+            ]);
+        }
+
+
     }
 }

@@ -49,7 +49,7 @@
                 @if (!Request::segment(2))
                 <a href="{{route('replays.show', $replay->id)}}#comments" class="text-sm font-semibold text-indigo-700 hover:text-indigo-900 dark:text-indigo-200 dark:hover:text-indigo-400"
                     >
-                    Comment ({{$replay->comments()->count()}})
+                    Comment ({{$replay->comments_count}})
                 </a>
                 @endif
             </div>

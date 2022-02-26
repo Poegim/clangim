@@ -23,7 +23,11 @@ class ThreadPolicy
             if (($user->isInactive()) && (!$thread->category->hidden))
             {
                 return true;
+            } else
+            {
+                return false;
             }
+
         } else
         {
             return false;
@@ -37,15 +41,15 @@ class ThreadPolicy
     }
 
     public function update(User $user, Thread $thread): bool
-    {   
+    {
         if(($thread->category->hidden) && (!$user->isCaptain()))
         {
             return ($user->isViceCaptain() && $thread->user_id == $user->id);
-        } 
+        }
         elseif(($thread->category->hidden) && ($user->isCaptain()))
         {
             return true;
-        } 
+        }
         elseif(!$thread->category->hidden)
         {
             return $user->isViceCaptain() || $thread->user_id == $user->id;

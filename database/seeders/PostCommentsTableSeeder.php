@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Posts\PostComment;
 use Illuminate\Database\Seeder;
+use App\Models\Posts\PostComment;
+use Illuminate\Support\Facades\DB;
 
 class PostCommentsTableSeeder extends Seeder
 {
@@ -14,6 +15,16 @@ class PostCommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        PostComment::factory()->count(250)->create();
+        if(config('app.seed.type') == "demo")
+        {
+
+
+        } elseif(config('app.seed.type') == "deploy")
+        {
+            //
+        } elseif(config('app.seed.type') == "tests")
+        {
+            PostComment::factory()->count(500)->create();
+        }
     }
 }

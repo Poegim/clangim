@@ -14,15 +14,21 @@
     <div class="pb-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            <x-clangim.window :item="$thread">
-                {!!$thread->body!!}
-            </x-clangim.window>
+            @if ((empty($_GET)) || (!empty($_GET) && $_GET["page"] == 1))
+                <x-clangim.window :item="$thread">
+                    {!!$thread->body!!}
+                </x-clangim.window>
+            @endif
 
             @foreach ($replies as $reply)
             <x-clangim.window :item="$reply">
                 {!!$reply->body!!}
             </x-clangim.window>
             @endforeach
+
+            <x-clangim.window :item="NULL">
+                {{ $replies->links() }}
+            </x-clangim.window>
 
             <x-clangim.window :item="NULL">
                 <form action="{{route('replies.store')}}" method="POST">
@@ -34,7 +40,6 @@
                     <x-jet-button class="mt-2 px-8" type="submit">Reply</x-jet-button>
                 </form>
             </x-clangim.window>
-
         </div>
     </div>
 </x-app-layout>

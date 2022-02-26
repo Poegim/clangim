@@ -66,6 +66,10 @@
 
             @endforeach
 
+            <x-clangim.window :item="NULL">
+                {{$replays->links()}}
+            </x-clangim.window>
+
         </div>
     </div>
 </x-app-layout>

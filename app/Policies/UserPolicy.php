@@ -9,6 +9,11 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
+    public function view(User $user):bool
+    {
+        return $user->isViceCaptain();
+    }
+
     public function update(User $user, User $model)
     {
         if ($model->isCaptain())

@@ -16,7 +16,7 @@ class HomeController extends Controller
             Post::withCount('postComments')
                 ->orderBy('created_at', 'desc')
                 ->orderBy('id', 'desc')
-                ->simplePaginate(10);
+                ->paginate(10);
 
         $clanWars =
             ClanWar::where('date', '>', now())
@@ -27,7 +27,7 @@ class HomeController extends Controller
 
         $replays =
             Replay::orderBy('id', 'desc')
-                ->with('comments')
+                ->withCount('comments')
                 ->limit(5)
                 ->get();
 

@@ -23,6 +23,7 @@
                 </div>
 
             </div>
+
             @endif
 
             @if ($item->post)
@@ -88,7 +89,11 @@
                 class="text-sm font-semibold text-indigo-500 hover:text-indigo-700 focus:text-indigo-700 dark:text-indigo-200 dark:hover:text-indigo-400"
                 >
                 <x-clarity-block-quote-line class="inline w-5 h-5"/> Comments
+                @if ($item->post_comments_count)
+                ({{$item->post_comments_count}})
+                @else
                 ({{$item->postComments->count()}})
+                @endif
             </a>
             @endif
 
@@ -96,10 +101,6 @@
                 <span class="ml-4 dark:text-gray-400">
                     Edited: {{ $item->updatedAt() }}, by {{ $item->user->name }}.
                 </span>
-            @endif
-
-            @if($item->postComments)
-
             @endif
 
             </div>

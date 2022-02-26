@@ -27,7 +27,9 @@ class CategoryController extends Controller
     public function show(Category $category): View
     {
         $this->authorize('view', $category);
-        return view('categories.show', compact('category'));
+        $threads = $category->threads()->paginate(25);
+
+        return view('categories.show', compact('category', 'threads'));
     }
 
 

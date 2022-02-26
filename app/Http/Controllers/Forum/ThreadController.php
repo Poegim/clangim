@@ -95,13 +95,13 @@ class ThreadController extends Controller
 
     public function show(Thread $thread): View
     {
-
         $this->authorize('view', $thread);
-        $replies = $thread->replies;
+
+        $replies = $thread->replies();
 
         return view('threads.show', [
             'thread' => $thread,
-            'replies' => $replies,
+            'replies' => $replies->paginate(25),
         ]);
     }
 

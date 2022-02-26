@@ -106,7 +106,7 @@
                             <a href="{{route('replays.show', $replay->id)}}#comments"
                                 class="font-semibold hover:text-gray-600 focus:text-gray-600 dark:hover:text-gray-200 dark:focus:text-gray-200">
                                 <x-clarity-block-quote-line class="inline w-5 h-5" />
-                                {{$replay->comments->count()}}
+                                {{$replay->comments_count}}
                             </a>
                         </div>
 

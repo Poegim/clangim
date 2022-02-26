@@ -18,14 +18,17 @@ class ReplayController extends Controller
 
     public function index(): View
     {
-        $replays = Replay::orderBy('id', 'desc')->get();
+        $replays = Replay::orderBy('id', 'desc')->with(['user', 'scores'])->withCount('comments')->paginate(25);
         return view('replays.index', compact('replays'));
     }
 
     public function show(Replay $replay): View
     {
+        $comments = $replay->comments()->paginate(25);
+
         return view('replays.show', [
             'replay' => $replay,
+            'comments'  => $comments,
         ]);
     }
 
