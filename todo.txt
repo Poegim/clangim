@@ -7,8 +7,6 @@ SMALL FIXES
 FINAL CHECK
 
 DOUBLE RE-CHECK
-    -- Deploy content data seeds
-    -- Demo content data seeds
     -- Prod envinronment check
 
 AFTER FINAL CHECK
