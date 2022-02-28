@@ -93,16 +93,16 @@
 
             <div class="mt-4 ml-2 lg:ml-14">
                 @foreach ($replays as $replay)
-                <div class="rounded-lg bg-gray-100 px-6 py-3 mb-2 flex justify-between h-12 {{config('settings.color3')}} dark:text-gray-300">
+                <div class="rounded-lg bg-gray-100 pl-6 pr-2 py-3 mb-2 flex justify-between h-12 {{config('settings.color3')}} dark:text-gray-300">
                     <div class="w-1/2">
                         <a href="{{ route('replays.show', $replay->id) }}"
                             class="font-semibold hover:text-gray-600 focus:text-gray-600 dark:hover:text-gray-200 dark:focus:text-gray-200">
-                            {{\Illuminate\Support\Str::limit($replay->title, 22, '...')}}
+                            {{\Illuminate\Support\Str::limit($replay->title, 15, '...')}}
                         </a>
 
                     </div>
                     <div class="flex justify-between w-1/2">
-                        <div title="Comments" class="ml-2 mr-1 w-1/3">
+                        <div title="Comments" class="mr-1 w-1/3">
                             <a href="{{route('replays.show', $replay->id)}}#comments"
                                 class="font-semibold hover:text-gray-600 focus:text-gray-600 dark:hover:text-gray-200 dark:focus:text-gray-200">
                                 <x-clarity-block-quote-line class="inline w-5 h-5" />
@@ -113,8 +113,8 @@
                         <livewire:replay.home-page-download :replay="$replay" />
 
 
-                        <div title="Score" class="mr-1 w-1/3">
-                            <x-clarity-star-line class="inline w-5 h-5 mb-1" />
+                        <div title="Score" class="mr-1 w-1/3 flex">
+                            <x-clarity-star-line class="inline w-5 h-5 mb-1 mr-1" />
                             {{$replay->averageScore()}}
                         </div>
 
