@@ -94,7 +94,7 @@
             <div class="mt-4 ml-2 lg:ml-14">
                 @foreach ($replays as $replay)
                 <div class="rounded-lg bg-gray-100 pl-6 pr-2 py-3 mb-2 flex justify-between h-12 {{config('settings.color3')}} dark:text-gray-300">
-                    <div class="w-1/2">
+                    <div class="w-1/2 flex">
                         <a href="{{ route('replays.show', $replay->id) }}"
                             class="font-semibold hover:text-gray-600 focus:text-gray-600 dark:hover:text-gray-200 dark:focus:text-gray-200">
                             {{\Illuminate\Support\Str::limit($replay->title, 15, '...')}}
