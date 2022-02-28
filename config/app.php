@@ -237,7 +237,7 @@ return [
     //Define seeds type, deploy/demo/tests.
     'seed' =>
         [
-            'type' => 'deploy',
+            'type' => 'demo',
     ],
 
 ];
