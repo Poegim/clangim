@@ -11,7 +11,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
             <x-clangim.window :item="NULL">
-
+                <div class="px-2 sm:px-0">
                 <form action="{{ route('threads.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div>
@@ -49,6 +49,7 @@
 
                     </div>
                 </form>
+                </div>
             </x-clangim.window>
         </div>
     </div>

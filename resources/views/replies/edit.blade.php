@@ -20,7 +20,7 @@
 
                 <form action="{{ route('replies.update', $reply->id) }}" method="POST">
                     @csrf
-                    <div>
+                    <div class="px-2 sm:px-0">
                         <div>
                             <x-trix name="body" class="mt-4" > {{old('body') ? old('body') : $reply->body}} </x-trix>
                             <x-jet-input-error for="body" class="mt-2 mb-2" />

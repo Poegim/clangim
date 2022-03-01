@@ -1,8 +1,8 @@
-<div class="bg-white overflow-hidden shadow-xl rounded-lg mt-12 {{config('settings.color2')}} dark:text-white">
+<div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12 {{config('settings.color2')}} dark:text-white">
     @if($item != NULL)
 
     <div
-    class="py-4 px-2 sm:px-10 border-b border-gray-200 bg-gray-200 rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold {{config('settings.color1')}} dark:text-gray-300 dark:border-gray-700">
+    class="py-4 px-2 sm:px-10 border-b border-gray-200 bg-gray-200 sm:rounded-t-lg lg:flex lg:justify-between text-gray-600 leading-7 font-semibold {{config('settings.color1')}} dark:text-gray-300 dark:border-gray-700">
 
         <div class="block lg:inline">
 
@@ -48,9 +48,12 @@
 
             @if (($item != NULL) && ($item->name))
             <a href="{{route('categories.show', $item->slug)}}"
-                class="">
+                class="text-gray-900 dark:text-gray-300">
                 {{ $item->name }}
             </a>
+                @if ($item->description)
+                    <div class="text-sm text-gray-500 dark:text-gray-400">{{$item->description}}</div>
+                @endif
             @endif
 
         </div>
@@ -68,11 +71,11 @@
 
         @if (($item != NULL) && ($item->image))
         <div>
-            <img src="{{ asset($item->image) }}" class="object-cover h-96 w-full md:w-96 rounded-lg float-left mr-6 mb-10">
+            <img src="{{ asset($item->image) }}" class="object-cover h-96 w-full md:w-96 sm:rounded-lg float-left mr-6 mb-10">
         </div>
         @endif
 
-        <div class="dark:text-gray-300 px-1 sm:px-2">
+        <div class="dark:text-gray-300 sm:px-2">
             {{$slot}}
         </div>
 

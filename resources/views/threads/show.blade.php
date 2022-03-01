@@ -16,13 +16,17 @@
 
             @if ((empty($_GET)) || (!empty($_GET) && $_GET["page"] == 1))
                 <x-clangim.window :item="$thread">
-                    {!!$thread->body!!}
+                    <div class="px-2 sm:px-0">
+                        {!!$thread->body!!}
+                    </div>
                 </x-clangim.window>
             @endif
 
             @foreach ($replies as $reply)
             <x-clangim.window :item="$reply">
+                <div class="px-2 sm:px-0">
                 {!!$reply->body!!}
+                </div>
             </x-clangim.window>
             @endforeach
 
@@ -33,6 +37,7 @@
             @endif
 
             <x-clangim.window :item="NULL">
+                <div class="px-2 sm:px-0">
                 <form action="{{route('replies.store')}}" method="POST">
                     @csrf
                     <input type="hidden" name="thread_id" id="thread_id" value="{{$thread->id}}">
@@ -41,6 +46,7 @@
 
                     <x-jet-button class="mt-2 px-8" type="submit">Reply</x-jet-button>
                 </form>
+                </div>
             </x-clangim.window>
         </div>
     </div>

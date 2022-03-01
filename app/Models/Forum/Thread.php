@@ -41,7 +41,7 @@ class Thread extends Model
 
     public function createdAt(): string
     {
-        return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at);
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->format('Y-m-d H:i');
     }
 
     public function lastReply(): HasOne

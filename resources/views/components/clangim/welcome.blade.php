@@ -1,4 +1,4 @@
-<div class="rounded-lg bg-white border-b border-gray-200 {{config('settings.color1')}} dark:border-none pb-1">
+<div class="sm:rounded-lg bg-white border-b border-gray-200 {{config('settings.color1')}} dark:border-none pb-1">
 
     <div class="grid grid-cols-1 lg:grid-cols-2">
         <div class="px-0 lg:px-8">
@@ -11,8 +11,8 @@
                     </span>
                 </div>
 
-                <div class="rounded-lg overflow-hidden dark:shadow-lg">
-                <table class="rounded-md min-w-full divide-y divide-gray-200 table-fixed dark:divide-none">
+                <div class="sm:rounded-lg overflow-hidden dark:shadow-lg">
+                <table class="sm:rounded-lg min-w-full divide-y divide-gray-200 table-fixed dark:divide-none">
                     <thead class="bg-gray-50 text-gray-500 dark:text-gray-300 {{config('settings.color3')}}">
                         <tr>
                             <th scope="col"
@@ -79,7 +79,7 @@
 
     </div>
 
-    <div class="rounded bg-gray-100 mt-12 bg-opacity-25 grid grid-cols-1 lg:grid-cols-2 mb-10 {{config('settings.color1')}}">
+    <div class="sm:rounded bg-gray-100 mt-12 bg-opacity-25 grid grid-cols-1 lg:grid-cols-2 mb-10 {{config('settings.color1')}}">
 
         <div class="py-2 px-0 sm:px-8">
             <div class="flex items-center">
@@ -93,7 +93,7 @@
 
             <div class="mt-4 ml-0 lg:ml-14">
                 @foreach ($replays as $replay)
-                <div class="rounded-lg bg-gray-100 pl-2 sm:pl-6 pr-2 py-3 mb-2 flex justify-between h-12 {{config('settings.color3')}} dark:text-gray-300">
+                <div class="sm:rounded-lg bg-gray-100 pl-2 sm:pl-6 pr-2 py-3 mb-2 flex justify-between h-12 {{config('settings.color3')}} dark:text-gray-300">
                     <div class="w-1/2 flex">
                         <a href="{{ route('replays.show', $replay->id) }}"
                             class="font-semibold hover:text-gray-600 focus:text-gray-600 dark:hover:text-gray-200 dark:focus:text-gray-200">
@@ -139,26 +139,24 @@
 
                 @foreach ($topUsers as $topUser)
 
-                <div class="rounded-lg bg-gray-100 p-2 mb-2 h-12 text-gray-700 {{config('settings.color3')}} dark:text-gray-300 grid grid-cols-8 space-x-2">
-                    <div class="inline font-semibold tracking-wider ml-0 sm:ml-4 col-span-2">
-                        {{$topUser->points}} PTS
-                    </div>
-
-                    <div class="col-span-6">
+                <div class="sm:rounded-lg bg-gray-100 p-2 mb-2 h-12 text-gray-700 {{config('settings.color3')}} dark:text-gray-300 flex justify-between space-x-2">
+                    <div>
                         <div class="inline">
                             <img class="h-8 w-8 rounded-full object-cover inline" src="{{ $topUser->profile_photo_url }}"
                                 alt="{{ $topUser->name }}" />
 
-                        </div>
 
-                        <div class="inline">
                             <img class="h-8 w-8 rounded-full object-cover inline" src="{{ $topUser->countryFlagURL() }}"
                                 alt="{{ $topUser->country }}" />
                         </div>
 
-                        <div class="inline tracking-wider">
+                        <div class="inline tracking-wider text-gray-900 dark:text-gray-100">
                             {{$topUser->name}}
                         </div>
+                    </div>
+
+                    <div class="inline font-semibold tracking-wider ml-0 sm:ml-4 col-span-2">
+                        {{$topUser->points}} PTS
                     </div>
                 </div>
 

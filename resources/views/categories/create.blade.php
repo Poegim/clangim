@@ -8,8 +8,7 @@
     <div class="pb-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <x-clangim.window :item="NULL">
-
-                <div>
+                <div class="px-2 sm:px-0">
                     <form action="{{ route('categories.store') }}" method="POST">
                         @csrf
                         <div>

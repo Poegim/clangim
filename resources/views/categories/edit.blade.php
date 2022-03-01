@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
                 <x-clangim.window :item="$category">
-                    <div>
+                    <div class="px-2 sm:px-0">
                         <form action="{{ route('categories.update', $category->slug) }}" method="POST">
                             @csrf
                             <div>

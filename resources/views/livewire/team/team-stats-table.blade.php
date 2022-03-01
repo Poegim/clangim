@@ -8,7 +8,7 @@
             </span>
         </div>
 
-        <div class="rounded-lg overflow-hidden dark:shadow-lg">
+        <div class="sm:rounded-lg overflow-hidden dark:shadow-lg">
         <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-none">
             <thead class="bg-gray-50 {{config('settings.color3')}} dark:text-gray-300">
                 <tr>

@@ -30,7 +30,9 @@
             @foreach ($posts as $post)
 
             <x-clangim.window :item="$post">
-                {!! $post->body !!}
+                <div class="px-2 sm:px-0">
+                    {!! $post->body !!}
+                </div>
             </x-clangim.window>
 
             @endforeach
