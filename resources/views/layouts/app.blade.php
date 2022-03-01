@@ -23,8 +23,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
     @livewireStyles
-    @bukStyles
-
+    @bukStyles(true)
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 
@@ -70,7 +69,7 @@
 
             @include('layouts.footer')
             @stack('modals')
-            @bukScripts
+            @bukScripts(true)
             @livewireScripts
             @include('cookie-consent::index')
         </div>
