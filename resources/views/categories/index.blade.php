@@ -37,7 +37,7 @@
 
                     @foreach ($category->threadsLimited as $thread)
                     @if ($thread->category_id == $category->id)
-                    <div class="col-span-2 md:col-span-4 pl-8 text-sm">
+                    <div class="col-span-2 md:col-span-4 pl-2 sm:pl-8 text-sm">
                         <a href="{{route('threads.show', [$thread->slug])}}"
                             class="inline-flex focus:text-blue-600 hover:text-blue-600">
                             {{ $thread->title }}
@@ -55,7 +55,7 @@
                         @endif
 
                     </div>
-                    <div class="text-center text-sm text-gray-400 col-span-1">
+                    <div class="text-center text-gray-400 col-span-1 text-xs sm:text-sm">
                         @if ($thread->replies_count == 0)
                         {{ $thread->createdAt()}}, by {{ $thread->user->name}}
                         @else

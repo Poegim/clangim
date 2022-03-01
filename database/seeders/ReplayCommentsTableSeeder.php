@@ -16,14 +16,14 @@ class ReplayCommentsTableSeeder extends Seeder
     {
         if(config('app.seed.type') == "demo")
         {
-            ReplayComment::factory()->count(30)->create();
+            ReplayComment::factory()->count(3000)->create();
 
         } elseif(config('app.seed.type') == "deploy")
         {
             //
         } elseif(config('app.seed.type') == "tests")
         {
-            ReplayComment::factory()->count(30)->create();
+            ReplayComment::factory()->count(300)->create();
         }
 
     }

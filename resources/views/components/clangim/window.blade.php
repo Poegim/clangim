@@ -72,7 +72,7 @@
         </div>
         @endif
 
-        <div class="dark:text-gray-300 px-2 sm:px-0">
+        <div class="dark:text-gray-300 px-1 sm:px-2">
             {{$slot}}
         </div>
 
