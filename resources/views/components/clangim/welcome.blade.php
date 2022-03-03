@@ -12,61 +12,29 @@
                 </div>
 
                 <div class="sm:rounded-lg overflow-hidden dark:shadow-lg">
-                <table class="sm:rounded-lg min-w-full divide-y divide-gray-200 table-fixed dark:divide-none">
-                    <thead class="bg-gray-50 text-gray-500 dark:text-gray-300 {{config('settings.color3')}}">
-                        <tr>
-                            <th scope="col"
-                                class="px-2 py-3 text-centertext-xs font-medium tracking-wider uppercase"
-                                >
-                            </th>
-                            <th scope="col"
-                                class="px-2 py-3 text-center text-xs font-medium tracking-wider uppercase h-4"
-                                >
-                                Title
-                            </th>
-                            <th scope="col"
-                                class="px-2 py-3 text-center text-xs font-medium tracking-wider uppercase"
-                                >
+                    <div class="grid grid-cols-3 sm:rounded-lg {{config('settings.color4')}} dark:text-gray-300">
+                        @foreach ($clanWars as $clanWar)
 
-                            </th>
-                            <th scope="col"
-                                class="px-2 py-3 text-center text-xs font-medium tracking-wider uppercase"
-                                >
-                                Date
-                            </th>
+                        <div class="flex justify-between pt-2 px-2 col-span-3">
+                            <img class="h-5 w-5 rounded-full object-cover inline mr-2"
+                            src="{{ asset('images/country_flags/'.strtolower($teamFlag).'.png') }}"
+                            alt="{{ $teamFlag }}" />
+                            <a href="{{route('clan-wars.show', $clanWar->id)}}"
+                                class="font-semibold hover:text-gray-600 focus:text-gray-600 dark:text-gray-200 dark:hover:text-gray-300 dark:focus:text-gray-300">
 
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200 dark:divide-none">
+                                {{$clanWar->title}}
+                            </a>
+                            <img class="h-5 w-5 rounded-full object-cover inline"
+                            src="{{ $clanWar->countryFlagURL() }}" alt="{{ $clanWar->enemy_flag }}" />
 
-                            @foreach ($clanWars as $clanWar)
+                        </div>
 
-                            <tr class="{{config('settings.color4')}} dark:text-gray-300 h-10">
-                                <td class="text-center pl-1">
-                                    <img class="h-5 w-5 rounded-full object-cover inline"
-                                    src="{{ asset('images/country_flags/'.strtolower($teamFlag).'.png') }}"
-                                    alt="{{ $teamFlag }}" />
-                                </td>
-                                <td class="text-center">
-                                    <a href="{{route('clan-wars.show', $clanWar->id)}}"
-                                        class="font-semibold hover:text-gray-600 focus:text-gray-600 dark:text-gray-200 dark:hover:text-gray-300 dark:focus:text-gray-300">
+                        <div class="col-span-3 text-center px-2 border-b border-gray-200 dark:border-gray-800">{{$clanWar->date()}}</div>
 
-                                        {{$clanWar->title}}
-                                    </a>
-                                </td>
-                                <td class="text-center">
-                                    <img class="h-5 w-5 rounded-full object-cover inline"
-                                                src="{{ $clanWar->countryFlagURL() }}" alt="{{ $clanWar->enemy_flag }}" />
-                                </td>
-                                <td class="text-center">{{$clanWar->date()}}</td>
-                            </tr>
+                        @endforeach
 
-                            @endforeach
-
-                    </tbody>
-                </table>
+                    </div>
                 </div>
-
 
             </x-clangim.window>
             @endif
