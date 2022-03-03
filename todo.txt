@@ -7,7 +7,7 @@ SMALL FIXES
 FINAL CHECK
 
 DOUBLE RE-CHECK
-    -- Prod envinronment check
+    -- Prod envinronment check (Crons)
 
 AFTER FINAL CHECK
     -- Readme.md
