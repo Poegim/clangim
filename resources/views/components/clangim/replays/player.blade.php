@@ -2,7 +2,7 @@
     class="col-span-2 md:col-span-1 mt-2 rounded-md dark:text-gray-300"
     >
     <div>
-        Player: <span class="font-semibold">{{ $player->name }}</span>
+        Player: <span class="font-extrabold text-lg text-black dark:text-gray-200">{{ $player->name }}</span>
     </div>
     <div>
         APM: <span class="font-semibold">{{ $player->apm }}</span>

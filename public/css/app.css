@@ -1415,6 +1415,15 @@ select {
 .h-28 {
 	height: 7rem;
 }
+.h-32 {
+	height: 8rem;
+}
+.h-56 {
+	height: 14rem;
+}
+.h-80 {
+	height: 20rem;
+}
 .min-h-screen {
 	min-height: 100vh;
 }
@@ -1486,6 +1495,12 @@ select {
 }
 .w-28 {
 	width: 7rem;
+}
+.w-32 {
+	width: 8rem;
+}
+.w-56 {
+	width: 14rem;
 }
 .min-w-0 {
 	min-width: 0px;
@@ -2488,6 +2503,9 @@ select {
 }
 .opacity-20 {
 	opacity: 0.2;
+}
+.opacity-10 {
+	opacity: 0.1;
 }
 .shadow-sm {
 	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
