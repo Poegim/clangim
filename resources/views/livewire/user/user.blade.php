@@ -8,7 +8,7 @@
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg dark:border-none">
                         <table class="min-w-full divide-y divide-gray-200 dark:divide-none">
-                            <thead class="bg-gray-50 text-gray-500 dark:text-gray-300 {{config('settings.color2')}} dark:divide-none">
+                            <thead class="bg-gray-50 text-gray-500 dark:text-gray-300 {{config('settings.color1')}} dark:divide-none">
                                 <tr>
                                     <th scope="col"
                                         class="pl-4 pr-2 py-3 text-left text-xs font-medium uppercase tracking-wider">
@@ -19,7 +19,7 @@
                                         Name
                                     </th>
                                     <th scope="col"
-                                        class="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                                        class="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider hidden sm:table-cell">
                                         Email
                                     </th>
                                     <th scope="col"
@@ -44,7 +44,7 @@
                                     <td class="px-2 py-4 text-sm">
                                         {{ $itemUser->name }}
                                     </td>
-                                    <td class="px-2 py-4 text-sm">
+                                    <td class="px-2 py-4 text-sm hidden sm:table-cell">
                                         {{ $itemUser->email }}
                                     </td>
                                     <td class="px-2 py-4 text-sm">

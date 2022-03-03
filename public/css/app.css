@@ -3231,6 +3231,10 @@ select {
 		display: flex;
 	}
 
+	.sm\:table-cell {
+		display: table-cell;
+	}
+
 	.sm\:grid {
 		display: grid;
 	}
@@ -3428,6 +3432,16 @@ select {
 	.sm\:px-2 {
 		padding-left: 0.5rem;
 		padding-right: 0.5rem;
+	}
+
+	.sm\:px-4 {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+
+	.sm\:py-4 {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
 	}
 
 	.sm\:pt-0 {

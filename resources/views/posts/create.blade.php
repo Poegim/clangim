@@ -12,7 +12,7 @@
             <x-clangim.window :item="NULL">
                 <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div>
+                    <div class="px-1 sm:px-0">
                         <div>
                             <x-jet-label for="title" value="{{ __('Title:') }}" />
                             <x-jet-input id="title" class="block mt-2 mb-2 w-full" type="text" name="title"
