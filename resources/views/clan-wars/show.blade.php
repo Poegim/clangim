@@ -54,7 +54,7 @@
                                     </div>
 
                                     <div class="text-gray-700 grid grid-cols-7 dark:text-gray-200">
-                                        <div class="col-span-3">
+                                        <div class="col-span-7 sm:col-span-3">
                                             @if ($game->homePlayers != NULL)
                                             @foreach ($game->homePlayers as $homePlayer)
                                             <div class="text-md">
@@ -73,8 +73,8 @@
                                             @endforeach
                                             @endif
                                         </div>
-                                        <div class="text-center">vs</div>
-                                        <div class="col-span-3">
+                                        <div class="text-center col-span-7 sm:col-span-1">vs</div>
+                                        <div class="col-span-7 sm:col-span-3">
                                             @if ($game->enemyPlayers != NULL)
                                             @foreach ($game->enemyPlayers as $enemyPlayer)
                                             <div class="text-md w-full h-6">

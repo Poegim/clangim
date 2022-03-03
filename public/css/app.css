@@ -3175,6 +3175,10 @@ select {
 		grid-column: span 3 / span 3;
 	}
 
+	.sm\:col-span-1 {
+		grid-column: span 1 / span 1;
+	}
+
 	.sm\:mx-0 {
 		margin-left: 0px;
 		margin-right: 0px;
