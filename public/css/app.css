@@ -1177,6 +1177,9 @@ select {
 .-top-6 {
 	top: -1.5rem;
 }
+.top-20 {
+	top: 5rem;
+}
 .z-0 {
 	z-index: 0;
 }
@@ -1203,6 +1206,15 @@ select {
 }
 .col-span-4 {
 	grid-column: span 4 / span 4;
+}
+.col-span-8 {
+	grid-column: span 8 / span 8;
+}
+.col-span-7 {
+	grid-column: span 7 / span 7;
+}
+.col-span-10 {
+	grid-column: span 10 / span 10;
 }
 .float-left {
 	float: left;
@@ -1331,6 +1343,12 @@ select {
 .-mt-px {
 	margin-top: -1px;
 }
+.ml-10 {
+	margin-left: 2.5rem;
+}
+.mt-20 {
+	margin-top: 5rem;
+}
 .block {
 	display: block;
 }
@@ -1393,6 +1411,9 @@ select {
 }
 .h-full {
 	height: 100%;
+}
+.h-28 {
+	height: 7rem;
 }
 .min-h-screen {
 	min-height: 100vh;
@@ -1462,6 +1483,9 @@ select {
 }
 .w-9 {
 	width: 2.25rem;
+}
+.w-28 {
+	width: 7rem;
 }
 .min-w-0 {
 	min-width: 0px;
@@ -1571,6 +1595,9 @@ select {
 }
 .grid-cols-3 {
 	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-10 {
+	grid-template-columns: repeat(10, minmax(0, 1fr));
 }
 .flex-col {
 	flex-direction: column;
@@ -2232,6 +2259,30 @@ select {
 .text-xl {
 	font-size: 1.25rem;
 	line-height: 1.75rem;
+}
+.text-9xl {
+	font-size: 8rem;
+	line-height: 1;
+}
+.text-8xl {
+	font-size: 6rem;
+	line-height: 1;
+}
+.text-4xl {
+	font-size: 2.25rem;
+	line-height: 2.5rem;
+}
+.text-5xl {
+	font-size: 3rem;
+	line-height: 1;
+}
+.text-6xl {
+	font-size: 3.75rem;
+	line-height: 1;
+}
+.text-7xl {
+	font-size: 4.5rem;
+	line-height: 1;
 }
 .font-medium {
 	font-weight: 500;
@@ -3008,6 +3059,10 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(107, 114, 128, var(--tw-text-opacity));
 }
+.dark .dark\:text-yellow-100 {
+	--tw-text-opacity: 1;
+	color: rgba(254, 243, 199, var(--tw-text-opacity));
+}
 .dark .dark\:shadow-lg {
 	--tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -3082,8 +3137,24 @@ select {
 }
 @media (min-width: 640px) {
 
+	.sm\:absolute {
+		position: absolute;
+	}
+
+	.sm\:relative {
+		position: relative;
+	}
+
 	.sm\:col-span-4 {
 		grid-column: span 4 / span 4;
+	}
+
+	.sm\:col-span-7 {
+		grid-column: span 7 / span 7;
+	}
+
+	.sm\:col-span-3 {
+		grid-column: span 3 / span 3;
 	}
 
 	.sm\:mx-0 {

@@ -12,7 +12,7 @@ class Score extends Component
     public $replay;
     public $userReplayScore;
     public $averageScore;
-    public $starTextClass = 'left-9';
+    public $starTextClass = 'ml-10';
 
     //DB colums.
     public $score;
@@ -80,8 +80,9 @@ class Score extends Component
     {
         if (!is_string($this->replay->averageScore()))
         {
-            abs($this->replay->averageScore()) == 10 ? $this->starTextClass = 'left-8' : $this->starTextClass = 'left-9';
+            abs($this->replay->averageScore()) == 10 ? $this->starTextClass = 'ml-10' : $this->starTextClass = 'ml-10';
         }
+
     }
 
     public function render()

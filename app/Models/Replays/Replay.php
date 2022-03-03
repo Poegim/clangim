@@ -37,11 +37,13 @@ class Replay extends Model
     public function averageScore(): mixed
     {
         $scoresCount = $this->scores->count();
+
         $sum = $this->scores->sum('score');
 
         if($sum != 0)
         {
-            return round($sum/$scoresCount, 1);
+            return number_format(round($sum/$scoresCount, 1), 1, '.');
+
         }
         else
         {
