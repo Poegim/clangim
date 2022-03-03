@@ -24,7 +24,7 @@
 
                                 {{$clanWar->title}}
                             </a>
-                            <img class="h-5 w-5 rounded-full object-cover inline"
+                            <img class="h-5 w-5 rounded-full object-cover inline ml-2"
                             src="{{ $clanWar->countryFlagURL() }}" alt="{{ $clanWar->enemy_flag }}" />
 
                         </div>
