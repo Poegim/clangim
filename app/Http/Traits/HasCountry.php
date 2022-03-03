@@ -8,4 +8,5 @@ trait HasCountry
     {
         return asset('images/country_flags/'.strtolower($this->country).'.png');
     }
+
 }

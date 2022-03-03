@@ -1,7 +1,6 @@
 <div>
     <x-notification></x-notification>
 
-
     @can('create', App\Models\ClanWars\ClanWar::class)
     <div class="flex justify-between mt-12 px-2 sm:px-0">
 
@@ -18,96 +17,60 @@
 
 
     <x-clangim.window :item="NULL">
-        <div class="rounded-lg overflow-hidden">
-            <table class="rounded-md min-w-full divide-y divide-gray-200 table-fixed dark:divide-none">
-                <thead class="bg-gray-50 text-gray-500 dark:text-gray-300 {{config('settings.color1')}}">
-                    <tr>
-                        <th scope="col" class="p-4 text-left text-xs font-medium uppercase tracking-wider">
-                            Title
-                        </th>
-                        <th scope="col" class="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                            Date
-                        </th>
-                        <th scope="col" class="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                            Games
-                        </th>
-                        <th scope="col" class="px-2 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                            Added by
-                        </th>
-                        <th scope="col" class="relative px-2 py-3">
-                            <span class="sr-only">Actions</span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200 dark:divide-none">
+        <div class="sm:rounded-lg overflow-hidden">
 
-                    @foreach ($clanWars as $clanWar)
+            <div class="grid grid-cols-3 {{config('settings.color4')}} dark:text-gray-300 sm:rounded-lg px-2 pt-2">
+                @foreach ($clanWars as $clanWar)
 
-                    <tr class="{{config('settings.color4')}} dark:text-gray-300">
-                        <td class="p-2 md:p-4">
-                            <div class="text-sm flex justify-between">
-                                <div>
-                                    <img class="w-5 h-5 sm:h-8 sm:w-8 rounded-full object-cover inline"
+                <div class="flex justify-between col-span-3 space-x-2 mt-2 font-semibold tracking-wider">
+                    <img class="w-5 h-5 sm:h-8 sm:w-8 rounded-full object-cover inline"
                                         src="{{ asset('images/country_flags/'.strtolower($teamFlag->value).'.png') }}"
                                         alt="{{ $teamFlag->value }}" />
-                                </div>
 
-                                <div class="text-center">
-                                    <a
-                                        class="dark:text-gray-300 dark:hover:text-gray-400"
-                                        href="{{route('clan-wars.show', $clanWar->id)}}">{{$clanWar->title}}
-                                        ({{$clanWar->results->wins}}:{{$clanWar->results->losses}})</a>
-                                </div>
+                    <a
+                    class="dark:text-gray-300 dark:hover:text-gray-400"
+                    href="{{route('clan-wars.show', $clanWar->id)}}">{{$clanWar->title}}
+                    ({{$clanWar->results->wins}}:{{$clanWar->results->losses}})</a>
 
-                                <div>
-                                    <img class="w-5 h-5 sm:h-8 sm:w-8 rounded-full object-cover inline"
+                    <img class="w-5 h-5 sm:h-8 sm:w-8 rounded-full object-cover inline"
                                         src="{{ $clanWar->countryFlagURL() }}" alt="{{ $clanWar->enemy_flag }}" />
-                                </div>
-                            </div>
 
-                        </td>
-                        <td class="px-2 py-4 text-sm">
-                            {{ $clanWar->date() }}
-                        </td>
-                        <td class="px-2 py-4 text-sm">
-                            {{ $clanWar->gamesCount() }}
+                </div>
+                <div class="col-span-3 text-center text-sm">Date: {{ $clanWar->date() }}</div>
+                <div class="col-span-3 flex justify-between text-sm border-b border-gray-200 dark:border-gray-800 pb-1">
+                    <div>
+                        @can('update', $clanWar)
+
+                        <a href="{{route('games.edit', $clanWar->id)}}">
+                            <x-clarity-note-edit-line
+                            class="w-5 h-5 hover:text-gray-700 focus:text-gray-700 inline mb-1 dark:text-indigo-500 dark:hover:text-indigo-600" />
+                        </a>
+
+                        @endcan
+                        Games: {{ $clanWar->gamesCount() }}
+                    </div>
+                    <div class="">
+                        @can('delete', $clanWar)
+
+                        <livewire:clan-war.delete :clanWar="$clanWar" :key="$clanWar->id()">
+
+                            @endcan
 
                             @can('update', $clanWar)
 
-                            <a href="{{route('games.edit', $clanWar->id)}}">
+                            <button wire:click='showEditModal({{$clanWar->id}})' class="hover:text-indigo-900 ">
                                 <x-clarity-note-edit-line
-                                    class="w-5 h-5 hover:text-gray-700 focus:text-gray-700 inline mb-1 dark:text-indigo-500 dark:hover:text-indigo-600" />
-                            </a>
+                                    class="w-5 h-5 text-gray-500 hover:text-gray-700 focus:text-gray-700 inline mr-2 mb-1 dark:text-indigo-500 dark:hover:text-indigo-600" />
+                            </button>
 
-                            @endcan
-                        </td>
-                        <td class="px-2 py-4 text-sm">
-                            {{ $clanWar->user->name }}
-                        </td>
-                        <td class="px-0 md:px-2 py-4 text-left sm:text-center text-sm font-medium ">
+                        @endcan
+                    </div>
 
-                            @can('delete', $clanWar)
+                </div>
 
-                            <livewire:clan-war.delete :clanWar="$clanWar" :key="$clanWar->id()">
+                @endforeach
+            </div>
 
-                                @endcan
-
-                                @can('update', $clanWar)
-
-                                <button wire:click='showEditModal({{$clanWar->id}})' class="hover:text-indigo-900 ">
-                                    <x-clarity-note-edit-line
-                                        class="w-5 h-5 text-gray-500 hover:text-gray-700 focus:text-gray-700 inline mr-2 mb-1 dark:text-indigo-500 dark:hover:text-indigo-600" />
-                                </button>
-
-                                @endcan
-                        </td>
-                    </tr>
-
-                    @endforeach
-
-                    <!-- Next line -->
-                </tbody>
-            </table>
         </div>
     </x-clangim.window>
 

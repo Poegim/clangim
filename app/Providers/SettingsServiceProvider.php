@@ -26,5 +26,6 @@ class SettingsServiceProvider extends ServiceProvider
     {
         // Uncomment it after 1st migration.
         config()->set('settings', Setting::pluck('value', 'name')->all());
+
     }
 }

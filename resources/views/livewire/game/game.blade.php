@@ -2,7 +2,7 @@
 
     <x-notification></x-notification>
 
-    <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-2 pb-6">
+    <div class="grid lg:grid-cols-2 gap-2 pb-6">
         @foreach ($games as $game)
         <div class="rounded overflow-hidden shadow-lg mt-4 pb-8 relative {{config('settings.color3')}}">
             <div class="px-6">
@@ -150,7 +150,7 @@
                 <div>
                     <x-jet-label class="mt-2" for="add_game_type" value="{{ __('Game type:')}}" />
                     <select name="add_game_type" id="add_game_type"
-                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-600"
+                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-500"
                         wire:model.debounce.800ms="add_game_type">
                         <option value="1">1v1</option>
                         <option value="2">2v2</option>
@@ -200,7 +200,7 @@
                 <div>
                     <x-jet-label class="mt-2" for="type" value="{{ __('Game type:')}}" />
                     <select name="type" id="type"
-                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-600"
+                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-500"
                         wire:model.debounce.800ms="type">
                         <option value="1">1v1</option>
                         <option value="2">2v2</option>
@@ -249,7 +249,7 @@
                 <div>
                     <x-jet-label class="mt-2" for="add_home_player" value="{{ __('Select player:')}}" />
                     <select name="add_home_player" id="add_home_player"
-                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-600"
+                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-500"
                         wire:model="add_home_player">
 
                         @foreach ($teamPlayers as $teamPlayer)
@@ -315,7 +315,7 @@
                 <div>
                     <x-jet-label class="mt-2" for="home_player" value="{{ __('Player:')}}" />
                     <select name="home_player" id="home_player"
-                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block"
+                        class="mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm w-full block dark:text-gray-500"
                         wire:model.debounce.800ms="home_player">
 
                         @foreach ($teamPlayers as $teamPlayer)

@@ -29,7 +29,7 @@
 
                         </div>
 
-                        <div class="col-span-3 text-center px-2 border-b border-gray-200 dark:border-gray-800">{{$clanWar->date()}}</div>
+                        <div class="col-span-3 text-center text-sm px-2 border-b border-gray-200 dark:border-gray-800">{{$clanWar->date()}}</div>
 
                         @endforeach
 
@@ -107,7 +107,7 @@
 
                 @foreach ($topUsers as $topUser)
 
-                <div class="sm:rounded-lg bg-gray-100 p-2 mb-2 h-12 text-gray-700 {{config('settings.color3')}} dark:text-gray-300 flex justify-between space-x-2">
+                <div class="sm:rounded-lg bg-gray-100 p-2 sm:pl-6 mb-2 h-12 text-gray-700 {{config('settings.color3')}} dark:text-gray-300 flex justify-between space-x-2">
                     <div>
                         <div class="inline">
                             <img class="h-8 w-8 rounded-full object-cover inline" src="{{ $topUser->profile_photo_url }}"

@@ -2251,6 +2251,9 @@ select {
 .font-black {
 	font-weight: 900;
 }
+.font-thin {
+	font-weight: 100;
+}
 .uppercase {
 	text-transform: uppercase;
 }
@@ -3000,6 +3003,10 @@ select {
 .dark .dark\:text-red-600 {
 	--tw-text-opacity: 1;
 	color: rgba(220, 38, 38, var(--tw-text-opacity));
+}
+.dark .dark\:text-gray-500 {
+	--tw-text-opacity: 1;
+	color: rgba(107, 114, 128, var(--tw-text-opacity));
 }
 .dark .dark\:shadow-lg {
 	--tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);

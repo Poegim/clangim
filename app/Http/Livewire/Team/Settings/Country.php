@@ -29,6 +29,10 @@ class Country extends Component
     public function save(): void
     {
         $this->setting->value = $this->country;
+        if($this->country == "RU")
+        {
+            $this->country = "UA";
+        }
         $this->setting->save();
         $this->emit('saved');
     }
