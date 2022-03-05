@@ -62,7 +62,7 @@
       <div class="bg-gray-700 {{config('settings.color4')}}">
         <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
           <p class="text-white text-sm text-center sm:text-left">2020  — {{ \Carbon\Carbon::now()->format('Y') }}
-            <a href="https://github.com/poegim" rel="noopener noreferrer" class="text-gray-400 ml-1 hover:text-white" target="_blank">Jacek Winiarczyk</a>
+            <a href="https://github.com/poegim" rel="noopener noreferrer" class="text-gray-400 ml-1 hover:text-white" target="_blank">Poegim</a>
             <span class="block lg:inline lg:ml-36">
                 StarCraft is a trademark or registered trademark of Blizzard Entertainment, Inc.
             </span>
