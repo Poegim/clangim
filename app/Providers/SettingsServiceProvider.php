@@ -25,7 +25,7 @@ class SettingsServiceProvider extends ServiceProvider
     public function boot()
     {
         // Uncomment it after 1st migration.
-        config()->set('settings', Setting::pluck('value', 'name')->all());
+        // config()->set('settings', Setting::pluck('value', 'name')->all());
 
     }
 }
