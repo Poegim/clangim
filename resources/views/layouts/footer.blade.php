@@ -9,70 +9,51 @@
         </div>
         <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
           <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 class="title-font font-bold text-white tracking-widest text-md mb-3">CATEGORIES</h2>
+            <h2 class="title-font font-bold text-white tracking-widest text-md mb-3">NAVIGATION</h2>
             <nav class="list-none mb-10">
               <li>
-                <a class="text-white hover:text-red-300" href="#">First Link</a>
+                <a class="text-white hover:text-red-300" href="{{ route('dashboard') }}">Dashboard</a>
               </li>
               <li>
-                <a class="text-white hover:text-red-300" href="#">Second Link</a>
+                <a class="text-white hover:text-red-300" href="{{route('clan-wars.index')}}">Clan Wars</a>
               </li>
               <li>
-                <a class="text-white hover:text-red-300" href="#">Third Link</a>
+                <a class="text-white hover:text-red-300" href="{{route('replays.index')}}">Replays</a>
               </li>
               <li>
-                <a class="text-white hover:text-red-300" href="#">Fourth Link</a>
+                <a class="text-white hover:text-red-300" href="{{route('team.index')}}">Team</a>
               </li>
             </nav>
           </div>
           <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 class="title-font font-bold text-white tracking-widest text-md mb-3">CATEGORIES</h2>
+            <h2 class="title-font font-bold text-white tracking-widest text-md mb-3">GIT Links</h2>
+            <nav class="list-none mb-10">
+                <li>
+                  <a class="text-white hover:text-red-300" href="https://github.com/poegim">Author</a>
+                </li>
+                <li>
+                  <a class="text-white hover:text-red-300" href="https://github.com/poegim/clangim">Clangim</a>
+                </li>
+
+              </nav>
+          </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="title-font font-bold text-white tracking-widest text-md mb-3">{{env('APP_NAME')}}</h2>
             <nav class="list-none mb-10">
               <li>
-                <a class="text-white hover:text-red-300" href="#">First Link</a>
+                <a class="text-white hover:text-red-300" href="#">Contact US</a>
               </li>
-              <li>
-                <a class="text-white hover:text-red-300" href="#">Second Link</a>
-              </li>
-              <li>
-                <a class="text-white hover:text-red-300" href="#">Third Link</a>
-              </li>
-              <li>
-                <a class="text-white hover:text-red-300" href="#">Fourth Link</a>
-              </li>
+
             </nav>
           </div>
           <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 class="title-font font-bold text-white tracking-widest text-md mb-3">CATEGORIES</h2>
+            <h2 class="title-font font-bold text-white tracking-widest text-md mb-3">Just required stuff</h2>
             <nav class="list-none mb-10">
               <li>
-                <a class="text-white hover:text-red-300" href="#">First Link</a>
+                <a class="text-white hover:text-red-300" href="#">Cookies</a>
               </li>
               <li>
-                <a class="text-white hover:text-red-300" href="#">Second Link</a>
-              </li>
-              <li>
-                <a class="text-white hover:text-red-300" href="#">Third Link</a>
-              </li>
-              <li>
-                <a class="text-white hover:text-red-300" href="#">Fourth Link</a>
-              </li>
-            </nav>
-          </div>
-          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 class="title-font font-bold text-white tracking-widest text-md mb-3">CATEGORIES</h2>
-            <nav class="list-none mb-10">
-              <li>
-                <a class="text-white hover:text-red-300" href="#">First Link</a>
-              </li>
-              <li>
-                <a class="text-white hover:text-red-300" href="#">Second Link</a>
-              </li>
-              <li>
-                <a class="text-white hover:text-red-300" href="#">Third Link</a>
-              </li>
-              <li>
-                <a class="text-white hover:text-red-300" href="#">Fourth Link</a>
+                <a class="text-white hover:text-red-300" href="#">License</a>
               </li>
             </nav>
           </div>
