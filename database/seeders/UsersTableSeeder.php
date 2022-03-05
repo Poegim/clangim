@@ -28,6 +28,19 @@ class UsersTableSeeder extends Seeder
             ]);
 
             User::factory()->create([
+                'name' => 'Poegim',
+                'email' => 'poegim@example.com',
+                'role' => User::CAPTAIN,
+                'battleid' => rand(1000,100000).'#poegim',
+                'shieldid' => rand(1000,100000).'#poegim',
+                'profile_photo_path' => 'profile-photos/001.jpg',
+                'points' => rand(1,35),
+                'country' => "EU",
+                'race' => 'protoss',
+                'password' => bcrypt('password'),
+            ]);
+
+            User::factory()->create([
                 'name' => 'KopeT',
                 'email' => 'captain@example.com',
                 'role' => User::CAPTAIN,

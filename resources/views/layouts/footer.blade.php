@@ -50,10 +50,13 @@
             <h2 class="title-font font-bold text-white tracking-widest text-md mb-3">Just required stuff</h2>
             <nav class="list-none mb-10">
               <li>
-                <a class="text-white hover:text-red-300" href="#">Cookies</a>
+                <a class="text-white hover:text-red-300" href="{{route('pages.cookies')}}">Cookies</a>
               </li>
               <li>
-                <a class="text-white hover:text-red-300" href="#">License</a>
+                <a class="text-white hover:text-red-300" href="{{route('pages.license')}}">License</a>
+              </li>
+              <li>
+                <a class="text-white hover:text-red-300" href="{{route('pages.media')}}">Media</a>
               </li>
             </nav>
           </div>

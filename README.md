@@ -1,6 +1,6 @@
 ## IMPORTANT CONFIG INFO
-<p>Laravel as it is and replays parsing will work only on linux based systems with CLI access, this app shouldnt be deployed on shared hostings.</p>
-<p>Clangim requires Queue and Schedule workers, remember to run <b>queue:work</b> and <b>schedule:work</b>.</p>
+<p>Laravel as it is and replays parsing will work only on linux based systems with CLI access, this app shouldnt be deployed on shared hostings. I recommend to deploy it on Laravel Forge.</p>
+<p>Clangim requires Queue and Schedule workers, to send email notifications</p>
 <p>APP_ENV variable in .ENV file should be set as 'production' on production environment.</p>
 <p>Please be sure Config/app.php seeds type is set to "deploy".</p>
 <p>Users roles are stored in App/Models/User model.</p>
