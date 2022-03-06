@@ -19,7 +19,6 @@
                 :teamFlag="$teamFlag"
                 :topPlayers="$topPlayers"
                 />
-
             </div>
         </div>
     </div>

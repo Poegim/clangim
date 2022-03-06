@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use App\Models\User;
 use App\Models\Team\Setting;
+use Illuminate\Support\ServiceProvider;
 
 class SettingsServiceProvider extends ServiceProvider
 {
@@ -25,7 +26,11 @@ class SettingsServiceProvider extends ServiceProvider
     public function boot()
     {
         // Uncomment it after 1st migration.
-        // config()->set('settings', Setting::pluck('value', 'name')->all());
+        if(Setting::first())
+        {
+            config()->set('settings', Setting::pluck('value', 'name')->all());
+            config()->set('settings.email', User::pluck('email')->first());
+        }
 
     }
 }

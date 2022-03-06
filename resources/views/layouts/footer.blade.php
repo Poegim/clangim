@@ -34,6 +34,9 @@
                 <li>
                   <a class="text-white hover:text-red-300" href="https://github.com/poegim/clangim">Clangim</a>
                 </li>
+                <li>
+                    <a class="text-white hover:text-red-300" href="https://github.com/icza/screp">Screp Repository</a>
+                </li>
 
               </nav>
           </div>
@@ -50,13 +53,13 @@
             <h2 class="title-font font-bold text-white tracking-widest text-md mb-3">Just required stuff</h2>
             <nav class="list-none mb-10">
               <li>
-                <a class="text-white hover:text-red-300" href="{{route('pages.cookies')}}">Cookies</a>
+                <a class="text-white hover:text-red-300" href="{{route('post.show', 'cookies')}}">Cookies</a>
               </li>
               <li>
-                <a class="text-white hover:text-red-300" href="{{route('pages.license')}}">License</a>
+                <a class="text-white hover:text-red-300" href="{{route('post.show', 'license')}}">License</a>
               </li>
               <li>
-                <a class="text-white hover:text-red-300" href="{{route('pages.media')}}">Media</a>
+                <a class="text-white hover:text-red-300" href="{{route('post.show', 'media')}}">Media</a>
               </li>
             </nav>
           </div>

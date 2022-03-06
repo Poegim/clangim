@@ -105,16 +105,3 @@ Route::get('/replays/{replay:id}', [ReplayController::class, 'show'])->name('rep
 
 // Team
 Route::get('/team', [TeamController::class, 'index'])->name('team.index');
-
-//Pages
-Route::get('/pages/media', function () {
-    return view('pages.media');
-})->name('pages.media');
-
-Route::get('/pages/cookies', function () {
-    return view('pages.cookies');
-})->name('pages.cookies');
-
-Route::get('/pages/license', function () {
-    return view('pages.license');
-})->name('pages.license');

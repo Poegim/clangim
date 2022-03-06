@@ -20,6 +20,39 @@ class PostsTableSeeder extends Seeder
 
         if(config('app.seed.type') == "demo")
         {
+
+            DB::table('posts')->insert([
+                'title' => 'License',
+                'slug' => Str::slug('License'),
+                'body' => '<div><strong>Apache License 2.0</strong></div>',
+                'user_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+
+            ]);
+
+            DB::table('posts')->insert([
+                'title' => 'Cookies',
+                'slug' => Str::slug('Cookies'),
+                'body' => '<div>Cookies.</div>',
+                'user_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+
+            ]);
+
+            DB::table('posts')->insert([
+                'title' => 'Media',
+                'slug' => Str::slug('Media'),
+                'body' => '<div>Ingame races icons by www.pngegg.com<br />
+                            Flags by Icons vector created by luis_molinero - www.freepik.com<br /></div>',
+                'user_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+
+            ]);
+
+
             DB::table('posts')->insert([
                 'title' => 'Welcome to Clangim, Starcraft Remastered Clan Management System.',
                 'slug' => Str::slug('Welcome to Clangim, Starcraft Remastered Clan Management System'),
@@ -30,8 +63,43 @@ class PostsTableSeeder extends Seeder
                 'updated_at' => Carbon::now(),
 
             ]);
+
+
         } elseif(config('app.seed.type') == "deploy")
         {
+
+            DB::table('posts')->insert([
+                'title' => 'License',
+                'slug' => Str::slug('License'),
+                'body' => '<div><strong>Apache License 2.0</strong></div>',
+                'user_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+
+            ]);
+
+            DB::table('posts')->insert([
+                'title' => 'Cookies',
+                'slug' => Str::slug('Cookies'),
+                'body' => '<div>Cookies.</div>',
+                'user_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+
+            ]);
+
+            DB::table('posts')->insert([
+                'title' => 'Media',
+                'slug' => Str::slug('Media'),
+                'body' => '<div>Ingame races icons by www.pngegg.com<br />
+                            Flags by Icons vector created by luis_molinero - www.freepik.com<br /></div>',
+                'user_id' => 1,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+
+            ]);
+
+
             DB::table('posts')->insert([
                 'title' => 'Welcome to Clangim, Starcraft Remastered Clan Management System.',
                 'slug' => Str::slug('Welcome to Clangim, Starcraft Remastered Clan Management System'),
@@ -42,6 +110,8 @@ class PostsTableSeeder extends Seeder
                 'updated_at' => Carbon::now(),
 
             ]);
+
+
         } elseif(config('app.seed.type') == "tests")
         {
             Post::factory()->count(30)->create();

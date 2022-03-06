@@ -182,6 +182,7 @@ class PostController extends Controller
             );
 
             //Required on local env due to mailtrap engine limits.
+
             if(env('MAIL_HOST', false) == 'smtp.mailtrap.io'){
                 sleep(1);
             }

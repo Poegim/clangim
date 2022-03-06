@@ -38,6 +38,8 @@ class SendCWEmailsCommand extends Command
         {
             foreach($users as $user)
             {
+                $this->info($clanWar->id.' '.$user->name);
+
                 Mail::to($user->email)
                     ->send((new ClanWarEmail($clanWar, $user))
                     ->subject(env('APP_NAME').' - Incoming Clan War!.')
