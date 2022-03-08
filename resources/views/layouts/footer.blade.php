@@ -44,7 +44,7 @@
             <h2 class="title-font font-bold text-white tracking-widest text-md mb-3">{{ env('APP_NAME') }}</h2>
             <nav class="list-none mb-10">
               <li>
-                <a class="text-white hover:text-red-300" href="#">Contact US</a>
+                <a class="text-white hover:text-red-300" href="mailto:{{ config('settings.email') }}">Contact US</a></a>
               </li>
 
             </nav>
