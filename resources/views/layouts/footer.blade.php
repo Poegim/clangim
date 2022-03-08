@@ -9,7 +9,7 @@
         </div>
         <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
           <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 class="title-font font-bold text-white tracking-widest text-md mb-3">NAVIGATION</h2>
+            <h2 class="title-font font-bold text-white tracking-widest text-md mb-3">Navigation</h2>
             <nav class="list-none mb-10">
               <li>
                 <a class="text-white hover:text-red-300" href="{{ route('dashboard') }}">Dashboard</a>
@@ -41,7 +41,7 @@
               </nav>
           </div>
           <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 class="title-font font-bold text-white tracking-widest text-md mb-3">{{env('APP_NAME')}}</h2>
+            <h2 class="title-font font-bold text-white tracking-widest text-md mb-3">{{ env('APP_NAME') }}</h2>
             <nav class="list-none mb-10">
               <li>
                 <a class="text-white hover:text-red-300" href="#">Contact US</a>
