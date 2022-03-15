@@ -18,6 +18,7 @@ use App\Http\Controllers\Forum\CategoryController;
 use App\Http\Controllers\Replays\ReplayController;
 use App\Http\Controllers\ClanWars\ClanWarController;
 use App\Http\Controllers\Posts\PostCommentController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\Replays\ReplayCommentController;
 
 /*
@@ -31,6 +32,16 @@ use App\Http\Controllers\Replays\ReplayCommentController;
 |
 */
 Auth::routes(['verify' => true]);
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
