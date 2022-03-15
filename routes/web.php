@@ -2,8 +2,10 @@
 
 use App\Models\User;
 use App\Mail\ClanWarEmail;
+use App\Mail\NewPostEmail;
 use App\Models\Posts\Post;
 use App\Models\ClanWars\ClanWar;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -17,7 +19,6 @@ use App\Http\Controllers\Replays\ReplayController;
 use App\Http\Controllers\ClanWars\ClanWarController;
 use App\Http\Controllers\Posts\PostCommentController;
 use App\Http\Controllers\Replays\ReplayCommentController;
-use App\Mail\NewPostEmail;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ use App\Mail\NewPostEmail;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes(['verify' => true]);
 
 Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
