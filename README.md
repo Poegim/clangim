@@ -22,7 +22,7 @@ Includes:
 + user panel
 + team settings panel (team flag, team logo, <b>dark mode colors pallete</b>)
 	
-## Technologies / libaries / others
+## Technologies
 Project is created with:
 * PHP 8
 * Laravel 8 (Jetstream starter kit)
