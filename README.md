@@ -48,7 +48,7 @@ Project is created with:
 #### Forum
 ![Forum](./readme/forum.PNG "Forum")
 
-#### ClanWars
+#### Clan Wars
 ![Clan Wars](./readme/clan_wars.PNG "Clan Wars")
 
 #### ClanWar
