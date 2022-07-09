@@ -6,9 +6,10 @@
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Media resources](#media-resources)
+* [Screenshots](#screenshots)
 
 ## General info
-Langgim app is simple management system for Starcraft BroodWar/remastered teams. I did this application to expand my knowledge of the technologies I was using, mainly Laravel in this case.
+Langgim app is simple management system for Starcraft BroodWar/remastered teams. I did this application to expand my knowledge of the technologies I was using, mainly Laravel / TALL stackin this case.
 
 Includes:
 + blog
@@ -38,3 +39,7 @@ Project is created with:
 ## Media resources
 <p>Ingame races icons by https://www.pngegg.com/</p>
 <p>Flags by <a href='https://www.freepik.com/vectors/icons'>Icons vector created by luis_molinero - www.freepik.com</a></p>
+
+## Screenshots
+
+![Dashboard](./readme/dashboard.PNG "Dashboard")
