@@ -9,7 +9,7 @@
 * [Screenshots](#screenshots)
 
 ## General info
-Langgim app is simple management system for Starcraft BroodWar/remastered teams. I did this application to expand my knowledge of the technologies I was using, mainly Laravel / TALL stackin this case.
+Langgim app is simple management system for Starcraft BroodWar/remastered teams. I did this application to expand my knowledge of the technologies I was using, mainly Laravel / TALL stack in this case.
 
 Includes:
 + blog
