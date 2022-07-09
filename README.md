@@ -18,7 +18,7 @@ Includes:
 + team section
 + users administration section
 + user panel
-+ team settings panel (flags, logo, dark mode colors pallete)
++ team settings panel (team flag, team logo, <b>dark mode colors pallete</b>)
 	
 ## Technologies
 Project is created with:
