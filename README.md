@@ -42,4 +42,29 @@ Project is created with:
 
 ## Screenshots
 
+#### Dashboard
 ![Dashboard](./readme/dashboard.PNG "Dashboard")
+
+#### Forum
+![Forum](./readme/forum.PNG "Forum")
+
+#### Clan Wars
+![Clan Wars](./readme/clan_wars.PNG "Clan Wars")
+
+#### Clan War
+![Clan War](./readme/clanwar.PNG "Clan War")
+
+#### Edit matches view
+![Edit matches](./readme/edit_clanwar.PNG "Edit matches view")
+
+#### Replays
+![Replays](./readme/replays.PNG "Dashboard")
+
+#### Team / app settings
+![Team/app settings](./readme/team_settings.PNG "Team/app settings")
+
+#### Dashboard dark
+![Dashboard dark](./readme/dashboard_dark.PNG "Dashboard dark")
+
+#### Dashboard mobile
+![Dashboard mobile](./readme/dashboard_mobile.PNG "Dashboard mobile")
