@@ -48,11 +48,11 @@ Project is created with:
 #### Forum
 ![Forum](./readme/forum.PNG "Forum")
 
-#### Clan Wars
+#### ClanWars
 ![Clan Wars](./readme/clan_wars.PNG "Clan Wars")
 
-#### Clan War
-![Clan War](./readme/clanwar.PNG "Clan War")
+#### ClanWar
+![ClanWar](./readme/clanwar.PNG "ClanWar")
 
 #### Edit matches view
 ![Edit matches](./readme/edit_clanwar.PNG "Edit matches view")
