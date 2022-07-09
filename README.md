@@ -17,11 +17,12 @@ Includes:
 + replays module with rating system and metadata parsing powered by [icza/screp](https://github.com/icza/screp)  repository
 + team matches module with player statistics and email notification about incoming clan wars
 + team section
++ users ranking system
 + users administration section
 + user panel
 + team settings panel (team flag, team logo, <b>dark mode colors pallete</b>)
 	
-## Technologies
+## Technologies / libaries / others
 Project is created with:
 * PHP 8
 * Laravel 8 (Jetstream starter kit)
