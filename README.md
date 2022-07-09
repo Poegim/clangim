@@ -23,10 +23,11 @@ Includes:
 ## Technologies
 Project is created with:
 * PHP 8
-* Laravel 8
+* Laravel 8 (Jetstream starter kit)
 * TailwindCSS 2
-* Livewire
-* AlpineJS
+* Livewire 2
+* AlpineJS 2
+* [Blade UIkit](https://blade-ui-kit.com/)
 
 ## Setup
 <p>I recommend to deploy it by Laravel Forge. On local machines u can use Laravel Sail to create necessary Docker container.</p>
