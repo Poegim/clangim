@@ -1,5 +1,5 @@
 # Clangim
-#### Starcraft Remastered Team management system.
+#### Starcraft Remastered Clan management system.
 
 ## Table of contents
 * [General info](#general-info)
@@ -9,7 +9,7 @@
 * [Screenshots](#screenshots)
 
 ## General info
-Langgim app is simple management system for Starcraft BroodWar/remastered teams. I did this application to expand my knowledge of the technologies I was using, mainly Laravel / TALL stack in this case.
+Clangim app is simple management system for Starcraft BroodWar/remastered teams. I did this application to expand my knowledge of the technologies I was using, mainly Laravel / TALL stack in this case.
 
 Includes:
 + blog
